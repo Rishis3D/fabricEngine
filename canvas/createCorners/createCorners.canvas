@@ -1,7 +1,9 @@
 {
   "objectType" : "Graph",
   "metadata" : {
-    "maya_id" : "1"
+    "maya_id" : "1",
+    "uiGraphZoom" : "{\n  \"value\" : 0.7097825407981873\n  }",
+    "uiGraphPan" : "{\n  \"x\" : 64.0105931340758,\n  \"y\" : -80.3388518883113\n  }"
     },
   "title" : "",
   "ports" : [
@@ -84,6 +86,13 @@
       "name" : "result_2",
       "execPortType" : "Out",
       "typeSpec" : "InlineDebugShape"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "this_4",
+      "execPortType" : "Out",
+      "typeSpec" : "InlineDebugShape"
       }
     ],
   "extDeps" : {
@@ -93,7 +102,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":-104.419,\"y\":118.482}"
+        "uiGraphPos" : "{\"x\":-101.601,\"y\":145.251}"
         },
       "name" : "EmptyDrawingHandle",
       "ports" : [
@@ -109,7 +118,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":67.7154,\"y\":145.415}"
+        "uiGraphPos" : "{\"x\":101.076,\"y\":191.456}"
         },
       "name" : "GetEmptyDebugShape",
       "ports" : [
@@ -135,7 +144,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":507.069,\"y\":320.43}"
+        "uiGraphPos" : "{\"x\":540.069,\"y\":338.43}"
         },
       "name" : "DrawLine",
       "ports" : [
@@ -143,11 +152,6 @@
           "objectType" : "InstPort",
           "nodePortType" : "IO",
           "name" : "this"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "Out",
-          "name" : "result"
           },
         {
           "objectType" : "InstPort",
@@ -172,13 +176,6 @@
             },
           {
             "objectType" : "Port",
-            "nodePortType" : "In",
-            "name" : "result",
-            "execPortType" : "Out",
-            "typeSpec" : "InlineDebugShape"
-            },
-          {
-            "objectType" : "Port",
             "nodePortType" : "Out",
             "name" : "pos",
             "execPortType" : "In",
@@ -189,7 +186,7 @@
           "InlineDrawing" : "*"
           },
         "origPresetGUID" : "2A3E2B370A6AA3D4DFA813CE30643924",
-        "code" : "require InlineDrawing;\n\ndfgEntry {\n\n  Size numPos = pos.size;\n  if (numPos < 3) return;\n  \n  for (Integer i = 0; i<numPos-1; i++)\n    this.drawLine(pos[i],pos[i+1]);\n}\n"
+        "code" : "require InlineDrawing;\n\ndfgEntry {\n\n  this.drawLineStrip(pos);\n    \n}\n"
         }
       },
     {
@@ -279,7 +276,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":44.2341,\"y\":437.538}"
+        "uiGraphPos" : "{\"x\":-2.02802,\"y\":427.967}"
         },
       "name" : "my",
       "ports" : [
@@ -418,7 +415,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":511.577,\"y\":467.09}"
+        "uiGraphPos" : "{\"x\":550.154,\"y\":454.643}"
         },
       "name" : "DrawPoint",
       "ports" : [
@@ -444,7 +441,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":386.54,\"y\":440.029}"
+        "uiGraphPos" : "{\"x\":380.023,\"y\":418.157}"
         },
       "name" : "SetPen_3",
       "ports" : [
@@ -473,7 +470,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":523.088,\"y\":599.837}"
+        "uiGraphPos" : "{\"x\":549.776,\"y\":591.83}"
         },
       "name" : "DrawPoints_2",
       "ports" : [
@@ -499,7 +496,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":398.594,\"y\":559.704}"
+        "uiGraphPos" : "{\"x\":269.156,\"y\":510.33}"
         },
       "name" : "SetPen_4",
       "ports" : [
@@ -524,6 +521,30 @@
         ],
       "executable" : "Fabric.Exts.InlineDrawing.InlineDebugShape.SetPen",
       "presetGUID" : "831A0298E12DACF564A86570A7C7AE48"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":416.274,\"y\":555.576}"
+        },
+      "name" : "SetPointSize_2",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "this"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Float32" : 3
+            },
+          "name" : "value"
+          }
+        ],
+      "executable" : "Fabric.Exts.InlineDrawing.InlineDebugShape.SetPointSize",
+      "presetGUID" : "6F401B062FE20D393723F76BCC497877"
       }
     ],
   "connections" : {
@@ -577,6 +598,9 @@
       "result_2"
       ],
     "SetPen_4.this" : [
+      "SetPointSize_2.this"
+      ],
+    "SetPointSize_2.this" : [
       "DrawPoints_2.this"
       ]
     },
@@ -856,6 +880,38 @@
         },
       "presetGUID" : "2EEF976DF14B2C86BC54653D67C0A6FF",
       "code" : "require InlineDrawing;\n\ndfgEntry {\n  result = this.drawPoint(pos);\n}\n"
+      },
+    "Fabric.Exts.InlineDrawing.InlineDebugShape.SetPointSize" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.0/HTML/KLExtensionsGuide/InlineDrawing/InlineDebugShape.html",
+        "uiTooltip" : "sets the current point size used\n\n Supported by InlineDebugShape"
+        },
+      "title" : "SetPointSize",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "IO",
+          "name" : "this",
+          "execPortType" : "IO",
+          "typeSpec" : "InlineDebugShape"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "Scalar" : 1
+            },
+          "name" : "value",
+          "execPortType" : "In",
+          "typeSpec" : "Scalar"
+          }
+        ],
+      "extDeps" : {
+        "InlineDrawing" : "*"
+        },
+      "presetGUID" : "6F401B062FE20D393723F76BCC497877",
+      "code" : "require InlineDrawing;\n\ndfgEntry {\n  this.setPointSize(value);\n}\n"
       }
     },
   "args" : [
@@ -906,6 +962,11 @@
     {
       "type" : "SInt32",
       "value" : null
+      },
+    {
+      "type" : "InlineDebugShape",
+      "value" : null,
+      "ext" : "InlineDrawing"
       },
     {
       "type" : "InlineDebugShape",
