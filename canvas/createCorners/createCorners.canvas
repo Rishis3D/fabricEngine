@@ -1,0 +1,916 @@
+{
+  "objectType" : "Graph",
+  "metadata" : {
+    "maya_id" : "1"
+    },
+  "title" : "",
+  "ports" : [
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "pos",
+      "execPortType" : "In",
+      "typeSpec" : "Vec3[]"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "dummy",
+      "execPortType" : "Out",
+      "typeSpec" : "Vec3"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "this",
+      "execPortType" : "Out",
+      "typeSpec" : "InlineDebugShape"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "result",
+      "execPortType" : "Out",
+      "typeSpec" : "InlineDebugShape"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "this_2",
+      "execPortType" : "Out",
+      "typeSpec" : "InlineDebugShape"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "radius",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "drawThis",
+      "execPortType" : "Out",
+      "typeSpec" : "DrawingHandle"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "value",
+      "execPortType" : "Out",
+      "typeSpec" : "Mat44"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "this_3",
+      "execPortType" : "Out",
+      "typeSpec" : "InlineDebugShape"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "numPoints",
+      "execPortType" : "In",
+      "typeSpec" : "Integer"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "result_2",
+      "execPortType" : "Out",
+      "typeSpec" : "InlineDebugShape"
+      }
+    ],
+  "extDeps" : {
+    "Math" : "*"
+    },
+  "nodes" : [
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":-104.419,\"y\":118.482}"
+        },
+      "name" : "EmptyDrawingHandle",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "handle"
+          }
+        ],
+      "executable" : "Fabric.Exts.InlineDrawing.DrawingHandle.EmptyDrawingHandle",
+      "presetGUID" : "2440020BA6A1CAB1CEB690A198F99C70"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":67.7154,\"y\":145.415}"
+        },
+      "name" : "GetEmptyDebugShape",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "this"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "name"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "Fabric.Exts.InlineDrawing.DrawingHandle.GetEmptyDebugShape",
+      "presetGUID" : "DB3916AA2CE58EEAFAEDB9E2653EF4D6"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":507.069,\"y\":320.43}"
+        },
+      "name" : "DrawLine",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "this"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "pos"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "metadata" : {
+          "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.0/HTML/KLExtensionsGuide/InlineDrawing/InlineDebugShape.html",
+          "uiTooltip" : "draws a line given two positions\n\n Supported by InlineDebugShape"
+          },
+        "title" : "DrawLine",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "IO",
+            "name" : "this",
+            "execPortType" : "IO",
+            "typeSpec" : "InlineDebugShape"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "result",
+            "execPortType" : "Out",
+            "typeSpec" : "InlineDebugShape"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "pos",
+            "execPortType" : "In",
+            "typeSpec" : "Vec3[]"
+            }
+          ],
+        "extDeps" : {
+          "InlineDrawing" : "*"
+          },
+        "origPresetGUID" : "2A3E2B370A6AA3D4DFA813CE30643924",
+        "code" : "require InlineDrawing;\n\ndfgEntry {\n\n  Size numPos = pos.size;\n  if (numPos < 3) return;\n  \n  for (Integer i = 0; i<numPos-1; i++)\n    this.drawLine(pos[i],pos[i+1]);\n}\n"
+        }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":491.674,\"y\":193.252}"
+        },
+      "name" : "DrawPoints",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "this"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "pos"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "Fabric.Exts.InlineDrawing.InlineDebugShape.DrawPoints",
+      "presetGUID" : "57440AAF5B9C14306500FCAE88C8E7F4"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":377.135,\"y\":170.516}"
+        },
+      "name" : "SetPen",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "this"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Color" : {
+              "r" : 1,
+              "g" : 1,
+              "b" : 0,
+              "a" : 1
+              }
+            },
+          "name" : "color"
+          }
+        ],
+      "executable" : "Fabric.Exts.InlineDrawing.InlineDebugShape.SetPen",
+      "presetGUID" : "831A0298E12DACF564A86570A7C7AE48"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":383.499,\"y\":291.178}"
+        },
+      "name" : "SetPen_2",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "this"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Color" : {
+              "r" : 1,
+              "g" : 0,
+              "b" : 0,
+              "a" : 1
+              }
+            },
+          "name" : "color"
+          }
+        ],
+      "executable" : "Fabric.Exts.InlineDrawing.InlineDebugShape.SetPen",
+      "presetGUID" : "831A0298E12DACF564A86570A7C7AE48"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":44.2341,\"y\":437.538}"
+        },
+      "name" : "my",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "pos"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "posOut"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "radius"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "radiusCenter"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "mat"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "qu"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "xfo"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "transformedCenter"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "numPoints"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "resultRadPos"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "title" : "my",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "pos",
+            "execPortType" : "In",
+            "typeSpec" : "Vec3[]"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "posOut",
+            "execPortType" : "Out",
+            "typeSpec" : "Vec3[]"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "radius",
+            "execPortType" : "In",
+            "typeSpec" : "Float32"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "radiusCenter",
+            "execPortType" : "Out",
+            "typeSpec" : "Vec3"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "mat",
+            "execPortType" : "Out",
+            "typeSpec" : "Mat44"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "qu",
+            "execPortType" : "Out",
+            "typeSpec" : "Quat"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "xfo",
+            "execPortType" : "Out",
+            "typeSpec" : "Xfo"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "transformedCenter",
+            "execPortType" : "Out",
+            "typeSpec" : "Vec3"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "numPoints",
+            "execPortType" : "In",
+            "typeSpec" : "Integer"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "resultRadPos",
+            "execPortType" : "Out",
+            "typeSpec" : "Vec3[]"
+            }
+          ],
+        "extDeps" : {
+          "Math" : "*"
+          },
+        "code" : "require Math;\n\ndfgEntry {\n  \n  Size numPos = pos.size;\n  if (numPos < 2)\n    return;\n    \n\n  Vec3 vecAim = pos[0] - pos[1];\n  Vec3 vecUp = pos[2] - pos[1];\n  Vec3 p = pos[1];\n  vecAim.normalize();\n  vecUp.normalize();\n  \n  // construct a orthogonalized coordinate space\n  Vec3 vecCross = vecAim.cross(vecUp);\n  Vec3 vecUpOrtho = vecCross.cross(vecAim);\n  vecCross.normalize();\n  vecUpOrtho.normalize();\n  \n  \n  Float32 upU = vecUp.dot(vecAim);\n  Float32 upV = vecUp.dot(vecUpOrtho);\n    \n  Float32 theta = atan2(upV, upU) * 0.5;\n  \n  Float32 angFull = ((3.1415/2) - theta) * 2;\n  \n  \n  Float32 adjacent = radius / (tan(theta));\n  radiusCenter = Vec3(0, radius, adjacent);\n  \n  \n  qu = qu.setFromDirectionAndUpvector(vecAim, vecUp);\n  \n  Quat q = Quat();\n  xfo.ori = q.setFromDirectionAndUpvector(vecAim, vecUp);\n  xfo.tr = p;\n\n  //report(radiusCenter);\n  posOut = pos;\n  \n  transformedCenter = xfo.transformVector(radiusCenter);\n  \n  \n  // plot the pos\n  // calculate the positions on the circle\n  Float32 angInc = angFull/(numPoints-1);\n  \n  //the ang from pos x axis to opposite (negative y axis)\n  Float32 angToOpp = 1.5 * 3.1415; // math.pi\n  \n  resultRadPos.resize(numPoints);\n  \n  for (Integer i = 0; i < numPoints; i++){\n    Float32 a = angToOpp - (angInc * i);\n    Float32 x = cos(a) * radius + adjacent;\n    Float32 y = sin(a) * radius + radius;\n    Vec3 v = xfo.transformVector(Vec3(0,y,x));\n    resultRadPos.push(v);\n  }\n\n}\n"
+        }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":511.577,\"y\":467.09}"
+        },
+      "name" : "DrawPoint",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "this"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "pos"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "Fabric.Exts.InlineDrawing.InlineDebugShape.DrawPoint",
+      "presetGUID" : "2EEF976DF14B2C86BC54653D67C0A6FF"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":386.54,\"y\":440.029}"
+        },
+      "name" : "SetPen_3",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "this"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Color" : {
+              "r" : 1,
+              "g" : 1,
+              "b" : 0,
+              "a" : 1
+              }
+            },
+          "name" : "color"
+          }
+        ],
+      "executable" : "Fabric.Exts.InlineDrawing.InlineDebugShape.SetPen",
+      "presetGUID" : "831A0298E12DACF564A86570A7C7AE48"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":523.088,\"y\":599.837}"
+        },
+      "name" : "DrawPoints_2",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "this"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "pos"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "Fabric.Exts.InlineDrawing.InlineDebugShape.DrawPoints",
+      "presetGUID" : "57440AAF5B9C14306500FCAE88C8E7F4"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":398.594,\"y\":559.704}"
+        },
+      "name" : "SetPen_4",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "this"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Color" : {
+              "r" : 0,
+              "g" : 0.800000011920929,
+              "b" : 1,
+              "a" : 1
+              }
+            },
+          "name" : "color"
+          }
+        ],
+      "executable" : "Fabric.Exts.InlineDrawing.InlineDebugShape.SetPen",
+      "presetGUID" : "831A0298E12DACF564A86570A7C7AE48"
+      }
+    ],
+  "connections" : {
+    "pos" : [
+      "DrawPoints.pos",
+      "my.pos"
+      ],
+    "radius" : [
+      "my.radius"
+      ],
+    "numPoints" : [
+      "my.numPoints"
+      ],
+    "EmptyDrawingHandle.handle" : [
+      "GetEmptyDebugShape.this"
+      ],
+    "GetEmptyDebugShape.result" : [
+      "SetPen.this",
+      "SetPen_2.this",
+      "SetPen_3.this",
+      "SetPen_4.this"
+      ],
+    "DrawLine.this" : [
+      "this_2"
+      ],
+    "DrawPoints.this" : [
+      "this"
+      ],
+    "SetPen.this" : [
+      "DrawPoints.this"
+      ],
+    "SetPen_2.this" : [
+      "DrawLine.this"
+      ],
+    "my.posOut" : [
+      "DrawLine.pos"
+      ],
+    "my.transformedCenter" : [
+      "DrawPoint.pos"
+      ],
+    "my.resultRadPos" : [
+      "DrawPoints_2.pos"
+      ],
+    "DrawPoint.result" : [
+      "result"
+      ],
+    "SetPen_3.this" : [
+      "DrawPoint.this"
+      ],
+    "DrawPoints_2.result" : [
+      "result_2"
+      ],
+    "SetPen_4.this" : [
+      "DrawPoints_2.this"
+      ]
+    },
+  "metadata" : {
+    "maya_id" : "1"
+    },
+  "requiredPresets" : {
+    "Fabric.Exts.InlineDrawing.DrawingHandle.EmptyDrawingHandle" : {
+      "objectType" : "Graph",
+      "title" : "EmptyDrawingHandle",
+      "cacheRule" : "never",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "In",
+          "name" : "handle",
+          "execPortType" : "Out",
+          "typeSpec" : "DrawingHandle"
+          }
+        ],
+      "extDeps" : {},
+      "presetGUID" : "2440020BA6A1CAB1CEB690A198F99C70",
+      "nodes" : [
+        {
+          "objectType" : "Inst",
+          "metadata" : {
+            "uiGraphPos" : "{\"x\": 894, \"y\": 100}"
+            },
+          "name" : "Clear",
+          "ports" : [
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "IO",
+              "name" : "this"
+              }
+            ],
+          "executable" : "Fabric.Exts.InlineDrawing.DrawingHandle.Clear",
+          "presetGUID" : "39E8D81FA7C7C4A825877F16EFE3564F",
+          "cacheRule" : "never"
+          },
+        {
+          "objectType" : "Var",
+          "metadata" : {
+            "uiGraphPos" : "{\"x\":567.0,\"y\":56.0}",
+            "uiCollapsedState" : "0"
+            },
+          "name" : "handleVar",
+          "ports" : [
+            {
+              "objectType" : "VarPort",
+              "nodePortType" : "IO",
+              "name" : "value"
+              }
+            ],
+          "dataType" : "DrawingHandle",
+          "extDep" : "InlineDrawing:*"
+          },
+        {
+          "objectType" : "Inst",
+          "metadata" : {
+            "uiGraphPos" : "{\"x\":287.0,\"y\":56.0}"
+            },
+          "name" : "CreateDrawingHandle",
+          "ports" : [
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "Out",
+              "name" : "handle"
+              }
+            ],
+          "definition" : {
+            "objectType" : "Func",
+            "title" : "Create DrawingHandle",
+            "ports" : [
+              {
+                "objectType" : "Port",
+                "nodePortType" : "In",
+                "name" : "handle",
+                "execPortType" : "Out",
+                "typeSpec" : "DrawingHandle"
+                }
+              ],
+            "extDeps" : {
+              "InlineDrawing" : "*"
+              },
+            "code" : "dfgEntry {\n  handle = DrawingHandle();\n}\n"
+            }
+          }
+        ],
+      "connections" : {
+        "Clear.this" : [
+          "handle"
+          ],
+        "handleVar.value" : [
+          "Clear.this"
+          ],
+        "CreateDrawingHandle.handle" : [
+          "handleVar.value"
+          ]
+        }
+      },
+    "Fabric.Exts.InlineDrawing.DrawingHandle.Clear" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.0/HTML/KLExtensionsGuide/InlineDrawing/DrawingHandle.html",
+        "uiTooltip" : "removes all contents from the DrawingHandle\n\n Supported by DrawingHandle"
+        },
+      "title" : "Clear",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "IO",
+          "name" : "this",
+          "execPortType" : "IO",
+          "typeSpec" : "DrawingHandle"
+          }
+        ],
+      "extDeps" : {
+        "InlineDrawing" : "*"
+        },
+      "presetGUID" : "39E8D81FA7C7C4A825877F16EFE3564F",
+      "code" : "require InlineDrawing;\n\ndfgEntry {\n  this.clear();\n}\n"
+      },
+    "Fabric.Exts.InlineDrawing.DrawingHandle.GetEmptyDebugShape" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.0/HTML/KLExtensionsGuide/InlineDrawing/DrawingHandle.html",
+        "uiTooltip" : "helper function to clear a debug drawing shape\n\n Supported by DrawingHandle"
+        },
+      "title" : "GetEmptyDebugShape",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "IO",
+          "name" : "this",
+          "execPortType" : "IO",
+          "typeSpec" : "DrawingHandle"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "String" : "debug"
+            },
+          "name" : "name",
+          "execPortType" : "In",
+          "typeSpec" : "String"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "InlineDebugShape"
+          }
+        ],
+      "extDeps" : {
+        "InlineDrawing" : "*"
+        },
+      "presetGUID" : "DB3916AA2CE58EEAFAEDB9E2653EF4D6",
+      "code" : "require InlineDrawing;\n\ndfgEntry {\n  result = this.getEmptyDebugShape(name);\n}\n"
+      },
+    "Fabric.Exts.InlineDrawing.InlineDebugShape.DrawPoints" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.0/HTML/KLExtensionsGuide/InlineDrawing/InlineDebugShape.html",
+        "uiTooltip" : "draws a bunch of points\n\n Supported by InlineDebugShape"
+        },
+      "title" : "DrawPoints",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "IO",
+          "name" : "this",
+          "execPortType" : "IO",
+          "typeSpec" : "InlineDebugShape"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 255,\n  \"g\" : 242,\n  \"b\" : 0\n  }"
+            },
+          "nodePortType" : "Out",
+          "name" : "pos",
+          "execPortType" : "In",
+          "typeSpec" : "Vec3[]"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "InlineDebugShape"
+          }
+        ],
+      "extDeps" : {
+        "InlineDrawing" : "*"
+        },
+      "presetGUID" : "57440AAF5B9C14306500FCAE88C8E7F4",
+      "code" : "require InlineDrawing;\n\ndfgEntry {\n  result = this.drawPoints(pos);\n}\n"
+      },
+    "Fabric.Exts.InlineDrawing.InlineDebugShape.SetPen" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.0/HTML/KLExtensionsGuide/InlineDrawing/InlineDebugShape.html",
+        "uiTooltip" : "sets the current pen\n\n Supported by InlineDebugShape"
+        },
+      "title" : "SetPen",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "IO",
+          "name" : "this",
+          "execPortType" : "IO",
+          "typeSpec" : "InlineDebugShape"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 255,\n  \"g\" : 0,\n  \"b\" : 0\n  }"
+            },
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "Color" : {
+              "r" : 0,
+              "g" : 1,
+              "b" : 0,
+              "a" : 1
+              }
+            },
+          "name" : "color",
+          "execPortType" : "In",
+          "typeSpec" : "Color"
+          }
+        ],
+      "extDeps" : {
+        "InlineDrawing" : "*"
+        },
+      "presetGUID" : "831A0298E12DACF564A86570A7C7AE48",
+      "code" : "require InlineDrawing;\n\ndfgEntry {\n  this.setPen(color);\n}\n"
+      },
+    "Fabric.Exts.InlineDrawing.InlineDebugShape.DrawPoint" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.0/HTML/KLExtensionsGuide/InlineDrawing/InlineDebugShape.html",
+        "uiTooltip" : "draws a single point given a position\n\n Supported by InlineDebugShape"
+        },
+      "title" : "DrawPoint",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "IO",
+          "name" : "this",
+          "execPortType" : "IO",
+          "typeSpec" : "InlineDebugShape"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 255,\n  \"g\" : 242,\n  \"b\" : 0\n  }"
+            },
+          "nodePortType" : "Out",
+          "name" : "pos",
+          "execPortType" : "In",
+          "typeSpec" : "Vec3"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "InlineDebugShape"
+          }
+        ],
+      "extDeps" : {
+        "InlineDrawing" : "*"
+        },
+      "presetGUID" : "2EEF976DF14B2C86BC54653D67C0A6FF",
+      "code" : "require InlineDrawing;\n\ndfgEntry {\n  result = this.drawPoint(pos);\n}\n"
+      }
+    },
+  "args" : [
+    {
+      "type" : "Vec3[]",
+      "value" : null,
+      "ext" : "Math"
+      },
+    {
+      "type" : "Vec3",
+      "value" : null,
+      "ext" : "Math"
+      },
+    {
+      "type" : "InlineDebugShape",
+      "value" : null,
+      "ext" : "InlineDrawing"
+      },
+    {
+      "type" : "InlineDebugShape",
+      "value" : null,
+      "ext" : "InlineDrawing"
+      },
+    {
+      "type" : "InlineDebugShape",
+      "value" : null,
+      "ext" : "InlineDrawing"
+      },
+    {
+      "type" : "Float32",
+      "value" : null
+      },
+    {
+      "type" : "DrawingHandle",
+      "value" : null,
+      "ext" : "InlineDrawing"
+      },
+    {
+      "type" : "Mat44",
+      "value" : null,
+      "ext" : "Math"
+      },
+    {
+      "type" : "InlineDebugShape",
+      "value" : null,
+      "ext" : "InlineDrawing"
+      },
+    {
+      "type" : "SInt32",
+      "value" : null
+      },
+    {
+      "type" : "InlineDebugShape",
+      "value" : null,
+      "ext" : "InlineDrawing"
+      }
+    ]
+  }
