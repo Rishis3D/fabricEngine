@@ -1,15 +1,15 @@
 {
   "objectType" : "Graph",
   "metadata" : {
-    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.9973458051681519,\n    \"y\" : -0.01462685875594616,\n    \"z\" : 0.07196420431137085,\n    \"t\" : 0.2170366942882538\n    },\n  \"row1\" : {\n    \"x\" : -5.336723347681982e-07,\n    \"y\" : 0.9799457788467407,\n    \"z\" : 0.1991953551769257,\n    \"t\" : 0.6004129648208618\n    },\n  \"row2\" : {\n    \"x\" : -0.07343794405460358,\n    \"y\" : -0.198651522397995,\n    \"z\" : 0.9773297309875488,\n    \"t\" : 2.948253393173218\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.9656403064727783,\n    \"y\" : -0.03656722605228424,\n    \"z\" : 0.2581928074359894,\n    \"t\" : 1.651448488235474\n    },\n  \"row1\" : {\n    \"x\" : -4.599956355377799e-06,\n    \"y\" : 0.9899883270263672,\n    \"z\" : 0.1403084695339203,\n    \"t\" : 0.89613276720047\n    },\n  \"row2\" : {\n    \"x\" : -0.2607889473438263,\n    \"y\" : -0.1354173421859741,\n    \"z\" : 0.9560249447822571,\n    \"t\" : 6.118244647979736\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "timeline_start" : "1",
     "timeline_loopMode" : "1",
-    "uiGraphZoom" : "{\n  \"value\" : 0.77982097864151\n  }",
+    "uiGraphZoom" : "{\n  \"value\" : 0.5995254516601562\n  }",
     "timeline_simMode" : "0",
-    "camera_focalDistance" : "3.016148567199707",
+    "camera_focalDistance" : "6.397918701171875",
     "timeline_current" : "1",
     "timeline_end" : "50",
-    "uiGraphPan" : "{\n  \"x\" : -190.0068718935194,\n  \"y\" : 44.53645414203327\n  }"
+    "uiGraphPan" : "{\n  \"x\" : 125.7336732231422,\n  \"y\" : 114.052951256931\n  }"
     },
   "title" : "",
   "ports" : [
@@ -35,26 +35,6 @@
       },
     {
       "objectType" : "Port",
-      "metadata" : {
-        "uiPersistValue" : "true"
-        },
-      "nodePortType" : "Out",
-      "name" : "x",
-      "execPortType" : "In",
-      "typeSpec" : "Scalar"
-      },
-    {
-      "objectType" : "Port",
-      "metadata" : {
-        "uiPersistValue" : "true"
-        },
-      "nodePortType" : "Out",
-      "name" : "y",
-      "execPortType" : "In",
-      "typeSpec" : "Scalar"
-      },
-    {
-      "objectType" : "Port",
       "nodePortType" : "In",
       "name" : "result",
       "execPortType" : "Out",
@@ -69,7 +49,6 @@
       },
     {
       "objectType" : "Port",
-      "metadata" : {},
       "nodePortType" : "In",
       "name" : "value",
       "execPortType" : "Out",
@@ -88,6 +67,13 @@
       "name" : "result_3",
       "execPortType" : "Out",
       "typeSpec" : "InlineDebugShape"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "this",
+      "execPortType" : "Out",
+      "typeSpec" : "DrawingHandle"
       }
     ],
   "extDeps" : {},
@@ -145,7 +131,7 @@
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "Float32" : 0.4776000082492828
+            "Float32" : 2
             },
           "name" : "x"
           },
@@ -153,7 +139,7 @@
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "Float32" : 0.6980000138282776
+            "Float32" : 2
             },
           "name" : "y"
           },
@@ -174,7 +160,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1126.055786132812,\"y\":217.3351440429688}",
+        "uiGraphPos" : "{\"x\":1074.761840820312,\"y\":216.0527954101562}",
         "uiCollapsedState" : "0"
         },
       "name" : "EmptyDrawingHandle",
@@ -557,7 +543,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1279.86865234375,\"y\":-34.96676254272461}"
+        "uiGraphPos" : "{\"x\":1245.696411132812,\"y\":-86.63572692871094}"
         },
       "name" : "circlePos_2",
       "ports" : [
@@ -590,6 +576,11 @@
           "objectType" : "InstPort",
           "nodePortType" : "Out",
           "name" : "normVecPos"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "xfos"
           }
         ],
       "definition" : {
@@ -637,10 +628,17 @@
             "name" : "normVecPos",
             "execPortType" : "Out",
             "typeSpec" : "Vec3[]"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "xfos",
+            "execPortType" : "Out",
+            "typeSpec" : "Xfo[]"
             }
           ],
         "extDeps" : {},
-        "code" : "dfgEntry {\n    \n  Integer numVecPos = inVec.size;\n  \n  Vec3 tempCenter[];\n  Vec3 tempPos[];\n  Vec3 tempRadiusPos[];\n  \n  for (Size i = 0; i < numVecPos; i++){\n  \n    // first pos\n    if (i == 0){}\n    // last pos\n    else if (i == numVecPos-1){}\n    // inbetween pos\n    else {\n      \n      Vec3 aimVec = inVec[i-1] - inVec[i]; \n      Vec3 upVec = inVec[i+1] - inVec[i]; \n      aimVec.normalize();\n      upVec.normalize();\n      \n      tempPos.push(aimVec);\n      tempPos.push(upVec);\n      \n      Float32 angle = acos(aimVec.dot(upVec));\n      \n      \n      \n      // calculate the radius pos\n      \n      Float32 angFull = 3.1415 - angle;\n  \n      //offset with half pi\n      Float32 angOffset = -1.5708;\n  \n      Float32 adjacent = radius / (tan(angle*.5));\n  \n      Float32 angInc = angFull/(numRadiusPos-1);\n  \n      // calculate the corner pos\n      for (Size j = 0; j < numRadiusPos; j++) {\n  \n        Float32 a =  angOffset - angInc * j;\n        Float32 x = cos(a) * radius + adjacent;\n        Float32 y = sin(a) * radius + radius;\n        tempRadiusPos.push(Vec3(x,y,0));\n      }\n  \n      tempCenter.push(Vec3(adjacent, radius, 0));\n    }\n    \n  }\n  \n  center.resize(numVecPos-2);\n  outRadiusPos.resize((numVecPos-2) * numRadiusPos);\n  normVecPos.resize(numVecPos-1);\n  \n  outRadiusPos = tempRadiusPos;\n  center = tempCenter;\n  normVecPos = tempPos;\n\n}\n"
+        "code" : "dfgEntry {\n    \n  Integer numVecPos = inVec.size;\n  \n  Vec3 tempCenter[];\n  //Vec3 tempPos[];\n  Vec3 tempRadiusPos[];\n  Xfo tempXfos[];\n  \n  Quat q = Quat();\n  \n  for (Size i = 0; i < numVecPos; i++){\n  \n    // first pos\n    if (i == 0){}\n    // last pos\n    else if (i == numVecPos-1){}\n    // inbetween pos\n    else {\n      \n      \n      Vec3 aimVec = inVec[i-1] - inVec[i]; \n      Vec3 upVec = inVec[i+1] - inVec[i];\n      \n      aimVec.normalize();\n      upVec.normalize();\n      Vec3 crossVec = aimVec.cross(upVec);\n\n      Xfo xfo = Xfo();\n      xfo.sc = Vec3(1,1,1);\n      xfo.ori = q.setFromDirectionAndUpvector(upVec, aimVec);\n      xfo.tr = inVec[i];\n      tempXfos.push(xfo);\n      \n      //tempPos.push(xfo.transformVector(aimVec));\n      //tempPos.push(xfo.transformVector(upVec));\n      \n      Float32 angle = acos(aimVec.dot(upVec));\n      \n      \n      \n      // calculate the radius pos\n      \n      Float32 angFull = 3.1415 - angle;\n  \n      //offset with half pi\n      Float32 angOffset = -1.5708;\n  \n      Float32 adjacent = radius / (tan(angle*.5));\n  \n      Float32 angInc = angFull/(numRadiusPos-1);\n  \n      // calculate the corner pos\n      for (Size j = 0; j < numRadiusPos; j++) {\n  \n        Float32 a =  angOffset - angInc * j;\n        Float32 x = cos(a) * radius + adjacent;\n        Float32 y = sin(a) * radius + radius;\n        tempRadiusPos.push(xfo.transformVector(Vec3(0, y, x)));\n      }\n  \n      tempCenter.push(xfo.transformVector(Vec3(0, radius, adjacent)));\n    }\n    \n  }\n  \n  center.resize(numVecPos-2);\n  outRadiusPos.resize((numVecPos-2) * numRadiusPos);\n  //normVecPos.resize(numVecPos-1);\n  xfos.resize(numVecPos-2);  \n  \n  outRadiusPos = tempRadiusPos;\n  center = tempCenter;\n  //normVecPos = tempPos;\n  xfos = tempXfos;\n\n}\n"
         }
       },
     {
@@ -812,6 +810,42 @@
         ],
       "executable" : "Fabric.Exts.InlineDrawing.InlineDebugShape.SetPen",
       "presetGUID" : "831A0298E12DACF564A86570A7C7AE48"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":1623.38671875,\"y\":-188.0772399902344}"
+        },
+      "name" : "DrawAxesInstances",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "this"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "name"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "transforms"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "dummyResult"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "instance"
+          }
+        ],
+      "executable" : "Fabric.Exts.InlineDrawing.DrawingHandle.DrawAxesInstances",
+      "presetGUID" : "A2DAC55CB1CE7426981A13F213257B7A"
       }
     ],
   "connections" : {
@@ -820,12 +854,6 @@
       ],
     "numPoints" : [
       "circlePos_2.numRadiusPos"
-      ],
-    "x" : [
-      "Vec3_2.x"
-      ],
-    "y" : [
-      "Vec3_2.y"
       ],
     "Vec3.result" : [
       "Push_2.element"
@@ -854,11 +882,13 @@
       ],
     "Push2_2.array" : [
       "Push22.array",
-      "drawLines.array",
-      "circlePos_2.inVec"
+      "drawLines.array"
       ],
     "drawLines.instance" : [
       "instance"
+      ],
+    "GetEmptyDebugShape.this" : [
+      "DrawAxesInstances.this"
       ],
     "GetEmptyDebugShape.result" : [
       "SetPen.this",
@@ -874,11 +904,17 @@
     "circlePos_2.normVecPos" : [
       "DrawPoints.pos"
       ],
+    "circlePos_2.xfos" : [
+      "DrawAxesInstances.transforms"
+      ],
     "DrawPoints_2.result" : [
       "result_2"
       ],
     "SetPen_2.this" : [
       "DrawPoints_2.this"
+      ],
+    "Push22.array" : [
+      "circlePos_2.inVec"
       ],
     "Vec32.result" : [
       "Push22.element"
@@ -888,6 +924,9 @@
       ],
     "SetPen2.this" : [
       "DrawPoints2.this"
+      ],
+    "DrawAxesInstances.this" : [
+      "this"
       ]
     },
   "requiredPresets" : {
@@ -1362,24 +1401,72 @@
         },
       "presetGUID" : "DB3916AA2CE58EEAFAEDB9E2653EF4D6",
       "code" : "require InlineDrawing;\n\ndfgEntry {\n  result = this.getEmptyDebugShape(name);\n}\n"
+      },
+    "Fabric.Exts.InlineDrawing.DrawingHandle.DrawAxesInstances" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.0/HTML/KLExtensionsGuide/InlineDrawing/DrawingHandle.html",
+        "uiTooltip" : "helper function to draw axes at given transforms\n\n Supported by DrawingHandle"
+        },
+      "title" : "DrawAxesInstances",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "IO",
+          "name" : "this",
+          "execPortType" : "IO",
+          "typeSpec" : "DrawingHandle"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "name",
+          "execPortType" : "In",
+          "typeSpec" : "String"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 249,\n  \"g\" : 157,\n  \"b\" : 28\n  }"
+            },
+          "nodePortType" : "Out",
+          "name" : "transforms",
+          "execPortType" : "In",
+          "typeSpec" : "Xfo[]"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 255,\n  \"g\" : 242,\n  \"b\" : 0\n  }"
+            },
+          "nodePortType" : "In",
+          "name" : "dummyResult",
+          "execPortType" : "Out",
+          "typeSpec" : "Vec3"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "In",
+          "name" : "instance",
+          "execPortType" : "Out",
+          "typeSpec" : "InlineInstance"
+          }
+        ],
+      "extDeps" : {
+        "InlineDrawing" : "*"
+        },
+      "presetGUID" : "A2DAC55CB1CE7426981A13F213257B7A",
+      "code" : "require InlineDrawing;\n\ndfgEntry {\n  this.drawAxesInstances(name, transforms, dummyResult, instance);\n}\n"
       }
     },
   "args" : [
     {
       "type" : "Float32",
-      "value" : 0.3763000071048737
+      "value" : 0.3977999985218048
       },
     {
       "type" : "SInt32",
-      "value" : 6
-      },
-    {
-      "type" : "Float32",
-      "value" : 0.3655999898910522
-      },
-    {
-      "type" : "Float32",
-      "value" : 0.7150999903678894
+      "value" : 13
       },
     {
       "type" : "InlineDebugShape",
@@ -1403,6 +1490,11 @@
       },
     {
       "type" : "InlineDebugShape",
+      "value" : null,
+      "ext" : "InlineDrawing"
+      },
+    {
+      "type" : "DrawingHandle",
       "value" : null,
       "ext" : "InlineDrawing"
       }
