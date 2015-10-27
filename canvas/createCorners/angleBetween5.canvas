@@ -1,37 +1,24 @@
 {
   "objectType" : "Graph",
   "metadata" : {
-    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : -0.9597883224487305,\n    \"y\" : -0.1558405756950378,\n    \"z\" : 0.2376492321491241,\n    \"t\" : 5.117462635040283\n    },\n  \"row1\" : {\n    \"x\" : -9.024262226375868e-07,\n    \"y\" : 0.8358579874038696,\n    \"z\" : 0.549348771572113,\n    \"t\" : 11.82349491119385\n    },\n  \"row2\" : {\n    \"x\" : -0.2842848896980286,\n    \"y\" : 0.5261383652687073,\n    \"z\" : -0.802341103553772,\n    \"t\" : -17.26794242858887\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.9977493286132812,\n    \"y\" : -0.02955451607704163,\n    \"z\" : 0.07837723195552826,\n    \"t\" : 1.474474430084229\n    },\n  \"row1\" : {\n    \"x\" : -4.573895239445847e-06,\n    \"y\" : 0.9353806972503662,\n    \"z\" : 0.3537574708461761,\n    \"t\" : 6.647687911987305\n    },\n  \"row2\" : {\n    \"x\" : -0.08377873152494431,\n    \"y\" : -0.3520258367061615,\n    \"z\" : 0.9334016442298889,\n    \"t\" : 17.5693531036377\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "timeline_start" : "1",
     "timeline_loopMode" : "1",
     "uiGraphZoom" : "{\n  \"value\" : 0.7952799201011658\n  }",
     "timeline_simMode" : "0",
-    "camera_focalDistance" : "21.55094337463379",
+    "camera_focalDistance" : "18.8360424041748",
     "timeline_current" : "1",
     "timeline_end" : "50",
-    "uiGraphPan" : "{\n  \"x\" : -737.6683217866666,\n  \"y\" : 227.9210205593467\n  }"
+    "uiGraphPan" : "{\n  \"x\" : -768.6683349609375,\n  \"y\" : 255.9210205078125\n  }"
     },
   "title" : "",
   "ports" : [
     {
       "objectType" : "Port",
-      "metadata" : {
-        "uiPersistValue" : "true"
-        },
-      "nodePortType" : "Out",
-      "name" : "radius",
-      "execPortType" : "In",
-      "typeSpec" : "Float32"
-      },
-    {
-      "objectType" : "Port",
-      "metadata" : {
-        "uiPersistValue" : "true"
-        },
-      "nodePortType" : "Out",
-      "name" : "numPoints",
-      "execPortType" : "In",
-      "typeSpec" : "Integer"
+      "nodePortType" : "In",
+      "name" : "this",
+      "execPortType" : "Out",
+      "typeSpec" : "DrawingHandle"
       },
     {
       "objectType" : "Port",
@@ -50,13 +37,6 @@
     {
       "objectType" : "Port",
       "nodePortType" : "In",
-      "name" : "this",
-      "execPortType" : "Out",
-      "typeSpec" : "DrawingHandle"
-      },
-    {
-      "objectType" : "Port",
-      "nodePortType" : "In",
       "name" : "drawThis",
       "execPortType" : "Out",
       "typeSpec" : "DrawingHandle"
@@ -67,6 +47,46 @@
       "name" : "instance",
       "execPortType" : "Out",
       "typeSpec" : "InlineInstance"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "cornerRadius",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "numPoints",
+      "execPortType" : "In",
+      "typeSpec" : "Integer"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "radius",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "detail",
+      "execPortType" : "In",
+      "typeSpec" : "Integer"
       }
     ],
   "extDeps" : {},
@@ -91,7 +111,7 @@
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "Float32" : 0
+            "Float32" : 1
             },
           "name" : "y"
           },
@@ -217,7 +237,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":446.6011352539062,\"y\":169.2569274902344}",
+        "uiGraphPos" : "{\"x\":446.6011352539062,\"y\":189.3756256103516}",
         "uiCollapsedState" : "2"
         },
       "name" : "Vec3_3",
@@ -484,7 +504,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1343.598876953125,\"y\":-163.6486968994141}"
+        "uiGraphPos" : "{\"x\":1346.11376953125,\"y\":-224.0047912597656}"
         },
       "name" : "circlePos_2",
       "ports" : [
@@ -517,6 +537,16 @@
           "objectType" : "InstPort",
           "nodePortType" : "Out",
           "name" : "radiusMesh"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "profile"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "pipeXfos"
           }
         ],
       "definition" : {
@@ -564,16 +594,30 @@
             "name" : "radiusMesh",
             "execPortType" : "Out",
             "typeSpec" : "PolygonMesh"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "profile",
+            "execPortType" : "In",
+            "typeSpec" : "Vec3[]"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "pipeXfos",
+            "execPortType" : "Out",
+            "typeSpec" : "Xfo[]"
             }
           ],
         "extDeps" : {},
-        "code" : "require Geometry;\n\ndfgEntry {\n    \n  Integer numVecPos = inVec.size;\n  \n  Vec3 tempCenter[];\n  Xfo tempRadiusXfos[];\n  Xfo parentXfos[];\n  PolygonMesh meshes[];\n\n    \n  for (Size i = 0; i < numVecPos; i++){\n  \n    // first pos\n    if (i == 0){}\n    // last pos\n    else if (i == numVecPos-1){}\n    // inbetween pos\n    else {\n      \n      \n      Vec3 aimVec = inVec[i-1] - inVec[i]; \n      Vec3 upVec = inVec[i+1] - inVec[i];\n      \n      aimVec.normalize();\n      upVec.normalize();\n      Vec3 crossVec = aimVec.cross(upVec);\n\n      Xfo parentXfo = Xfo();\n      parentXfo.sc = Vec3(1,1,1);\n      parentXfo.ori = parentXfo.ori.setFromDirectionAndUpvector(upVec, aimVec);\n      parentXfo.tr = inVec[i];\n      parentXfos.push(parentXfo);\n            \n      Float32 angle = acos(aimVec.dot(upVec));\n            \n      \n      // calculate the radius pos\n      \n      Float32 angFull = 3.1415 - angle;\n  \n      //offset with half pi\n      Float32 angOffset = -1.5708;\n  \n      Float32 adjacent = radius / (tan(angle*.5));\n  \n      Float32 angInc = angFull/(numRadiusPos-1);\n  \n      // calculate the corner pos\n      for (Size j = 0; j < numRadiusPos; j++) {\n  \n        Float32 a =  angOffset - angInc * j;\n        Float32 x = cos(a) * radius + adjacent;\n        Float32 y = sin(a) * radius + radius;\n        \n        Xfo xfo = Xfo();\n        xfo.tr = Vec3(0, y, x);\n        xfo.ori = xfo.ori.setFromEuler(Vec3((angInc * j),0,0));\n        tempRadiusXfos.push(parentXfo * xfo);\n      }\n  \n      tempCenter.push(parentXfo.transformVector(Vec3(0, radius, adjacent)));\n      \n      // create the mesh\n      PolygonMesh mesh = PolygonMesh();\n      mesh.addCuboid(Xfo(),1,1,1, true, false);\n      meshes.push(mesh);\n    \n    }\n  }\n  \n  center.resize(numVecPos-2);\n  radiusXfos.resize((numVecPos-2) * numRadiusPos);\n  \n  center = tempCenter;\n  radiusXfos = tempRadiusXfos;\n\n\n    \n  // merge the meshes  \n  PolygonMesh emptyMesh = PolygonMesh();  \n  emptyMesh.mergeMeshes(meshes, parentXfos, false);  \n  emptyMesh.recomputePointNormals(0.5);\n  radiusMesh = emptyMesh;\n\n}\n"
+        "code" : "require Geometry;\n\ndfgEntry {\n    \n  Integer numVecPos = inVec.size;\n  \n  Vec3 tempCenter[];\n  Xfo tempRadiusXfos[];\n  Xfo parentXfos[];\n  PolygonMesh meshes[];\n  Xfo tempPipeXfos[];\n  \n  for (Size i = 0; i < numVecPos; i++){\n  \n    // first pos\n    if (i == 0){\n      \n      // calculate the aim, up vectors\n      Vec3 aimVec = inVec[i+1] - inVec[i]; \n      Vec3 upVec = inVec[i+2] - inVec[i];\n      \n      aimVec.normalize();\n      upVec.normalize();\n      Vec3 crossVec = aimVec.cross(upVec);\n      upVec = aimVec.cross(crossVec);\n      \n      Xfo parentXfo = Xfo();\n      parentXfo.sc = Vec3(1,1,1);\n      parentXfo.ori = parentXfo.ori.setFromDirectionAndUpvector(aimVec, upVec);\n      parentXfo.tr = inVec[i];\n      tempPipeXfos.push(parentXfo);\n    }\n    // last pos\n    else if (i == numVecPos-1){}\n    // inbetween pos\n    else {\n      \n      \n      // calculate the aim, up vectors\n      Vec3 aimVec = inVec[i-1] - inVec[i]; \n      Vec3 upVec = inVec[i+1] - inVec[i];\n      \n      aimVec.normalize();\n      upVec.normalize();\n      \n      Xfo parentXfo = Xfo();\n      parentXfo.sc = Vec3(1,1,1);\n      parentXfo.ori = parentXfo.ori.setFromDirectionAndUpvector(upVec, aimVec);\n      parentXfo.tr = inVec[i];\n      parentXfos.push(parentXfo);\n      tempPipeXfos.push(parentXfo);\n                  \n      Float32 angle = acos(aimVec.dot(upVec));\n            \n      \n      // calculate the radius pos\n      \n      Float32 angFull = 3.1415 - angle;\n  \n      //offset with half pi\n      Float32 angOffset = -1.5708;\n  \n      Float32 adjacent = radius / (tan(angle*.5));\n  \n      Float32 angInc = angFull/(numRadiusPos-1);\n  \n  \n      Xfo cornerXfos[];\n      // calculate the corner pos\n      for (Size j = 0; j < numRadiusPos; j++) {\n  \n        Float32 a =  angOffset - angInc * j;\n        Float32 x = cos(a) * radius + adjacent;\n        Float32 y = sin(a) * radius + radius;\n        \n        Xfo xfo = Xfo();\n        xfo.tr = Vec3(0, y, x);\n        xfo.ori = xfo.ori.setFromEuler(Vec3((angInc * j),0,0));\n        tempRadiusXfos.push(parentXfo * xfo);\n        \n        cornerXfos.push(xfo);\n                \n      }\n  \n      tempCenter.push(parentXfo.transformVector(Vec3(0, radius, adjacent)));\n      \n      // create the mesh\n      PolygonMesh mesh = PolygonMesh();\n      mesh.addExtrusion(cornerXfos, profile, true);\n      //mesh.addCuboid(Xfo(),1,1,1, true, false);\n      meshes.push(mesh);\n    \n    }\n  }\n  \n  center.resize(numVecPos-2);\n  radiusXfos.resize((numVecPos-2) * numRadiusPos);\n  pipeXfos.resize(numVecPos-1);\n  \n  center = tempCenter;\n  radiusXfos = tempRadiusXfos;\n  pipeXfos = tempPipeXfos;\n\n\n  // merge the meshes  \n  PolygonMesh emptyMesh = PolygonMesh();  \n  emptyMesh.mergeMeshes(meshes, parentXfos, false);  \n  emptyMesh.recomputePointNormals(0.5);\n  \n  radiusMesh = emptyMesh;\n\n}\n"
         }
       },
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1726.306640625,\"y\":36.12957763671875}"
+        "uiGraphPos" : "{\"x\":1730.078979492188,\"y\":32.35731887817383}"
         },
       "name" : "DrawPoints_2",
       "ports" : [
@@ -691,7 +735,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1703.03564453125,\"y\":-208.2550201416016}"
+        "uiGraphPos" : "{\"x\":1731.95654296875,\"y\":-238.4330444335938}"
         },
       "name" : "DrawAxesInstances",
       "ports" : [
@@ -727,7 +771,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1728.488647460938,\"y\":-67.86107635498047}"
+        "uiGraphPos" : "{\"x\":1734.775756835938,\"y\":-91.75199890136719}"
         },
       "name" : "DrawMesh",
       "ports" : [
@@ -812,14 +856,126 @@
         ],
       "executable" : "Fabric.Exts.Math.Vec3.Vec3",
       "presetGUID" : "A59E49949F21CFCB14B5711D52330BA7"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":1181.795166015625,\"y\":-4.84134578704834}"
+        },
+      "name" : "profile",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "profile"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Float32" : 0.3535999953746796
+            },
+          "name" : "scale"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "title" : "profile",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "profile",
+            "execPortType" : "Out",
+            "typeSpec" : "Vec3[]"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "scale",
+            "execPortType" : "In",
+            "typeSpec" : "Float32"
+            }
+          ],
+        "extDeps" : {},
+        "code" : "dfgEntry {\n  Vec3 temp[];\n  temp.push(Vec3(-1,1,0) * scale);\n  temp.push(Vec3(-1,-1,0) * scale);\n  temp.push(Vec3(1,-1,0) * scale);\n  temp.push(Vec3(1,1,0) * scale);\n  \n  profile = temp;\n}\n"
+        }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":1172.754272460938,\"y\":-97.97930908203125}",
+        "uiNodeColor" : "{\n  \"r\" : 121,\n  \"g\" : 134,\n  \"b\" : 143\n  }",
+        "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }"
+        },
+      "name" : "profilePos2",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "profilePos"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Float32" : 1
+            },
+          "name" : "radius"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "SInt32" : 10
+            },
+          "name" : "detail"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "title" : "profilePos",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "profilePos",
+            "execPortType" : "Out",
+            "typeSpec" : "Vec3[]"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "radius",
+            "execPortType" : "In",
+            "typeSpec" : "Float32"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "detail",
+            "execPortType" : "In",
+            "typeSpec" : "Integer"
+            }
+          ],
+        "extDeps" : {},
+        "code" : "dfgEntry {\n\n  profilePos.resize(detail);\n  Float32 inc = 6.2832/(detail);\n  \n  Vec3 temp[];\n  //for (Size i = 0; i < detail; i++){\n  for (Size i = 0; i<detail; i++){\n    Vec3 v = Vec3(cos(inc*i) * radius, sin(inc*i) * radius, 0);\n    temp.push(v);\n  }  \n  profilePos = temp;\n}\n"
+        },
+      "title" : "profileCircle"
       }
     ],
   "connections" : {
-    "radius" : [
+    "cornerRadius" : [
       "circlePos_2.radius"
       ],
     "numPoints" : [
       "circlePos_2.numRadiusPos"
+      ],
+    "radius" : [
+      "profilePos2.radius"
+      ],
+    "detail" : [
+      "profilePos2.detail"
       ],
     "Vec3.result" : [
       "Push_2.element"
@@ -855,11 +1011,11 @@
     "circlePos_2.center" : [
       "DrawPoints_2.pos"
       ],
-    "circlePos_2.radiusXfos" : [
-      "DrawAxesInstances.transforms"
-      ],
     "circlePos_2.radiusMesh" : [
       "DrawMesh.mesh"
+      ],
+    "circlePos_2.pipeXfos" : [
+      "DrawAxesInstances.transforms"
       ],
     "DrawPoints_2.result" : [
       "result_2"
@@ -885,6 +1041,9 @@
       ],
     "Vec32_2.result" : [
       "Push22_2.element"
+      ],
+    "profilePos2.profilePos" : [
+      "circlePos_2.profile"
       ]
     },
   "requiredPresets" : {
@@ -1688,12 +1847,9 @@
     },
   "args" : [
     {
-      "type" : "Float32",
-      "value" : 1.299999952316284
-      },
-    {
-      "type" : "SInt32",
-      "value" : 10
+      "type" : "DrawingHandle",
+      "value" : null,
+      "ext" : "InlineDrawing"
       },
     {
       "type" : "Vec3[]",
@@ -1711,14 +1867,25 @@
       "ext" : "InlineDrawing"
       },
     {
-      "type" : "DrawingHandle",
+      "type" : "InlineInstance",
       "value" : null,
       "ext" : "InlineDrawing"
       },
     {
-      "type" : "InlineInstance",
-      "value" : null,
-      "ext" : "InlineDrawing"
+      "type" : "Float32",
+      "value" : 1
+      },
+    {
+      "type" : "SInt32",
+      "value" : 7
+      },
+    {
+      "type" : "Float32",
+      "value" : 0.5195000171661377
+      },
+    {
+      "type" : "SInt32",
+      "value" : 6
       }
     ]
   }
