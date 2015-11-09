@@ -1,0 +1,827 @@
+{
+  "objectType" : "Graph",
+  "metadata" : {
+    "maya_id" : "1",
+    "uiGraphZoom" : "{\n  \"value\" : 1.120382189750671\n  }",
+    "uiGraphPan" : "{\n  \"x\" : 106.6859354625174,\n  \"y\" : 156.7257256502942\n  }"
+    },
+  "title" : "",
+  "ports" : [
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "rowCount",
+      "execPortType" : "In",
+      "typeSpec" : "Integer"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "colCount",
+      "execPortType" : "In",
+      "typeSpec" : "Integer"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "spacing",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "instance",
+      "execPortType" : "Out",
+      "typeSpec" : "InlineInstance"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "parentMatrix",
+      "execPortType" : "In",
+      "typeSpec" : "Mat44"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "meshSize",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "outMesh",
+      "execPortType" : "Out",
+      "typeSpec" : "PolygonMesh"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "uOffset",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "vOffset",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "tileNum",
+      "execPortType" : "In",
+      "typeSpec" : "Integer"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "randAngle",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "RotSeed",
+      "execPortType" : "In",
+      "typeSpec" : "Integer"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "UVseed",
+      "execPortType" : "In",
+      "typeSpec" : "Integer"
+      }
+    ],
+  "extDeps" : {},
+  "nodes" : [
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":270.735,\"y\":6.32466}"
+        },
+      "name" : "squareGrid",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "rowCount"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "colCount"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "spacing"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "xfos"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "parentXfo"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "outMesh"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "meshSize"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "uvPos"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "tileNum"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "UVseed"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "randAngle"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "RotSeed"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "title" : "squareGrid",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "rowCount",
+            "execPortType" : "In",
+            "typeSpec" : "Integer"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "colCount",
+            "execPortType" : "In",
+            "typeSpec" : "Integer"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "spacing",
+            "execPortType" : "In",
+            "typeSpec" : "Float32"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "xfos",
+            "execPortType" : "Out",
+            "typeSpec" : "Xfo[]"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "parentXfo",
+            "execPortType" : "In",
+            "typeSpec" : "Xfo"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "outMesh",
+            "execPortType" : "Out",
+            "typeSpec" : "PolygonMesh"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "meshSize",
+            "execPortType" : "In",
+            "typeSpec" : "Float32"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "uvPos",
+            "execPortType" : "In",
+            "typeSpec" : "Vec2[]"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "tileNum",
+            "execPortType" : "In",
+            "typeSpec" : "Integer"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "UVseed",
+            "execPortType" : "In",
+            "typeSpec" : "Integer"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "randAngle",
+            "execPortType" : "In",
+            "typeSpec" : "Float32"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "RotSeed",
+            "execPortType" : "In",
+            "typeSpec" : "Integer"
+            }
+          ],
+        "extDeps" : {},
+        "code" : "dfgEntry {\n  \n  \n  PolygonMesh mesh();\n  \n  if (rowCount < 1 || colCount < 1)\n  {\n    xfos.resize(0);\n    outMesh = mesh;\n    return;\n  }\n  \n  Integer count = rowCount*colCount;\n  Integer numPoints = count * 4;\n  xfos.resize(count);\n  \n  // create points and set their positions\n  Size firstPoint = mesh.createPoints(numPoints);\n  Size offset = 0;\n  Integer index = 0;\n  Float32 uvScale = 1.0 / tileNum;\n  \n  mesh.beginStructureChanges();\n  \n  for (Size i = 0; i< rowCount; i++){\n    for (Size j = 0; j< colCount; j++){\n      \n      // add the polygon      \n      mesh.addPolygon(offset, offset+1, offset+2, offset+3);\n      //xfos[index] = parentXfo * Xfo(Vec3(i*spacing, 0, j*spacing));\n      offset += 4;\n      index++;\n    }\n   }\n\n   mesh.endStructureChanges();\n   \n   // create the uvs\n   GeometryAttributes attributes = mesh.getAttributes();\n   Ref<Vec2Attribute> uvs = attributes.getOrCreateAttribute(\"uvs0\", Vec2Attribute);\n  \n   for (Size i = 0; i< count; i++){\n      \n        Float32 randU = Integer(mathRandomScalar(UVseed,i,0,tileNum))* uvScale;\n        Float32 randV = Integer(mathRandomScalar(UVseed,i+1,0,tileNum))* uvScale;\n        mesh.setPolygonAttribute(i, Size(0), uvs, uvPos[0] + Vec2(randU,randV));\n        mesh.setPolygonAttribute(i, Size(1), uvs, uvPos[1] + Vec2(randU,randV));\n        mesh.setPolygonAttribute(i, Size(2), uvs, uvPos[2] + Vec2(randU,randV));\n        mesh.setPolygonAttribute(i, Size(3), uvs, uvPos[3] + Vec2(randU,randV));\n    }\n\n\n    // set the vertex positions\n    offset = 0;\n    index = 0;\n    Vec3 vertPos[];\n    vertPos.resize(4);\n    Float32 hfSize = meshSize*.5;\n    \n    vertPos[0] = Vec3(-hfSize, 0, -hfSize);\n    vertPos[1] = Vec3(-hfSize, 0, hfSize);\n    vertPos[2] = Vec3(hfSize, 0, hfSize);\n    vertPos[3] = Vec3(hfSize, 0, -hfSize);\n    \n    Xfo xfo = Xfo();\n    \n    \n    RotationOrder ro('yzx');\n    \n    for (Size i = 0; i< rowCount; i++){\n    \n      for (Size j = 0; j< colCount; j++){\n\n        Euler euler = Euler(  mathRandomScalar(RotSeed,j*i+j+i, -1, 1)*randAngle,\n                              0.0,\n                              mathRandomScalar(RotSeed,j*i+j+i, -1, 1)*randAngle,\n                              ro);\n                              \n        xfo.ori.setFromEuler(euler);\n        \n        xfo.tr = Vec3(i*spacing,0,j*spacing);\n        mesh.setPointPosition(offset, xfo.transformVector(vertPos[0]));\n        mesh.setPointPosition(offset+1, xfo.transformVector(vertPos[1]));\n        mesh.setPointPosition(offset+2, xfo.transformVector(vertPos[2]));\n        mesh.setPointPosition(offset+3, xfo.transformVector(vertPos[3]));\n        \n        xfos[index] = parentXfo * xfo.clone();\n        \n        offset += 4;\n        index++;\n     }\n   } \n   \n\n   mesh.recomputePointNormals();\n   \n   outMesh = mesh;\n}\n\n"
+        }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":222.747,\"y\":-68.0437}"
+        },
+      "name" : "EmptyDrawingHandle",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "handle"
+          }
+        ],
+      "executable" : "Fabric.Exts.InlineDrawing.DrawingHandle.EmptyDrawingHandle",
+      "presetGUID" : "2440020BA6A1CAB1CEB690A198F99C70"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":432.17,\"y\":-20.8958}"
+        },
+      "name" : "DrawAxesInstances",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "this"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "name"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "transforms"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "dummyResult"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "instance"
+          }
+        ],
+      "executable" : "Fabric.Exts.InlineDrawing.DrawingHandle.DrawAxesInstances",
+      "presetGUID" : "A2DAC55CB1CE7426981A13F213257B7A"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":113.413,\"y\":71.28189999999999}"
+        },
+      "name" : "SetFromMat44",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "this"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "m"
+          }
+        ],
+      "executable" : "Fabric.Exts.Math.Xfo.SetFromMat44",
+      "presetGUID" : "59B1B738E9402F3006B2516B14A43848"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":-4.45021,\"y\":159.282}"
+        },
+      "name" : "uvPos",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "uvPos"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "uOffset"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "vOffset"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "tileNum"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "title" : "uvPos",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "uvPos",
+            "execPortType" : "Out",
+            "typeSpec" : "Vec2[]"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "uOffset",
+            "execPortType" : "In",
+            "typeSpec" : "Float32"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "vOffset",
+            "execPortType" : "In",
+            "typeSpec" : "Float32"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "tileNum",
+            "execPortType" : "In",
+            "typeSpec" : "Integer"
+            }
+          ],
+        "extDeps" : {},
+        "code" : "dfgEntry {\n    \n  Float32 scale = 1.0 / tileNum;\n\n  Vec2 uvPos[];\n  uvPos.resize(4);\n  uvPos[0] = Vec2(0,1) * scale + Vec2(uOffset, vOffset);\n  uvPos[1] = Vec2(0,0) * scale + Vec2(uOffset, vOffset);\n  uvPos[2] = Vec2(1,0) * scale + Vec2(uOffset, vOffset);\n  uvPos[3] = Vec2(1,1) * scale + Vec2(uOffset, vOffset);\n\n}\n"
+        }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":127.674,\"y\":166.299}"
+        },
+      "name" : "Cache",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "value"
+          }
+        ],
+      "executable" : "Fabric.Core.Data.Cache",
+      "presetGUID" : "D903AFD981FE9214C69943F542D5FD60"
+      }
+    ],
+  "connections" : {
+    "rowCount" : [
+      "squareGrid.rowCount"
+      ],
+    "colCount" : [
+      "squareGrid.colCount"
+      ],
+    "spacing" : [
+      "squareGrid.spacing"
+      ],
+    "parentMatrix" : [
+      "SetFromMat44.m"
+      ],
+    "meshSize" : [
+      "squareGrid.meshSize"
+      ],
+    "uOffset" : [
+      "uvPos.uOffset"
+      ],
+    "vOffset" : [
+      "uvPos.vOffset"
+      ],
+    "tileNum" : [
+      "uvPos.tileNum",
+      "squareGrid.tileNum"
+      ],
+    "randAngle" : [
+      "squareGrid.randAngle"
+      ],
+    "RotSeed" : [
+      "squareGrid.RotSeed"
+      ],
+    "UVseed" : [
+      "squareGrid.UVseed"
+      ],
+    "squareGrid.xfos" : [
+      "DrawAxesInstances.transforms"
+      ],
+    "squareGrid.outMesh" : [
+      "outMesh"
+      ],
+    "EmptyDrawingHandle.handle" : [
+      "DrawAxesInstances.this"
+      ],
+    "DrawAxesInstances.instance" : [
+      "instance"
+      ],
+    "SetFromMat44.this" : [
+      "squareGrid.parentXfo"
+      ],
+    "uvPos.uvPos" : [
+      "Cache.value"
+      ],
+    "Cache.value" : [
+      "squareGrid.uvPos"
+      ]
+    },
+  "metadata" : {
+    "maya_id" : "1"
+    },
+  "requiredPresets" : {
+    "Fabric.Exts.InlineDrawing.DrawingHandle.EmptyDrawingHandle" : {
+      "objectType" : "Graph",
+      "title" : "EmptyDrawingHandle",
+      "cacheRule" : "never",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "In",
+          "name" : "handle",
+          "execPortType" : "Out",
+          "typeSpec" : "DrawingHandle"
+          }
+        ],
+      "extDeps" : {},
+      "presetGUID" : "2440020BA6A1CAB1CEB690A198F99C70",
+      "nodes" : [
+        {
+          "objectType" : "Inst",
+          "metadata" : {
+            "uiGraphPos" : "{\"x\": 894, \"y\": 100}"
+            },
+          "name" : "Clear",
+          "ports" : [
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "IO",
+              "name" : "this"
+              }
+            ],
+          "executable" : "Fabric.Exts.InlineDrawing.DrawingHandle.Clear",
+          "presetGUID" : "39E8D81FA7C7C4A825877F16EFE3564F",
+          "cacheRule" : "never"
+          },
+        {
+          "objectType" : "Var",
+          "metadata" : {
+            "uiGraphPos" : "{\"x\":567.0,\"y\":56.0}",
+            "uiCollapsedState" : "0"
+            },
+          "name" : "handleVar",
+          "ports" : [
+            {
+              "objectType" : "VarPort",
+              "nodePortType" : "IO",
+              "name" : "value"
+              }
+            ],
+          "dataType" : "DrawingHandle",
+          "extDep" : "InlineDrawing:*"
+          },
+        {
+          "objectType" : "Inst",
+          "metadata" : {
+            "uiGraphPos" : "{\"x\":287.0,\"y\":56.0}"
+            },
+          "name" : "CreateDrawingHandle",
+          "ports" : [
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "Out",
+              "name" : "handle"
+              }
+            ],
+          "definition" : {
+            "objectType" : "Func",
+            "title" : "Create DrawingHandle",
+            "ports" : [
+              {
+                "objectType" : "Port",
+                "nodePortType" : "In",
+                "name" : "handle",
+                "execPortType" : "Out",
+                "typeSpec" : "DrawingHandle"
+                }
+              ],
+            "extDeps" : {
+              "InlineDrawing" : "*"
+              },
+            "code" : "dfgEntry {\n  handle = DrawingHandle();\n}\n"
+            }
+          }
+        ],
+      "connections" : {
+        "Clear.this" : [
+          "handle"
+          ],
+        "handleVar.value" : [
+          "Clear.this"
+          ],
+        "CreateDrawingHandle.handle" : [
+          "handleVar.value"
+          ]
+        }
+      },
+    "Fabric.Exts.InlineDrawing.DrawingHandle.Clear" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.0/HTML/KLExtensionsGuide/InlineDrawing/DrawingHandle.html",
+        "uiTooltip" : "removes all contents from the DrawingHandle\n\n Supported by DrawingHandle"
+        },
+      "title" : "Clear",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "IO",
+          "name" : "this",
+          "execPortType" : "IO",
+          "typeSpec" : "DrawingHandle"
+          }
+        ],
+      "extDeps" : {
+        "InlineDrawing" : "*"
+        },
+      "presetGUID" : "39E8D81FA7C7C4A825877F16EFE3564F",
+      "code" : "require InlineDrawing;\n\ndfgEntry {\n  this.clear();\n}\n"
+      },
+    "Fabric.Exts.InlineDrawing.DrawingHandle.DrawAxesInstances" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.0/HTML/KLExtensionsGuide/InlineDrawing/DrawingHandle.html",
+        "uiTooltip" : "helper function to draw axes at given transforms\n\n Supported by DrawingHandle"
+        },
+      "title" : "DrawAxesInstances",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "IO",
+          "name" : "this",
+          "execPortType" : "IO",
+          "typeSpec" : "DrawingHandle"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "name",
+          "execPortType" : "In",
+          "typeSpec" : "String"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 249,\n  \"g\" : 157,\n  \"b\" : 28\n  }"
+            },
+          "nodePortType" : "Out",
+          "name" : "transforms",
+          "execPortType" : "In",
+          "typeSpec" : "Xfo[]"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 255,\n  \"g\" : 242,\n  \"b\" : 0\n  }"
+            },
+          "nodePortType" : "In",
+          "name" : "dummyResult",
+          "execPortType" : "Out",
+          "typeSpec" : "Vec3"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "In",
+          "name" : "instance",
+          "execPortType" : "Out",
+          "typeSpec" : "InlineInstance"
+          }
+        ],
+      "extDeps" : {
+        "InlineDrawing" : "*"
+        },
+      "presetGUID" : "A2DAC55CB1CE7426981A13F213257B7A",
+      "code" : "require InlineDrawing;\n\ndfgEntry {\n  this.drawAxesInstances(name, transforms, dummyResult, instance);\n}\n"
+      },
+    "Fabric.Exts.Math.Xfo.SetFromMat44" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiNodeColor" : "{\n  \"r\" : 99,\n  \"g\" : 129,\n  \"b\" : 92\n  }",
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.0/HTML/KLExtensionsGuide/Math/Xfo.html",
+        "uiTooltip" : "Sets this transform from a given Mat44\n\n Supported by Xfo"
+        },
+      "title" : "SetFromMat44",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 249,\n  \"g\" : 157,\n  \"b\" : 28\n  }"
+            },
+          "nodePortType" : "IO",
+          "name" : "this",
+          "execPortType" : "IO",
+          "typeSpec" : "Xfo"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 249,\n  \"g\" : 157,\n  \"b\" : 28\n  }"
+            },
+          "nodePortType" : "Out",
+          "name" : "m",
+          "execPortType" : "In",
+          "typeSpec" : "Mat44"
+          }
+        ],
+      "extDeps" : {
+        "Math" : "*"
+        },
+      "presetGUID" : "59B1B738E9402F3006B2516B14A43848",
+      "code" : "require Math;\n\ndfgEntry {\n  this.setFromMat44(m);\n}\n"
+      },
+    "Fabric.Core.Data.Cache" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiNodeColor" : "{\n  \"r\" : 214,\n  \"g\" : 191,\n  \"b\" : 103\n  }",
+        "uiAlwaysShowDaisyChainPorts" : "true",
+        "uiHeaderColor" : "{\n  \"r\" : 188,\n  \"g\" : 129,\n  \"b\" : 83\n  }"
+        },
+      "title" : "Cache",
+      "cacheRule" : "always",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "value",
+          "execPortType" : "In",
+          "typeSpec" : "$TYPE$"
+          }
+        ],
+      "extDeps" : {},
+      "presetGUID" : "D903AFD981FE9214C69943F542D5FD60",
+      "code" : "dfgEntry {\n}\n"
+      }
+    },
+  "args" : [
+    {
+      "type" : "SInt32",
+      "value" : 1
+      },
+    {
+      "type" : "SInt32",
+      "value" : 1
+      },
+    {
+      "type" : "Float32",
+      "value" : 1
+      },
+    {
+      "type" : "InlineInstance",
+      "value" : null,
+      "ext" : "InlineDrawing"
+      },
+    {
+      "type" : "Mat44",
+      "value" : {
+        "row0" : {
+          "x" : 0.9905067682266235,
+          "y" : 0.06025963649153709,
+          "z" : 0.1235520467162132,
+          "t" : -1.605066657066345
+          },
+        "row1" : {
+          "x" : 0.0930638387799263,
+          "y" : 0.3675346970558167,
+          "z" : -0.925341784954071,
+          "t" : 3.666369438171387
+          },
+        "row2" : {
+          "x" : -0.1011704206466675,
+          "y" : 0.9280555248260498,
+          "z" : 0.3584375977516174,
+          "t" : -2.239718675613403
+          },
+        "row3" : {
+          "x" : 0,
+          "y" : 0,
+          "z" : 0,
+          "t" : 1
+          }
+        },
+      "ext" : "Math"
+      },
+    {
+      "type" : "Float32",
+      "value" : 1
+      },
+    {
+      "type" : "PolygonMesh",
+      "value" : null,
+      "ext" : "Geometry"
+      },
+    {
+      "type" : "Float32",
+      "value" : 0
+      },
+    {
+      "type" : "Float32",
+      "value" : 0
+      },
+    {
+      "type" : "SInt32",
+      "value" : 4
+      },
+    {
+      "type" : "Float32",
+      "value" : 0
+      },
+    {
+      "type" : "SInt32",
+      "value" : 0
+      },
+    {
+      "type" : "SInt32",
+      "value" : 0
+      }
+    ]
+  }
