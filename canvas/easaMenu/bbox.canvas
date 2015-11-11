@@ -1,15 +1,15 @@
 {
   "objectType" : "Graph",
   "metadata" : {
-    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.9985339045524597,\n    \"y\" : -0.01069526467472315,\n    \"z\" : 0.05260004475712776,\n    \"t\" : 0.5684052109718323\n    },\n  \"row1\" : {\n    \"x\" : -6.786381163692567e-06,\n    \"y\" : 0.9798166751861572,\n    \"z\" : 0.1993977725505829,\n    \"t\" : 2.156287431716919\n    },\n  \"row2\" : {\n    \"x\" : -0.0536753423511982,\n    \"y\" : -0.1990901827812195,\n    \"z\" : 0.9785046577453613,\n    \"t\" : 10.6013765335083\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.9599499106407166,\n    \"y\" : -0.1194102391600609,\n    \"z\" : 0.2531635165214539,\n    \"t\" : 3.887810468673706\n    },\n  \"row1\" : {\n    \"x\" : -6.373496489686659e-06,\n    \"y\" : 0.9042974710464478,\n    \"z\" : 0.426638126373291,\n    \"t\" : 6.550525188446045\n    },\n  \"row2\" : {\n    \"x\" : -0.2799054384231567,\n    \"y\" : -0.4095441102981567,\n    \"z\" : 0.868227481842041,\n    \"t\" : 13.34252262115479\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "timeline_start" : "1",
     "timeline_loopMode" : "1",
-    "uiGraphZoom" : "{\n  \"value\" : 0.5394054055213928\n  }",
+    "uiGraphZoom" : "{\n  \"value\" : 0.3708927631378174\n  }",
     "timeline_simMode" : "0",
-    "camera_focalDistance" : "10.82994747161865",
+    "camera_focalDistance" : "15.36205863952637",
     "timeline_current" : "1",
     "timeline_end" : "50",
-    "uiGraphPan" : "{\n  \"x\" : -36.63420779552058,\n  \"y\" : 101.8009395459606\n  }"
+    "uiGraphPan" : "{\n  \"x\" : 22.27192923333905,\n  \"y\" : 325.1208172647803\n  }"
     },
   "title" : "",
   "ports" : [
@@ -127,6 +127,13 @@
       "name" : "windowMesh",
       "execPortType" : "In",
       "typeSpec" : "PolygonMesh"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "result",
+      "execPortType" : "Out",
+      "typeSpec" : "InlineDebugShape"
       }
     ],
   "extDeps" : {},
@@ -134,7 +141,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":492.0087890625,\"y\":11.70556640625}"
+        "uiGraphPos" : "{\"x\":421.6606140136719,\"y\":1.909294128417969}"
         },
       "name" : "bbox",
       "ports" : [
@@ -187,6 +194,11 @@
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "name" : "heightNum"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "winPos"
           }
         ],
       "definition" : {
@@ -262,10 +274,17 @@
             "name" : "heightNum",
             "execPortType" : "In",
             "typeSpec" : "Integer"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "winPos",
+            "execPortType" : "Out",
+            "typeSpec" : "Vec3[]"
             }
           ],
         "extDeps" : {},
-        "code" : "dfgEntry {\n  \n  Integer heightCount;\n  if (heightNum == 0)\n    heightCount = 0;\n  else\n    heightCount = heightNum*2+1;  \n  \n  Integer widthCount;\n  if (widthNum == 0)\n    widthCount = 0;\n  else\n    widthCount = widthNum*2+1; \n  \n  \n  Float32 winSpacingX, winSpacingY;\n  Float32 bbOffsetX = 0;\n  Float32 bbOffsetY = 0;\n  \n  if (useMesh) {\n    \n    LocalBoundingVolume bb = inMesh.getBoundingVolume();\n    bbOffsetX = -bb.pt1.x;\n    bbOffsetY = -bb.pt1.y;\n\n    winSpacingX = bb.pt2.x -bb.pt1.x;\n    winSpacingY = bb.pt2.y -bb.pt1.y;\n  }\n  \n  else {\n    winSpacingX = windowSpacingX;\n    winSpacingY = windowSpacingY;\n  }\n  \n  \n  Integer numPoints = (heightCount+1)*(widthCount+1);\n  \n  PolygonMesh mesh();\n  mesh.createPoints(numPoints);\n  \n  // begin changes before adding polygons\n  mesh.beginStructureChanges();\n  \n  Integer numWin = 0;\n  Size polygonSizes[];\n  Size packedPolygonPointIndices[];\n  \n  for (Size i = 0; i<heightCount; i++){\n    \n    Integer top = (i+1)*(widthCount+1);\n    Integer btm = i*(widthCount+1);\n    \n    for (Size j = 0; j<widthCount; j++){\n      \n      // skip to make a window slot\n      if ((i%2 == 1) && (j%2 == 1)) {\n        numWin++;\n        continue;\n      }\n      \n      polygonSizes.push(4);\n      packedPolygonPointIndices.push(btm+j);\n      packedPolygonPointIndices.push(btm+j+1);\n      packedPolygonPointIndices.push(top+1+j);\n      packedPolygonPointIndices.push(top+j);\n    }\n  }\n  \n  xfos.resize(numWin);\n  \n  Float32 x, y;\n  Integer index = 0;\n  Float32 currY = 0;\n  Float32 addY = 0;\n  \n  Float32 currX = 0;\n  Float32 addX = 0;\n  Integer winCount = 0;\n  Boolean addWin = false;\n  for (Size i = 0; i<heightCount+1; i++){\n   \n    if (i > 0) {\n      if (i % 2 == 1){\n        addY = spacingY;\n      }\n      else {\n        addY = winSpacingY;\n      }   \n    }\n    currY += addY;\n    \n    currX = 0;\n    addX = 0;\n    for (Size j = 0; j<widthCount+1; j++){\n      \n      if (j > 0) {\n      \n        if (j % 2 == 1){\n          addX = spacingX;\n        \n          if (useMesh && i % 2 == 1 && j != widthCount){\n            if(winCount < numWin){\n              xfos[winCount++] = Xfo(Vec3((currX+addX) + bbOffsetX, currY + bbOffsetY, 0));\n            }\n          }\n        }\n        else {\n          addX = winSpacingX;\n        }\n      }\n\n      currX += addX;\n      x = currX;\n      y = currY;\n\n      mesh.setPointPosition(index++, Vec3( x, y, 0));\n    }\n  }\n \n  mesh.addPolygons( polygonSizes, packedPolygonPointIndices );\n  mesh.endStructureChanges();\n  mesh.recomputePointNormals();\n  outMesh = mesh;\n}\n"
+        "code" : "dfgEntry {\n  \n  Integer heightCount;\n  if (heightNum == 0)\n    heightCount = 0;\n  else\n    heightCount = heightNum*2+1;  \n  \n  Integer widthCount;\n  if (widthNum == 0)\n    widthCount = 0;\n  else\n    widthCount = widthNum*2+1; \n  \n  \n  Integer numWin = widthNum * heightNum;\n  Float32 winSpacingX, winSpacingY;\n  Float32 bbOffsetX = 0;\n  Float32 bbOffsetY = 0;\n  \n  winPos.resize(numWin*4);\n  \n  // check if to use mesh, if so use winspacing based on the bb\n  if (useMesh) {\n    \n    LocalBoundingVolume bb = inMesh.getBoundingVolume();\n    bbOffsetX = -bb.pt1.x;\n    bbOffsetY = -bb.pt1.y;\n\n    winSpacingX = bb.pt2.x -bb.pt1.x;\n    winSpacingY = bb.pt2.y -bb.pt1.y;\n  }\n  \n  else {\n    winSpacingX = windowSpacingX;\n    winSpacingY = windowSpacingY;\n  }\n  \n  \n  // the num ov vert points\n  Integer numPoints = (heightCount+1)*(widthCount+1);\n  \n  PolygonMesh mesh();\n  mesh.createPoints(numPoints);\n  \n  // begin changes before adding polygons\n  mesh.beginStructureChanges();\n  \n  Size polygonSizes[];\n  Size packedPolygonPointIndices[];\n  \n  for (Size i = 0; i<heightCount; i++){\n    \n    Integer top = (i+1)*(widthCount+1);\n    Integer btm = i*(widthCount+1);\n    \n    for (Size j = 0; j<widthCount; j++){\n      \n      // skip to make a window slot\n      if ((i%2 == 1) && (j%2 == 1)) {\n        continue;\n      }\n      \n      polygonSizes.push(4);\n      packedPolygonPointIndices.push(btm+j);\n      packedPolygonPointIndices.push(btm+j+1);\n      packedPolygonPointIndices.push(top+1+j);\n      packedPolygonPointIndices.push(top+j);\n    }\n  }\n  \n  xfos.resize(numWin);\n  \n  \n\n  Float32 x, y;\n  Integer index = 0;\n  Float32 currY = 0;\n  Float32 addY = 0;\n  \n  Float32 currX = 0;\n  Float32 addX = 0;\n  Integer winCount = 0;\n  Boolean addWin = false;\n  Vec3 v = Vec3();\n  Integer winPosIndex = 0;\n  \n  for (Size i = 0; i<heightCount+1; i++){\n   \n    if (i > 0) {\n    \n      if (i % 2 == 1){\n      \n        addY = spacingY;\n      }\n      else {\n        addY = winSpacingY;\n      }   \n    }\n    currY += addY;\n    \n    currX = 0;\n    addX = 0;\n    \n    for (Size j = 0; j<widthCount+1; j++){\n      \n      if (j > 0) {\n      \n        if (j % 2 == 1){\n        \n          addX = spacingX;\n        \n          if (useMesh && i % 2 == 1 && j != widthCount){\n            if(winCount < numWin){\n              xfos[winCount++] = Xfo(Vec3((currX+addX) + bbOffsetX, currY + bbOffsetY, 0));\n            }\n          }\n        }\n        else {\n          addX = winSpacingX;\n        }\n      }\n\n      currX += addX;\n      v.x = currX;\n      v.y = currY;\n      mesh.setPointPosition(index++, v);\n      \n      \n      \n      if (i != 0 && i != heightCount && j != 0 && j != widthCount) {\n      \n        //report(i + \"\" + j);\n        winPos[winPosIndex++] = v;\n      }\n      \n    }\n  }\n  \n \n  mesh.addPolygons( polygonSizes, packedPolygonPointIndices );\n  mesh.endStructureChanges();\n  mesh.recomputePointNormals();\n  outMesh = mesh;\n}\n"
         }
       },
     {
@@ -297,7 +316,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":173.1275329589844,\"y\":323.3116760253906}"
+        "uiGraphPos" : "{\"x\":173.1275329589844,\"y\":277.0166625976562}"
         },
       "name" : "Xfo",
       "ports" : [
@@ -356,7 +375,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":57.12335968017578,\"y\":308.4802856445312}"
+        "uiGraphPos" : "{\"x\":63.43632125854492,\"y\":285.3328552246094}"
         },
       "name" : "Vec3",
       "ports" : [
@@ -396,7 +415,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":539.4664916992188,\"y\":-57.14404296875}",
+        "uiGraphPos" : "{\"x\":382.6619262695312,\"y\":422.5287780761719}",
         "uiCollapsedState" : "0"
         },
       "name" : "EmptyDrawingHandle",
@@ -413,7 +432,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":680.655029296875,\"y\":209.9926910400391}"
+        "uiGraphPos" : "{\"x\":681.9242553710938,\"y\":229.030517578125}"
         },
       "name" : "EmptyPolygonMesh",
       "ports" : [
@@ -429,7 +448,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":686.3963623046875,\"y\":261.6237182617188}"
+        "uiGraphPos" : "{\"x\":687.6655883789062,\"y\":287.0075378417969}"
         },
       "name" : "MergeMeshClones",
       "ports" : [
@@ -460,7 +479,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":870.6515502929688,\"y\":-166.4813079833984}"
+        "uiGraphPos" : "{\"x\":899.8427734375,\"y\":-105.5602874755859}"
         },
       "name" : "DrawPolygonMesh",
       "ports" : [
@@ -543,7 +562,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":872.5055541992188,\"y\":89.35588836669922}"
+        "uiGraphPos" : "{\"x\":902.3229370117188,\"y\":157.8584442138672}"
         },
       "name" : "DrawPolygonMesh_2",
       "ports" : [
@@ -616,6 +635,82 @@
         ],
       "executable" : "Fabric.Exts.InlineDrawing.DrawingHandle.DrawPolygonMesh",
       "presetGUID" : "88D132945A91B3FEB731B90CE41878AF"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":917.8947143554688,\"y\":508.7768859863281}"
+        },
+      "name" : "DrawPoints",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "this"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "pos"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "Fabric.Exts.InlineDrawing.InlineDebugShape.DrawPoints",
+      "presetGUID" : "57440AAF5B9C14306500FCAE88C8E7F4"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":634.9928588867188,\"y\":513.3381958007812}"
+        },
+      "name" : "GetEmptyDebugShape",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "this"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "name"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "Fabric.Exts.InlineDrawing.DrawingHandle.GetEmptyDebugShape",
+      "presetGUID" : "DB3916AA2CE58EEAFAEDB9E2653EF4D6"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":795.1908569335938,\"y\":533.3128662109375}"
+        },
+      "name" : "SetPointSize",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "this"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Float32" : 8
+            },
+          "name" : "value"
+          }
+        ],
+      "executable" : "Fabric.Exts.InlineDrawing.InlineDebugShape.SetPointSize",
+      "presetGUID" : "6F401B062FE20D393723F76BCC497877"
       }
     ],
   "connections" : {
@@ -650,6 +745,9 @@
     "bbox.xfos" : [
       "MergeMeshClones.transformXfos"
       ],
+    "bbox.winPos" : [
+      "DrawPoints.pos"
+      ],
     "Transform.result" : [
       "bbox.inMesh",
       "MergeMeshClones.source"
@@ -665,20 +763,30 @@
       ],
     "EmptyDrawingHandle.handle" : [
       "DrawPolygonMesh.this",
-      "DrawPolygonMesh_2.this"
+      "DrawPolygonMesh_2.this",
+      "GetEmptyDebugShape.this"
       ],
     "EmptyPolygonMesh.mesh" : [
       "MergeMeshClones.this"
       ],
     "MergeMeshClones.this" : [
-      "winMesh",
-      "DrawPolygonMesh_2.mesh"
+      "DrawPolygonMesh_2.mesh",
+      "winMesh"
       ],
     "DrawPolygonMesh.instance" : [
       "instance_2"
       ],
     "DrawPolygonMesh_2.instance" : [
       "instance"
+      ],
+    "DrawPoints.result" : [
+      "result"
+      ],
+    "GetEmptyDebugShape.result" : [
+      "SetPointSize.this"
+      ],
+    "SetPointSize.this" : [
+      "DrawPoints.this"
       ]
     },
   "requiredPresets" : {
@@ -1800,6 +1908,116 @@
         },
       "presetGUID" : "88D132945A91B3FEB731B90CE41878AF",
       "code" : "require InlineDrawing;\n\ndfgEntry {\n  this.drawPolygonMesh(name, color, specular, specFactor, transform, mesh, wireFrame, doubleSided, dummyResult, instance);\n}\n"
+      },
+    "Fabric.Exts.InlineDrawing.InlineDebugShape.DrawPoints" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.0/HTML/KLExtensionsGuide/InlineDrawing/InlineDebugShape.html",
+        "uiTooltip" : "draws a bunch of points\n\n Supported by InlineDebugShape"
+        },
+      "title" : "DrawPoints",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "IO",
+          "name" : "this",
+          "execPortType" : "IO",
+          "typeSpec" : "InlineDebugShape"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 255,\n  \"g\" : 242,\n  \"b\" : 0\n  }"
+            },
+          "nodePortType" : "Out",
+          "name" : "pos",
+          "execPortType" : "In",
+          "typeSpec" : "Vec3[]"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "InlineDebugShape"
+          }
+        ],
+      "extDeps" : {
+        "InlineDrawing" : "*"
+        },
+      "presetGUID" : "57440AAF5B9C14306500FCAE88C8E7F4",
+      "code" : "require InlineDrawing;\n\ndfgEntry {\n  result = this.drawPoints(pos);\n}\n"
+      },
+    "Fabric.Exts.InlineDrawing.DrawingHandle.GetEmptyDebugShape" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.0/HTML/KLExtensionsGuide/InlineDrawing/DrawingHandle.html",
+        "uiTooltip" : "helper function to clear a debug drawing shape\n\n Supported by DrawingHandle"
+        },
+      "title" : "GetEmptyDebugShape",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "IO",
+          "name" : "this",
+          "execPortType" : "IO",
+          "typeSpec" : "DrawingHandle"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "String" : "debug"
+            },
+          "name" : "name",
+          "execPortType" : "In",
+          "typeSpec" : "String"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "InlineDebugShape"
+          }
+        ],
+      "extDeps" : {
+        "InlineDrawing" : "*"
+        },
+      "presetGUID" : "DB3916AA2CE58EEAFAEDB9E2653EF4D6",
+      "code" : "require InlineDrawing;\n\ndfgEntry {\n  result = this.getEmptyDebugShape(name);\n}\n"
+      },
+    "Fabric.Exts.InlineDrawing.InlineDebugShape.SetPointSize" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.0/HTML/KLExtensionsGuide/InlineDrawing/InlineDebugShape.html",
+        "uiTooltip" : "sets the current point size used\n\n Supported by InlineDebugShape"
+        },
+      "title" : "SetPointSize",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "IO",
+          "name" : "this",
+          "execPortType" : "IO",
+          "typeSpec" : "InlineDebugShape"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "Scalar" : 1
+            },
+          "name" : "value",
+          "execPortType" : "In",
+          "typeSpec" : "Scalar"
+          }
+        ],
+      "extDeps" : {
+        "InlineDrawing" : "*"
+        },
+      "presetGUID" : "6F401B062FE20D393723F76BCC497877",
+      "code" : "require InlineDrawing;\n\ndfgEntry {\n  this.setPointSize(value);\n}\n"
       }
     },
   "args" : [
@@ -1825,19 +2043,19 @@
       },
     {
       "type" : "SInt32",
-      "value" : 2
+      "value" : 3
       },
     {
       "type" : "SInt32",
-      "value" : 2
+      "value" : 4
       },
     {
       "type" : "Float32",
-      "value" : 0.7174999713897705
+      "value" : 0.7402999997138977
       },
     {
       "type" : "Float32",
-      "value" : 0.225600004196167
+      "value" : 0.4156000018119812
       },
     {
       "type" : "Float32",
@@ -1859,6 +2077,11 @@
       "type" : "PolygonMesh",
       "value" : null,
       "ext" : "Geometry"
+      },
+    {
+      "type" : "InlineDebugShape",
+      "value" : null,
+      "ext" : "InlineDrawing"
       }
     ]
   }
