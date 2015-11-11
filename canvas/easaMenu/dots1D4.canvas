@@ -1,15 +1,15 @@
 {
   "objectType" : "Graph",
   "metadata" : {
-    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.9972540736198425,\n    \"y\" : -0.01535654999315739,\n    \"z\" : 0.07184235751628876,\n    \"t\" : 4.957890033721924\n    },\n  \"row1\" : {\n    \"x\" : 1.430448946848628e-06,\n    \"y\" : 0.9778644442558289,\n    \"z\" : 0.2090184986591339,\n    \"t\" : 14.42512512207031\n    },\n  \"row2\" : {\n    \"x\" : -0.07346282154321671,\n    \"y\" : -0.2084453552961349,\n    \"z\" : 0.9752604961395264,\n    \"t\" : 67.31613922119141\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.99980229139328,\n    \"y\" : 0.001814985880628228,\n    \"z\" : -0.01636085845530033,\n    \"t\" : -1.017211079597473\n    },\n  \"row1\" : {\n    \"x\" : 1.395791059621843e-06,\n    \"y\" : 0.9938201904296875,\n    \"z\" : 0.1103436574339867,\n    \"t\" : 6.850594997406006\n    },\n  \"row2\" : {\n    \"x\" : 0.0164607223123312,\n    \"y\" : -0.1103240922093391,\n    \"z\" : 0.9937272071838379,\n    \"t\" : 61.71389389038086\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "timeline_start" : "1",
     "timeline_loopMode" : "1",
-    "uiGraphZoom" : "{\n  \"value\" : 0.6297951340675354\n  }",
+    "uiGraphZoom" : "{\n  \"value\" : 0.6538479924201965\n  }",
     "timeline_simMode" : "0",
-    "camera_focalDistance" : "69.02283477783203",
+    "camera_focalDistance" : "62.10107421875",
     "timeline_current" : "1",
     "timeline_end" : "50",
-    "uiGraphPan" : "{\n  \"x\" : -233.0065355864754,\n  \"y\" : 891.1621469283309\n  }"
+    "uiGraphPan" : "{\n  \"x\" : -272.4719101019036,\n  \"y\" : 1097.238009908764\n  }"
     },
   "title" : "",
   "ports" : [
@@ -100,6 +100,23 @@
       "name" : "drawThis",
       "execPortType" : "Out",
       "typeSpec" : "DrawingHandle"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "wireFrame",
+      "execPortType" : "In",
+      "typeSpec" : "Boolean"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "outMesh",
+      "execPortType" : "Out",
+      "typeSpec" : "PolygonMesh"
       }
     ],
   "extDeps" : {},
@@ -107,7 +124,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":476.67333984375,\"y\":-1298.282592773438}"
+        "uiGraphPos" : "{\"x\":543.9673461914062,\"y\":-1619.45947265625}"
         },
       "name" : "EmptyDrawingHandle",
       "ports" : [
@@ -123,7 +140,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":488.5037841796875,\"y\":-1237.47998046875}"
+        "uiGraphPos" : "{\"x\":476.2684631347656,\"y\":-1318.538696289062}"
         },
       "name" : "detPos",
       "ports" : [
@@ -248,7 +265,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":699.09912109375,\"y\":-1274.346557617188}"
+        "uiGraphPos" : "{\"x\":766.39306640625,\"y\":-1632.228881835938}"
         },
       "name" : "debudDrawPoints",
       "ports" : [
@@ -718,60 +735,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":640.1522216796875,\"y\":-903.6283569335938}"
-        },
-      "name" : "crateMeshFromPos",
-      "ports" : [
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
-          "name" : "inPos"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "Out",
-          "name" : "outMesh"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
-          "name" : "numWidth"
-          }
-        ],
-      "definition" : {
-        "objectType" : "Func",
-        "title" : "crateMeshFromPos",
-        "ports" : [
-          {
-            "objectType" : "Port",
-            "nodePortType" : "Out",
-            "name" : "inPos",
-            "execPortType" : "In",
-            "typeSpec" : "Vec3[]"
-            },
-          {
-            "objectType" : "Port",
-            "nodePortType" : "In",
-            "name" : "outMesh",
-            "execPortType" : "Out",
-            "typeSpec" : "PolygonMesh"
-            },
-          {
-            "objectType" : "Port",
-            "nodePortType" : "Out",
-            "name" : "numWidth",
-            "execPortType" : "In",
-            "typeSpec" : "Integer"
-            }
-          ],
-        "extDeps" : {},
-        "code" : "dfgEntry {\n  \n  Integer numPoints = inPos.size;\n  Integer rowCountX = 3 * numWidth - numWidth + 2;\n  Integer rowCountY = numPoints /  rowCountX;\n  Integer numEdgePoints = rowCountX + rowCountY;\n  Integer numIndixesPoints = numPoints-(numEdgePoints-1);\n  \n  PolygonMesh mesh();\n  mesh.createPoints(numPoints);\n  \n  mesh.beginStructureChanges();\n\n  Size polygonSizes[];\n  Size packedPolygonPointIndices[];\n  \n  Integer col, row, rowOffset, a, b, c, d;\n  for (Size i = 0; i < numIndixesPoints; i++){\n  \n    col = i % (rowCountX -1);\n    row = i / (rowCountX -1);\n    rowOffset = row * rowCountX;\n      \n    a = rowOffset+col;\n    b = a + 1;\n    c = (row+1)*rowCountX+1+col;\n    d = c-1;\n    //report(a+\",\"+b+\",\"+c+\",\"+d);\n    \n    polygonSizes.push(4);\n    packedPolygonPointIndices.push(a);\n    packedPolygonPointIndices.push(b);\n    packedPolygonPointIndices.push(c);\n    packedPolygonPointIndices.push(d);\n    \n  }\n  \n  \n  for (Size i = 0; i < numPoints; i++){\n    mesh.setPointPosition(i, inPos[i]);\n  }\n  \n  mesh.addPolygons(polygonSizes, packedPolygonPointIndices);\n  mesh.endStructureChanges();\n  mesh.recomputePointNormals();\n  \n  outMesh = mesh;\n}"
-        }
-      },
-    {
-      "objectType" : "Inst",
-      "metadata" : {
-        "uiGraphPos" : "{\"x\":830.2955322265625,\"y\":-905.968994140625}"
+        "uiGraphPos" : "{\"x\":868.5308837890625,\"y\":-1419.850219726562}"
         },
       "name" : "DrawMesh",
       "ports" : [
@@ -857,7 +821,6 @@
             },
           {
             "objectType" : "Port",
-            "metadata" : {},
             "nodePortType" : "Out",
             "name" : "doubleSided",
             "execPortType" : "In",
@@ -865,7 +828,6 @@
             },
           {
             "objectType" : "Port",
-            "metadata" : {},
             "nodePortType" : "Out",
             "name" : "wireFrame",
             "execPortType" : "In",
@@ -982,12 +944,64 @@
             ]
           }
         }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":635.017578125,\"y\":-1253.730712890625}"
+        },
+      "name" : "crateMeshFromPos_2",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "inPosX"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "inPosY"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "outMesh"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "title" : "crateMeshFromPos",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "inPosX",
+            "execPortType" : "In",
+            "typeSpec" : "Vec3[]"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "inPosY",
+            "execPortType" : "In",
+            "typeSpec" : "Vec3[]"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "outMesh",
+            "execPortType" : "Out",
+            "typeSpec" : "PolygonMesh"
+            }
+          ],
+        "extDeps" : {},
+        "code" : "dfgEntry {\n  \n  Integer numX = inPosX.size;\n  Integer numY = inPosY.size;\n  \n  Integer numPoints = numY * numX;\n  PolygonMesh mesh();\n  mesh.createPoints(numPoints);\n  \n  mesh.beginStructureChanges();\n\n  Size polygonSizes[];\n  Size packedPolygonPointIndices[];\n  \n  Integer a, b, c, d;\n  Vec3 v();\n  \n  for (Size i = 0; i < numY; i++){\n    \n    v.y = inPosY[i].y;\n    \n    for (Size j = 0; j < numX; j++){\n      \n      v.x = inPosX[j].x;\n      mesh.setPointPosition(i*numX+j, v);\n      \n      // skip the windows\n      if (j % 2 == 1 && i % 2 == 1) continue;\n      \n      if (i < numY-1 && j < numX-1){\n        a = j+i*numX;\n        b = a+1;\n        d = (i+1)*numX+j;\n        c = d+1;\n        //report(a+\",\"+b+\",\"+c+\",\"+d);\n        polygonSizes.push(4);\n        packedPolygonPointIndices.push(a);\n        packedPolygonPointIndices.push(b);\n        packedPolygonPointIndices.push(c);\n        packedPolygonPointIndices.push(d);\n      }\n    }\n  }\n      \n  \n  mesh.addPolygons(polygonSizes, packedPolygonPointIndices);\n  mesh.endStructureChanges();\n  mesh.recomputePointNormals();\n  \n  outMesh = mesh;\n}"
+        }
       }
     ],
   "connections" : {
     "numWidth" : [
-      "detPos.numWidth",
-      "crateMeshFromPos.numWidth"
+      "detPos.numWidth"
       ],
     "numHeight" : [
       "detPos.numHeight"
@@ -1004,18 +1018,22 @@
     "winSpaceY" : [
       "detPos.winSpaceY"
       ],
+    "wireFrame" : [
+      "DrawMesh.wireFrame"
+      ],
     "EmptyDrawingHandle.handle" : [
       "debudDrawPoints.handle"
       ],
     "detPos.outPosX" : [
-      "debudDrawPoints.outPosX"
+      "debudDrawPoints.outPosX",
+      "crateMeshFromPos_2.inPosX"
       ],
     "detPos.outPosY" : [
-      "debudDrawPoints.outPosY"
+      "debudDrawPoints.outPosY",
+      "crateMeshFromPos_2.inPosY"
       ],
     "detPos.outGridPos" : [
-      "debudDrawPoints.gridPos",
-      "crateMeshFromPos.inPos"
+      "debudDrawPoints.gridPos"
       ],
     "debudDrawPoints.result" : [
       "result"
@@ -1026,11 +1044,12 @@
     "debudDrawPoints.result_3" : [
       "result3"
       ],
-    "crateMeshFromPos.outMesh" : [
-      "DrawMesh.mesh"
-      ],
     "DrawMesh.drawThis" : [
       "drawThis"
+      ],
+    "crateMeshFromPos_2.outMesh" : [
+      "DrawMesh.mesh",
+      "outMesh"
       ]
     },
   "requiredPresets" : {
@@ -1430,27 +1449,27 @@
   "args" : [
     {
       "type" : "SInt32",
-      "value" : 4
+      "value" : 3
       },
     {
       "type" : "SInt32",
-      "value" : 4
-      },
-    {
-      "type" : "Float32",
-      "value" : 0.5
-      },
-    {
-      "type" : "Float32",
       "value" : 3
       },
     {
       "type" : "Float32",
-      "value" : 0.5
+      "value" : 1
       },
     {
       "type" : "Float32",
-      "value" : 6
+      "value" : 5
+      },
+    {
+      "type" : "Float32",
+      "value" : 1
+      },
+    {
+      "type" : "Float32",
+      "value" : 5
       },
     {
       "type" : "InlineDebugShape",
@@ -1471,6 +1490,15 @@
       "type" : "DrawingHandle",
       "value" : null,
       "ext" : "InlineDrawing"
+      },
+    {
+      "type" : "Boolean",
+      "value" : false
+      },
+    {
+      "type" : "PolygonMesh",
+      "value" : null,
+      "ext" : "Geometry"
       }
     ]
   }
