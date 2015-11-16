@@ -1,15 +1,15 @@
 {
   "objectType" : "Graph",
   "metadata" : {
-    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.8757670521736145,\n    \"y\" : -0.1702902317047119,\n    \"z\" : 0.4515837728977203,\n    \"t\" : 4.019612312316895\n    },\n  \"row1\" : {\n    \"x\" : -1.117519332183292e-06,\n    \"y\" : 0.9355688095092773,\n    \"z\" : 0.3528677821159363,\n    \"t\" : 3.139339447021484\n    },\n  \"row2\" : {\n    \"x\" : -0.4826083481311798,\n    \"y\" : -0.3090199828147888,\n    \"z\" : 0.8194674253463745,\n    \"t\" : 7.298126220703125\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.9906523823738098,\n    \"y\" : 0.02575197815895081,\n    \"z\" : -0.1334472596645355,\n    \"t\" : -1.652947902679443\n    },\n  \"row1\" : {\n    \"x\" : -9.713023700896883e-07,\n    \"y\" : 0.9817613959312439,\n    \"z\" : 0.1894863694906235,\n    \"t\" : 2.341970205307007\n    },\n  \"row2\" : {\n    \"x\" : 0.1359034478664398,\n    \"y\" : -0.1877090334892273,\n    \"z\" : 0.9727495312690735,\n    \"t\" : 12.03853034973145\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "timeline_start" : "1",
     "timeline_loopMode" : "1",
-    "uiGraphZoom" : "{\n  \"value\" : 0.547535240650177\n  }",
+    "uiGraphZoom" : "{\n  \"value\" : 0.6135643124580383\n  }",
     "timeline_simMode" : "0",
-    "camera_focalDistance" : "8.90444278717041",
+    "camera_focalDistance" : "12.37419891357422",
     "timeline_current" : "9",
     "timeline_end" : "50",
-    "uiGraphPan" : "{\n  \"x\" : -250.5194899932129,\n  \"y\" : 963.0657319074996\n  }"
+    "uiGraphPan" : "{\n  \"x\" : -309.6775994707496,\n  \"y\" : 1217.953459562113\n  }"
     },
   "title" : "",
   "ports" : [
@@ -177,7 +177,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":445.1332397460938,\"y\":-1772.339111328125}"
+        "uiGraphPos" : "{\"x\":486.4161376953125,\"y\":-1806.741577148438}"
         },
       "name" : "detPos",
       "ports" : [
@@ -346,7 +346,7 @@
         "objectType" : "Graph",
         "metadata" : {
           "uiGraphZoom" : "{\n  \"value\" : 0.7622351050376892\n  }",
-          "uiGraphPan" : "{\n  \"x\" : -204.6388786197977,\n  \"y\" : 210.7951462430765\n  }"
+          "uiGraphPan" : "{\n  \"x\" : -227.6388854980469,\n  \"y\" : 134.7951507568359\n  }"
           },
         "title" : "",
         "ports" : [
@@ -400,7 +400,7 @@
           {
             "objectType" : "Inst",
             "metadata" : {
-              "uiGraphPos" : "{\"x\":742.0219116210938,\"y\":100.2179565429688}"
+              "uiGraphPos" : "{\"x\":753.829345703125,\"y\":106.7775955200195}"
               },
             "name" : "DrawPoints",
             "ports" : [
@@ -985,7 +985,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":907.4949340820312,\"y\":-1612.73583984375}"
+        "uiGraphPos" : "{\"x\":795.642578125,\"y\":-1666.335083007812}"
         },
       "name" : "crateMeshFromPos2",
       "ports" : [
@@ -1032,13 +1032,13 @@
             }
           ],
         "extDeps" : {},
-        "code" : "dfgEntry {\n  \n  Integer numX = inPosX.size;\n  Integer numY = inPosY.size;\n        \n  Integer numPoints = numY * numX;\n  PolygonMesh mesh();\n  mesh.createPoints(numPoints);\n  \n  mesh.beginStructureChanges();\n\n  Size polygonSizes[];\n  Size packedPolygonPointIndices[];\n  \n  Integer a, b, c, d;\n  Vec3 v();\n  \n  for (Size i = 0; i < numY; i++){\n    \n    v.y = inPosY[i].y;\n    \n    for (Size j = 0; j < numX; j++){\n      \n      v.x = inPosX[j].x;\n      mesh.setPointPosition(i*numX+j, v);\n      \n      // skip the windows\n      if (j != numX-1 && j % 2 == 1 && i != numY-1 && i % 2 == 1){\n      \n      \n        //winPos[];\n        //report(\"i \" + i / 2);\n        //report(\"j \" + j / 2);\n        //report((i / 2) * numWinY + j / 2);\n        //winPos[(i / 2) * numWinY + j / 2] = v;\n        continue;\n        \n      } \n      \n      if (i < numY-1 && j < numX-1){\n        a = j+i*numX;\n        b = a+1;\n        d = (i+1)*numX+j;\n        c = d+1;\n        //report(a+\",\"+b+\",\"+c+\",\"+d);\n        polygonSizes.push(4);\n        packedPolygonPointIndices.push(a);\n        packedPolygonPointIndices.push(b);\n        packedPolygonPointIndices.push(c);\n        packedPolygonPointIndices.push(d);\n      }\n    }\n  }\n      \n  \n  mesh.addPolygons(polygonSizes, packedPolygonPointIndices);\n  mesh.endStructureChanges();\n  mesh.recomputePointNormals();\n  \n  outMesh = mesh;\n}"
+        "code" : "dfgEntry {\n  \n  Integer numX = inPosX.size;\n  Integer numY = inPosY.size;\n        \n  Integer numPoints = numY * numX;\n  PolygonMesh mesh();\n  mesh.createPoints(numPoints);\n  \n  mesh.beginStructureChanges();\n\n  Size polygonSizes[];\n  Size packedPolygonPointIndices[];\n  \n  Integer a, b, c, d;\n  Vec3 v();\n  \n  for (Size i = 0; i < numY; i++){\n    \n    v.y = inPosY[i].y;\n    \n    for (Size j = 0; j < numX; j++){\n      \n      v.x = inPosX[j].x;\n      mesh.setPointPosition(i*numX+j, v);\n      \n      // skip the windows\n      //if (j != numX-1 && j % 2 == 1 && i != numY-1 && i % 2 == 1){\n      if (j % 2 == 1 && i % 2 == 1){\n      \n        //winPos[];\n        //report(\"i \" + i / 2);\n        //report(\"j \" + j / 2);\n        //report((i / 2) * numWinY + j / 2);\n        //winPos[(i / 2) * numWinY + j / 2] = v;\n        continue;\n        \n      } \n      \n      if (i < numY-1 && j < numX-1){\n        a = j+i*numX;\n        b = a+1;\n        d = (i+1)*numX+j;\n        c = d+1;\n        //report(a+\",\"+b+\",\"+c+\",\"+d);\n        polygonSizes.push(4);\n        packedPolygonPointIndices.push(a);\n        packedPolygonPointIndices.push(b);\n        packedPolygonPointIndices.push(c);\n        packedPolygonPointIndices.push(d);\n      }\n    }\n  }\n      \n  \n  mesh.addPolygons(polygonSizes, packedPolygonPointIndices);\n  mesh.endStructureChanges();\n  mesh.recomputePointNormals();\n  \n  outMesh = mesh;\n}"
         }
       },
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":704.0436401367188,\"y\":-1517.57763671875}"
+        "uiGraphPos" : "{\"x\":693.2313842773438,\"y\":-1469.41455078125}"
         },
       "name" : "winPos",
       "ports" : [
@@ -1338,6 +1338,62 @@
         ],
       "executable" : "Fabric.Core.Math.Mul",
       "presetGUID" : "CC951B43BB879483B46EFF7965692350"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":730.1819458007812,\"y\":-1573.519165039062}"
+        },
+      "name" : "addSpacing",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "inPos"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "outPos"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Float32" : 0.5177000164985657
+            },
+          "name" : "scale"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "title" : "addSpacing",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "inPos",
+            "execPortType" : "In",
+            "typeSpec" : "Vec3[]"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "outPos",
+            "execPortType" : "Out",
+            "typeSpec" : "Vec3[]"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "scale",
+            "execPortType" : "In",
+            "typeSpec" : "Float32"
+            }
+          ],
+        "extDeps" : {},
+        "code" : "dfgEntry {\n\n  Integer num = inPos.size();\n  outPos.resize(num);\n  \n  Vec3 incVec = Vec3(0,1,0) * scale;\n  \n  for (Size i = 0; i < num; i++) {\n  \n    if (i > 1) {\n      outPos[i] = inPos[i] + incVec;\n    }\n    \n    else {\n      outPos[i] = inPos[i];\n    }\n  }\n  \n}\n"
+        }
       }
     ],
   "connections" : {
@@ -1379,12 +1435,12 @@
       "debudDrawPoints.handle"
       ],
     "detPos.outPosX" : [
-      "debudDrawPoints.outPosX",
-      "crateMeshFromPos2.inPosX"
+      "crateMeshFromPos2.inPosX",
+      "debudDrawPoints.outPosX"
       ],
     "detPos.outPosY" : [
-      "debudDrawPoints.outPosY",
-      "crateMeshFromPos2.inPosY"
+      "crateMeshFromPos2.inPosY",
+      "debudDrawPoints.outPosY"
       ],
     "detPos.outGridPos" : [
       "winPos.inPos"
@@ -2005,27 +2061,27 @@
       },
     {
       "type" : "SInt32",
-      "value" : 5
-      },
-    {
-      "type" : "SInt32",
       "value" : 4
       },
     {
-      "type" : "Float32",
-      "value" : 0.07800000160932541
+      "type" : "SInt32",
+      "value" : 2
       },
     {
       "type" : "Float32",
-      "value" : 0.300000011920929
+      "value" : 0.09929999709129333
       },
     {
       "type" : "Float32",
-      "value" : 0.2694999873638153
+      "value" : 0.4397000074386597
       },
     {
       "type" : "Float32",
-      "value" : 0.5
+      "value" : 0.3616999983787537
+      },
+    {
+      "type" : "Float32",
+      "value" : 0.7304999828338623
       },
     {
       "type" : "Boolean",
