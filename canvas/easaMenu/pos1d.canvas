@@ -1,15 +1,15 @@
 {
   "objectType" : "Graph",
   "metadata" : {
-    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.82893306016922,\n    \"y\" : -0.197308287024498,\n    \"z\" : 0.5233208537101746,\n    \"t\" : 9.349011421203613\n    },\n  \"row1\" : {\n    \"x\" : 9.163785534838098e-07,\n    \"y\" : 0.9356641173362732,\n    \"z\" : 0.3527910113334656,\n    \"t\" : 6.300183296203613\n    },\n  \"row2\" : {\n    \"x\" : -0.5592641830444336,\n    \"y\" : -0.2924459278583527,\n    \"z\" : 0.7756590247154236,\n    \"t\" : 13.85881042480469\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.9031981229782104,\n    \"y\" : -0.1433306634426117,\n    \"z\" : 0.4044808447360992,\n    \"t\" : 9.981607437133789\n    },\n  \"row1\" : {\n    \"x\" : 8.19524302642094e-07,\n    \"y\" : 0.9425303339958191,\n    \"z\" : 0.3340087532997131,\n    \"t\" : 8.240216255187988\n    },\n  \"row2\" : {\n    \"x\" : -0.4291114211082458,\n    \"y\" : -0.3016820549964905,\n    \"z\" : 0.8513560891151428,\n    \"t\" : 21.01144218444824\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "timeline_start" : "1",
     "timeline_loopMode" : "1",
-    "uiGraphZoom" : "{\n  \"value\" : 0.6149738430976868\n  }",
+    "uiGraphZoom" : "{\n  \"value\" : 0.8669523596763611\n  }",
     "timeline_simMode" : "0",
-    "camera_focalDistance" : "17.86485862731934",
+    "camera_focalDistance" : "24.67775917053223",
     "timeline_current" : "1",
     "timeline_end" : "50",
-    "uiGraphPan" : "{\n  \"x\" : -93.30099487304688,\n  \"y\" : 133.8076171875\n  }"
+    "uiGraphPan" : "{\n  \"x\" : -107.6238098144531,\n  \"y\" : 70.73831939697266\n  }"
     },
   "title" : "",
   "ports" : [
@@ -478,13 +478,11 @@
             "Float32_2.value"
             ],
           "Push.array" : [
-            "Push_2.array"
+            "Push_2.array",
+            "array"
             ],
           "Float32.value" : [
             "Push.element"
-            ],
-          "Push_2.array" : [
-            "array"
             ],
           "Float32_2.value" : [
             "Push_2.element"
@@ -496,7 +494,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":442.6063232421875,\"y\":186.9582214355469}"
+        "uiGraphPos" : "{\"x\":442.6063232421875,\"y\":200.7998046875}"
         },
       "name" : "crateMeshFromPos2",
       "ports" : [
@@ -543,13 +541,13 @@
             }
           ],
         "extDeps" : {},
-        "code" : "dfgEntry {\n  \n  Integer numX = inPosX.size;\n  Integer numY = inPosY.size;\n        \n  Integer numPoints = numY * numX;\n  PolygonMesh mesh();\n  mesh.createPoints(numPoints);\n  \n  mesh.beginStructureChanges();\n\n  Size polygonSizes[];\n  Size packedPolygonPointIndices[];\n  \n  Integer a, b, c, d;\n  Vec3 v();\n  \n  for (Size i = 0; i < numY; i++){\n    \n    v.y = inPosY[i].y;\n    \n    for (Size j = 0; j < numX; j++){\n      \n      v.x = inPosX[j].x;\n      mesh.setPointPosition(i*numX+j, v);\n      \n      // skip the windows\n      if (j % 2 == 1 && i % 2 == 1){\n        continue;        \n      } \n      \n      if (i < numY-1 && j < numX-1){\n        a = j+i*numX;\n        b = a+1;\n        d = (i+1)*numX+j;\n        c = d+1;\n        //report(a+\",\"+b+\",\"+c+\",\"+d);\n        polygonSizes.push(4);\n        packedPolygonPointIndices.push(a);\n        packedPolygonPointIndices.push(b);\n        packedPolygonPointIndices.push(c);\n        packedPolygonPointIndices.push(d);\n      }\n    }\n  }\n      \n  \n  mesh.addPolygons(polygonSizes, packedPolygonPointIndices);\n  mesh.endStructureChanges();\n  mesh.recomputePointNormals();\n  \n  outMesh = mesh;\n}"
+        "code" : "dfgEntry {\n  \n  Integer numX = inPosX.size;\n  Integer numY = inPosY.size;\n        \n  Integer numPoints = numY * numX;\n  PolygonMesh mesh();\n  mesh.createPoints(numPoints);\n  \n  mesh.beginStructureChanges();\n\n  Size polygonSizes[];\n  Size packedPolygonPointIndices[];\n  \n  Integer a, b, c, d;\n  Vec3 v();\n  \n  for (Size i = 0; i < numY; i++){\n    \n    v.y = inPosY[i].y;\n    \n    for (Size j = 0; j < numX; j++){\n      \n      v.x = inPosX[j].x;\n      mesh.setPointPosition(i*numX+j, v);\n      \n      // skip the windows\n      if (j % 2 == 1 && i % 2 == 1){\n        continue;        \n      } \n      \n      if (i < numY-1 && j < numX-1){\n        a = j+i*numX;\n        b = a+1;\n        d = (i+1)*numX+j;\n        c = d+1;\n        //report(a+\",\"+b+\",\"+c+\",\"+d);\n        polygonSizes.push(4);\n        packedPolygonPointIndices.push(a);\n        packedPolygonPointIndices.push(b);\n        packedPolygonPointIndices.push(c);\n        packedPolygonPointIndices.push(d);\n      }\n    }\n  }\n      \n  \n  mesh.addPolygons(polygonSizes, packedPolygonPointIndices);\n  mesh.endStructureChanges();\n  mesh.recomputePointNormals();\n  \n  \n  \n  Integer numWinX = (numX-1) / 2;\n  Integer numWinY = (numY-1) / 2;\n  Integer numWinXPolys = (numX-1) - numWinX;\n  \n  Integer winRow, WinPolyOffset;\n  for (Size i = 0; i < numY-1; i++){\n  \n    winRow = i / 2;\n    WinPolyOffset = winRow * numWinXPolys;\n    \n    for (Size j = 0; j < numX-1; j++){\n      \n      // even rows\n      if (i % 2 == 0) {\n        //report(\"winRow \" + WinPolyOffset);\n        report(winRow * (numX-1)+ WinPolyOffset + j);\n        // not the last column\n        if (j < numX-2){\n          //report(\"even... i: \" + i + \"j: \" + j);\n          }\n        \n        // the last even column  \n        else {\n          //report(\"even last! i: \" + i + \"j: \" + j);\n        }\n      }\n        \n      // un-even rows\n      else{\n        \n        // not last un-even row\n        if (i < numY-2){\n          //report(\"UN-even... i: \" + i + \"j: \" + j);\n        }\n        // last un-even row\n        else{\n          //report(\"UN-even last! i: \" + i + \"j: \" + j);\n        }\n      }\n    } \n  }\n  \n  outMesh = mesh;\n}"
         }
       },
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":633.1092529296875,\"y\":179.4890289306641}"
+        "uiGraphPos" : "{\"x\":633.1092529296875,\"y\":151.8058319091797}"
         },
       "name" : "DrawMesh",
       "ports" : [
@@ -561,6 +559,14 @@
         {
           "objectType" : "InstPort",
           "nodePortType" : "In",
+          "defaultValues" : {
+            "Color" : {
+              "r" : 0.4000000059604645,
+              "g" : 0.4000000059604645,
+              "b" : 0.4000000059604645,
+              "a" : 1
+              }
+            },
           "name" : "color"
           },
         {
@@ -616,7 +622,6 @@
             },
           {
             "objectType" : "Port",
-            "metadata" : {},
             "nodePortType" : "Out",
             "name" : "wireFrame",
             "execPortType" : "In",
@@ -905,13 +910,11 @@
             "Float32_2.value"
             ],
           "Push.array" : [
-            "Push_2.array"
+            "Push_2.array",
+            "array"
             ],
           "Float32.value" : [
             "Push.element"
-            ],
-          "Push_2.array" : [
-            "array"
             ],
           "Float32_2.value" : [
             "Push_2.element"
@@ -1046,6 +1049,59 @@
         ],
       "executable" : "Fabric.Exts.Geometry.Func.Clear",
       "presetGUID" : "96D1EC86835296FFDC60533717804EE7"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":301.774169921875,\"y\":439.7723693847656}"
+        },
+      "name" : "crateMeshFromPos2_2",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "inPosX"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "inPosY"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "outMesh"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "title" : "crateMeshFromPos",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "inPosX",
+            "execPortType" : "In",
+            "typeSpec" : "Vec3[]"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "inPosY",
+            "execPortType" : "In",
+            "typeSpec" : "Vec3[]"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "outMesh",
+            "execPortType" : "Out",
+            "typeSpec" : "PolygonMesh"
+            }
+          ],
+        "extDeps" : {},
+        "code" : "dfgEntry {\n  \n  Integer numX = inPosX.size;\n  Integer numY = inPosY.size;\n        \n  Integer numPoints = numY * numX;\n  PolygonMesh mesh();\n  mesh.createPoints(numPoints);\n  \n  mesh.beginStructureChanges();\n\n  Size polygonSizes[];\n  Size packedPolygonPointIndices[];\n  \n  Integer a, b, c, d;\n  Vec3 v();\n  \n  for (Size i = 0; i < numY; i++){\n    \n    v.y = inPosY[i].y;\n    \n    for (Size j = 0; j < numX; j++){\n      \n      v.x = inPosX[j].x;\n      mesh.setPointPosition(i*numX+j, v);\n      \n      // skip the windows\n      if (j % 2 == 1 && i % 2 == 1){\n        continue;        \n      } \n      \n      if (i < numY-1 && j < numX-1){\n        a = j+i*numX;\n        b = a+1;\n        d = (i+1)*numX+j;\n        c = d+1;\n        //report(a+\",\"+b+\",\"+c+\",\"+d);\n        polygonSizes.push(4);\n        packedPolygonPointIndices.push(a);\n        packedPolygonPointIndices.push(b);\n        packedPolygonPointIndices.push(c);\n        packedPolygonPointIndices.push(d);\n      }\n    }\n  }\n      \n  \n  mesh.addPolygons(polygonSizes, packedPolygonPointIndices);\n  mesh.endStructureChanges();\n  mesh.recomputePointNormals();\n  \n  outMesh = mesh;\n}"
+        }
       }
     ],
   "connections" : {
@@ -1804,11 +1860,11 @@
       },
     {
       "type" : "SInt32",
-      "value" : 4
+      "value" : 6
       },
     {
       "type" : "SInt32",
-      "value" : 4
+      "value" : 6
       },
     {
       "type" : "Float32",
@@ -1816,7 +1872,7 @@
       },
     {
       "type" : "Float32",
-      "value" : 0.2000000029802322
+      "value" : 1
       },
     {
       "type" : "Float32",
@@ -1824,7 +1880,7 @@
       },
     {
       "type" : "Float32",
-      "value" : 0.2000000029802322
+      "value" : 1
       },
     {
       "type" : "Float32",
