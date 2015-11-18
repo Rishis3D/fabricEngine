@@ -1,16 +1,16 @@
 {
   "objectType" : "Graph",
   "metadata" : {
-    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.9850082397460938,\n    \"y\" : -0.09041678905487061,\n    \"z\" : 0.1472831070423126,\n    \"t\" : 2.361979484558105\n    },\n  \"row1\" : {\n    \"x\" : -8.736292329558637e-06,\n    \"y\" : 0.8520559072494507,\n    \"z\" : 0.5233204364776611,\n    \"t\" : 8.390873908996582\n    },\n  \"row2\" : {\n    \"x\" : -0.1728296875953674,\n    \"y\" : -0.5153555870056152,\n    \"z\" : 0.8393841981887817,\n    \"t\" : 13.4676570892334\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.9196482300758362,\n    \"y\" : -0.1604579836130142,\n    \"z\" : 0.3586654663085938,\n    \"t\" : 5.370257377624512\n    },\n  \"row1\" : {\n    \"x\" : -1.475327644584468e-05,\n    \"y\" : 0.9126615524291992,\n    \"z\" : 0.4084953665733337,\n    \"t\" : 6.113488674163818\n    },\n  \"row2\" : {\n    \"x\" : -0.3929376006126404,\n    \"y\" : -0.3755770921707153,\n    \"z\" : 0.8394209146499634,\n    \"t\" : 12.57699012756348\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "maya_id" : "1",
-    "uiGraphZoom" : "{\n  \"value\" : 0.6746361255645752\n  }",
+    "uiGraphZoom" : "{\n  \"value\" : 0.3624656796455383\n  }",
     "timeline_loopMode" : "1",
     "timeline_start" : "1",
-    "camera_focalDistance" : "16.0408992767334",
+    "camera_focalDistance" : "14.97731113433838",
     "timeline_current" : "1",
     "timeline_simMode" : "0",
     "timeline_end" : "50",
-    "uiGraphPan" : "{\n  \"x\" : -508.562744140625,\n  \"y\" : 548.15966796875\n  }"
+    "uiGraphPan" : "{\n  \"x\" : 43.98654174804688,\n  \"y\" : 255.7056427001953\n  }"
     },
   "title" : "",
   "ports" : [
@@ -236,6 +236,46 @@
       "name" : "winMesh",
       "execPortType" : "Out",
       "typeSpec" : "PolygonMesh"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "maxValueX",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "useMaxValueX",
+      "execPortType" : "In",
+      "typeSpec" : "Boolean"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "maxValueY",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "useMaxValueY",
+      "execPortType" : "In",
+      "typeSpec" : "Boolean"
       }
     ],
   "extDeps" : {},
@@ -243,108 +283,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":370.913330078125,\"y\":-318.4731750488281}"
-        },
-      "name" : "pos1d",
-      "ports" : [
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
-          "name" : "num"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
-          "name" : "spacing"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
-          "name" : "axis"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "Out",
-          "name" : "outPos"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
-          "name" : "scale"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
-          "name" : "closeEdge"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
-          "name" : "edgeOffset"
-          }
-        ],
-      "definition" : {
-        "objectType" : "Func",
-        "title" : "pos1d",
-        "ports" : [
-          {
-            "objectType" : "Port",
-            "nodePortType" : "Out",
-            "name" : "num",
-            "execPortType" : "In",
-            "typeSpec" : "Integer"
-            },
-          {
-            "objectType" : "Port",
-            "nodePortType" : "Out",
-            "name" : "spacing",
-            "execPortType" : "In",
-            "typeSpec" : "Float32[]"
-            },
-          {
-            "objectType" : "Port",
-            "nodePortType" : "Out",
-            "name" : "axis",
-            "execPortType" : "In",
-            "typeSpec" : "Integer"
-            },
-          {
-            "objectType" : "Port",
-            "nodePortType" : "In",
-            "name" : "outPos",
-            "execPortType" : "Out",
-            "typeSpec" : "Vec3[]"
-            },
-          {
-            "objectType" : "Port",
-            "nodePortType" : "Out",
-            "name" : "scale",
-            "execPortType" : "In",
-            "typeSpec" : "Float32"
-            },
-          {
-            "objectType" : "Port",
-            "nodePortType" : "Out",
-            "name" : "closeEdge",
-            "execPortType" : "In",
-            "typeSpec" : "Boolean"
-            },
-          {
-            "objectType" : "Port",
-            "nodePortType" : "Out",
-            "name" : "edgeOffset",
-            "execPortType" : "In",
-            "typeSpec" : "Float32"
-            }
-          ],
-        "extDeps" : {},
-        "code" : "dfgEntry {\n  \n  Integer numSpacing = spacing.size();\n  \n  if (num == 0 || numSpacing < 1){\n    outPos.resize(0);\n    return;\n  }\n  \n  // if we want to close the last pos, add 2 else add 1\n  Integer extraPos = closeEdge? 2 : 1;\n  Integer numPos = numSpacing * num + extraPos;\n  outPos.resize(numPos);\n  // explicitly set the first pos to 0\n  outPos[0] = Vec3();\n  \n  Float32 distArr[](numSpacing);\n  Float32 last = 0.0;\n  for (Size i = 0; i<numSpacing; i++){\n    distArr[i] = spacing[i] + last;\n    last += spacing[i];\n  }\n  \n  Vec3 vMult, v;\n  switch(axis){\n    case 0: vMult = Vec3(1,0,0); break;\n    case 1: vMult = Vec3(0,1,0); break;      \n    case 2: vMult = Vec3(0,0,1); break;      \n    default: vMult = Vec3(1,0,0);\n  }\n  \n  for (Size i = 0; i<num; i++){  \n    for (Size j = 0; j<numSpacing; j++){    \n      if (closeEdge){\n        outPos[i*numSpacing+j+1] = vMult * scale * ((distArr[j] + i * distArr[numSpacing-1]) + edgeOffset - distArr[0]);\n      }\n      else {\n        outPos[i*numSpacing+j+1] = vMult * scale * ((distArr[j] + i * distArr[numSpacing-1]));\n      }\n    }\n  }\n  \n  // add the last position to the end\n  if (closeEdge){\n    outPos[numPos-1] = outPos[numPos-2] + vMult * scale * edgeOffset;\n  }\n}\n\n"
-        }
-      },
-    {
-      "objectType" : "Inst",
-      "metadata" : {
-        "uiGraphPos" : "{\"x\":904.1223754882812,\"y\":-662.117919921875}"
+        "uiGraphPos" : "{\"x\":998.221923828125,\"y\":-672.3832397460938}"
         },
       "name" : "DrawPoints",
       "ports" : [
@@ -394,7 +333,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":912.3634033203125,\"y\":-527.4999389648438}"
+        "uiGraphPos" : "{\"x\":1006.462951660156,\"y\":-537.7652587890625}"
         },
       "name" : "DrawPoints_2",
       "ports" : [
@@ -444,7 +383,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":191.013671875,\"y\":-323.9369812011719}"
+        "uiGraphPos" : "{\"x\":-15.03534317016602,\"y\":-539.4112548828125}"
         },
       "name" : "generateSpacingArray",
       "ports" : [
@@ -633,7 +572,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":195.381103515625,\"y\":-46.89393997192383}"
+        "uiGraphPos" : "{\"x\":-27.73280143737793,\"y\":-98.74005126953125}"
         },
       "name" : "generateSpacingArray_2",
       "ports" : [
@@ -822,7 +761,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":662.3616943359375,\"y\":256.473388671875}"
+        "uiGraphPos" : "{\"x\":726.2041625976562,\"y\":210.0094909667969}"
         },
       "name" : "crateMeshFromPos2",
       "ports" : [
@@ -869,117 +808,13 @@
             }
           ],
         "extDeps" : {},
-        "code" : "dfgEntry {\n  \n  Integer numX = inPosX.size;\n  Integer numY = inPosY.size;\n  \n  if (numX < 3 || numY < 3) {\n    return;\n  }\n        \n  Integer numPoints = numY * numX;\n  PolygonMesh mesh();\n  mesh.createPoints(numPoints);\n  \n  mesh.beginStructureChanges();\n\n  Size polygonSizes[];\n  Size packedPolygonPointIndices[];\n  \n  Integer a, b, c, d;\n  Vec3 v();\n  \n  for (Size i = 0; i < numY; i++){\n    \n    v.y = inPosY[i].y;\n    \n    for (Size j = 0; j < numX; j++){\n      \n      v.x = inPosX[j].x;\n      mesh.setPointPosition(i*numX+j, v);\n      \n      // skip the windows\n      if (j % 2 == 1 && i % 2 == 1){\n        continue;        \n      } \n      \n      if (i < numY-1 && j < numX-1){\n        a = j+i*numX;\n        b = a+1;\n        d = (i+1)*numX+j;\n        c = d+1;\n        //report(a+\",\"+b+\",\"+c+\",\"+d);\n        polygonSizes.push(4);\n        packedPolygonPointIndices.push(a);\n        packedPolygonPointIndices.push(b);\n        packedPolygonPointIndices.push(c);\n        packedPolygonPointIndices.push(d);\n      }\n    }\n  }\n      \n  \n  mesh.addPolygons(polygonSizes, packedPolygonPointIndices);\n  mesh.endStructureChanges();\n  mesh.recomputePointNormals();\n  \n  \n     // create the uvs\n   GeometryAttributes attributes = mesh.getAttributes();\n   Ref<Vec2Attribute> uvs = attributes.getOrCreateAttribute(\"uvs0\", Vec2Attribute);\n  \n  Float32 maxU = inPosX[numX-1].x;\n  Float32 maxV = inPosY[numY-1].y;\n  \n  Integer numWinX = (numX-1) / 2;\n  Integer numWinY = (numY-1) / 2;\n  Integer numWinXPolys = (numX-1) - numWinX;\n  \n  Integer winRow, WinPolyOffset, fullRow, polygonIndex;\n  for (Size i = 0; i < numY-1; i++){\n  \n    winRow = i / 2;\n    WinPolyOffset = winRow * numWinXPolys;\n    \n    for (Size j = 0; j < numX-1; j++){\n      \n      // even rows\n      if (i % 2 == 0) {\n      \n        polygonIndex = winRow * (numX-1)+ WinPolyOffset + j;\n\n        // not the last column\n        if (j < numX-2){\n          mesh.setPolygonAttribute(polygonIndex, Size(0), uvs, Vec2(inPosX[j].x/maxU,inPosY[i].y/maxV));\n          mesh.setPolygonAttribute(polygonIndex, Size(3), uvs, Vec2(inPosX[j].x/maxU,inPosY[i+1].y/maxV));\n          //report(\"even... i: \" + i + \"j: \" + j);                   \n          }\n        \n        // the last even column  \n        else {\n          mesh.setPolygonAttribute(polygonIndex, Size(0), uvs, Vec2(inPosX[j].x/maxU,inPosY[i].y/maxV));\n          mesh.setPolygonAttribute(polygonIndex, Size(3), uvs, Vec2(inPosX[j].x/maxU,inPosY[i+1].y/maxV));\n          mesh.setPolygonAttribute(polygonIndex, Size(1), uvs, Vec2(inPosX[j+1].x/maxU,inPosY[i].y/maxV));\n          mesh.setPolygonAttribute(polygonIndex, Size(2), uvs, Vec2(inPosX[j+1].x/maxU,inPosY[i+1].y/maxV));\n          //report(\"even last! i: \" + i + \"j: \" + j);\n        }\n      }\n        \n      // un-even rows\n      else{\n        \n        // not last un-even row\n        if (i < numY-2){\n          //report(\"UN-even... i: \" + i + \"j: \" + j);\n        }\n        // last un-even row\n        else{\n          // on and even tile, i.e. not a window          \n          if (j % 2 == 0){\n            polygonIndex = ((i+1) /2) * (numX-1) + WinPolyOffset + (j / 2);\n            //report(polygonIndex);\n            mesh.setPolygonAttribute(polygonIndex, Size(2), uvs, Vec2(inPosX[j+1].x/maxU,inPosY[i+1].y/maxV));\n            mesh.setPolygonAttribute(polygonIndex, Size(3), uvs, Vec2(inPosX[j].x/maxU,inPosY[i+1].y/maxV));\n          }\n        }\n      }\n    } \n  }\n  \n  outMesh = mesh;\n}"
+        "code" : "dfgEntry {\n  \n  Integer numX = inPosX.size;\n  Integer numY = inPosY.size;\n  \n  if (numX < 3 || numY < 3) {\n    return;\n  }\n        \n  Integer numPoints = numY * numX;\n  PolygonMesh mesh();\n  mesh.createPoints(numPoints);\n  \n  mesh.beginStructureChanges();\n\n  Size polygonSizes[];\n  Size packedPolygonPointIndices[];\n  \n  Integer a, b, c, d;\n  Vec3 v();\n  \n  for (Size i = 0; i < numY; i++){\n    \n    v.y = inPosY[i].y;\n    \n    for (Size j = 0; j < numX; j++){\n      \n      v.x = inPosX[j].x;\n      mesh.setPointPosition(i*numX+j, v);\n      \n      // skip the windows\n      if (j % 2 == 1 && i % 2 == 1){\n        continue;        \n      } \n      \n      if (i < numY-1 && j < numX-1){\n        a = j+i*numX;\n        b = a+1;\n        d = (i+1)*numX+j;\n        c = d+1;\n        //report(a+\",\"+b+\",\"+c+\",\"+d);\n        polygonSizes.push(4);\n        packedPolygonPointIndices.push(a);\n        packedPolygonPointIndices.push(b);\n        packedPolygonPointIndices.push(c);\n        packedPolygonPointIndices.push(d);\n      }\n    }\n  }\n      \n  mesh.addPolygons(polygonSizes, packedPolygonPointIndices);\n  mesh.endStructureChanges();\n  mesh.recomputePointNormals();\n  \n  // create the uvs\n  GeometryAttributes attributes = mesh.getAttributes();\n  Ref<Vec2Attribute> uvs = attributes.getOrCreateAttribute(\"uvs0\", Vec2Attribute);\n  \n  Float32 maxU = inPosX[numX-1].x;\n  Float32 maxV = inPosY[numY-1].y;\n  \n  Integer numWinX = (numX-1) / 2;\n  Integer numWinY = (numY-1) / 2;\n  Integer numWinXPolys = (numX-1) - numWinX;\n  \n  Integer winRow, WinPolyOffset, fullRow, polygonIndex;\n  for (Size i = 0; i < numY-1; i++){\n  \n    winRow = i / 2;\n    WinPolyOffset = winRow * numWinXPolys;\n    \n    for (Size j = 0; j < numX-1; j++){\n      \n      // even rows\n      if (i % 2 == 0) {\n      \n        polygonIndex = winRow * (numX-1)+ WinPolyOffset + j;\n\n        // not the last column\n        if (j < numX-2){\n          mesh.setPolygonAttribute(polygonIndex, Size(0), uvs, Vec2(inPosX[j].x/maxU,inPosY[i].y/maxV));\n          mesh.setPolygonAttribute(polygonIndex, Size(3), uvs, Vec2(inPosX[j].x/maxU,inPosY[i+1].y/maxV));\n          //report(\"even... i: \" + i + \"j: \" + j);                   \n          }\n        \n        // the last even column  \n        else {\n          mesh.setPolygonAttribute(polygonIndex, Size(0), uvs, Vec2(inPosX[j].x/maxU,inPosY[i].y/maxV));\n          mesh.setPolygonAttribute(polygonIndex, Size(3), uvs, Vec2(inPosX[j].x/maxU,inPosY[i+1].y/maxV));\n          mesh.setPolygonAttribute(polygonIndex, Size(1), uvs, Vec2(inPosX[j+1].x/maxU,inPosY[i].y/maxV));\n          mesh.setPolygonAttribute(polygonIndex, Size(2), uvs, Vec2(inPosX[j+1].x/maxU,inPosY[i+1].y/maxV));\n          //report(\"even last! i: \" + i + \"j: \" + j);\n        }\n      }\n        \n      // un-even rows\n      else{\n        \n        // not last un-even row\n        if (i < numY-2){\n          //report(\"UN-even... i: \" + i + \"j: \" + j);\n        }\n        // last un-even row\n        else{\n          // on and even tile, i.e. not a window          \n          if (j % 2 == 0){\n            polygonIndex = ((i+1) /2) * (numX-1) + WinPolyOffset + (j / 2);\n            //report(polygonIndex);\n            mesh.setPolygonAttribute(polygonIndex, Size(2), uvs, Vec2(inPosX[j+1].x/maxU,inPosY[i+1].y/maxV));\n            mesh.setPolygonAttribute(polygonIndex, Size(3), uvs, Vec2(inPosX[j].x/maxU,inPosY[i+1].y/maxV));\n          }\n        }\n      }\n    } \n  }\n  \n  outMesh = mesh;\n}"
         }
       },
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":393.739013671875,\"y\":-18.73894309997559}"
-        },
-      "name" : "pos1d_2",
-      "ports" : [
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
-          "name" : "num"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
-          "name" : "spacing"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
-          "defaultValues" : {
-            "SInt32" : 1
-            },
-          "name" : "axis"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "Out",
-          "name" : "outPos"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
-          "name" : "scale"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
-          "name" : "closeEdge"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
-          "name" : "edgeOffset"
-          }
-        ],
-      "definition" : {
-        "objectType" : "Func",
-        "title" : "pos1d",
-        "ports" : [
-          {
-            "objectType" : "Port",
-            "nodePortType" : "Out",
-            "name" : "num",
-            "execPortType" : "In",
-            "typeSpec" : "Integer"
-            },
-          {
-            "objectType" : "Port",
-            "nodePortType" : "Out",
-            "name" : "spacing",
-            "execPortType" : "In",
-            "typeSpec" : "Float32[]"
-            },
-          {
-            "objectType" : "Port",
-            "nodePortType" : "Out",
-            "name" : "axis",
-            "execPortType" : "In",
-            "typeSpec" : "Integer"
-            },
-          {
-            "objectType" : "Port",
-            "nodePortType" : "In",
-            "name" : "outPos",
-            "execPortType" : "Out",
-            "typeSpec" : "Vec3[]"
-            },
-          {
-            "objectType" : "Port",
-            "nodePortType" : "Out",
-            "name" : "scale",
-            "execPortType" : "In",
-            "typeSpec" : "Float32"
-            },
-          {
-            "objectType" : "Port",
-            "nodePortType" : "Out",
-            "name" : "closeEdge",
-            "execPortType" : "In",
-            "typeSpec" : "Boolean"
-            },
-          {
-            "objectType" : "Port",
-            "nodePortType" : "Out",
-            "name" : "edgeOffset",
-            "execPortType" : "In",
-            "typeSpec" : "Float32"
-            }
-          ],
-        "extDeps" : {},
-        "code" : "dfgEntry {\n  \n  Integer numSpacing = spacing.size();\n  \n  if (num == 0 || numSpacing < 1){\n    outPos.resize(0);\n    return;\n  }\n  \n  // if we want to close the last pos, add 2 else add 1\n  Integer extraPos = closeEdge? 2 : 1;\n  Integer numPos = numSpacing * num + extraPos;\n  outPos.resize(numPos);\n  // explicitly set the first pos to 0\n  outPos[0] = Vec3();\n  \n  Float32 distArr[](numSpacing);\n  Float32 last = 0.0;\n  for (Size i = 0; i<numSpacing; i++){\n    distArr[i] = spacing[i] + last;\n    last += spacing[i];\n  }\n  \n  Vec3 vMult, v;\n  switch(axis){\n    case 0: vMult = Vec3(1,0,0); break;\n    case 1: vMult = Vec3(0,1,0); break;      \n    case 2: vMult = Vec3(0,0,1); break;      \n    default: vMult = Vec3(1,0,0);\n  }\n  \n  for (Size i = 0; i<num; i++){  \n    for (Size j = 0; j<numSpacing; j++){    \n      if (closeEdge){\n        outPos[i*numSpacing+j+1] = vMult * scale * ((distArr[j] + i * distArr[numSpacing-1]) + edgeOffset - distArr[0]);\n      }\n      else {\n        outPos[i*numSpacing+j+1] = vMult * scale * ((distArr[j] + i * distArr[numSpacing-1]));\n      }\n    }\n  }\n  \n  // add the last position to the end\n  if (closeEdge){\n    outPos[numPos-1] = outPos[numPos-2] + vMult * scale * edgeOffset;\n  }\n}\n\n"
-        }
-      },
-    {
-      "objectType" : "Inst",
-      "metadata" : {
-        "uiGraphPos" : "{\"x\":1281.068237304688,\"y\":-563.5176391601562}"
+        "uiGraphPos" : "{\"x\":1337.527954101562,\"y\":-584.048583984375}"
         },
       "name" : "debugDrawMesh",
       "ports" : [
@@ -1586,7 +1421,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1020.328125,\"y\":-31.79906463623047}",
+        "uiGraphPos" : "{\"x\":1099.452270507812,\"y\":-60.61497497558594}",
         "uiNodeColor" : "{\n  \"r\" : 121,\n  \"g\" : 134,\n  \"b\" : 143\n  }",
         "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }"
         },
@@ -1675,7 +1510,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":833.53857421875,\"y\":-41.12300109863281}",
+        "uiGraphPos" : "{\"x\":907.3270263671875,\"y\":-74.97772216796875}",
         "uiNodeColor" : "{\n  \"r\" : 121,\n  \"g\" : 134,\n  \"b\" : 143\n  }",
         "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }"
         },
@@ -1764,7 +1599,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1298.825561523438,\"y\":-369.3608703613281}"
+        "uiGraphPos" : "{\"x\":1355.285278320312,\"y\":-389.8916931152344}"
         },
       "name" : "DrawMesh",
       "ports" : [
@@ -1958,7 +1793,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":636.812255859375,\"y\":-94.96263885498047}"
+        "uiGraphPos" : "{\"x\":730.4609375,\"y\":-144.2337493896484}"
         },
       "name" : "getWindowCorners",
       "ports" : [
@@ -2005,13 +1840,13 @@
             }
           ],
         "extDeps" : {},
-        "code" : "dfgEntry {\n  \n  Integer numX = inPosX.size()-1;\n  Integer numY = inPosY.size()-1;\n  \n  Integer numWinX = numX/2;\n  Integer numWinY = numY/2;\n  Integer numWin = numWinX * numWinY;\n  outPos.resize(numWin * 4);\n  \n  //Integer a, b, c, d;\n  Integer index;\n  for (Size i = 0; i < numY; i++){\n    for (Size j = 0; j < numX; j++){\n      if (i % 2 == 1 && j % 2 == 1){\n        //a = i * (numX+1) + j;\n        //b = a+1;\n        //c = b + numX+1;\n        //d = c - 1;\n        //report(a + \" \" + b + \" \" + c + \" \" + d);\n\n        index = ((i / 2) * numWinX + j / 2) * 4;\n        outPos[index] = Vec3(inPosX[j].x, inPosY[i].y, 0);\n        outPos[index+1] = Vec3(inPosX[j+1].x, inPosY[i].y, 0);\n        outPos[index+2] = Vec3(inPosX[j+1].x, inPosY[i+1].y, 0);\n        outPos[index+3] = Vec3(inPosX[j].x, inPosY[i+1].y, 0);\n      }\n    }\n  }\n}\n"
+        "code" : "dfgEntry {\n  \n  Integer numX = inPosX.size()-1;\n  Integer numY = inPosY.size()-1;\n  \n  Integer numWinX = numX/2;\n  Integer numWinY = numY/2;\n  Integer numWin = numWinX * numWinY;\n  outPos.resize(numWin * 4);\n  \n  Integer index;\n  for (Size i = 0; i < numY; i++){\n    for (Size j = 0; j < numX; j++){\n      if (i % 2 == 1 && j % 2 == 1){\n        index = ((i / 2) * numWinX + j / 2) * 4;\n        outPos[index] = Vec3(inPosX[j].x, inPosY[i].y, 0);\n        outPos[index+1] = Vec3(inPosX[j+1].x, inPosY[i].y, 0);\n        outPos[index+2] = Vec3(inPosX[j+1].x, inPosY[i+1].y, 0);\n        outPos[index+3] = Vec3(inPosX[j].x, inPosY[i+1].y, 0);\n      }\n    }\n  }\n}\n"
         }
       },
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":917.0364379882812,\"y\":-378.5359191894531}"
+        "uiGraphPos" : "{\"x\":1011.135986328125,\"y\":-388.8013610839844}"
         },
       "name" : "DrawPoints2",
       "ports" : [
@@ -2062,8 +1897,8 @@
       "objectType" : "User",
       "metadata" : {
         "uiTitle" : "drawpoints",
-        "uiGraphPos" : "{\"x\":822.8494262695312,\"y\":-697.4471435546875}",
-        "uiNodeColor" : "{\n  \"r\" : 137,\n  \"g\" : 143,\n  \"b\" : 96\n  }",
+        "uiGraphPos" : "{\"x\":916.948974609375,\"y\":-707.7124633789062}",
+        "uiNodeColor" : "{\n  \"r\" : 169,\n  \"g\" : 165,\n  \"b\" : 76\n  }",
         "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
         "uiGraphSize" : "{\"w\":304.2079467773438,\"h\":459.9839477539062}"
         },
@@ -2074,7 +1909,7 @@
       "objectType" : "User",
       "metadata" : {
         "uiTitle" : "drawmesh",
-        "uiGraphPos" : "{\"x\":1221.123046875,\"y\":-668.896728515625}",
+        "uiGraphPos" : "{\"x\":1277.582763671875,\"y\":-689.4276733398438}",
         "uiNodeColor" : "{\n  \"r\" : 94,\n  \"g\" : 104,\n  \"b\" : 143\n  }",
         "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
         "uiGraphSize" : "{\"w\":265.6651611328125,\"h\":430.0062561035156}"
@@ -2086,7 +1921,9 @@
       "objectType" : "User",
       "metadata" : {
         "uiTitle" : "createWindows",
-        "uiGraphPos" : "{\"x\":618.7157592773438,\"y\":-149.2850952148438}",
+        "uiGraphPos" : "{\"x\":671.7538452148438,\"y\":-185.214111328125}",
+        "uiNodeColor" : "{\n  \"r\" : 84,\n  \"g\" : 129,\n  \"b\" : 155\n  }",
+        "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
         "uiGraphSize" : "{\"w\":599.70166015625,\"h\":288.6834106445312}"
         },
       "name" : "createWindows",
@@ -2096,7 +1933,9 @@
       "objectType" : "User",
       "metadata" : {
         "uiTitle" : "createWall",
-        "uiGraphPos" : "{\"x\":630.1356201171875,\"y\":180.4686126708984}",
+        "uiGraphPos" : "{\"x\":679.7518920898438,\"y\":141.1178131103516}",
+        "uiNodeColor" : "{\n  \"r\" : 150,\n  \"g\" : 115,\n  \"b\" : 55\n  }",
+        "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
         "uiGraphSize" : "{\"w\":288.5051879882812,\"h\":214.4531097412109}"
         },
       "name" : "createWall",
@@ -2106,10 +1945,10 @@
       "objectType" : "User",
       "metadata" : {
         "uiTitle" : "xAxis",
-        "uiGraphPos" : "{\"x\":169.0517425537109,\"y\":-369.1208190917969}",
+        "uiGraphPos" : "{\"x\":-57.43033981323242,\"y\":-588.1598510742188}",
         "uiNodeColor" : "{\n  \"r\" : 133,\n  \"g\" : 27,\n  \"b\" : 42\n  }",
         "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
-        "uiGraphSize" : "{\"w\":358.4529724121094,\"h\":244.4307250976562}"
+        "uiGraphSize" : "{\"w\":588.2064208984375,\"h\":377.8359680175781}"
         },
       "name" : "xAxis",
       "ports" : []
@@ -2118,21 +1957,471 @@
       "objectType" : "User",
       "metadata" : {
         "uiTitle" : "yAxis",
-        "uiGraphPos" : "{\"x\":174.7618103027344,\"y\":-80.76481628417969}",
+        "uiGraphPos" : "{\"x\":-52.01914596557617,\"y\":-155.8356170654297}",
         "uiNodeColor" : "{\n  \"r\" : 27,\n  \"g\" : 88,\n  \"b\" : 31\n  }",
         "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
-        "uiGraphSize" : "{\"w\":355.5979309082031,\"h\":248.7132110595703}"
+        "uiGraphSize" : "{\"w\":607.4022216796875,\"h\":388.0612182617188}"
         },
       "name" : "yAxis",
       "ports" : []
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":177.7005615234375,\"y\":-510.1287231445312}"
+        },
+      "name" : "pos1d_3",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "num"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "spacing"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "scale"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "closeEdge"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "edgeOffset"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "maxValue"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "useMaxValue"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "outValue"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "title" : "pos1d",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "num",
+            "execPortType" : "In",
+            "typeSpec" : "Integer"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "spacing",
+            "execPortType" : "In",
+            "typeSpec" : "Float32[]"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "scale",
+            "execPortType" : "In",
+            "typeSpec" : "Float32"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "closeEdge",
+            "execPortType" : "In",
+            "typeSpec" : "Boolean"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "edgeOffset",
+            "execPortType" : "In",
+            "typeSpec" : "Float32"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "maxValue",
+            "execPortType" : "In",
+            "typeSpec" : "Float32"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "useMaxValue",
+            "execPortType" : "In",
+            "typeSpec" : "Boolean"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "outValue",
+            "execPortType" : "Out",
+            "typeSpec" : "Float32[]"
+            }
+          ],
+        "extDeps" : {},
+        "code" : "dfgEntry {\n  \n  Integer numSpacing = spacing.size();\n  \n  if (num == 0 || numSpacing < 1){\n    outValue.resize(0);\n    return;\n  }\n  \n  // if we want to \"close\" the last pos, we add two else one\n  Integer extraPos = closeEdge? 2 : 1;\n  Integer numPos = numSpacing * num + extraPos;\n  outValue.resize(numPos);\n  // explicitly set the first pos to 0\n  outValue[0] = 0;\n  \n  Float32 distArr[](numSpacing);\n  Float32 last = 0.0;\n  for (Size i = 0; i<numSpacing; i++){\n    distArr[i] = spacing[i] + last;\n    last += spacing[i];\n  }\n\n  for (Size i = 0; i<num; i++){  \n    for (Size j = 0; j<numSpacing; j++){    \n      if (closeEdge){\n        outValue[i*numSpacing+j+1] = scale * ((distArr[j] + i * distArr[numSpacing-1]) + edgeOffset - distArr[0]);\n      }\n      else {\n        outValue[i*numSpacing+j+1] = scale * ((distArr[j] + i * distArr[numSpacing-1]));\n      }\n    }\n  }\n  \n  // add the last position to the end\n  if (closeEdge){\n    outValue[numPos-1] = outValue[numPos-2] + (edgeOffset * scale);\n  }\n  \n  // limit the value to the maxValue\n  if (useMaxValue){\n    Float32 scale = maxValue / outValue[numPos-1];    \n    for (Size i = 0; i<numPos; i++){  \n      outValue[i] = outValue[i] * scale;\n    }\n  }\n}"
+        }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":341.7210083007812,\"y\":-361.918212890625}",
+        "uiNodeColor" : "{\n  \"r\" : 121,\n  \"g\" : 134,\n  \"b\" : 143\n  }",
+        "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }"
+        },
+      "name" : "multScakarArrWithVec",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "inValue"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "vec"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "outPos"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "title" : "multScakarArrWithVec",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "inValue",
+            "execPortType" : "In",
+            "typeSpec" : "Float32[]"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "vec",
+            "execPortType" : "In",
+            "typeSpec" : "Vec3"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "outPos",
+            "execPortType" : "Out",
+            "typeSpec" : "Vec3[]"
+            }
+          ],
+        "extDeps" : {},
+        "code" : "dfgEntry {\n  \n  Integer num = inValue.size();\n  \n  outPos.resize(num);\n  \n  for (Size i = 0; i < num; i++){\n    outPos[i] = vec * inValue[i];\n  }\n}\n"
+        },
+      "title" : "multScalarArrWithVec"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":47.3138427734375,\"y\":-336.1671447753906}"
+        },
+      "name" : "Vec3",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Float32" : 1
+            },
+          "name" : "x"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Float32" : 0
+            },
+          "name" : "y"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Float32" : 0
+            },
+          "name" : "z"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "Fabric.Exts.Math.Vec3.Vec3",
+      "presetGUID" : "A59E49949F21CFCB14B5711D52330BA7"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":188.0959167480469,\"y\":-293.2383117675781}"
+        },
+      "name" : "Normalize",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "this"
+          }
+        ],
+      "executable" : "Fabric.Exts.Math.Func.Normalize",
+      "presetGUID" : "790EB5920942489C99076A3E729E7C10"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":176.8962249755859,\"y\":-72.68925476074219}"
+        },
+      "name" : "pos1d3",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "num"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "spacing"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "scale"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "closeEdge"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "edgeOffset"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "maxValue"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "useMaxValue"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "outValue"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "title" : "pos1d",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "num",
+            "execPortType" : "In",
+            "typeSpec" : "Integer"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "spacing",
+            "execPortType" : "In",
+            "typeSpec" : "Float32[]"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "scale",
+            "execPortType" : "In",
+            "typeSpec" : "Float32"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "closeEdge",
+            "execPortType" : "In",
+            "typeSpec" : "Boolean"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "edgeOffset",
+            "execPortType" : "In",
+            "typeSpec" : "Float32"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "maxValue",
+            "execPortType" : "In",
+            "typeSpec" : "Float32"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "useMaxValue",
+            "execPortType" : "In",
+            "typeSpec" : "Boolean"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "outValue",
+            "execPortType" : "Out",
+            "typeSpec" : "Float32[]"
+            }
+          ],
+        "extDeps" : {},
+        "code" : "dfgEntry {\n  \n  Integer numSpacing = spacing.size();\n  \n  if (num == 0 || numSpacing < 1){\n    outValue.resize(0);\n    return;\n  }\n  \n  // if we want to \"close\" the last pos, we add two else one\n  Integer extraPos = closeEdge? 2 : 1;\n  Integer numPos = numSpacing * num + extraPos;\n  outValue.resize(numPos);\n  // explicitly set the first pos to 0\n  outValue[0] = 0;\n  \n  Float32 distArr[](numSpacing);\n  Float32 last = 0.0;\n  for (Size i = 0; i<numSpacing; i++){\n    distArr[i] = spacing[i] + last;\n    last += spacing[i];\n  }\n\n  for (Size i = 0; i<num; i++){  \n    for (Size j = 0; j<numSpacing; j++){    \n      if (closeEdge){\n        outValue[i*numSpacing+j+1] = scale * ((distArr[j] + i * distArr[numSpacing-1]) + edgeOffset - distArr[0]);\n      }\n      else {\n        outValue[i*numSpacing+j+1] = scale * ((distArr[j] + i * distArr[numSpacing-1]));\n      }\n    }\n  }\n  \n  // add the last position to the end\n  if (closeEdge){\n    outValue[numPos-1] = outValue[numPos-2] + (edgeOffset * scale);\n  }\n  \n  // limit the value to the maxValue\n  if (useMaxValue){\n    Float32 scale = maxValue / outValue[numPos-1];    \n    for (Size i = 0; i<numPos; i++){  \n      outValue[i] = outValue[i] * scale;\n    }\n  }\n}"
+        }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":345.8060607910156,\"y\":65.74250793457031}",
+        "uiNodeColor" : "{\n  \"r\" : 121,\n  \"g\" : 134,\n  \"b\" : 143\n  }",
+        "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }"
+        },
+      "name" : "multScakarArrWithVec_2",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "inValue"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "vec"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "outPos"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "title" : "multScakarArrWithVec",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "inValue",
+            "execPortType" : "In",
+            "typeSpec" : "Float32[]"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "vec",
+            "execPortType" : "In",
+            "typeSpec" : "Vec3"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "outPos",
+            "execPortType" : "Out",
+            "typeSpec" : "Vec3[]"
+            }
+          ],
+        "extDeps" : {},
+        "code" : "dfgEntry {\n  \n  Integer num = inValue.size();\n  \n  outPos.resize(num);\n  \n  for (Size i = 0; i < num; i++){\n    outPos[i] = vec * inValue[i];\n  }\n}\n"
+        },
+      "title" : "multScalarArrWithVec"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":51.39889526367188,\"y\":91.49357604980469}"
+        },
+      "name" : "Vec3_2",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Float32" : 0
+            },
+          "name" : "x"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Float32" : 1
+            },
+          "name" : "y"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Float32" : 0
+            },
+          "name" : "z"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "Fabric.Exts.Math.Vec3.Vec3",
+      "presetGUID" : "A59E49949F21CFCB14B5711D52330BA7"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":192.1809844970703,\"y\":134.42236328125}"
+        },
+      "name" : "Normalize_2",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "this"
+          }
+        ],
+      "executable" : "Fabric.Exts.Math.Func.Normalize",
+      "presetGUID" : "790EB5920942489C99076A3E729E7C10"
       }
     ],
   "connections" : {
     "numX" : [
-      "pos1d.num"
+      "pos1d_3.num"
       ],
     "numY" : [
-      "pos1d_2.num"
+      "pos1d3.num"
       ],
     "spacingX1" : [
       "generateSpacingArray.spacing1"
@@ -2147,21 +2436,21 @@
       "generateSpacingArray_2.spacing2"
       ],
     "scale" : [
-      "pos1d.scale",
-      "pos1d_2.scale"
+      "pos1d_3.scale",
+      "pos1d3.scale"
       ],
     "wireFrame" : [
       "debugDrawMesh.useWireFrame"
       ],
     "closeEdge" : [
-      "pos1d.closeEdge",
-      "pos1d_2.closeEdge"
+      "pos1d_3.closeEdge",
+      "pos1d3.closeEdge"
       ],
     "edgeOffsetX" : [
-      "pos1d.edgeOffset"
+      "pos1d_3.edgeOffset"
       ],
     "edgeOffsetY" : [
-      "pos1d_2.edgeOffset"
+      "pos1d3.edgeOffset"
       ],
     "drawTexture" : [
       "debugDrawMesh.drawTexture"
@@ -2178,10 +2467,17 @@
     "backOffsetZ" : [
       "crateMeshFromPos22.backOffsetZ"
       ],
-    "pos1d.outPos" : [
-      "DrawPoints.pos",
-      "crateMeshFromPos2.inPosX",
-      "getWindowCorners.inPosX"
+    "maxValueX" : [
+      "pos1d_3.maxValue"
+      ],
+    "useMaxValueX" : [
+      "pos1d_3.useMaxValue"
+      ],
+    "maxValueY" : [
+      "pos1d3.maxValue"
+      ],
+    "useMaxValueY" : [
+      "pos1d3.useMaxValue"
       ],
     "DrawPoints.debugHandle" : [
       "debugHandle"
@@ -2190,19 +2486,14 @@
       "debugHandle_2"
       ],
     "generateSpacingArray.array" : [
-      "pos1d.spacing"
+      "pos1d_3.spacing"
       ],
     "generateSpacingArray_2.array" : [
-      "pos1d_2.spacing"
+      "pos1d3.spacing"
       ],
     "crateMeshFromPos2.outMesh" : [
       "wallMesh",
       "debugDrawMesh.outMesh"
-      ],
-    "pos1d_2.outPos" : [
-      "crateMeshFromPos2.inPosY",
-      "DrawPoints_2.pos",
-      "getWindowCorners.inPosY"
       ],
     "debugDrawMesh.this" : [
       "drawTextured"
@@ -2224,11 +2515,39 @@
       "drawThis_2"
       ],
     "getWindowCorners.outPos" : [
-      "DrawPoints2.pos",
-      "crateMeshFromPos22.inPos"
+      "crateMeshFromPos22.inPos",
+      "DrawPoints2.pos"
       ],
     "DrawPoints2.debugHandle" : [
       "debugHandle_3"
+      ],
+    "pos1d_3.outValue" : [
+      "multScakarArrWithVec.inValue"
+      ],
+    "multScakarArrWithVec.outPos" : [
+      "DrawPoints.pos",
+      "getWindowCorners.inPosX",
+      "crateMeshFromPos2.inPosX"
+      ],
+    "Vec3.result" : [
+      "Normalize.this"
+      ],
+    "Normalize.this" : [
+      "multScakarArrWithVec.vec"
+      ],
+    "pos1d3.outValue" : [
+      "multScakarArrWithVec_2.inValue"
+      ],
+    "multScakarArrWithVec_2.outPos" : [
+      "getWindowCorners.inPosY",
+      "crateMeshFromPos2.inPosY",
+      "DrawPoints_2.pos"
+      ],
+    "Vec3_2.result" : [
+      "Normalize_2.this"
+      ],
+    "Normalize_2.this" : [
+      "multScakarArrWithVec_2.vec"
       ]
     },
   "requiredPresets" : {
@@ -3004,6 +3323,76 @@
         },
       "presetGUID" : "88D132945A91B3FEB731B90CE41878AF",
       "code" : "require InlineDrawing;\n\ndfgEntry {\n  this.drawPolygonMesh(name, color, specular, specFactor, transform, mesh, wireFrame, doubleSided, dummyResult, instance);\n}\n"
+      },
+    "Fabric.Exts.Math.Vec3.Vec3" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiNodeColor" : "{\n  \"r\" : 99,\n  \"g\" : 129,\n  \"b\" : 92\n  }",
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.0/HTML/KLExtensionsGuide/Math/Vec3.html",
+        "uiTooltip" : "Constructor from scalar components\n\n Supported by Vec3"
+        },
+      "title" : "Vec3",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "x",
+          "execPortType" : "In",
+          "typeSpec" : "Scalar"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "y",
+          "execPortType" : "In",
+          "typeSpec" : "Scalar"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "z",
+          "execPortType" : "In",
+          "typeSpec" : "Scalar"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 255,\n  \"g\" : 242,\n  \"b\" : 0\n  }"
+            },
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "Vec3"
+          }
+        ],
+      "extDeps" : {
+        "Math" : "*"
+        },
+      "presetGUID" : "A59E49949F21CFCB14B5711D52330BA7",
+      "code" : "require Math;\n\ndfgEntry {\n  result = Vec3(x, y, z);\n}\n"
+      },
+    "Fabric.Exts.Math.Func.Normalize" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiNodeColor" : "{\n  \"r\" : 99,\n  \"g\" : 129,\n  \"b\" : 92\n  }",
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.0/HTML/KLExtensionsGuide/Math/Vec2.html",
+        "uiTooltip" : "\n\n Supported by Vec2,Vec2_d,Vec2_i,Vec3,Vec3_d,Vec3_i,Vec4,Vec4_d,Vec4_i"
+        },
+      "title" : "Normalize",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "IO",
+          "name" : "this",
+          "execPortType" : "IO",
+          "typeSpec" : "$TYPE$"
+          }
+        ],
+      "extDeps" : {
+        "Math" : "*"
+        },
+      "presetGUID" : "790EB5920942489C99076A3E729E7C10",
+      "code" : "require Math;\n\ndfgEntry {\n  this.normalize();\n}\n"
       }
     },
   "args" : [
@@ -3061,7 +3450,7 @@
       },
     {
       "type" : "Float32",
-      "value" : 0.1500000059604645
+      "value" : 0.300000011920929
       },
     {
       "type" : "Float32",
@@ -3115,6 +3504,22 @@
       "type" : "PolygonMesh",
       "value" : null,
       "ext" : "Geometry"
+      },
+    {
+      "type" : "Float32",
+      "value" : 6
+      },
+    {
+      "type" : "Boolean",
+      "value" : true
+      },
+    {
+      "type" : "Float32",
+      "value" : 6
+      },
+    {
+      "type" : "Boolean",
+      "value" : true
       }
     ]
   }
