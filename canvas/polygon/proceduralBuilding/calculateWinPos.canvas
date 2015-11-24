@@ -1,0 +1,1171 @@
+{
+  "objectType" : "Graph",
+  "metadata" : {
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.5540840029716492,\n    \"y\" : -0.5107313990592957,\n    \"z\" : 0.657376766204834,\n    \"t\" : 32.38314437866211\n    },\n  \"row1\" : {\n    \"x\" : -1.579533204676409e-06,\n    \"y\" : 0.7896566390991211,\n    \"z\" : 0.6135342717170715,\n    \"t\" : 30.22268867492676\n    },\n  \"row2\" : {\n    \"x\" : -0.8324685096740723,\n    \"y\" : -0.3399400115013123,\n    \"z\" : 0.4375432431697845,\n    \"t\" : 21.55619430541992\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "timeline_start" : "1",
+    "timeline_loopMode" : "1",
+    "uiGraphZoom" : "{\n  \"value\" : 0.7976261377334595\n  }",
+    "timeline_simMode" : "0",
+    "camera_focalDistance" : "49.26176452636719",
+    "timeline_current" : "1",
+    "timeline_end" : "50",
+    "uiGraphPan" : "{\n  \"x\" : 56.23382568359375,\n  \"y\" : 171.6121520996094\n  }"
+    },
+  "title" : "",
+  "ports" : [
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "debugHandle",
+      "execPortType" : "Out",
+      "typeSpec" : "InlineDebugShape"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "x",
+      "execPortType" : "In",
+      "typeSpec" : "Scalar"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "y",
+      "execPortType" : "In",
+      "typeSpec" : "Scalar"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "z",
+      "execPortType" : "In",
+      "typeSpec" : "Scalar"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "debugHandle_2",
+      "execPortType" : "Out",
+      "typeSpec" : "InlineDebugShape"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "scale",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "scaleZ",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      }
+    ],
+  "extDeps" : {},
+  "nodes" : [
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":58.70164489746094,\"y\":82.22395324707031}"
+        },
+      "name" : "getVec",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "outPos"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "xfo"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "title" : "getVec",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "outPos",
+            "execPortType" : "Out",
+            "typeSpec" : "Vec3[]"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "xfo",
+            "execPortType" : "In",
+            "typeSpec" : "Xfo"
+            }
+          ],
+        "extDeps" : {},
+        "code" : "dfgEntry {
+  outPos.resize(4);
+  
+  outPos[0] = xfo.transformVector(Vec3(0,0,0));
+  outPos[1] = xfo.transformVector(Vec3(5,0,0));
+  outPos[2] = xfo.transformVector(Vec3(5,5,0));
+  outPos[3] = xfo.transformVector(Vec3(0,5,0));
+}
+"
+        }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":360.6860046386719,\"y\":-168.4456939697266}"
+        },
+      "name" : "DrawPoints_1",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "String" : "new"
+            },
+          "name" : "name"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Color" : {
+              "r" : 1,
+              "g" : 0,
+              "b" : 1,
+              "a" : 1
+              }
+            },
+          "name" : "color"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Float32" : 4
+            },
+          "name" : "size"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "pos"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "debugHandle"
+          }
+        ],
+      "executable" : "Fabric.Compounds.Points.Display.DrawPoints",
+      "presetGUID" : "F858B0DBCA2711E1E8537A8B964E9D76"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":-70.0,\"y\":94.0}"
+        },
+      "name" : "Xfo_1",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "ori"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Vec3" : {
+              "x" : 4,
+              "y" : 3,
+              "z" : 2
+              }
+            },
+          "name" : "tr"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "sc"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "Fabric.Exts.Math.Xfo.Xfo",
+      "presetGUID" : "A0F6CD63A2069530481F214C62A069AA"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":-204.6495443936181,\"y\":39.35157891086988}"
+        },
+      "name" : "SetFromEuler_1",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "e"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "Fabric.Exts.Math.Quat.SetFromEuler",
+      "presetGUID" : "FCDF5BF056AE4ED6E25A3268BAC86C77"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":-345.0662066638141,\"y\":14.27717493404919}"
+        },
+      "name" : "Euler_1",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Float32" : -0.2265051007270813
+            },
+          "name" : "x"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Float32" : 0.748199999332428
+            },
+          "name" : "y"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Float32" : 0.7770000100135803
+            },
+          "name" : "z"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "order"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "Fabric.Exts.Math.Euler.Euler",
+      "presetGUID" : "4C1B6C23651EE376EAC335567AF0ADF2"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":333.196533203125,\"y\":9.262313842773438}"
+        },
+      "name" : "DrawPoints_2",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "String" : "orig"
+            },
+          "name" : "name"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "color"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Float32" : 6
+            },
+          "name" : "size"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "pos"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "debugHandle"
+          }
+        ],
+      "executable" : "Fabric.Compounds.Points.Display.DrawPoints",
+      "presetGUID" : "F858B0DBCA2711E1E8537A8B964E9D76"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":209.0780944824219,\"y\":-50.9162483215332}"
+        },
+      "name" : "getVec_2",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "outPos"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "inPos"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "scale"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "scaleZ"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "title" : "getVec",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "outPos",
+            "execPortType" : "Out",
+            "typeSpec" : "Vec3[]"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "inPos",
+            "execPortType" : "In",
+            "typeSpec" : "Vec3[]"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "scale",
+            "execPortType" : "In",
+            "typeSpec" : "Float32"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "scaleZ",
+            "execPortType" : "In",
+            "typeSpec" : "Float32"
+            }
+          ],
+        "extDeps" : {},
+        "code" : "dfgEntry {
+
+  Integer num = inPos.size();
+  outPos.resize(num);
+  
+  Vec3 horizVec = inPos[1]-inPos[0];
+  Vec3 vertVec = inPos[3]-inPos[0];
+  Vec3 crossVec = horizVec.cross(vertVec);
+  crossVec.normalize();
+  
+  Vec3 a, b, c, d;
+  
+  a = inPos[0] + horizVec*.5*scale + vertVec*.5*scale - crossVec*scaleZ;
+  b = inPos[1] - horizVec*.5*scale + vertVec*.5*scale - crossVec*scaleZ;
+  c = inPos[2] - horizVec*.5*scale - vertVec*.5*scale - crossVec*scaleZ;
+  d = inPos[3] + horizVec*.5*scale - vertVec*.5*scale - crossVec*scaleZ;
+  
+  outPos[0] = a;
+  outPos[1] = b;
+  outPos[2] = c;
+  outPos[3] = d;
+}
+"
+        }
+      }
+    ],
+  "connections" : {
+    "x" : [
+      "Euler_1.x"
+      ],
+    "y" : [
+      "Euler_1.y"
+      ],
+    "z" : [
+      "Euler_1.z"
+      ],
+    "scale" : [
+      "getVec_2.scale"
+      ],
+    "scaleZ" : [
+      "getVec_2.scaleZ"
+      ],
+    "getVec.outPos" : [
+      "DrawPoints_2.pos",
+      "getVec_2.inPos"
+      ],
+    "DrawPoints_1.debugHandle" : [
+      "debugHandle_2"
+      ],
+    "Xfo_1.result" : [
+      "getVec.xfo"
+      ],
+    "SetFromEuler_1.result" : [
+      "Xfo_1.ori"
+      ],
+    "Euler_1.result" : [
+      "SetFromEuler_1.e"
+      ],
+    "DrawPoints_2.debugHandle" : [
+      "debugHandle"
+      ],
+    "getVec_2.outPos" : [
+      "DrawPoints_1.pos"
+      ]
+    },
+  "requiredPresets" : {
+    "Fabric.Compounds.Points.Display.DrawPoints" : {
+      "objectType" : "Graph",
+      "title" : "DrawPoints",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "String" : "points"
+            },
+          "name" : "name",
+          "execPortType" : "In",
+          "typeSpec" : "String"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "Color" : {
+              "r" : 1,
+              "g" : 1,
+              "b" : 0,
+              "a" : 1
+              }
+            },
+          "name" : "color",
+          "execPortType" : "In",
+          "typeSpec" : "Color"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "Scalar" : 2
+            },
+          "name" : "size",
+          "execPortType" : "In",
+          "typeSpec" : "Scalar"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "pos",
+          "execPortType" : "In",
+          "typeSpec" : "Vec3[]"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "In",
+          "name" : "debugHandle",
+          "execPortType" : "Out",
+          "typeSpec" : "InlineDebugShape"
+          }
+        ],
+      "extDeps" : {},
+      "presetGUID" : "F858B0DBCA2711E1E8537A8B964E9D76",
+      "nodes" : [
+        {
+          "objectType" : "Inst",
+          "metadata" : {
+            "uiGraphPos" : "{\"x\": 615, \"y\": 181}"
+            },
+          "name" : "GetEmptyDebugShape",
+          "ports" : [
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "IO",
+              "name" : "exec"
+              },
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "IO",
+              "name" : "this"
+              },
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "In",
+              "defaultValues" : {
+                "String" : "debug"
+                },
+              "name" : "name"
+              },
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "Out",
+              "name" : "result"
+              }
+            ],
+          "executable" : "Fabric.Exts.InlineDrawing.DrawingHandle.GetEmptyDebugShape",
+          "presetGUID" : "DB3916AA2CE58EEAFAEDB9E2653EF4D6"
+          },
+        {
+          "objectType" : "Inst",
+          "metadata" : {
+            "uiGraphPos" : "{\"x\": 1205, \"y\": 255}"
+            },
+          "name" : "DrawPoints",
+          "ports" : [
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "IO",
+              "name" : "this"
+              },
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "In",
+              "name" : "pos"
+              },
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "Out",
+              "name" : "result"
+              }
+            ],
+          "executable" : "Fabric.Exts.InlineDrawing.InlineDebugShape.DrawPoints",
+          "presetGUID" : "57440AAF5B9C14306500FCAE88C8E7F4"
+          },
+        {
+          "objectType" : "Inst",
+          "metadata" : {
+            "uiGraphPos" : "{\"x\": 811, \"y\": 259}"
+            },
+          "name" : "SetPen",
+          "ports" : [
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "IO",
+              "name" : "this"
+              },
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "In",
+              "name" : "color"
+              }
+            ],
+          "executable" : "Fabric.Exts.InlineDrawing.InlineDebugShape.SetPen",
+          "presetGUID" : "831A0298E12DACF564A86570A7C7AE48"
+          },
+        {
+          "objectType" : "Inst",
+          "metadata" : {
+            "uiGraphPos" : "{\"x\": 991, \"y\": 245}"
+            },
+          "name" : "SetPointSize",
+          "ports" : [
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "IO",
+              "name" : "this"
+              },
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "In",
+              "defaultValues" : {
+                "Float32" : 2
+                },
+              "name" : "value"
+              }
+            ],
+          "executable" : "Fabric.Exts.InlineDrawing.InlineDebugShape.SetPointSize",
+          "presetGUID" : "6F401B062FE20D393723F76BCC497877"
+          },
+        {
+          "objectType" : "Inst",
+          "metadata" : {
+            "uiGraphPos" : "{\"x\":342.0,\"y\":85.0}"
+            },
+          "name" : "EmptyDrawingHandle",
+          "ports" : [
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "Out",
+              "name" : "handle"
+              }
+            ],
+          "executable" : "Fabric.Exts.InlineDrawing.DrawingHandle.EmptyDrawingHandle",
+          "presetGUID" : "2440020BA6A1CAB1CEB690A198F99C70"
+          }
+        ],
+      "connections" : {
+        "name" : [
+          "GetEmptyDebugShape.name"
+          ],
+        "color" : [
+          "SetPen.color"
+          ],
+        "size" : [
+          "SetPointSize.value"
+          ],
+        "pos" : [
+          "DrawPoints.pos"
+          ],
+        "GetEmptyDebugShape.result" : [
+          "SetPen.this"
+          ],
+        "DrawPoints.this" : [
+          "debugHandle"
+          ],
+        "SetPen.this" : [
+          "SetPointSize.this"
+          ],
+        "SetPointSize.this" : [
+          "DrawPoints.this"
+          ],
+        "EmptyDrawingHandle.handle" : [
+          "GetEmptyDebugShape.this"
+          ]
+        }
+      },
+    "Fabric.Exts.InlineDrawing.DrawingHandle.GetEmptyDebugShape" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.1/HTML/KLExtensionsGuide/InlineDrawing/DrawingHandle.html",
+        "uiTooltip" : "helper function to clear a debug drawing shape\n\n Supported by DrawingHandle"
+        },
+      "title" : "GetEmptyDebugShape",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "IO",
+          "name" : "exec",
+          "execPortType" : "IO",
+          "typeSpec" : "Execute"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "IO",
+          "name" : "this",
+          "execPortType" : "IO",
+          "typeSpec" : "DrawingHandle"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "String" : "debug"
+            },
+          "name" : "name",
+          "execPortType" : "In",
+          "typeSpec" : "String"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "InlineDebugShape"
+          }
+        ],
+      "extDeps" : {
+        "InlineDrawing" : "*",
+        "FabricInterfaces" : "*"
+        },
+      "presetGUID" : "DB3916AA2CE58EEAFAEDB9E2653EF4D6",
+      "code" : "require InlineDrawing;
+
+dfgEntry {
+  result = this.getEmptyDebugShape(name);
+}
+"
+      },
+    "Fabric.Exts.InlineDrawing.InlineDebugShape.DrawPoints" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.1/HTML/KLExtensionsGuide/InlineDrawing/InlineDebugShape.html",
+        "uiTooltip" : "draws a bunch of points\n\n Supported by InlineDebugShape"
+        },
+      "title" : "DrawPoints",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "IO",
+          "name" : "this",
+          "execPortType" : "IO",
+          "typeSpec" : "InlineDebugShape"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 255,\n  \"g\" : 242,\n  \"b\" : 0\n  }"
+            },
+          "nodePortType" : "Out",
+          "name" : "pos",
+          "execPortType" : "In",
+          "typeSpec" : "Vec3[]"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "InlineDebugShape"
+          }
+        ],
+      "extDeps" : {
+        "InlineDrawing" : "*"
+        },
+      "presetGUID" : "57440AAF5B9C14306500FCAE88C8E7F4",
+      "code" : "require InlineDrawing;
+
+dfgEntry {
+  result = this.drawPoints(pos);
+}
+"
+      },
+    "Fabric.Exts.InlineDrawing.InlineDebugShape.SetPen" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.1/HTML/KLExtensionsGuide/InlineDrawing/InlineDebugShape.html",
+        "uiTooltip" : "sets the current pen\n\n Supported by InlineDebugShape"
+        },
+      "title" : "SetPen",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "IO",
+          "name" : "this",
+          "execPortType" : "IO",
+          "typeSpec" : "InlineDebugShape"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 255,\n  \"g\" : 0,\n  \"b\" : 0\n  }"
+            },
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "Color" : {
+              "r" : 0,
+              "g" : 1,
+              "b" : 0,
+              "a" : 1
+              }
+            },
+          "name" : "color",
+          "execPortType" : "In",
+          "typeSpec" : "Color"
+          }
+        ],
+      "extDeps" : {
+        "InlineDrawing" : "*"
+        },
+      "presetGUID" : "831A0298E12DACF564A86570A7C7AE48",
+      "code" : "require InlineDrawing;
+
+dfgEntry {
+  this.setPen(color);
+}
+"
+      },
+    "Fabric.Exts.InlineDrawing.InlineDebugShape.SetPointSize" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.1/HTML/KLExtensionsGuide/InlineDrawing/InlineDebugShape.html",
+        "uiTooltip" : "sets the current point size used\n\n Supported by InlineDebugShape"
+        },
+      "title" : "SetPointSize",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "IO",
+          "name" : "this",
+          "execPortType" : "IO",
+          "typeSpec" : "InlineDebugShape"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "Scalar" : 1
+            },
+          "name" : "value",
+          "execPortType" : "In",
+          "typeSpec" : "Scalar"
+          }
+        ],
+      "extDeps" : {
+        "InlineDrawing" : "*"
+        },
+      "presetGUID" : "6F401B062FE20D393723F76BCC497877",
+      "code" : "require InlineDrawing;
+
+dfgEntry {
+  this.setPointSize(value);
+}
+"
+      },
+    "Fabric.Exts.InlineDrawing.DrawingHandle.EmptyDrawingHandle" : {
+      "objectType" : "Graph",
+      "title" : "EmptyDrawingHandle",
+      "cacheRule" : "never",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "In",
+          "name" : "handle",
+          "execPortType" : "Out",
+          "typeSpec" : "DrawingHandle"
+          }
+        ],
+      "extDeps" : {},
+      "presetGUID" : "2440020BA6A1CAB1CEB690A198F99C70",
+      "nodes" : [
+        {
+          "objectType" : "Inst",
+          "metadata" : {
+            "uiGraphPos" : "{\"x\": 894, \"y\": 100}"
+            },
+          "name" : "Clear",
+          "ports" : [
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "IO",
+              "name" : "this"
+              }
+            ],
+          "executable" : "Fabric.Exts.InlineDrawing.DrawingHandle.Clear",
+          "presetGUID" : "39E8D81FA7C7C4A825877F16EFE3564F",
+          "cacheRule" : "never"
+          },
+        {
+          "objectType" : "Var",
+          "metadata" : {
+            "uiGraphPos" : "{\"x\":567.0,\"y\":56.0}",
+            "uiCollapsedState" : "0"
+            },
+          "name" : "handleVar",
+          "ports" : [
+            {
+              "objectType" : "VarPort",
+              "nodePortType" : "IO",
+              "name" : "value"
+              }
+            ],
+          "dataType" : "DrawingHandle",
+          "extDep" : "InlineDrawing:*"
+          },
+        {
+          "objectType" : "Inst",
+          "metadata" : {
+            "uiGraphPos" : "{\"x\":287.0,\"y\":56.0}"
+            },
+          "name" : "CreateDrawingHandle",
+          "ports" : [
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "Out",
+              "name" : "handle"
+              }
+            ],
+          "definition" : {
+            "objectType" : "Func",
+            "title" : "Create DrawingHandle",
+            "ports" : [
+              {
+                "objectType" : "Port",
+                "nodePortType" : "In",
+                "name" : "handle",
+                "execPortType" : "Out",
+                "typeSpec" : "DrawingHandle"
+                }
+              ],
+            "extDeps" : {
+              "InlineDrawing" : "*"
+              },
+            "code" : "dfgEntry {
+  handle = DrawingHandle();
+}
+"
+            }
+          }
+        ],
+      "connections" : {
+        "Clear.this" : [
+          "handle"
+          ],
+        "handleVar.value" : [
+          "Clear.this"
+          ],
+        "CreateDrawingHandle.handle" : [
+          "handleVar.value"
+          ]
+        }
+      },
+    "Fabric.Exts.InlineDrawing.DrawingHandle.Clear" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.1/HTML/KLExtensionsGuide/InlineDrawing/DrawingHandle.html",
+        "uiTooltip" : "removes all contents from the DrawingHandle\n\n Supported by DrawingHandle"
+        },
+      "title" : "Clear",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "IO",
+          "name" : "this",
+          "execPortType" : "IO",
+          "typeSpec" : "DrawingHandle"
+          }
+        ],
+      "extDeps" : {
+        "InlineDrawing" : "*"
+        },
+      "presetGUID" : "39E8D81FA7C7C4A825877F16EFE3564F",
+      "code" : "require InlineDrawing;
+
+dfgEntry {
+  this.clear();
+}
+"
+      },
+    "Fabric.Exts.Math.Xfo.Xfo" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiNodeColor" : "{\n  \"r\" : 99,\n  \"g\" : 129,\n  \"b\" : 92\n  }",
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.1/HTML/KLExtensionsGuide/Math/Xfo.html",
+        "uiTooltip" : "Constructor from the orientation, translation and scaling\n\n Supported by Xfo"
+        },
+      "title" : "Xfo",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 0,\n  \"g\" : 191,\n  \"b\" : 232\n  }"
+            },
+          "nodePortType" : "Out",
+          "name" : "ori",
+          "execPortType" : "In",
+          "typeSpec" : "Quat"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 255,\n  \"g\" : 242,\n  \"b\" : 0\n  }"
+            },
+          "nodePortType" : "Out",
+          "name" : "tr",
+          "execPortType" : "In",
+          "typeSpec" : "Vec3"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 255,\n  \"g\" : 242,\n  \"b\" : 0\n  }"
+            },
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "Vec3" : {
+              "x" : 1,
+              "y" : 1,
+              "z" : 1
+              }
+            },
+          "name" : "sc",
+          "execPortType" : "In",
+          "typeSpec" : "Vec3"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 249,\n  \"g\" : 157,\n  \"b\" : 28\n  }"
+            },
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "Xfo"
+          }
+        ],
+      "extDeps" : {
+        "Math" : "*"
+        },
+      "presetGUID" : "A0F6CD63A2069530481F214C62A069AA",
+      "code" : "require Math;
+
+dfgEntry {
+  result = Xfo(ori, tr, sc);
+}
+"
+      },
+    "Fabric.Exts.Math.Quat.SetFromEuler" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiNodeColor" : "{\n  \"r\" : 99,\n  \"g\" : 129,\n  \"b\" : 92\n  }",
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.1/HTML/KLExtensionsGuide/Math/Quat.html",
+        "uiTooltip" : "Set this quat from a euler rotation\n\n Supported by Quat"
+        },
+      "title" : "SetFromEuler",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 0,\n  \"g\" : 191,\n  \"b\" : 232\n  }"
+            },
+          "nodePortType" : "Out",
+          "name" : "e",
+          "execPortType" : "In",
+          "typeSpec" : "Euler"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 0,\n  \"g\" : 191,\n  \"b\" : 232\n  }"
+            },
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "Quat"
+          }
+        ],
+      "extDeps" : {
+        "Math" : "*"
+        },
+      "presetGUID" : "FCDF5BF056AE4ED6E25A3268BAC86C77",
+      "code" : "require Math;
+
+dfgEntry {
+  result.setFromEuler(e);
+}
+"
+      },
+    "Fabric.Exts.Math.Euler.Euler" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiNodeColor" : "{\n  \"r\" : 99,\n  \"g\" : 129,\n  \"b\" : 92\n  }",
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.1/HTML/KLExtensionsGuide/Math/Euler.html",
+        "uiTooltip" : "Constructor using three Scalars as angles in radians and a RotationOrder\n\n Supported by Euler"
+        },
+      "title" : "Euler",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "x",
+          "execPortType" : "In",
+          "typeSpec" : "Scalar"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "y",
+          "execPortType" : "In",
+          "typeSpec" : "Scalar"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "z",
+          "execPortType" : "In",
+          "typeSpec" : "Scalar"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 0,\n  \"g\" : 191,\n  \"b\" : 232\n  }"
+            },
+          "nodePortType" : "Out",
+          "name" : "order",
+          "execPortType" : "In",
+          "typeSpec" : "RotationOrder"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 0,\n  \"g\" : 191,\n  \"b\" : 232\n  }"
+            },
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "Euler"
+          }
+        ],
+      "extDeps" : {
+        "Math" : "*"
+        },
+      "presetGUID" : "4C1B6C23651EE376EAC335567AF0ADF2",
+      "code" : "require Math;
+
+dfgEntry {
+  result = Euler(x, y, z, order);
+}
+"
+      }
+    },
+  "args" : [
+    {
+      "type" : "InlineDebugShape",
+      "value" : null,
+      "ext" : "InlineDrawing"
+      },
+    {
+      "type" : "Float32",
+      "value" : 0.503600001335144
+      },
+    {
+      "type" : "Float32",
+      "value" : 1
+      },
+    {
+      "type" : "Float32",
+      "value" : 0.503600001335144
+      },
+    {
+      "type" : "InlineDebugShape",
+      "value" : null,
+      "ext" : "InlineDrawing"
+      },
+    {
+      "type" : "Float32",
+      "value" : 0.2806000113487244
+      },
+    {
+      "type" : "Float32",
+      "value" : 0.9783999919891357
+      }
+    ]
+  }
