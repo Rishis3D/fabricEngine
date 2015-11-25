@@ -1,16 +1,16 @@
 {
   "objectType" : "Graph",
   "metadata" : {
-    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.8503366112709045,\n    \"y\" : -0.1559396535158157,\n    \"z\" : 0.5026658177375793,\n    \"t\" : 6.534299850463867\n    },\n  \"row1\" : {\n    \"x\" : -5.331807551556267e-05,\n    \"y\" : 0.9549250602722168,\n    \"z\" : 0.2964394986629486,\n    \"t\" : 3.848336935043335\n    },\n  \"row2\" : {\n    \"x\" : -0.5263004899024963,\n    \"y\" : -0.2520463466644287,\n    \"z\" : 0.8121204376220703,\n    \"t\" : 10.57325839996338\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.7685517072677612,\n    \"y\" : -0.2672001123428345,\n    \"z\" : 0.5813532471656799,\n    \"t\" : 7.087936878204346\n    },\n  \"row1\" : {\n    \"x\" : -5.418208093033172e-05,\n    \"y\" : 0.9084381461143494,\n    \"z\" : 0.4177576303482056,\n    \"t\" : 5.088571071624756\n    },\n  \"row2\" : {\n    \"x\" : -0.6398297548294067,\n    \"y\" : -0.3210327625274658,\n    \"z\" : 0.6982754468917847,\n    \"t\" : 8.528736114501953\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "maya_id" : "1",
-    "uiGraphZoom" : "{\n  \"value\" : 0.3092662990093231\n  }",
+    "uiGraphZoom" : "{\n  \"value\" : 0.6057671308517456\n  }",
     "timeline_loopMode" : "1",
     "timeline_start" : "1",
-    "camera_focalDistance" : "13.00601863861084",
+    "camera_focalDistance" : "12.19812107086182",
     "timeline_current" : "1",
     "timeline_simMode" : "0",
     "timeline_end" : "50",
-    "uiGraphPan" : "{\n  \"x\" : -257.8872680664062,\n  \"y\" : 135.6314086914062\n  }"
+    "uiGraphPan" : "{\n  \"x\" : -891.302001953125,\n  \"y\" : 32.47621154785156\n  }"
     },
   "title" : "",
   "ports" : [
@@ -282,6 +282,16 @@
       "name" : "debugHandle_2",
       "execPortType" : "Out",
       "typeSpec" : "InlineDebugShape"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "thickness",
+      "execPortType" : "In",
+      "typeSpec" : "Scalar"
       }
     ],
   "extDeps" : {},
@@ -2543,7 +2553,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1202.628051757812,\"y\":488.3976135253906}",
+        "uiGraphPos" : "{\"x\":1053.704833984375,\"y\":427.3563232421875}",
         "uiCollapsedState" : "0"
         },
       "name" : "pos1d_4",
@@ -2705,7 +2715,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1085.087158203125,\"y\":492.2789001464844}"
+        "uiGraphPos" : "{\"x\":936.1638793945312,\"y\":431.2376098632812}"
         },
       "name" : "getSpacing",
       "ports" : [
@@ -2741,7 +2751,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1202.627685546875,\"y\":658.4712524414062}"
+        "uiGraphPos" : "{\"x\":1053.704467773438,\"y\":597.429931640625}"
         },
       "name" : "Vec3_3",
       "ports" : [
@@ -2781,7 +2791,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1344.870849609375,\"y\":636.8253173828125}",
+        "uiGraphPos" : "{\"x\":1195.947509765625,\"y\":575.7839965820312}",
         "uiNodeColor" : "{\n  \"r\" : 121,\n  \"g\" : 134,\n  \"b\" : 143\n  }",
         "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }"
         },
@@ -2846,7 +2856,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1201.598022460938,\"y\":798.1376342773438}",
+        "uiGraphPos" : "{\"x\":1052.6748046875,\"y\":737.0963134765625}",
         "uiCollapsedState" : "0"
         },
       "name" : "pos1d_5",
@@ -3008,7 +3018,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1204.68994140625,\"y\":980.5804443359375}"
+        "uiGraphPos" : "{\"x\":1055.766723632812,\"y\":919.5391235351562}"
         },
       "name" : "Vec3_4",
       "ports" : [
@@ -3048,7 +3058,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1343.840576171875,\"y\":946.565185546875}",
+        "uiGraphPos" : "{\"x\":1194.917236328125,\"y\":885.5238647460938}",
         "uiNodeColor" : "{\n  \"r\" : 121,\n  \"g\" : 134,\n  \"b\" : 143\n  }",
         "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }"
         },
@@ -3113,7 +3123,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1069.02880859375,\"y\":796.4038696289062}"
+        "uiGraphPos" : "{\"x\":920.1055297851562,\"y\":735.362548828125}"
         },
       "name" : "getSpacing_2",
       "ports" : [
@@ -3149,7 +3159,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1539.597778320312,\"y\":801.4661865234375}"
+        "uiGraphPos" : "{\"x\":1377.95458984375,\"y\":740.4248657226562}"
         },
       "name" : "crateMeshFromPos2_2",
       "ports" : [
@@ -3504,7 +3514,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1826.8291015625,\"y\":713.080810546875}"
+        "uiGraphPos" : "{\"x\":2056.96044921875,\"y\":648.1476440429688}"
         },
       "name" : "MergeMeshClones_1",
       "ports" : [
@@ -3535,7 +3545,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1571.021240234375,\"y\":650.7125854492188}"
+        "uiGraphPos" : "{\"x\":1892.742431640625,\"y\":553.6309204101562}"
         },
       "name" : "EmptyPolygonMesh_1",
       "ports" : [
@@ -3551,7 +3561,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":819.225830078125,\"y\":738.5858154296875}"
+        "uiGraphPos" : "{\"x\":670.3025512695312,\"y\":677.5444946289062}"
         },
       "name" : "getFirstWinSpacing",
       "ports" : [
@@ -3629,7 +3639,7 @@
       "objectType" : "User",
       "metadata" : {
         "uiTitle" : "VindowFrames",
-        "uiGraphPos" : "{\"x\":699.1407470703125,\"y\":421.4394836425781}",
+        "uiGraphPos" : "{\"x\":550.2174682617188,\"y\":360.398193359375}",
         "uiNodeColor" : "{\n  \"r\" : 121,\n  \"g\" : 134,\n  \"b\" : 143\n  }",
         "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
         "uiGraphSize" : "{\"w\":1706.949340820312,\"h\":710.1958618164062}"
@@ -3640,7 +3650,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1976.072021484375,\"y\":729.15625}"
+        "uiGraphPos" : "{\"x\":1566.38623046875,\"y\":697.7950439453125}"
         },
       "name" : "AddShell_1",
       "ports" : [
@@ -3664,7 +3674,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":2115.63232421875,\"y\":722.6444702148438}"
+        "uiGraphPos" : "{\"x\":1714.046875,\"y\":763.864013671875}"
         },
       "name" : "RecomputePointNormalsIfRequired_1",
       "ports" : [
@@ -3685,7 +3695,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1708.17041015625,\"y\":838.1232299804688}"
+        "uiGraphPos" : "{\"x\":1940.850708007812,\"y\":777.0821533203125}"
         },
       "name" : "Cache_1",
       "ports" : [
@@ -3769,6 +3779,9 @@
     "numWindowDiv" : [
       "pos1d_4.num",
       "pos1d_5.num"
+      ],
+    "thickness" : [
+      "AddShell_1.thickness"
       ],
     "DrawPoints.debugHandle" : [
       "debugHandle"
@@ -3864,13 +3877,13 @@
       "pos1d_5.spacing"
       ],
     "crateMeshFromPos2_2.outMesh" : [
-      "Cache_1.value"
+      "AddShell_1.this"
       ],
     "DrawMesh_1.drawThis" : [
       "drawThis_3"
       ],
     "MergeMeshClones_1.this" : [
-      "AddShell_1.this"
+      "DrawMesh_1.mesh"
       ],
     "EmptyPolygonMesh_1.mesh" : [
       "MergeMeshClones_1.this"
@@ -3885,7 +3898,7 @@
       "RecomputePointNormalsIfRequired_1.this"
       ],
     "RecomputePointNormalsIfRequired_1.this" : [
-      "DrawMesh_1.mesh"
+      "Cache_1.value"
       ],
     "Cache_1.value" : [
       "MergeMeshClones_1.source"
@@ -5145,15 +5158,15 @@ dfgEntry {
       },
     {
       "type" : "Float32",
-      "value" : 0.5016999840736389
+      "value" : 0.503000020980835
+      },
+    {
+      "type" : "Float32",
+      "value" : 0.7810999751091003
       },
     {
       "type" : "Float32",
       "value" : 1
-      },
-    {
-      "type" : "Float32",
-      "value" : 0.5293999910354614
       },
     {
       "type" : "Float32",
@@ -5237,7 +5250,7 @@ dfgEntry {
       },
     {
       "type" : "Float32",
-      "value" : 0.04500000178813934
+      "value" : 0.05920000001788139
       },
     {
       "type" : "DrawingHandle",
@@ -5246,7 +5259,7 @@ dfgEntry {
       },
     {
       "type" : "SInt32",
-      "value" : 0
+      "value" : 5
       },
     {
       "type" : "InlineDebugShape",
@@ -5257,6 +5270,10 @@ dfgEntry {
       "type" : "InlineDebugShape",
       "value" : null,
       "ext" : "InlineDrawing"
+      },
+    {
+      "type" : "Float32",
+      "value" : 0.0296000000089407
       }
     ]
   }
