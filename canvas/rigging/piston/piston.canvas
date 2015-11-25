@@ -1,15 +1,15 @@
 {
   "objectType" : "Graph",
   "metadata" : {
-    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : -0.6591286063194275,\n    \"y\" : -0.6803533434867859,\n    \"z\" : 0.3205261528491974,\n    \"t\" : 7.964420795440674\n    },\n  \"row1\" : {\n    \"x\" : -3.278494773439888e-07,\n    \"y\" : 0.4261568486690521,\n    \"z\" : 0.9047101140022278,\n    \"t\" : 22.47667694091797\n    },\n  \"row2\" : {\n    \"x\" : -0.7521272897720337,\n    \"y\" : 0.5962291359901428,\n    \"z\" : -0.2808942496776581,\n    \"t\" : -6.97714900970459\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : -0.06954756379127502,\n    \"y\" : -0.3889798223972321,\n    \"z\" : 0.9186819195747375,\n    \"t\" : 22.82601547241211\n    },\n  \"row1\" : {\n    \"x\" : -6.85505369801831e-07,\n    \"y\" : 0.9208360314369202,\n    \"z\" : 0.3899556994438171,\n    \"t\" : 9.687182426452637\n    },\n  \"row2\" : {\n    \"x\" : -0.9976546764373779,\n    \"y\" : 0.02711557410657406,\n    \"z\" : -0.06404250860214233,\n    \"t\" : -1.58927845954895\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "timeline_start" : "1",
     "timeline_loopMode" : "1",
-    "uiGraphZoom" : "{\n  \"value\" : 0.4549726545810699\n  }",
+    "uiGraphZoom" : "{\n  \"value\" : 0.3927412331104279\n  }",
     "timeline_simMode" : "0",
     "camera_focalDistance" : "24.84741401672363",
-    "timeline_current" : "97",
+    "timeline_current" : "604",
     "timeline_end" : "5000",
-    "uiGraphPan" : "{\n  \"x\" : 185.8037603651048,\n  \"y\" : 144.707210675512\n  }"
+    "uiGraphPan" : "{\n  \"x\" : 132.9480069398181,\n  \"y\" : 199.6053853811568\n  }"
     },
   "title" : "",
   "ports" : [
@@ -145,7 +145,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":-51.17322158813477,\"y\":-56.57461547851562}",
+        "uiGraphPos" : "{\"x\":555.45947265625,\"y\":-82.78859710693359}",
         "uiCollapsedState" : "0"
         },
       "name" : "EmptyDrawingHandle_1",
@@ -199,7 +199,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":330.8742980957031,\"y\":-45.83549499511719}"
+        "uiGraphPos" : "{\"x\":769.1403198242188,\"y\":-211.3874206542969}"
         },
       "name" : "penSizeAndColor_2",
       "ports" : [
@@ -456,7 +456,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":326.0904846191406,\"y\":109.1122283935547}"
+        "uiGraphPos" : "{\"x\":778.290283203125,\"y\":-58.76200485229492}"
         },
       "name" : "penSizeAndColor_3",
       "ports" : [
@@ -714,7 +714,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":285.0592651367188,\"y\":421.9722900390625}"
+        "uiGraphPos" : "{\"x\":346.6316223144531,\"y\":188.9021301269531}"
         },
       "name" : "Xfo_1",
       "ports" : [
@@ -752,7 +752,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":417.8334045410156,\"y\":345.5762023925781}"
+        "uiGraphPos" : "{\"x\":990.792724609375,\"y\":174.2185668945312}"
         },
       "name" : "DrawAxes_1",
       "ports" : [
@@ -786,7 +786,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":217.5495300292969,\"y\":261.58642578125}"
+        "uiGraphPos" : "{\"x\":782.3809814453125,\"y\":113.4518280029297}"
         },
       "name" : "GetEmptyDebugShape_1",
       "ports" : [
@@ -820,7 +820,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":-25.22866439819336,\"y\":382.6786193847656}"
+        "uiGraphPos" : "{\"x\":8.080320358276367,\"y\":158.5446319580078}"
         },
       "name" : "Normalize_1",
       "ports" : [
@@ -836,7 +836,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":-27.38646697998047,\"y\":304.954833984375}"
+        "uiGraphPos" : "{\"x\":3.379996299743652,\"y\":97.67756652832031}"
         },
       "name" : "Normalize_2",
       "ports" : [
@@ -852,7 +852,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":145.1652526855469,\"y\":599.17431640625}"
+        "uiGraphPos" : "{\"x\":463.3202819824219,\"y\":647.9427490234375}"
         },
       "name" : "GetCube_1",
       "ports" : [
@@ -873,7 +873,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":540.6287231445312,\"y\":569.58203125}"
+        "uiGraphPos" : "{\"x\":880.8456420898438,\"y\":662.4742431640625}"
         },
       "name" : "DrawMesh_1",
       "ports" : [
@@ -899,7 +899,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":404.7720642089844,\"y\":546.714599609375}"
+        "uiGraphPos" : "{\"x\":735.6997680664062,\"y\":658.1846923828125}"
         },
       "name" : "Transform_1",
       "ports" : [
@@ -925,7 +925,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":606.53955078125,\"y\":466.0077514648438}"
+        "uiGraphPos" : "{\"x\":1029.197998046875,\"y\":665.7254028320312}"
         },
       "name" : "SetActive_1",
       "ports" : [
@@ -1054,7 +1054,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":106.1566772460938,\"y\":369.1596374511719}"
+        "uiGraphPos" : "{\"x\":146.2283020019531,\"y\":118.711669921875}"
         },
       "name" : "SetFrom2Vectors_1",
       "ports" : [
@@ -1088,7 +1088,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":279.6765747070312,\"y\":619.3512573242188}"
+        "uiGraphPos" : "{\"x\":597.8317260742188,\"y\":668.1196899414062}"
         },
       "name" : "Transform_2",
       "ports" : [
@@ -1114,7 +1114,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":137.0943298339844,\"y\":686.6064453125}"
+        "uiGraphPos" : "{\"x\":455.2493591308594,\"y\":735.3748779296875}"
         },
       "name" : "Xfo_2",
       "ports" : [
@@ -1155,6 +1155,28 @@
         ],
       "executable" : "Fabric.Exts.Math.Xfo.Xfo",
       "presetGUID" : "A0F6CD63A2069530481F214C62A069AA"
+      },
+    {
+      "objectType" : "User",
+      "metadata" : {
+        "uiTitle" : "mesh",
+        "uiGraphPos" : "{\"x\":417.8135681152344,\"y\":605.1676025390625}",
+        "uiGraphSize" : "{\"w\":779.4137573242188,\"h\":292.8746337890625}"
+        },
+      "name" : "backDrop",
+      "ports" : []
+      },
+    {
+      "objectType" : "User",
+      "metadata" : {
+        "uiTitle" : "debugDraw",
+        "uiGraphPos" : "{\"x\":527.7345581054688,\"y\":-269.4705200195312}",
+        "uiNodeColor" : "{\n  \"r\" : 121,\n  \"g\" : 134,\n  \"b\" : 143\n  }",
+        "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
+        "uiGraphSize" : "{\"w\":644.1278686523438,\"h\":595.2979736328125}"
+        },
+      "name" : "backDrop_2",
+      "ports" : []
       }
     ],
   "connections" : {
@@ -2954,7 +2976,7 @@ dfgEntry {
       },
     {
       "type" : "Boolean",
-      "value" : false
+      "value" : true
       },
     {
       "type" : "Float32",
