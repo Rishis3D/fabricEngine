@@ -1,16 +1,7 @@
 {
   "objectType" : "Graph",
   "metadata" : {
-    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.7560526132583618,\n    \"y\" : -0.3423854410648346,\n    \"z\" : 0.5578041672706604,\n    \"t\" : 28.54975509643555\n    },\n  \"row1\" : {\n    \"x\" : -5.811421033286024e-07,\n    \"y\" : 0.852242648601532,\n    \"z\" : 0.5231266021728516,\n    \"t\" : 26.77519226074219\n    },\n  \"row2\" : {\n    \"x\" : -0.6545024514198303,\n    \"y\" : -0.3955094516277313,\n    \"z\" : 0.644350528717041,\n    \"t\" : 32.98146820068359\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
-    "maya_id" : "1",
-    "uiGraphZoom" : "{\n  \"value\" : 0.3584361374378204\n  }",
-    "timeline_loopMode" : "1",
-    "timeline_start" : "1",
-    "camera_focalDistance" : "51.18422698974609",
-    "timeline_current" : "4859",
-    "timeline_simMode" : "0",
-    "timeline_end" : "5000",
-    "uiGraphPan" : "{\n  \"x\" : 44.62515258789062,\n  \"y\" : 285.0706481933594\n  }"
+    "maya_id" : "1"
     },
   "title" : "",
   "ports" : [
@@ -133,6 +124,9 @@
       },
     {
       "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
       "nodePortType" : "Out",
       "name" : "angleOffset",
       "execPortType" : "In",
@@ -246,15 +240,19 @@
   Float32 rodLength = radius + rodOffset + 0.001;
   
   Float32 pinX = x + sqrt(rodLength*rodLength-radius*radius*uy*uy);
-  Vec3 circPos = Vec3(x, uy*radius, 0);
-  circXfo.tr = circPos;
   
   Vec3 pinPos = Vec3(pinX, 0, 0);
   pinXfo.tr = pinPos;
+  
+  Vec3 circPos = Vec3(x, uy*radius, 0);
   Vec3 upVec = Vec3(0,1,0);
   Vec3 aimVec = pinPos - circPos;
   Vec3 crossVec = aimVec.cross(upVec);
-  circXfo.ori.setFromDirectionAndUpvector(crossVec, upVec);
+  Vec3 aimOrthoVec = crossVec.cross(aimVec);
+  
+  
+  circXfo.tr = circPos;
+  circXfo.ori.setFromDirectionAndUpvector(crossVec, aimOrthoVec);
   
   centerXfo.ori.setFromEuler(Vec3(0,0,angle+angleOffset));
 }
@@ -1706,6 +1704,9 @@
       "pistonMotion.angleOffset"
       ]
     },
+  "metadata" : {
+    "maya_id" : "2"
+    },
   "requiredPresets" : {
     "Fabric.Exts.InlineDrawing.DrawingHandle.EmptyDrawingHandle" : {
       "objectType" : "Graph",
@@ -2716,11 +2717,11 @@ dfgEntry {
       },
     {
       "type" : "Float32",
-      "value" : 0.4000000059604645
+      "value" : 0
       },
     {
       "type" : "Float32",
-      "value" : 5.639999866485596
+      "value" : 0
       },
     {
       "type" : "Mat44",
@@ -2758,7 +2759,7 @@ dfgEntry {
       },
     {
       "type" : "Float32",
-      "value" : null
+      "value" : 0
       }
     ]
   }
