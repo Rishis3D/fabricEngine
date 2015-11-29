@@ -1,7 +1,9 @@
 {
   "objectType" : "Graph",
   "metadata" : {
-    "maya_id" : "7"
+    "maya_id" : "2",
+    "uiGraphZoom" : "{\n  \"value\" : 1.038640141487122\n  }",
+    "uiGraphPan" : "{\n  \"x\" : -69.15505218505859,\n  \"y\" : -22.27075958251953\n  }"
     },
   "title" : "",
   "ports" : [
@@ -56,7 +58,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":221.123,\"y\":350.785}"
+        "uiGraphPos" : "{\"x\":233.049,\"y\":355.305}"
         },
       "name" : "matToAim_3",
       "ports" : [
@@ -126,15 +128,16 @@
 
     btmPos = Vec3(btmArr[3], btmArr[7], btmArr[11]);
     topPos = Vec3(topArr[3], topArr[7], topArr[11]);
-  
-    upVec = Vec3(btmArr[2], btmArr[6], btmArr[10]);
-    scaleZ = upVec.length();
-    
     aimVec = topPos - btmPos;
-  
-    upVec.normalize();
     aimVec.normalize();
-
+    
+    // calculate the rotation matrix for the btm
+    
+    upVec = Vec3(btmArr[2], btmArr[6], btmArr[10]);
+    
+    scaleZ = upVec.length();
+    upVec.normalize();
+    
     crossVec = aimVec.cross(upVec);
     crossVec.normalize();
   
@@ -148,11 +151,28 @@
     btmXfo.tr = btmPos;
     btmXfo.ori.setFromMat33(rotMat);
     btmXfo.sc = Vec3(scaleZ, scaleZ, scaleZ);
+    
+    
+    // calculate the rotation matrix for the top
+    
+    upVec = Vec3(topArr[2], topArr[6], topArr[10]);
+    upVec.normalize();
+    
+    crossVec = aimVec.cross(upVec);
+    crossVec.normalize();
+  
+    upOrthoVec = crossVec.cross(aimVec);
+    upOrthoVec.normalize();
+  
+    rotMat = Mat33( aimVec.x,upOrthoVec.x,crossVec.x,
+                    aimVec.y,upOrthoVec.y,crossVec.y,
+                    aimVec.z,upOrthoVec.z,crossVec.z);
   
     topXfo.tr = topPos;
     topXfo.ori.setFromMat33(rotMat);
     topXfo.sc = Vec3(scaleZ, scaleZ, scaleZ);
     
+ 
     outTopXfo[i] = topXfo;
     outBtmXfo[i] = btmXfo;
   }  
@@ -338,7 +358,7 @@
       ]
     },
   "metadata" : {
-    "maya_id" : "7"
+    "maya_id" : "2"
     },
   "requiredPresets" : {
     "Fabric.Exts.Geometry.PolygonMesh.MergeMeshClones" : {
