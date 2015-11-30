@@ -1,0 +1,296 @@
+{
+  "objectType" : "Graph",
+  "metadata" : {
+    "maya_id" : "1"
+    },
+  "title" : "",
+  "ports" : [
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "inTopMatrix",
+      "execPortType" : "In",
+      "typeSpec" : "Mat44"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "inBtmMatrix",
+      "execPortType" : "In",
+      "typeSpec" : "Mat44"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "outTopMatrix",
+      "execPortType" : "Out",
+      "typeSpec" : "Mat44"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "outBtnMatrix",
+      "execPortType" : "Out",
+      "typeSpec" : "Mat44"
+      }
+    ],
+  "extDeps" : {},
+  "nodes" : [
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":241.049,\"y\":171.305}"
+        },
+      "name" : "matToAim_3",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "inTopMatrix"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "inBtmMatrix"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "outTopXfo"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "outBtmXfo"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "title" : "matToAim",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "inTopMatrix",
+            "execPortType" : "In",
+            "typeSpec" : "Mat44"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "inBtmMatrix",
+            "execPortType" : "In",
+            "typeSpec" : "Mat44"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "outTopXfo",
+            "execPortType" : "Out",
+            "typeSpec" : "Xfo"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "outBtmXfo",
+            "execPortType" : "Out",
+            "typeSpec" : "Xfo"
+            }
+          ],
+        "extDeps" : {},
+        "code" : "dfgEntry {
+  
+  Vec3 upVec, aimVec, crossVec, upOrthoVec;
+  Mat33 rotMat;
+  Float32 scaleZ;
+  Quat q();
+  
+  Float32 topArr[];
+  inTopMatrix.get(topArr);
+  
+  Float32 btmArr[];
+  inBtmMatrix.get(btmArr);
+  
+  Vec3 btmPos = Vec3(btmArr[3], btmArr[7], btmArr[11]);
+  Vec3 topPos = Vec3(topArr[3], topArr[7], topArr[11]);
+  
+  
+  aimVec = topPos - btmPos;
+  aimVec.normalize();
+    
+  // calculate the rotation matrix for the btm
+    
+  upVec = Vec3(btmArr[2], btmArr[6], btmArr[10]);
+    
+  scaleZ = upVec.length();
+  upVec.normalize();
+    
+  crossVec = aimVec.cross(upVec);
+  crossVec.normalize();
+  
+  upOrthoVec = crossVec.cross(aimVec);
+  upOrthoVec.normalize();
+  
+  rotMat = Mat33( aimVec.x,upOrthoVec.x,crossVec.x,
+                  aimVec.y,upOrthoVec.y,crossVec.y,
+                  aimVec.z,upOrthoVec.z,crossVec.z);
+    
+  
+  outBtmXfo.tr = btmPos;
+  outBtmXfo.sc = Vec3(scaleZ, scaleZ, scaleZ);
+  outBtmXfo.ori.setFromMat33(rotMat);
+  
+  
+  // calculate the rotation matrix for the top
+    
+  upVec = Vec3(topArr[2], topArr[6], topArr[10]);
+  upVec.normalize();
+    
+  crossVec = aimVec.cross(upVec);
+  crossVec.normalize();
+  
+  upOrthoVec = crossVec.cross(aimVec);
+  upOrthoVec.normalize();
+  
+  rotMat = Mat33( aimVec.x,upOrthoVec.x,crossVec.x,
+                  aimVec.y,upOrthoVec.y,crossVec.y,
+                  aimVec.z,upOrthoVec.z,crossVec.z);
+  
+  outTopXfo.tr = topPos;
+  outTopXfo.sc = Vec3(scaleZ, scaleZ, scaleZ);
+  outTopXfo.ori.setFromMat33(rotMat);
+}"
+        }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":513.0,\"y\":164.0}"
+        },
+      "name" : "ToMat44_1",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "this"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "Fabric.Exts.Math.Xfo.ToMat44",
+      "presetGUID" : "3EB232DB6FF4BEE162E1D62ABFBE8C3A"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":512.0,\"y\":239.0}"
+        },
+      "name" : "ToMat44_2",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "this"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "Fabric.Exts.Math.Xfo.ToMat44",
+      "presetGUID" : "3EB232DB6FF4BEE162E1D62ABFBE8C3A"
+      }
+    ],
+  "connections" : {
+    "inTopMatrix" : [
+      "matToAim_3.inTopMatrix"
+      ],
+    "inBtmMatrix" : [
+      "matToAim_3.inBtmMatrix"
+      ],
+    "matToAim_3.outTopXfo" : [
+      "ToMat44_1.this"
+      ],
+    "matToAim_3.outBtmXfo" : [
+      "ToMat44_2.this"
+      ],
+    "ToMat44_1.result" : [
+      "outTopMatrix"
+      ],
+    "ToMat44_2.result" : [
+      "outBtnMatrix"
+      ]
+    },
+  "metadata" : {
+    "maya_id" : "1"
+    },
+  "requiredPresets" : {
+    "Fabric.Exts.Math.Xfo.ToMat44" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiNodeColor" : "{\n  \"r\" : 99,\n  \"g\" : 129,\n  \"b\" : 92\n  }",
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.1/HTML/KLExtensionsGuide/Math/Xfo.html",
+        "uiTooltip" : "Returns this xfo as a Mat44\n\n Supported by Xfo"
+        },
+      "title" : "ToMat44",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 249,\n  \"g\" : 157,\n  \"b\" : 28\n  }"
+            },
+          "nodePortType" : "Out",
+          "name" : "this",
+          "execPortType" : "In",
+          "typeSpec" : "Xfo"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 249,\n  \"g\" : 157,\n  \"b\" : 28\n  }"
+            },
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "Mat44"
+          }
+        ],
+      "extDeps" : {
+        "Math" : "*"
+        },
+      "presetGUID" : "3EB232DB6FF4BEE162E1D62ABFBE8C3A",
+      "code" : "require Math;
+
+dfgEntry {
+  result = this.toMat44();
+}
+"
+      }
+    },
+  "args" : [
+    {
+      "type" : "Mat44",
+      "value" : null,
+      "ext" : "Math"
+      },
+    {
+      "type" : "Mat44",
+      "value" : null,
+      "ext" : "Math"
+      },
+    {
+      "type" : "Mat44",
+      "value" : null,
+      "ext" : "Math"
+      },
+    {
+      "type" : "Mat44",
+      "value" : null,
+      "ext" : "Math"
+      }
+    ]
+  }
