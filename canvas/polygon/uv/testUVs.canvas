@@ -1,15 +1,15 @@
 {
   "objectType" : "Graph",
   "metadata" : {
-    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : -0.6489984393119812,\n    \"y\" : -0.3383054733276367,\n    \"z\" : 0.6819761395454407,\n    \"t\" : 3.111721038818359\n    },\n  \"row1\" : {\n    \"x\" : -1.699464178273047e-06,\n    \"y\" : 0.8957262635231018,\n    \"z\" : 0.4447336792945862,\n    \"t\" : 2.028326272964478\n    },\n  \"row2\" : {\n    \"x\" : -0.7613565325737,\n    \"y\" : 0.2883775234222412,\n    \"z\" : -0.5813336968421936,\n    \"t\" : -2.651194334030151\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.6675649285316467,\n    \"y\" : -0.3311314284801483,\n    \"z\" : 0.667535662651062,\n    \"t\" : 3.704057931900024\n    },\n  \"row1\" : {\n    \"x\" : 0,\n    \"y\" : 0.8957089185714722,\n    \"z\" : 0.4447932541370392,\n    \"t\" : 2.467092752456665\n    },\n  \"row2\" : {\n    \"x\" : -0.7452451586723328,\n    \"y\" : -0.2966161966323853,\n    \"z\" : 0.5979554057121277,\n    \"t\" : 3.319181680679321\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "timeline_start" : "1",
     "timeline_loopMode" : "1",
     "uiGraphZoom" : "{\n  \"value\" : 0.7376889586448669\n  }",
     "timeline_simMode" : "0",
-    "camera_focalDistance" : "4.564510822296143",
+    "camera_focalDistance" : "5.551393032073975",
     "timeline_current" : "1",
     "timeline_end" : "50",
-    "uiGraphPan" : "{\n  \"x\" : -283.5790676815714,\n  \"y\" : 179.156820996775\n  }"
+    "uiGraphPan" : "{\n  \"x\" : -78.57907104492188,\n  \"y\" : 280.1567993164062\n  }"
     },
   "title" : "",
   "ports" : [
@@ -22,30 +22,40 @@
       },
     {
       "objectType" : "Port",
-      "metadata" : {
-        "uiPersistValue" : "true"
-        },
-      "nodePortType" : "Out",
-      "name" : "scale",
-      "execPortType" : "In",
-      "typeSpec" : "Float32"
-      },
-    {
-      "objectType" : "Port",
-      "metadata" : {
-        "uiPersistValue" : "true"
-        },
-      "nodePortType" : "Out",
-      "name" : "uInc",
-      "execPortType" : "In",
-      "typeSpec" : "Float32"
-      },
-    {
-      "objectType" : "Port",
       "nodePortType" : "In",
       "name" : "outMesh",
       "execPortType" : "Out",
       "typeSpec" : "PolygonMesh"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "num",
+      "execPortType" : "In",
+      "typeSpec" : "Integer"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "radius",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "maxU",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
       }
     ],
   "extDeps" : {},
@@ -53,7 +63,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":-24.42963790893555,\"y\":122.6172637939453}"
+        "uiGraphPos" : "{\"x\":-32.56314849853516,\"y\":-324.7257690429688}"
         },
       "name" : "getProfile",
       "ports" : [
@@ -104,7 +114,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":-21.98890686035156,\"y\":63.60055541992188}"
+        "uiGraphPos" : "{\"x\":-15.21098136901855,\"y\":-95.00286102294922}"
         },
       "name" : "getXfos",
       "ports" : [
@@ -142,7 +152,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":175.6089019775391,\"y\":-8.942100524902344}"
+        "uiGraphPos" : "{\"x\":171.5421295166016,\"y\":-152.6340942382812}"
         },
       "name" : "AddExtrusion_1",
       "ports" : [
@@ -176,7 +186,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":-22.39939880371094,\"y\":-19.29746627807617}"
+        "uiGraphPos" : "{\"x\":-26.46615409851074,\"y\":-162.9894409179688}"
         },
       "name" : "EmptyPolygonMesh_1",
       "ports" : [
@@ -192,7 +202,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":454.0820922851562,\"y\":22.43263244628906}"
+        "uiGraphPos" : "{\"x\":470.3492126464844,\"y\":-111.7703094482422}"
         },
       "name" : "RecomputePointNormals_1",
       "ports" : [
@@ -213,7 +223,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":650.32958984375,\"y\":-118.950439453125}"
+        "uiGraphPos" : "{\"x\":666.5965576171875,\"y\":-253.1533050537109}"
         },
       "name" : "DrawTexturedPolygonMesh_1",
       "ports" : [
@@ -298,7 +308,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":472.0186767578125,\"y\":-157.9888610839844}"
+        "uiGraphPos" : "{\"x\":488.2857971191406,\"y\":-292.1917114257812}"
         },
       "name" : "EmptyDrawingHandle_1",
       "ports" : [
@@ -314,7 +324,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":313.8478088378906,\"y\":7.432601928710938}"
+        "uiGraphPos" : "{\"x\":326.0479431152344,\"y\":-107.7921447753906}"
         },
       "name" : "setUvs",
       "ports" : [
@@ -326,7 +336,12 @@
         {
           "objectType" : "InstPort",
           "nodePortType" : "In",
-          "name" : "uInc"
+          "name" : "maxU"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "num"
           }
         ],
       "definition" : {
@@ -343,9 +358,16 @@
           {
             "objectType" : "Port",
             "nodePortType" : "Out",
-            "name" : "uInc",
+            "name" : "maxU",
             "execPortType" : "In",
             "typeSpec" : "Float32"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "num",
+            "execPortType" : "In",
+            "typeSpec" : "Integer"
             }
           ],
         "extDeps" : {},
@@ -355,49 +377,111 @@
   GeometryAttributes attributes = inMesh.getAttributes();
   Ref<Vec2Attribute> uvs = attributes.getOrCreateAttribute(\"uvs0\", Vec2Attribute);
   Ref<Vec3Attribute> pos = attributes.getOrCreatePositions();
-     
-  //Size numVerts = uvs.size();
+  
   Size numVerts = attributes.size();
   Size halfNumVerts = numVerts/2;
   
-  //report(attributes.size());
   Vec3 vertPos[] = pos.values;
   Size index;
   Float32 u, v;
+  Float32 uInc = maxU / num;
+
   for (Size i = 0; i < halfNumVerts; i++){
     //index = i*4;
     
-    u = uInc * i;
+    u =  uInc * i;
     v = .3;
     
     if (i < halfNumVerts-1){
-      report(\"mid \"+ i);
+      //report(\"mid \"+ i);
       inMesh.setPolygonAttribute(i, Size(0), uvs, Vec2(u, 0));
       inMesh.setPolygonAttribute(i, Size(3), uvs, Vec2(u, v));
     }
     
     else{
-      report(\"last \"+ i);
+      //report(\"last \"+ i);
       inMesh.setPolygonAttribute(i, Size(0), uvs, Vec2(u, 0));
       inMesh.setPolygonAttribute(i, Size(1), uvs, Vec2(u+uInc, 0));
       inMesh.setPolygonAttribute(i, Size(2), uvs, Vec2(u+uInc, v));
       inMesh.setPolygonAttribute(i, Size(3), uvs, Vec2(u, v));
     }
-    
   }
 }"
+        }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":-1.258666753768921,\"y\":-23.34599304199219}"
+        },
+      "name" : "getCirclePos",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "num"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "outPos"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "radius"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "title" : "getCirclePos",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "num",
+            "execPortType" : "In",
+            "typeSpec" : "Integer"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "outPos",
+            "execPortType" : "Out",
+            "typeSpec" : "Vec3[]"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "radius",
+            "execPortType" : "In",
+            "typeSpec" : "Float32"
+            }
+          ],
+        "extDeps" : {},
+        "code" : "dfgEntry {
+  
+  outPos.resize(num);
+  Float32 inc = (PI * 2) / num;
+  for (Size i = 0; i < num; i++){
+    outPos[i] = Vec3(cos(i*inc)*radius, 0, sin(i*inc)*radius);
+  
+  }
+}
+"
         }
       }
     ],
   "connections" : {
-    "scale" : [
-      "getProfile.scale"
+    "num" : [
+      "getCirclePos.num",
+      "setUvs.num"
       ],
-    "uInc" : [
-      "setUvs.uInc"
+    "radius" : [
+      "getCirclePos.radius"
       ],
-    "getProfile.outVec" : [
-      "AddExtrusion_1.profile"
+    "maxU" : [
+      "setUvs.maxU"
       ],
     "getXfos.outXfos" : [
       "AddExtrusion_1.xfos"
@@ -420,6 +504,9 @@
       ],
     "setUvs.inMesh" : [
       "RecomputePointNormals_1.this"
+      ],
+    "getCirclePos.outPos" : [
+      "AddExtrusion_1.profile"
       ]
     },
   "requiredPresets" : {
@@ -943,17 +1030,21 @@ dfgEntry {
       "ext" : "InlineDrawing"
       },
     {
-      "type" : "Float32",
-      "value" : 1
-      },
-    {
-      "type" : "Float32",
-      "value" : 1
-      },
-    {
       "type" : "PolygonMesh",
       "value" : null,
       "ext" : "Geometry"
+      },
+    {
+      "type" : "SInt32",
+      "value" : 23
+      },
+    {
+      "type" : "Float32",
+      "value" : 0.472900003194809
+      },
+    {
+      "type" : "Float32",
+      "value" : 0.3892000019550323
       }
     ]
   }
