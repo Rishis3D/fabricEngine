@@ -1,25 +1,18 @@
 {
   "objectType" : "Graph",
   "metadata" : {
-    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.5178959369659424,\n    \"y\" : 0.4620679020881653,\n    \"z\" : -0.7200612425804138,\n    \"t\" : -3.286130428314209\n    },\n  \"row1\" : {\n    \"x\" : -2.444143547108979e-06,\n    \"y\" : 0.8415704965591431,\n    \"z\" : 0.5402008891105652,\n    \"t\" : 2.464935541152954\n    },\n  \"row2\" : {\n    \"x\" : 0.8556126356124878,\n    \"y\" : -0.2796839773654938,\n    \"z\" : 0.4358491897583008,\n    \"t\" : 1.990005373954773\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : -0.6489984393119812,\n    \"y\" : -0.3383054733276367,\n    \"z\" : 0.6819761395454407,\n    \"t\" : 3.111721038818359\n    },\n  \"row1\" : {\n    \"x\" : -1.699464178273047e-06,\n    \"y\" : 0.8957262635231018,\n    \"z\" : 0.4447336792945862,\n    \"t\" : 2.028326272964478\n    },\n  \"row2\" : {\n    \"x\" : -0.7613565325737,\n    \"y\" : 0.2883775234222412,\n    \"z\" : -0.5813336968421936,\n    \"t\" : -2.651194334030151\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "timeline_start" : "1",
     "timeline_loopMode" : "1",
-    "uiGraphZoom" : "{\n  \"value\" : 0.7565881609916687\n  }",
+    "uiGraphZoom" : "{\n  \"value\" : 0.7376889586448669\n  }",
     "timeline_simMode" : "0",
     "camera_focalDistance" : "4.564510822296143",
     "timeline_current" : "1",
     "timeline_end" : "50",
-    "uiGraphPan" : "{\n  \"x\" : -36.27043151855469,\n  \"y\" : 178.2922973632812\n  }"
+    "uiGraphPan" : "{\n  \"x\" : -283.5790676815714,\n  \"y\" : 179.156820996775\n  }"
     },
   "title" : "",
   "ports" : [
-    {
-      "objectType" : "Port",
-      "nodePortType" : "In",
-      "name" : "drawThis",
-      "execPortType" : "Out",
-      "typeSpec" : "DrawingHandle"
-      },
     {
       "objectType" : "Port",
       "nodePortType" : "In",
@@ -36,6 +29,23 @@
       "name" : "scale",
       "execPortType" : "In",
       "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "uInc",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "outMesh",
+      "execPortType" : "Out",
+      "typeSpec" : "PolygonMesh"
       }
     ],
   "extDeps" : {},
@@ -312,6 +322,11 @@
           "objectType" : "InstPort",
           "nodePortType" : "IO",
           "name" : "inMesh"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "uInc"
           }
         ],
       "definition" : {
@@ -324,6 +339,13 @@
             "name" : "inMesh",
             "execPortType" : "IO",
             "typeSpec" : "PolygonMesh"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "uInc",
+            "execPortType" : "In",
+            "typeSpec" : "Float32"
             }
           ],
         "extDeps" : {},
@@ -336,18 +358,32 @@
      
   //Size numVerts = uvs.size();
   Size numVerts = attributes.size();
+  Size halfNumVerts = numVerts/2;
+  
   //report(attributes.size());
   Vec3 vertPos[] = pos.values;
-  
   Size index;
-  
-  for (Size i = 0; i < numVerts / 2; i++){
+  Float32 u, v;
+  for (Size i = 0; i < halfNumVerts; i++){
     //index = i*4;
-    //report(vertPos[i]);
-    inMesh.setPolygonAttribute(0, Size(0), uvs, Vec2(0,0));
-    inMesh.setPolygonAttribute(0, Size(1), uvs, Vec2(1,0));
-    inMesh.setPolygonAttribute(0, Size(2), uvs, Vec2(1,1));
-    inMesh.setPolygonAttribute(0, Size(3), uvs, Vec2(0,1));
+    
+    u = uInc * i;
+    v = .3;
+    
+    if (i < halfNumVerts-1){
+      report(\"mid \"+ i);
+      inMesh.setPolygonAttribute(i, Size(0), uvs, Vec2(u, 0));
+      inMesh.setPolygonAttribute(i, Size(3), uvs, Vec2(u, v));
+    }
+    
+    else{
+      report(\"last \"+ i);
+      inMesh.setPolygonAttribute(i, Size(0), uvs, Vec2(u, 0));
+      inMesh.setPolygonAttribute(i, Size(1), uvs, Vec2(u+uInc, 0));
+      inMesh.setPolygonAttribute(i, Size(2), uvs, Vec2(u+uInc, v));
+      inMesh.setPolygonAttribute(i, Size(3), uvs, Vec2(u, v));
+    }
+    
   }
 }"
         }
@@ -356,6 +392,9 @@
   "connections" : {
     "scale" : [
       "getProfile.scale"
+      ],
+    "uInc" : [
+      "setUvs.uInc"
       ],
     "getProfile.outVec" : [
       "AddExtrusion_1.profile"
@@ -370,7 +409,8 @@
       "AddExtrusion_1.this"
       ],
     "RecomputePointNormals_1.this" : [
-      "DrawTexturedPolygonMesh_1.mesh"
+      "DrawTexturedPolygonMesh_1.mesh",
+      "outMesh"
       ],
     "DrawTexturedPolygonMesh_1.instance" : [
       "instance"
@@ -898,18 +938,22 @@ dfgEntry {
     },
   "args" : [
     {
-      "type" : "DrawingHandle",
-      "value" : null,
-      "ext" : "InlineDrawing"
-      },
-    {
       "type" : "InlineInstance",
       "value" : null,
       "ext" : "InlineDrawing"
       },
     {
       "type" : "Float32",
-      "value" : 0.8669999837875366
+      "value" : 1
+      },
+    {
+      "type" : "Float32",
+      "value" : 1
+      },
+    {
+      "type" : "PolygonMesh",
+      "value" : null,
+      "ext" : "Geometry"
       }
     ]
   }
