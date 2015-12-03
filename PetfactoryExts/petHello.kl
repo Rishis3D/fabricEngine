@@ -1,0 +1,7 @@
+operator entry(){
+	
+}
+
+function pet(){
+	report("Hello World Pet!");
+}

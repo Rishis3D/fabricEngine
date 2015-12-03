@@ -1,9 +1,16 @@
 {
   "objectType" : "Graph",
   "metadata" : {
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.7878396511077881,\n    \"y\" : -0.4420232176780701,\n    \"z\" : 0.4288635849952698,\n    \"t\" : 8.210940361022949\n    },\n  \"row1\" : {\n    \"x\" : -1.788139059044624e-07,\n    \"y\" : 0.6963419318199158,\n    \"z\" : 0.7177101969718933,\n    \"t\" : 13.74114227294922\n    },\n  \"row2\" : {\n    \"x\" : -0.6158801317214966,\n    \"y\" : -0.5654404163360596,\n    \"z\" : 0.5486060380935669,\n    \"t\" : 10.50356292724609\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "maya_id" : "3",
-    "uiGraphZoom" : "{\n  \"value\" : 0.5255669951438904\n  }",
-    "uiGraphPan" : "{\n  \"x\" : 94.19673523742176,\n  \"y\" : 395.4845181209735\n  }"
+    "uiGraphZoom" : "{\n  \"value\" : 0.6262890696525574\n  }",
+    "timeline_loopMode" : "1",
+    "timeline_start" : "1",
+    "camera_focalDistance" : "19.14584350585938",
+    "timeline_current" : "1",
+    "timeline_simMode" : "0",
+    "timeline_end" : "50",
+    "uiGraphPan" : "{\n  \"x\" : 19.17411804199219,\n  \"y\" : 335.160400390625\n  }"
     },
   "title" : "",
   "ports" : [
@@ -103,26 +110,6 @@
       },
     {
       "objectType" : "Port",
-      "metadata" : {
-        "uiPersistValue" : "true"
-        },
-      "nodePortType" : "Out",
-      "name" : "maxU_2",
-      "execPortType" : "In",
-      "typeSpec" : "Float32"
-      },
-    {
-      "objectType" : "Port",
-      "metadata" : {
-        "uiPersistValue" : "true"
-        },
-      "nodePortType" : "Out",
-      "name" : "maxV_2",
-      "execPortType" : "In",
-      "typeSpec" : "Float32"
-      },
-    {
-      "objectType" : "Port",
       "nodePortType" : "In",
       "name" : "mesh",
       "execPortType" : "Out",
@@ -130,7 +117,9 @@
       },
     {
       "objectType" : "Port",
-      "metadata" : {},
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
       "nodePortType" : "Out",
       "name" : "doubleSided",
       "execPortType" : "In",
@@ -142,7 +131,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":-0.2625927925109863,\"y\":-109.9512481689453}"
+        "uiGraphPos" : "{\"x\":-22.61363220214844,\"y\":-355.8126831054688}"
         },
       "name" : "getXfos",
       "ports" : [
@@ -193,7 +182,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":-23.01652526855469,\"y\":-191.736328125}"
+        "uiGraphPos" : "{\"x\":-29.4005012512207,\"y\":-420.0339965820312}"
         },
       "name" : "EmptyPolygonMesh_1",
       "ports" : [
@@ -331,7 +320,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":-1.258666753768921,\"y\":-23.34599304199219}"
+        "uiGraphPos" : "{\"x\":-23.60970497131348,\"y\":-278.7876892089844}"
         },
       "name" : "getCirclePos",
       "ports" : [
@@ -393,7 +382,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":329.627,\"y\":-168.654}"
+        "uiGraphPos" : "{\"x\":268.2450256347656,\"y\":-58.63519287109375}"
         },
       "name" : "customExtrusion",
       "ports" : [
@@ -845,6 +834,118 @@
         ],
       "executable" : "Fabric.Core.Logic.Not",
       "presetGUID" : "B8FE3CDCF84BBE1B3A07C80E724FB147"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":255.3888549804688,\"y\":-357.7183227539062}"
+        },
+      "name" : "customExtrusion_2",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "profile"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "xfos"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Boolean" : true
+            },
+          "name" : "close"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "mesh"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Boolean" : true
+            },
+          "name" : "setUVs"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "maxU"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "maxV"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "title" : "customExtrusion",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "profile",
+            "execPortType" : "In",
+            "typeSpec" : "Vec3[]"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "xfos",
+            "execPortType" : "In",
+            "typeSpec" : "Xfo[]"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "close",
+            "execPortType" : "In",
+            "typeSpec" : "Boolean"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "IO",
+            "name" : "mesh",
+            "execPortType" : "IO",
+            "typeSpec" : "PolygonMesh"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "setUVs",
+            "execPortType" : "In",
+            "typeSpec" : "Boolean"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "maxU",
+            "execPortType" : "In",
+            "typeSpec" : "Float32"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "maxV",
+            "execPortType" : "In",
+            "typeSpec" : "Float32"
+            }
+          ],
+        "extDeps" : {
+          "petTool" : "*"
+          },
+        "code" : "dfgEntry {
+  mesh.extrude(xfos, profile, close, setUVs, maxU, maxV);
+}
+"
+        }
       }
     ],
   "connections" : {
@@ -856,6 +957,12 @@
       ],
     "radius" : [
       "getCirclePos.radius"
+      ],
+    "maxU" : [
+      "customExtrusion_2.maxU"
+      ],
+    "maxV" : [
+      "customExtrusion_2.maxV"
       ],
     "wireFrame" : [
       "DrawMesh_1.wireFrame",
@@ -869,20 +976,14 @@
       "Not_1.value",
       "SetActive_3.active"
       ],
-    "maxU_2" : [
-      "customExtrusion.maxU"
-      ],
-    "maxV_2" : [
-      "customExtrusion.maxV"
-      ],
     "doubleSided" : [
       "DrawTexturedPolygonMesh_1.doubleSided"
       ],
     "getXfos.outXfos" : [
-      "customExtrusion.xfos"
+      "customExtrusion_2.xfos"
       ],
     "EmptyPolygonMesh_1.mesh" : [
-      "customExtrusion.mesh"
+      "customExtrusion_2.mesh"
       ],
     "RecomputePointNormals_1.this" : [
       "DrawTexturedPolygonMesh_1.mesh"
@@ -897,11 +998,7 @@
       "DrawTexturedPolygonMesh_1.this"
       ],
     "getCirclePos.outPos" : [
-      "customExtrusion.profile"
-      ],
-    "customExtrusion.mesh" : [
-      "RecomputePointNormals_1.this",
-      "RecomputePointNormals_2.this"
+      "customExtrusion_2.profile"
       ],
     "DrawMesh_1.drawThis" : [
       "SetActive_1.this"
@@ -917,10 +1014,11 @@
       ],
     "Not_1.result" : [
       "SetActive_1.active"
+      ],
+    "customExtrusion_2.mesh" : [
+      "RecomputePointNormals_2.this",
+      "RecomputePointNormals_1.this"
       ]
-    },
-  "metadata" : {
-    "maya_id" : "3"
     },
   "requiredPresets" : {
     "Fabric.Exts.Geometry.PolygonMesh.EmptyPolygonMesh" : {
@@ -1582,11 +1680,11 @@ dfgEntry {
   "args" : [
     {
       "type" : "SInt32",
-      "value" : 12
+      "value" : 18
       },
     {
       "type" : "SInt32",
-      "value" : 4
+      "value" : 6
       },
     {
       "type" : "Float32",
@@ -1598,7 +1696,7 @@ dfgEntry {
       },
     {
       "type" : "Float32",
-      "value" : 3.480000019073486
+      "value" : 1
       },
     {
       "type" : "DrawingHandle",
@@ -1623,21 +1721,13 @@ dfgEntry {
       "ext" : "InlineDrawing"
       },
     {
-      "type" : "Float32",
-      "value" : 0.5
-      },
-    {
-      "type" : "Float32",
-      "value" : 0.5
-      },
-    {
       "type" : "PolygonMesh",
       "value" : null,
       "ext" : "Geometry"
       },
     {
       "type" : "Boolean",
-      "value" : null
+      "value" : true
       }
     ]
   }
