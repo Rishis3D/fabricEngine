@@ -1,15 +1,15 @@
 {
   "objectType" : "Graph",
   "metadata" : {
-    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.9865818023681641,\n    \"y\" : -9.040869190357625e-05,\n    \"z\" : 0.1627570688724518,\n    \"t\" : 8.733395576477051\n    },\n  \"row1\" : {\n    \"x\" : 7.921577207525843e-07,\n    \"y\" : 0.9999310970306396,\n    \"z\" : 0.0005506654269993305,\n    \"t\" : 0.02761505357921124\n    },\n  \"row2\" : {\n    \"x\" : -0.1627511531114578,\n    \"y\" : -0.0005431819590739906,\n    \"z\" : 0.9866176247596741,\n    \"t\" : 52.94283294677734\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.9750467538833618,\n    \"y\" : 0.02200246043503284,\n    \"z\" : 0.2205297946929932,\n    \"t\" : 12.92398166656494\n    },\n  \"row1\" : {\n    \"x\" : 8.129755997288157e-07,\n    \"y\" : 0.9949771165847778,\n    \"z\" : -0.0992799699306488,\n    \"t\" : -5.820287227630615\n    },\n  \"row2\" : {\n    \"x\" : -0.2216168344020844,\n    \"y\" : 0.09680780023336411,\n    \"z\" : 0.9702637195587158,\n    \"t\" : 56.86296844482422\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "timeline_start" : "1",
     "timeline_loopMode" : "1",
-    "uiGraphZoom" : "{\n  \"value\" : 1.104905009269714\n  }",
+    "uiGraphZoom" : "{\n  \"value\" : 0.5213050842285156\n  }",
     "timeline_simMode" : "0",
-    "camera_focalDistance" : "53.65784072875977",
+    "camera_focalDistance" : "58.60224914550781",
     "timeline_current" : "1",
     "timeline_end" : "50",
-    "uiGraphPan" : "{\n  \"x\" : -142.2827453613281,\n  \"y\" : 17.59850883483887\n  }"
+    "uiGraphPan" : "{\n  \"x\" : 41.00921630859375,\n  \"y\" : 100.9374542236328\n  }"
     },
   "title" : "",
   "ports" : [
@@ -23,11 +23,13 @@
     {
       "objectType" : "Port",
       "metadata" : {
-        "uiPersistValue" : "true"
+        "uiPersistValue" : "true",
+        "uiRange" : "(0, 10)"
         },
       "nodePortType" : "Out",
       "name" : "p1Radius",
-      "execPortType" : "In"
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
       },
     {
       "objectType" : "Port",
@@ -138,16 +140,6 @@
       },
     {
       "objectType" : "Port",
-      "metadata" : {
-        "uiPersistValue" : "true"
-        },
-      "nodePortType" : "Out",
-      "name" : "num",
-      "execPortType" : "In",
-      "typeSpec" : "Integer"
-      },
-    {
-      "objectType" : "Port",
       "nodePortType" : "In",
       "name" : "debugHandle_4",
       "execPortType" : "Out",
@@ -157,6 +149,30 @@
       "objectType" : "Port",
       "nodePortType" : "In",
       "name" : "debugHandle_5",
+      "execPortType" : "Out",
+      "typeSpec" : "InlineDebugShape"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "sideNum",
+      "execPortType" : "In",
+      "typeSpec" : "Integer"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "result_4",
+      "execPortType" : "Out",
+      "typeSpec" : "InlineDebugShape"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "debugHandle_6",
       "execPortType" : "Out",
       "typeSpec" : "InlineDebugShape"
       }
@@ -1218,7 +1234,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":121.7911682128906,\"y\":86.93009185791016}"
+        "uiGraphPos" : "{\"x\":86.35762023925781,\"y\":64.85905456542969}"
         },
       "name" : "doMath",
       "ports" : [
@@ -1271,6 +1287,21 @@
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "name" : "sideNum"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "side1Pos"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "side2Pos"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "vertPos"
           }
         ],
       "definition" : {
@@ -1346,6 +1377,27 @@
             "name" : "sideNum",
             "execPortType" : "In",
             "typeSpec" : "Integer"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "side1Pos",
+            "execPortType" : "Out",
+            "typeSpec" : "Vec3[]"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "side2Pos",
+            "execPortType" : "Out",
+            "typeSpec" : "Vec3[]"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "vertPos",
+            "execPortType" : "Out",
+            "typeSpec" : "Vec3[]"
             }
           ],
         "extDeps" : {},
@@ -1368,17 +1420,54 @@
   p1ThetaPos.resize(p1NumC);
   p2ThetaPos.resize(p2NumC);
   
+
+  
+  
   for (Size i = 0; i < p1NumC; i++){
     p1ThetaPos[i] = Vec3(cos(-p1AngInc * i - PI/2)*(p1Radius+.3), sin(-p1AngInc * i - PI/2)*(p1Radius+.3), 0);
   }
   
   for (Size i = 0; i < p2NumC; i++){
-    p2ThetaPos[i] = Vec3(cos(p2AngInc * i - PI/2)*(p2Radius+.3)+x, sin(p2AngInc * i - PI/2)*(p2Radius+.3)+y, 0);
+    p2ThetaPos[p2NumC-i-1] = Vec3(cos(p2AngInc * i - PI/2)*(p2Radius+.3)+x, sin(p2AngInc * i - PI/2)*(p2Radius+.3)+y, 0);
   }
   
   p1Pos = Vec3(0, 0, 0);
   p2Pos = Vec3(x, y, 0);
   
+  
+  Float32 sideInc = 1.0 / (sideNum+1);
+  
+  side1Pos.resize(sideNum);  
+  Vec3 side1SP = p1ThetaPos[p1ThetaPos.size-1];
+  Vec3 side1EP = p2ThetaPos[0];  
+  
+  side2Pos.resize(sideNum);
+  Vec3 side2SP = p1ThetaPos[0];
+  Vec3 side2EP = p2ThetaPos[p2ThetaPos.size-1];
+  
+  for (Size i = 0; i < sideNum; i++){
+    side1Pos[i] = side1SP.linearInterpolate(side1EP, i * sideInc +sideInc);
+    side2Pos[sideNum-i-1] = side2SP.linearInterpolate(side2EP, i * sideInc+sideInc);
+  }
+  
+  
+  Integer numVerts = p1NumC + p2NumC + sideNum*2;
+  vertPos.resize(numVerts);
+
+  for (Size i = 0; i < p1NumC; i++){
+    vertPos[i] = p1ThetaPos[i];
+  }
+  for (Size i = 0; i < sideNum; i++){
+    vertPos[p1NumC+i] = side1Pos[i];
+  }
+  for (Size i = 0; i < p2NumC; i++){
+    vertPos[p1NumC+sideNum+i] = p2ThetaPos[i];
+  }
+  for (Size i = 0; i < sideNum; i++){
+    vertPos[p1NumC+sideNum+p2NumC+i] = side2Pos[i];
+  }
+  
+      
 }"
         }
       },
@@ -1542,146 +1631,6 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":-48.52986145019531,\"y\":807.682861328125}"
-        },
-      "name" : "Get_1",
-      "ports" : [
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
-          "name" : "array"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
-          "name" : "index"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "Out",
-          "name" : "element"
-          }
-        ],
-      "executable" : "Fabric.Core.Array.Get",
-      "presetGUID" : "880D755392299678EEB93260424986E2"
-      },
-    {
-      "objectType" : "Inst",
-      "metadata" : {
-        "uiGraphPos" : "{\"x\":424.7821044921875,\"y\":946.9285278320312}"
-        },
-      "name" : "DrawLines_1",
-      "ports" : [
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "IO",
-          "name" : "exec"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "IO",
-          "name" : "this"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
-          "name" : "name"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
-          "defaultValues" : {
-            "Color" : {
-              "r" : 0.5,
-              "g" : 0.5,
-              "b" : 0.5,
-              "a" : 1
-              }
-            },
-          "name" : "color"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
-          "name" : "specular"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
-          "name" : "specFactor"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
-          "name" : "transform"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
-          "name" : "lines"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "Out",
-          "name" : "dummyResult"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "Out",
-          "name" : "instance"
-          }
-        ],
-      "executable" : "Fabric.Exts.InlineDrawing.DrawingHandle.DrawLines",
-      "presetGUID" : "E7431541CD0BEDDD3FC410E150C0C28D"
-      },
-    {
-      "objectType" : "Inst",
-      "metadata" : {
-        "uiGraphPos" : "{\"x\":22.62649536132812,\"y\":991.465576171875}"
-        },
-      "name" : "Lines_1",
-      "ports" : [
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
-          "defaultValues" : {
-            "String" : "line"
-            },
-          "name" : "debugName"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "Out",
-          "name" : "result"
-          }
-        ],
-      "executable" : "Fabric.Exts.Geometry.Lines.Lines",
-      "presetGUID" : "C506DCD6DA6612508B4FFFFDD558E356"
-      },
-    {
-      "objectType" : "Inst",
-      "metadata" : {
-        "uiGraphPos" : "{\"x\":240.8417053222656,\"y\":996.0676879882812}"
-        },
-      "name" : "AddLineStrip_1",
-      "ports" : [
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "IO",
-          "name" : "this"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
-          "name" : "strip"
-          }
-        ],
-      "executable" : "Fabric.Exts.Geometry.Lines.AddLineStrip",
-      "presetGUID" : "DDE5BB04C5A262CDF10F7339E752E1F2"
-      },
-    {
-      "objectType" : "Inst",
-      "metadata" : {
         "uiGraphPos" : "{\"x\":566.4672241210938,\"y\":44.09420013427734}"
         },
       "name" : "SetPen_1",
@@ -1707,121 +1656,6 @@
         ],
       "executable" : "Fabric.Exts.InlineDrawing.InlineDebugShape.SetPen",
       "presetGUID" : "831A0298E12DACF564A86570A7C7AE48"
-      },
-    {
-      "objectType" : "Inst",
-      "metadata" : {
-        "uiGraphPos" : "{\"x\":112.5592346191406,\"y\":839.2791748046875}"
-        },
-      "name" : "Push_2",
-      "ports" : [
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "IO",
-          "name" : "array"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
-          "name" : "element"
-          }
-        ],
-      "executable" : "Fabric.Core.Array.Push",
-      "presetGUID" : "572880BF96ACC34D6987BE3333715F52"
-      },
-    {
-      "objectType" : "Inst",
-      "metadata" : {
-        "uiGraphPos" : "{\"x\":375.9988098144531,\"y\":261.6989135742188}"
-        },
-      "name" : "getSidePos",
-      "ports" : [
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
-          "name" : "p1Pos"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
-          "name" : "p2Pos"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
-          "name" : "num"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "Out",
-          "name" : "side1Pos"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "Out",
-          "name" : "side2Pos"
-          }
-        ],
-      "definition" : {
-        "objectType" : "Func",
-        "title" : "getSidePos",
-        "ports" : [
-          {
-            "objectType" : "Port",
-            "nodePortType" : "Out",
-            "name" : "p1Pos",
-            "execPortType" : "In",
-            "typeSpec" : "Vec3[]"
-            },
-          {
-            "objectType" : "Port",
-            "nodePortType" : "Out",
-            "name" : "p2Pos",
-            "execPortType" : "In",
-            "typeSpec" : "Vec3[]"
-            },
-          {
-            "objectType" : "Port",
-            "nodePortType" : "Out",
-            "name" : "num",
-            "execPortType" : "In",
-            "typeSpec" : "Integer"
-            },
-          {
-            "objectType" : "Port",
-            "nodePortType" : "In",
-            "name" : "side1Pos",
-            "execPortType" : "Out",
-            "typeSpec" : "Vec3[]"
-            },
-          {
-            "objectType" : "Port",
-            "nodePortType" : "In",
-            "name" : "side2Pos",
-            "execPortType" : "Out",
-            "typeSpec" : "Vec3[]"
-            }
-          ],
-        "extDeps" : {},
-        "code" : "dfgEntry {
-    
-  Scalar inc = 1.0 / (num+1);
-  
-  side1Pos.resize(num);
-  Vec3 side1SP = p1Pos[0];
-  Vec3 side1EP = p2Pos[0];
-  
-  side2Pos.resize(num);
-  Vec3 side2SP = p1Pos[p1Pos.size-1];
-  Vec3 side2EP = p2Pos[p2Pos.size-1];
-  
-  for (Size i = 0; i < num; i++){
-    side1Pos[i] = side1SP.linearInterpolate(side1EP, i * inc +inc);
-    side2Pos[i] = side2SP.linearInterpolate(side2EP, i * inc+inc);
-  }
-}
-"
-        }
       },
     {
       "objectType" : "Inst",
@@ -1855,7 +1689,7 @@
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "Float32" : 6
+            "Float32" : 3
             },
           "name" : "size"
           },
@@ -1876,7 +1710,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":681.8607177734375,\"y\":688.967041015625}"
+        "uiGraphPos" : "{\"x\":689.5336303710938,\"y\":679.375732421875}"
         },
       "name" : "DrawPoints_4",
       "ports" : [
@@ -1905,7 +1739,170 @@
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "Float32" : 6
+            "Float32" : 3
+            },
+          "name" : "size"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "pos"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "debugHandle"
+          }
+        ],
+      "executable" : "Fabric.Compounds.Points.Display.DrawPoints",
+      "presetGUID" : "F858B0DBCA2711E1E8537A8B964E9D76"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":121.7873840332031,\"y\":764.767822265625}"
+        },
+      "name" : "Get_2",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "array"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "UInt32" : 8
+            },
+          "name" : "index"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "element"
+          }
+        ],
+      "executable" : "Fabric.Core.Array.Get",
+      "presetGUID" : "880D755392299678EEB93260424986E2"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":257.0295104980469,\"y\":882.5208740234375}"
+        },
+      "name" : "DrawPoint_1",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "this"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "pos"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "Fabric.Exts.InlineDrawing.InlineDebugShape.DrawPoint",
+      "presetGUID" : "2EEF976DF14B2C86BC54653D67C0A6FF"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":-118.9498901367188,\"y\":826.8909912109375}"
+        },
+      "name" : "GetEmptyDebugShape_2",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "exec"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "this"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "String" : "debugCenterLinesdv"
+            },
+          "name" : "name"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "Fabric.Exts.InlineDrawing.DrawingHandle.GetEmptyDebugShape",
+      "presetGUID" : "DB3916AA2CE58EEAFAEDB9E2653EF4D6"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":92.05892944335938,\"y\":930.477294921875}"
+        },
+      "name" : "SetPointSize_1",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "this"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Float32" : 10
+            },
+          "name" : "value"
+          }
+        ],
+      "executable" : "Fabric.Exts.InlineDrawing.InlineDebugShape.SetPointSize",
+      "presetGUID" : "6F401B062FE20D393723F76BCC497877"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":680.96533203125,\"y\":842.237060546875}"
+        },
+      "name" : "DrawPoints_5",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "String" : "vertDebug"
+            },
+          "name" : "name"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Color" : {
+              "r" : 0.239215686917305,
+              "g" : 0.5098039507865906,
+              "b" : 0.3372549116611481,
+              "a" : 1
+              }
+            },
+          "name" : "color"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Float32" : 10
             },
           "name" : "size"
           },
@@ -1943,12 +1940,13 @@
     "p2Num" : [
       "doMath.p2Num"
       ],
-    "num" : [
-      "getSidePos.num"
+    "sideNum" : [
+      "doMath.sideNum"
       ],
     "EmptyDrawingHandle_1.handle" : [
       "debugCircles.handle",
-      "GetEmptyDebugShape_1.this"
+      "GetEmptyDebugShape_1.this",
+      "GetEmptyDebugShape_2.this"
       ],
     "debugCircles.instance" : [
       "instance"
@@ -1963,12 +1961,19 @@
       "DrawLine_1.to"
       ],
     "doMath.p1ThetaPos" : [
-      "getSidePos.p1Pos",
       "DrawPoints_1.pos"
       ],
     "doMath.p2ThetaPos" : [
-      "getSidePos.p2Pos",
       "DrawPoints_2.pos"
+      ],
+    "doMath.side1Pos" : [
+      "DrawPoints_3.pos"
+      ],
+    "doMath.side2Pos" : [
+      "DrawPoints_4.pos"
+      ],
+    "doMath.vertPos" : [
+      "DrawPoints_5.pos"
       ],
     "DrawLine_1.result" : [
       "result_2"
@@ -1982,32 +1987,26 @@
     "DrawPoints_2.debugHandle" : [
       "debugHandle_2"
       ],
-    "Get_1.element" : [
-      "Push_2.element"
-      ],
-    "Lines_1.result" : [
-      "AddLineStrip_1.this"
-      ],
-    "AddLineStrip_1.this" : [
-      "DrawLines_1.lines"
-      ],
     "SetPen_1.this" : [
       "DrawLine_1.this"
-      ],
-    "Push_2.array" : [
-      "AddLineStrip_1.strip"
-      ],
-    "getSidePos.side1Pos" : [
-      "DrawPoints_3.pos"
-      ],
-    "getSidePos.side2Pos" : [
-      "DrawPoints_4.pos"
       ],
     "DrawPoints_3.debugHandle" : [
       "debugHandle_4"
       ],
     "DrawPoints_4.debugHandle" : [
       "debugHandle_5"
+      ],
+    "Get_2.element" : [
+      "DrawPoint_1.pos"
+      ],
+    "GetEmptyDebugShape_2.result" : [
+      "SetPointSize_1.this"
+      ],
+    "SetPointSize_1.this" : [
+      "DrawPoint_1.this"
+      ],
+    "DrawPoints_5.debugHandle" : [
+      "debugHandle_6"
       ]
     },
   "requiredPresets" : {
@@ -3120,23 +3119,20 @@ dfgEntry {
 }
 "
       },
-    "Fabric.Exts.Geometry.Lines.AddLineStrip" : {
+    "Fabric.Exts.InlineDrawing.InlineDebugShape.DrawPoint" : {
       "objectType" : "Func",
       "metadata" : {
-        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.1/HTML/KLExtensionsGuide/Geometry/Lines.html",
-        "uiTooltip" : "Adds a strip of line segments, defined as ``[ strip[0], strip[1] ], [ strip[1], strip[2] ], ...``\n\n Supported by Lines"
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.1/HTML/KLExtensionsGuide/InlineDrawing/InlineDebugShape.html",
+        "uiTooltip" : "draws a single point given a position\n\n Supported by InlineDebugShape"
         },
-      "title" : "AddLineStrip",
+      "title" : "DrawPoint",
       "ports" : [
         {
           "objectType" : "Port",
-          "metadata" : {
-            "uiColor" : "{\n  \"r\" : 51,\n  \"g\" : 1,\n  \"b\" : 106\n  }"
-            },
           "nodePortType" : "IO",
           "name" : "this",
           "execPortType" : "IO",
-          "typeSpec" : "Lines"
+          "typeSpec" : "InlineDebugShape"
           },
         {
           "objectType" : "Port",
@@ -3144,46 +3140,26 @@ dfgEntry {
             "uiColor" : "{\n  \"r\" : 255,\n  \"g\" : 242,\n  \"b\" : 0\n  }"
             },
           "nodePortType" : "Out",
-          "name" : "strip",
+          "name" : "pos",
           "execPortType" : "In",
-          "typeSpec" : "Vec3[]"
-          }
-        ],
-      "extDeps" : {
-        "Geometry" : "*"
-        },
-      "presetGUID" : "DDE5BB04C5A262CDF10F7339E752E1F2",
-      "code" : "require Geometry;
-
-dfgEntry {
-  this.addLineStrip(strip);
-}
-"
-      },
-    "Fabric.Core.Array.Push" : {
-      "objectType" : "Func",
-      "title" : "Push[]",
-      "ports" : [
-        {
-          "objectType" : "Port",
-          "nodePortType" : "IO",
-          "name" : "array",
-          "execPortType" : "IO",
-          "typeSpec" : "$TYPE$[]"
+          "typeSpec" : "Vec3"
           },
         {
           "objectType" : "Port",
-          "nodePortType" : "Out",
-          "name" : "element",
-          "execPortType" : "In",
-          "typeSpec" : "$TYPE$"
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "InlineDebugShape"
           }
         ],
-      "extDeps" : {},
-      "presetGUID" : "572880BF96ACC34D6987BE3333715F52",
-      "code" : "
+      "extDeps" : {
+        "InlineDrawing" : "*"
+        },
+      "presetGUID" : "2EEF976DF14B2C86BC54653D67C0A6FF",
+      "code" : "require InlineDrawing;
+
 dfgEntry {
-	array.push(element);
+  result = this.drawPoint(pos);
 }
 "
       }
@@ -3196,11 +3172,11 @@ dfgEntry {
       },
     {
       "type" : "Float32",
-      "value" : 1
+      "value" : 2.303999900817871
       },
     {
       "type" : "Float32",
-      "value" : 3.35099983215332
+      "value" : 3.036999940872192
       },
     {
       "type" : "InlineInstance",
@@ -3209,7 +3185,7 @@ dfgEntry {
       },
     {
       "type" : "Float32",
-      "value" : 7.644000053405762
+      "value" : 9.423999786376953
       },
     {
       "type" : "InlineInstance",
@@ -3253,15 +3229,25 @@ dfgEntry {
       },
     {
       "type" : "SInt32",
-      "value" : 4
+      "value" : 7
       },
     {
       "type" : "SInt32",
-      "value" : 9
+      "value" : 11
+      },
+    {
+      "type" : "InlineDebugShape",
+      "value" : null,
+      "ext" : "InlineDrawing"
+      },
+    {
+      "type" : "InlineDebugShape",
+      "value" : null,
+      "ext" : "InlineDrawing"
       },
     {
       "type" : "SInt32",
-      "value" : 4
+      "value" : 5
       },
     {
       "type" : "InlineDebugShape",
