@@ -1,15 +1,15 @@
 {
   "objectType" : "Graph",
   "metadata" : {
-    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.1762363165616989,\n    \"y\" : -0.6928068399429321,\n    \"z\" : 0.6998806595802307,\n    \"t\" : 101.9964065551758\n    },\n  \"row1\" : {\n    \"x\" : -1.678933040238917e-05,\n    \"y\" : 0.7102092504501343,\n    \"z\" : 0.7045876383781433,\n    \"t\" : 102.6663284301758\n    },\n  \"row2\" : {\n    \"x\" : -0.9849910140037537,\n    \"y\" : -0.1239702925086021,\n    \"z\" : 0.1252118498086929,\n    \"t\" : 18.28470993041992\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.1762363612651825,\n    \"y\" : -0.6928067803382874,\n    \"z\" : 0.6998807191848755,\n    \"t\" : 101.9964065551758\n    },\n  \"row1\" : {\n    \"x\" : -1.675950807111803e-05,\n    \"y\" : 0.7102093100547791,\n    \"z\" : 0.7045875787734985,\n    \"t\" : 102.6663284301758\n    },\n  \"row2\" : {\n    \"x\" : -0.9849909543991089,\n    \"y\" : -0.1239703223109245,\n    \"z\" : 0.1252118945121765,\n    \"t\" : 18.28470993041992\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "timeline_start" : "1",
     "timeline_loopMode" : "1",
-    "uiGraphZoom" : "{\n  \"value\" : 0.2835570573806763\n  }",
+    "uiGraphZoom" : "{\n  \"value\" : 0.2342643588781357\n  }",
     "timeline_simMode" : "0",
     "camera_focalDistance" : "145.8729553222656",
     "timeline_current" : "1",
     "timeline_end" : "50",
-    "uiGraphPan" : "{\n  \"x\" : 110.593086167058,\n  \"y\" : 105.6742925766313\n  }"
+    "uiGraphPan" : "{\n  \"x\" : -77.98999665142327,\n  \"y\" : 68.08080794781856\n  }"
     },
   "title" : "",
   "ports" : [
@@ -1521,7 +1521,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1630.82958984375,\"y\":204.4311828613281}"
+        "uiGraphPos" : "{\"x\":2066.881103515625,\"y\":580.4920043945312}"
         },
       "name" : "DrawMesh_1",
       "ports" : [
@@ -1965,7 +1965,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1321.6142578125,\"y\":474.1858825683594}"
+        "uiGraphPos" : "{\"x\":1321.6142578125,\"y\":480.4393615722656}"
         },
       "name" : "MergeMesh_1",
       "ports" : [
@@ -1986,7 +1986,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1269.499389648438,\"y\":297.3837280273438}"
+        "uiGraphPos" : "{\"x\":1416.205078125,\"y\":667.3369140625}"
         },
       "name" : "SetFromMat44_1",
       "ports" : [
@@ -2007,7 +2007,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1515.574340820312,\"y\":445.8351440429688}"
+        "uiGraphPos" : "{\"x\":1938.681762695312,\"y\":481.9801025390625}"
         },
       "name" : "Transform_2",
       "ports" : [
@@ -2114,7 +2114,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":2272.54296875,\"y\":1268.248901367188}"
+        "uiGraphPos" : "{\"x\":2087.56298828125,\"y\":993.9736938476562}"
         },
       "name" : "DrawMesh_2",
       "ports" : [
@@ -2321,7 +2321,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":2059.193359375,\"y\":1303.854370117188}"
+        "uiGraphPos" : "{\"x\":1710.501831054688,\"y\":1308.106811523438}"
         },
       "name" : "RecomputePointNormals_2",
       "ports" : [
@@ -2740,7 +2740,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1913.699951171875,\"y\":1302.465698242188}"
+        "uiGraphPos" : "{\"x\":1584.142822265625,\"y\":1313.096435546875}"
         },
       "name" : "MergeMesh_2",
       "ports" : [
@@ -2788,6 +2788,32 @@
         ],
       "executable" : "Fabric.Exts.Math.Vec3.Vec3",
       "presetGUID" : "A59E49949F21CFCB14B5711D52330BA7"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":1944.58740234375,\"y\":913.6483764648438}"
+        },
+      "name" : "Transform_3",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "mesh"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "xfo"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "Fabric.Compounds.PolygonMesh.Modify.Transform",
+      "presetGUID" : "4293D289E438FE24AF2B0BA7FF7CDCEA"
       }
     ],
   "connections" : {
@@ -2898,7 +2924,8 @@
       "Transform_2.mesh"
       ],
     "SetFromMat44_1.this" : [
-      "Transform_2.xfo"
+      "Transform_2.xfo",
+      "Transform_3.xfo"
       ],
     "Transform_2.result" : [
       "sideMesh",
@@ -2914,8 +2941,7 @@
       "drawThis"
       ],
     "RecomputePointNormals_2.this" : [
-      "DrawMesh_2.mesh",
-      "centerRodMesh"
+      "Transform_3.mesh"
       ],
     "Xfo_2.result" : [
       "AddCylinder_1.xfo"
@@ -2958,6 +2984,10 @@
       ],
     "Vec3_2.result" : [
       "Xfo_3.tr"
+      ],
+    "Transform_3.result" : [
+      "DrawMesh_2.mesh",
+      "centerRodMesh"
       ]
     },
   "requiredPresets" : {
