@@ -1,17 +1,18 @@
 import pymel.core as pm
 
 
-
 def loadCanvas(node, distance):
     canvasNode = pm.createNode('canvasNode')
     path = '/Users/johan/Dev/fabricEngine/canvas/polygon/twoCircleTangent/twoCircleTangentXfo.canvas'
     pm.dfgImportJSON(m=canvasNode, f=path)
     
-    sideMesh = pm.createNode('mesh')
     node.worldMatrix >> canvasNode.parentMatrix
-    canvasNode.sideMesh >> sideMesh.inMesh
     canvasNode.distance.set(distance)
-
+    #centerRodMesh = pm.createNode('mesh')
+    #canvasNode.centerRodMesh >> centerRodMesh.inMesh
+    
+    loc = pm.createNode('locator')
+    canvasNode.dummy >> loc.v
     
     
 def relativeRecurse(node):
