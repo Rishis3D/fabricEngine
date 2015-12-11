@@ -5,6 +5,7 @@ def loadCanvas(node, distance):
     canvasNode = pm.createNode('canvasNode')
     path = '/Users/johan/Dev/fabricEngine/canvas/polygon/twoCircleTangent/twoCircleTangentXfo.canvas'
     pm.dfgImportJSON(m=canvasNode, f=path)
+    canvasNode.setName('canvasNode_{}'.format(node.name()))
     
     node.worldMatrix >> canvasNode.parentMatrix
     canvasNode.distance.set(distance)
@@ -20,9 +21,7 @@ def relativeRecurse(node):
     childList = node.listRelatives()
     
     for child in childList:
-        name = child.name()
         distance = (child.tx.get())
-        #print('name: {} distance: {}'.format(name, distance))
         loadCanvas(node, distance)
         relativeRecurse(child)
         
