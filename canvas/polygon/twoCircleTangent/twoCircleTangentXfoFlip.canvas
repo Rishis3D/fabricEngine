@@ -1,12 +1,12 @@
 {
   "objectType" : "Graph",
   "metadata" : {
-    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.6222207546234131,\n    \"y\" : -0.3855118155479431,\n    \"z\" : 0.6838790774345398,\n    \"t\" : 27.60993957519531\n    },\n  \"row1\" : {\n    \"x\" : -1.597705590938858e-06,\n    \"y\" : 0.8705888986587524,\n    \"z\" : 0.4928697049617767,\n    \"t\" : 19.87095069885254\n    },\n  \"row2\" : {\n    \"x\" : -0.7854690551757812,\n    \"y\" : -0.3053905665874481,\n    \"z\" : 0.5417436957359314,\n    \"t\" : 21.92728424072266\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.6655866503715515,\n    \"y\" : -0.238179475069046,\n    \"z\" : 0.7102026343345642,\n    \"t\" : 26.02355003356934\n    },\n  \"row1\" : {\n    \"x\" : 1.568067773405346e-07,\n    \"y\" : 0.9477847218513489,\n    \"z\" : 0.3193097114562988,\n    \"t\" : 11.67290210723877\n    },\n  \"row2\" : {\n    \"x\" : -0.7492690086364746,\n    \"y\" : -0.2115781456232071,\n    \"z\" : 0.6308835744857788,\n    \"t\" : 23.17446708679199\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "timeline_start" : "1",
     "timeline_loopMode" : "1",
     "uiGraphZoom" : "{\n  \"value\" : 0.7363776564598083\n  }",
     "timeline_simMode" : "0",
-    "camera_focalDistance" : "40.45001220703125",
+    "camera_focalDistance" : "36.71801376342773",
     "timeline_current" : "1",
     "timeline_end" : "50",
     "uiGraphPan" : "{\n  \"x\" : -712.918212890625,\n  \"y\" : -159.9835052490234\n  }"
@@ -3482,7 +3482,7 @@ dfgEntry
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "String" : "/Users/johan/Dev/fabricEngine/canvas/assets/building.jpg"
+            "String" : "/Users/johan/Dev/fabricEngine/canvas/assets/metal_1K.jpg"
             },
           "name" : "filePath"
           },
@@ -3610,7 +3610,6 @@ dfgEntry
             },
           {
             "objectType" : "Port",
-            "metadata" : {},
             "nodePortType" : "Out",
             "name" : "doubleSided",
             "execPortType" : "In",
@@ -3618,7 +3617,6 @@ dfgEntry
             },
           {
             "objectType" : "Port",
-            "metadata" : {},
             "nodePortType" : "Out",
             "name" : "wireFrame",
             "execPortType" : "In",
@@ -6005,15 +6003,15 @@ dfgEntry {
       },
     {
       "type" : "Float32",
-      "value" : 0.09730000048875809
+      "value" : 0.4424999952316284
       },
     {
       "type" : "Float32",
-      "value" : 6
+      "value" : 5.309599876403809
       },
     {
       "type" : "Boolean",
-      "value" : false
+      "value" : true
       }
     ]
   }
