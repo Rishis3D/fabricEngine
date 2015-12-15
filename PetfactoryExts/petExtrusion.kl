@@ -8,6 +8,9 @@ function PolygonMesh.extrude!(Xfo xfos[], Vec3 profile[], Boolean close, Boolean
   if(xfos.size() < 2)
     return;
 
+  Float32 dist[];
+  dist.resize(profile.size());
+  
   Size nbSegments = close ? profile.size() : profile.size() - 1;
   Size nbPointRows = xfos.size();
   Size nbQuadRows = nbPointRows - 1;
@@ -52,6 +55,7 @@ function PolygonMesh.extrude!(Xfo xfos[], Vec3 profile[], Boolean close, Boolean
       v3 = (profile.size() * (row+1) + segmentIndex) % nbPoints;
     }
     this.addPolygon(firstPoint+v3, firstPoint+v2, firstPoint+v1, firstPoint+v0);
+
     if(setUVs){
       this.setPolygonAttribute(i, 0, uvs, Vec2(u, v+vInc));
       this.setPolygonAttribute(i, 1, uvs, Vec2(u-uInc, v+vInc));
