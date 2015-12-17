@@ -1,15 +1,15 @@
 {
   "objectType" : "Graph",
   "metadata" : {
-    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.6655866503715515,\n    \"y\" : -0.238179475069046,\n    \"z\" : 0.7102026343345642,\n    \"t\" : 26.02355003356934\n    },\n  \"row1\" : {\n    \"x\" : 1.568067773405346e-07,\n    \"y\" : 0.9477847218513489,\n    \"z\" : 0.3193097114562988,\n    \"t\" : 11.67290210723877\n    },\n  \"row2\" : {\n    \"x\" : -0.7492690086364746,\n    \"y\" : -0.2115781456232071,\n    \"z\" : 0.6308835744857788,\n    \"t\" : 23.17446708679199\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : -0.5824013948440552,\n    \"y\" : -0.1491387337446213,\n    \"z\" : 0.8018723130226135,\n    \"t\" : 30.89118576049805\n    },\n  \"row1\" : {\n    \"x\" : 3.733732967248216e-07,\n    \"y\" : 0.9829665422439575,\n    \"z\" : 0.1836859285831451,\n    \"t\" : 7.048496723175049\n    },\n  \"row2\" : {\n    \"x\" : -0.8156877756118774,\n    \"y\" : 0.1064855456352234,\n    \"z\" : -0.5725370645523071,\n    \"t\" : -21.99235534667969\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "timeline_start" : "1",
     "timeline_loopMode" : "1",
-    "uiGraphZoom" : "{\n  \"value\" : 0.7363776564598083\n  }",
+    "uiGraphZoom" : "{\n  \"value\" : 0.7900114059448242\n  }",
     "timeline_simMode" : "0",
-    "camera_focalDistance" : "36.71801376342773",
+    "camera_focalDistance" : "38.60742950439453",
     "timeline_current" : "1",
     "timeline_end" : "50",
-    "uiGraphPan" : "{\n  \"x\" : -712.918212890625,\n  \"y\" : -159.9835052490234\n  }"
+    "uiGraphPan" : "{\n  \"x\" : -543.5171557001927,\n  \"y\" : -311.6252291979035\n  }"
     },
   "title" : "",
   "ports" : [
@@ -47,6 +47,13 @@
       "name" : "centerRodMesh",
       "execPortType" : "Out",
       "typeSpec" : "PolygonMesh"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "instance_2",
+      "execPortType" : "Out",
+      "typeSpec" : "InlineInstance"
       },
     {
       "objectType" : "Port",
@@ -240,33 +247,6 @@
       },
     {
       "objectType" : "Port",
-      "nodePortType" : "In",
-      "name" : "instance_2",
-      "execPortType" : "Out",
-      "typeSpec" : "InlineInstance"
-      },
-    {
-      "objectType" : "Port",
-      "metadata" : {
-        "uiPersistValue" : "true"
-        },
-      "nodePortType" : "Out",
-      "name" : "maxU",
-      "execPortType" : "In",
-      "typeSpec" : "Float32"
-      },
-    {
-      "objectType" : "Port",
-      "metadata" : {
-        "uiPersistValue" : "true"
-        },
-      "nodePortType" : "Out",
-      "name" : "maxV",
-      "execPortType" : "In",
-      "typeSpec" : "Float32"
-      },
-    {
-      "objectType" : "Port",
       "metadata" : {
         "uiPersistValue" : "true"
         },
@@ -274,6 +254,52 @@
       "name" : "drawTexture",
       "execPortType" : "In",
       "typeSpec" : "Boolean"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "scaleUV",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {},
+      "nodePortType" : "Out",
+      "name" : "offsetU",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "offsetV",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "scaleU",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {},
+      "nodePortType" : "Out",
+      "name" : "scaleV",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
       }
     ],
   "extDeps" : {},
@@ -2185,6 +2211,11 @@ dfgEntry
       "ports" : [
         {
           "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "value"
+          },
+        {
+          "objectType" : "InstPort",
           "nodePortType" : "In",
           "name" : "outXfos"
           },
@@ -2215,28 +2246,44 @@ dfgEntry
           },
         {
           "objectType" : "InstPort",
-          "nodePortType" : "Out",
-          "name" : "value"
+          "nodePortType" : "In",
+          "name" : "scaleUV"
           },
         {
           "objectType" : "InstPort",
           "nodePortType" : "In",
-          "name" : "maxU"
+          "name" : "offsetU"
           },
         {
           "objectType" : "InstPort",
           "nodePortType" : "In",
-          "name" : "maxV"
+          "name" : "offsetV"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "scaleU"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "scaleV"
           }
         ],
       "definition" : {
         "objectType" : "Graph",
         "metadata" : {
-          "uiGraphZoom" : "{\n  \"value\" : 0.629217267036438\n  }",
-          "uiGraphPan" : "{\n  \"x\" : -747.6095581054688,\n  \"y\" : -243.1403198242188\n  }"
+          "uiGraphZoom" : "{\n  \"value\" : 0.7701365351676941\n  }",
+          "uiGraphPan" : "{\n  \"x\" : -175.730577620534,\n  \"y\" : -236.5479851296673\n  }"
           },
         "title" : "extrudeProfiles",
         "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "value",
+            "execPortType" : "Out"
+            },
           {
             "objectType" : "Port",
             "nodePortType" : "Out",
@@ -2275,21 +2322,53 @@ dfgEntry
             },
           {
             "objectType" : "Port",
-            "nodePortType" : "In",
-            "name" : "value",
-            "execPortType" : "Out"
-            },
-          {
-            "objectType" : "Port",
+            "metadata" : {},
             "nodePortType" : "Out",
-            "name" : "maxU",
+            "name" : "scaleUV",
             "execPortType" : "In",
             "typeSpec" : "Float32"
             },
           {
             "objectType" : "Port",
+            "metadata" : {},
             "nodePortType" : "Out",
-            "name" : "maxV",
+            "defaultValues" : {
+              "Float32" : 0
+              },
+            "name" : "offsetU",
+            "execPortType" : "In",
+            "typeSpec" : "Float32"
+            },
+          {
+            "objectType" : "Port",
+            "metadata" : {},
+            "nodePortType" : "Out",
+            "defaultValues" : {
+              "Float32" : 0
+              },
+            "name" : "offsetV",
+            "execPortType" : "In",
+            "typeSpec" : "Float32"
+            },
+          {
+            "objectType" : "Port",
+            "metadata" : {},
+            "nodePortType" : "Out",
+            "defaultValues" : {
+              "Float32" : 1
+              },
+            "name" : "scaleU",
+            "execPortType" : "In",
+            "typeSpec" : "Float32"
+            },
+          {
+            "objectType" : "Port",
+            "metadata" : {},
+            "nodePortType" : "Out",
+            "defaultValues" : {
+              "Float32" : 1
+              },
+            "name" : "scaleV",
             "execPortType" : "In",
             "typeSpec" : "Float32"
             }
@@ -2299,7 +2378,7 @@ dfgEntry
           {
             "objectType" : "Inst",
             "metadata" : {
-              "uiGraphPos" : "{\"x\":464.8767700195312,\"y\":781.0587158203125}"
+              "uiGraphPos" : "{\"x\":620.107421875,\"y\":369.5460205078125}"
               },
             "name" : "AddExtrusion_1",
             "ports" : [
@@ -2413,7 +2492,7 @@ dfgEntry {
           {
             "objectType" : "Inst",
             "metadata" : {
-              "uiGraphPos" : "{\"x\":290.6064758300781,\"y\":746.90380859375}"
+              "uiGraphPos" : "{\"x\":285.6816101074219,\"y\":635.74560546875}"
               },
             "name" : "EmptyPolygonMesh_1",
             "ports" : [
@@ -3221,7 +3300,7 @@ dfgEntry
           {
             "objectType" : "Inst",
             "metadata" : {
-              "uiGraphPos" : "{\"x\":609.1846313476562,\"y\":855.9237670898438}"
+              "uiGraphPos" : "{\"x\":639.2070922851562,\"y\":859.387939453125}"
               },
             "name" : "ClonePolygonMesh",
             "ports" : [
@@ -3371,11 +3450,265 @@ dfgEntry
               ],
             "executable" : "Fabric.Exts.Geometry.PolygonMesh.MergeMesh",
             "presetGUID" : "A68C3C98E78BEA71DDD7A2DB92CD5CBE"
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":478.20947265625,\"y\":692.8458862304688}"
+              },
+            "name" : "extrude_2",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "IO",
+                "name" : "this"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "profile"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "xfos"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "close"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "defaultValues" : {
+                  "Float32" : 1
+                  },
+                "name" : "scaleU"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "defaultValues" : {
+                  "Float32" : 1
+                  },
+                "name" : "scaleV"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "defaultValues" : {
+                  "Float32" : 0
+                  },
+                "name" : "offsetU"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "defaultValues" : {
+                  "Float32" : 0
+                  },
+                "name" : "offsetV"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "scaleUV"
+                }
+              ],
+            "definition" : {
+              "objectType" : "Func",
+              "title" : "extrude",
+              "ports" : [
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "IO",
+                  "name" : "this",
+                  "execPortType" : "IO",
+                  "typeSpec" : "PolygonMesh"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "profile",
+                  "execPortType" : "In",
+                  "typeSpec" : "Vec3[]"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "xfos",
+                  "execPortType" : "In",
+                  "typeSpec" : "Xfo[]"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "close",
+                  "execPortType" : "In",
+                  "typeSpec" : "Boolean"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "scaleU",
+                  "execPortType" : "In",
+                  "typeSpec" : "Float32"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "scaleV",
+                  "execPortType" : "In",
+                  "typeSpec" : "Float32"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "offsetU",
+                  "execPortType" : "In",
+                  "typeSpec" : "Float32"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "offsetV",
+                  "execPortType" : "In",
+                  "typeSpec" : "Float32"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "scaleUV",
+                  "execPortType" : "In",
+                  "typeSpec" : "Float32"
+                  }
+                ],
+              "extDeps" : {},
+              "code" : "/*
+dfgEntry {
+  mesh.extrude(xfos, profile, closeProfile, createUvs, maxU, maxV);
+}
+*/
+
+dfgEntry {
+
+  if(profile.size() < 2)
+    return;
+  if(xfos.size() < 2)
+    return;
+
+  Float32 uSpacing[];
+  
+  if(!close){
+    uSpacing.resize(profile.size());
+  }
+  else{
+    uSpacing.resize(profile.size()+1);
+  }
+  
+  // todo: do not need the first u value to be 0
+  for(Size i=0; i<profile.size(); i++) {
+    if (i == 0){
+      uSpacing[0] = 0;
+    }
+    else {
+      uSpacing[i] = uSpacing[i-1] + (profile[i-1] - profile[i]).length();
+    }
+  }
+  
+  if (close){
+    uSpacing[profile.size()] = uSpacing[profile.size()-1] + (profile[0] - profile[profile.size()-1]).length();
+  }
+  
+  
+  Float32 vSpacing[];
+  vSpacing.resize(xfos.size());
+  // todo: do not need the first v value to be 0
+  for(Size i=0;i<xfos.size();i++) {
+    if (i == 0){
+      vSpacing[0] = 0;
+    }
+    else{
+      vSpacing[i] = vSpacing[i-1] + (xfos[i].tr - xfos[i-1].tr).length();
+    }
+  }
+  
+  Size nbSegments = close ? profile.size() : profile.size() - 1;
+  Size nbPointRows = xfos.size();
+  Size nbQuadRows = nbPointRows - 1;
+  
+  Size nbPoints = profile.size() * nbPointRows;
+  Size firstPoint = this.createPoints(nbPoints);
+  
+  for(Size i=0;i<nbPoints;i++) {
+    Size row = i / profile.size();
+    Size pointIndex = i % profile.size();
+    Vec3 pos = xfos[row].transformVector(profile[pointIndex]);
+    this.setPointPosition(firstPoint+i, pos);
+  }
+
+  Ref<Vec2Attribute> uvs = null;
+  uvs = this.getOrCreateVec2Attribute(\"uvs0\");
+    
+    
+  this.beginStructureChanges();
+
+  Size nbQuads = nbSegments * nbQuadRows;
+  Size v0, v1, v2, v3;
+  Float32 uStart, uEnd, vStart, vEnd;
+  Float32 maxV = vSpacing[vSpacing.size()-1] * scaleUV * scaleV;
+  
+  for(Size i=0;i<nbQuads;i++) {
+
+    Size segmentIndex = i % nbSegments;
+    Size row = i / nbSegments;
+
+    if (row == 0){
+      vStart = maxV - offsetV;
+      vEnd = maxV - (vSpacing[1] * scaleUV * scaleV + offsetV);
+    }
+    else{
+      vStart = maxV - (vSpacing[row] * scaleUV * scaleV + offsetV);
+      vEnd = maxV - (vSpacing[row+1] * scaleUV * scaleV + offsetV);
+    }
+
+    uStart = uSpacing[segmentIndex] * scaleUV * scaleU + offsetU;
+    uEnd = uSpacing[segmentIndex+1] * scaleUV * scaleU + offsetU;
+        
+    if(segmentIndex == profile.size() - 1) {
+      v0 = (profile.size() * row + segmentIndex) % nbPoints;
+      v1 = (profile.size() * row) % nbPoints;
+      v2 = (profile.size() * (row+1)) % nbPoints;
+      v3 = (profile.size() * (row+1) + segmentIndex) % nbPoints;
+    } else {
+      v0 = (profile.size() * row + segmentIndex) % nbPoints;
+      v1 = (profile.size() * row + segmentIndex + 1) % nbPoints;
+      v2 = (profile.size() * (row+1) + segmentIndex + 1) % nbPoints;
+      v3 = (profile.size() * (row+1) + segmentIndex) % nbPoints;
+    }
+    
+    this.addPolygon(firstPoint+v3, firstPoint+v2, firstPoint+v1, firstPoint+v0);
+
+    this.setPolygonAttribute(i, 0, uvs, Vec2(uStart, vEnd));
+    this.setPolygonAttribute(i, 1, uvs, Vec2(uEnd, vEnd));
+    this.setPolygonAttribute(i, 2, uvs, Vec2(uEnd, vStart));
+    this.setPolygonAttribute(i, 3, uvs, Vec2(uStart, vStart));
+  }
+
+  this.endStructureChanges();
+}
+
+
+
+
+"
+              }
             }
           ],
         "connections" : {
           "outXfos" : [
-            "AddExtrusion_1.xfos"
+            "extrude_2.xfos"
             ],
           "smoothingAngle" : [
             "Math_degToRad_1.val"
@@ -3389,18 +3722,23 @@ dfgEntry
           "profileTranslateZ" : [
             "transformProfile_3.translateZ"
             ],
-          "maxU" : [
-            "AddExtrusion_1.maxU"
+          "scaleUV" : [
+            "extrude_2.scaleUV"
             ],
-          "maxV" : [
-            "AddExtrusion_1.maxV"
+          "offsetU" : [
+            "extrude_2.offsetU"
             ],
-          "AddExtrusion_1.this" : [
-            "ClonePolygonMesh.value",
-            "MergeMesh_1.this"
+          "offsetV" : [
+            "extrude_2.offsetV"
+            ],
+          "scaleU" : [
+            "extrude_2.scaleU"
+            ],
+          "scaleV" : [
+            "extrude_2.scaleV"
             ],
           "EmptyPolygonMesh_1.mesh" : [
-            "AddExtrusion_1.this"
+            "extrude_2.this"
             ],
           "RecomputePointNormals_1.this" : [
             "Cache_1.value"
@@ -3424,7 +3762,7 @@ dfgEntry
             "Get_1.array"
             ],
           "transformProfile_3.outProfile" : [
-            "AddExtrusion_1.profile"
+            "extrude_2.profile"
             ],
           "Cache_1.value" : [
             "value"
@@ -3449,6 +3787,10 @@ dfgEntry
             ],
           "MergeMesh_1.this" : [
             "RecomputePointNormals_1.this"
+            ],
+          "extrude_2.this" : [
+            "ClonePolygonMesh.value",
+            "MergeMesh_1.this"
             ]
           }
         }
@@ -3864,15 +4206,24 @@ dfgEntry
     "p2ScaleMult" : [
       "capMesh.p2ScaleMult"
       ],
-    "maxU" : [
-      "extrudeProfiles.maxU"
-      ],
-    "maxV" : [
-      "extrudeProfiles.maxV"
-      ],
     "drawTexture" : [
       "SetActive_3.active",
       "Not_1.value"
+      ],
+    "scaleUV" : [
+      "extrudeProfiles.scaleUV"
+      ],
+    "offsetU" : [
+      "extrudeProfiles.offsetU"
+      ],
+    "offsetV" : [
+      "extrudeProfiles.offsetV"
+      ],
+    "scaleU" : [
+      "extrudeProfiles.scaleU"
+      ],
+    "scaleV" : [
+      "extrudeProfiles.scaleV"
       ],
     "EmptyDrawingHandle_1.handle" : [
       "DrawAxesInstances_1.this",
@@ -5925,28 +6276,33 @@ dfgEntry {
       "ext" : "Geometry"
       },
     {
-      "type" : "Float32",
-      "value" : 4.867000102996826
+      "type" : "InlineInstance",
+      "value" : null,
+      "ext" : "InlineDrawing"
       },
     {
       "type" : "Float32",
-      "value" : 3.450999736785889
-      },
-    {
-      "type" : "SInt32",
-      "value" : 24
-      },
-    {
-      "type" : "SInt32",
-      "value" : 22
-      },
-    {
-      "type" : "SInt32",
-      "value" : 32
+      "value" : 6.185999870300293
       },
     {
       "type" : "Float32",
-      "value" : 17.25
+      "value" : 4.638999938964844
+      },
+    {
+      "type" : "SInt32",
+      "value" : 14
+      },
+    {
+      "type" : "SInt32",
+      "value" : 15
+      },
+    {
+      "type" : "SInt32",
+      "value" : 10
+      },
+    {
+      "type" : "Float32",
+      "value" : 22.72500038146973
       },
     {
       "type" : "Boolean",
@@ -5970,7 +6326,7 @@ dfgEntry {
       },
     {
       "type" : "Float32",
-      "value" : 1.32699990272522
+      "value" : 1.817999958992004
       },
     {
       "type" : "Float32",
@@ -5997,21 +6353,28 @@ dfgEntry {
       "value" : 0.6018000245094299
       },
     {
-      "type" : "InlineInstance",
-      "value" : null,
-      "ext" : "InlineDrawing"
-      },
-    {
-      "type" : "Float32",
-      "value" : 0.4424999952316284
-      },
-    {
-      "type" : "Float32",
-      "value" : 5.309599876403809
-      },
-    {
       "type" : "Boolean",
       "value" : true
+      },
+    {
+      "type" : "Float32",
+      "value" : 0.0908999964594841
+      },
+    {
+      "type" : "Float32",
+      "value" : null
+      },
+    {
+      "type" : "Float32",
+      "value" : 1
+      },
+    {
+      "type" : "Float32",
+      "value" : 1
+      },
+    {
+      "type" : "Float32",
+      "value" : null
       }
     ]
   }
