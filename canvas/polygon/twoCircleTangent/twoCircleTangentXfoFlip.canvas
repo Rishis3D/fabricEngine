@@ -1,15 +1,15 @@
 {
   "objectType" : "Graph",
   "metadata" : {
-    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : -0.5824013948440552,\n    \"y\" : -0.1491387337446213,\n    \"z\" : 0.8018723130226135,\n    \"t\" : 30.89118576049805\n    },\n  \"row1\" : {\n    \"x\" : 3.733732967248216e-07,\n    \"y\" : 0.9829665422439575,\n    \"z\" : 0.1836859285831451,\n    \"t\" : 7.048496723175049\n    },\n  \"row2\" : {\n    \"x\" : -0.8156877756118774,\n    \"y\" : 0.1064855456352234,\n    \"z\" : -0.5725370645523071,\n    \"t\" : -21.99235534667969\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : -0.4101411998271942,\n    \"y\" : 0.3921917676925659,\n    \"z\" : -0.8258612751960754,\n    \"t\" : -17.97979545593262\n    },\n  \"row1\" : {\n    \"x\" : 2.853018486348446e-06,\n    \"y\" : 0.9028031229972839,\n    \"z\" : 0.4309005737304688,\n    \"t\" : 9.35460090637207\n    },\n  \"row2\" : {\n    \"x\" : 0.9146782755851746,\n    \"y\" : 0.175855740904808,\n    \"z\" : -0.3703170120716095,\n    \"t\" : -8.000012397766113\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "timeline_start" : "1",
     "timeline_loopMode" : "1",
     "uiGraphZoom" : "{\n  \"value\" : 0.7900114059448242\n  }",
     "timeline_simMode" : "0",
-    "camera_focalDistance" : "38.60742950439453",
+    "camera_focalDistance" : "21.82803153991699",
     "timeline_current" : "1",
     "timeline_end" : "50",
-    "uiGraphPan" : "{\n  \"x\" : -543.5171557001927,\n  \"y\" : -311.6252291979035\n  }"
+    "uiGraphPan" : "{\n  \"x\" : -540.5171508789062,\n  \"y\" : -258.625244140625\n  }"
     },
   "title" : "",
   "ports" : [
@@ -267,7 +267,9 @@
       },
     {
       "objectType" : "Port",
-      "metadata" : {},
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
       "nodePortType" : "Out",
       "name" : "offsetU",
       "execPortType" : "In",
@@ -295,7 +297,9 @@
       },
     {
       "objectType" : "Port",
-      "metadata" : {},
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
       "nodePortType" : "Out",
       "name" : "scaleV",
       "execPortType" : "In",
@@ -2274,7 +2278,7 @@ dfgEntry
         "objectType" : "Graph",
         "metadata" : {
           "uiGraphZoom" : "{\n  \"value\" : 0.7701365351676941\n  }",
-          "uiGraphPan" : "{\n  \"x\" : -175.730577620534,\n  \"y\" : -236.5479851296673\n  }"
+          "uiGraphPan" : "{\n  \"x\" : 128.2694396972656,\n  \"y\" : -385.5480041503906\n  }"
           },
         "title" : "extrudeProfiles",
         "ports" : [
@@ -2322,7 +2326,6 @@ dfgEntry
             },
           {
             "objectType" : "Port",
-            "metadata" : {},
             "nodePortType" : "Out",
             "name" : "scaleUV",
             "execPortType" : "In",
@@ -2330,7 +2333,6 @@ dfgEntry
             },
           {
             "objectType" : "Port",
-            "metadata" : {},
             "nodePortType" : "Out",
             "defaultValues" : {
               "Float32" : 0
@@ -2341,7 +2343,6 @@ dfgEntry
             },
           {
             "objectType" : "Port",
-            "metadata" : {},
             "nodePortType" : "Out",
             "defaultValues" : {
               "Float32" : 0
@@ -2352,7 +2353,6 @@ dfgEntry
             },
           {
             "objectType" : "Port",
-            "metadata" : {},
             "nodePortType" : "Out",
             "defaultValues" : {
               "Float32" : 1
@@ -2363,7 +2363,6 @@ dfgEntry
             },
           {
             "objectType" : "Port",
-            "metadata" : {},
             "nodePortType" : "Out",
             "defaultValues" : {
               "Float32" : 1
@@ -2774,7 +2773,7 @@ dfgEntry {
           {
             "objectType" : "Inst",
             "metadata" : {
-              "uiGraphPos" : "{\"x\":-7.512411117553711,\"y\":974.9142456054688}"
+              "uiGraphPos" : "{\"x\":-133.464111328125,\"y\":971.0188598632812}"
               },
             "name" : "Get_1",
             "ports" : [
@@ -6282,7 +6281,7 @@ dfgEntry {
       },
     {
       "type" : "Float32",
-      "value" : 6.185999870300293
+      "value" : 4.832000255584717
       },
     {
       "type" : "Float32",
@@ -6330,7 +6329,7 @@ dfgEntry {
       },
     {
       "type" : "Float32",
-      "value" : 0.9350000619888306
+      "value" : 0.9229999780654907
       },
     {
       "type" : "Float32",
@@ -6362,7 +6361,11 @@ dfgEntry {
       },
     {
       "type" : "Float32",
-      "value" : null
+      "value" : 0
+      },
+    {
+      "type" : "Float32",
+      "value" : 0
       },
     {
       "type" : "Float32",
@@ -6371,10 +6374,6 @@ dfgEntry {
     {
       "type" : "Float32",
       "value" : 1
-      },
-    {
-      "type" : "Float32",
-      "value" : null
       }
     ]
   }
