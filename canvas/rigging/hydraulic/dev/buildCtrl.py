@@ -16,8 +16,8 @@ def createCtrl(num, radius):
     return ret_list
 
 num = 12
-innerRadius = 7
-outerRadius = 15
+innerRadius = 14
+outerRadius = 30       
 
 btmCtrl = createCtrl(num, outerRadius)
 topCtrl = createCtrl(num, innerRadius)
@@ -28,13 +28,14 @@ pm.parent(btmCtrl, btmParent)
 pm.parent(topCtrl, topParent)
 
 
-# create a canvas node, load JSON, add shape in and output
-'''
+
 # load canvas
 canvasNode = pm.createNode('canvasNode')
 path = '/Users/johan/Dev/fabricEngine/canvas/rigging/hydraulic/hydraulicMaya.canvas'
 pm.dfgImportJSON(m=canvasNode, f=path)
 
+
+'''
 # connect the out mesh
 pm.PyNode('btmSourceMeshShape').outMesh >> canvasNode.inBtmMesh
 pm.PyNode('topSourceMeshShape').outMesh >> canvasNode.inTopMesh
@@ -47,11 +48,10 @@ canvasNode.outBtmMesh >> btmMesh.inMesh
 canvasNode.outTopMesh >> topMesh.inMesh
 '''
 
-# create a canvas PyNode
-canvasNode = pm.PyNode('canvasNode1')
+#canvasNode = pm.PyNode('canvasNode1')
 
 for i in range(num):
     index = i*2
     btmCtrl[i].worldMatrix[0] >> canvasNode.inMat[index]
     topCtrl[i].worldMatrix[0] >> canvasNode.inMat[index+1]
-
+    
