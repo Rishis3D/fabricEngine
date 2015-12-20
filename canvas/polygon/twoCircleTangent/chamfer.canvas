@@ -1,15 +1,15 @@
 {
   "objectType" : "Graph",
   "metadata" : {
-    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.1140335351228714,\n    \"y\" : 0.2269819676876068,\n    \"z\" : -0.9671985507011414,\n    \"t\" : -18.92605018615723\n    },\n  \"row1\" : {\n    \"x\" : 9.462233379053941e-07,\n    \"y\" : 0.9735433459281921,\n    \"z\" : 0.2284737378358841,\n    \"t\" : 4.470664978027344\n    },\n  \"row2\" : {\n    \"x\" : 0.9934764504432678,\n    \"y\" : -0.02605443447828293,\n    \"z\" : 0.1110170632600784,\n    \"t\" : 2.172732830047607\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.1338721662759781,\n    \"y\" : 0.1973786205053329,\n    \"z\" : -0.9711476564407349,\n    \"t\" : -15.59289646148682\n    },\n  \"row1\" : {\n    \"x\" : 1.460315843360149e-06,\n    \"y\" : 0.9799566864967346,\n    \"z\" : 0.1991740614175797,\n    \"t\" : 3.197832345962524\n    },\n  \"row2\" : {\n    \"x\" : 0.9910000562667847,\n    \"y\" : -0.02666491270065308,\n    \"z\" : 0.1311900466680527,\n    \"t\" : 2.106840848922729\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "timeline_start" : "1",
     "timeline_loopMode" : "1",
-    "uiGraphZoom" : "{\n  \"value\" : 0.6969613432884216\n  }",
+    "uiGraphZoom" : "{\n  \"value\" : 0.7017488479614258\n  }",
     "timeline_simMode" : "0",
-    "camera_focalDistance" : "19.5679931640625",
+    "camera_focalDistance" : "16.05632400512695",
     "timeline_current" : "1",
     "timeline_end" : "50",
-    "uiGraphPan" : "{\n  \"x\" : 1.018329620361328,\n  \"y\" : 27.97988891601562\n  }"
+    "uiGraphPan" : "{\n  \"x\" : -139.3229515386913,\n  \"y\" : 26.47385112099033\n  }"
     },
   "title" : "",
   "ports" : [
@@ -36,6 +36,44 @@
       "name" : "size",
       "execPortType" : "In",
       "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true",
+        "uiRange" : "(-10, 10)"
+        },
+      "nodePortType" : "Out",
+      "name" : "y",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "instance",
+      "execPortType" : "Out",
+      "typeSpec" : "InlineInstance"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "maxAngle",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "active",
+      "execPortType" : "In",
+      "typeSpec" : "Boolean"
       }
     ],
   "extDeps" : {},
@@ -50,6 +88,9 @@
         {
           "objectType" : "InstPort",
           "nodePortType" : "In",
+          "defaultValues" : {
+            "Float32" : 0
+            },
           "name" : "x"
           },
         {
@@ -63,6 +104,9 @@
         {
           "objectType" : "InstPort",
           "nodePortType" : "In",
+          "defaultValues" : {
+            "Float32" : 0.8130999803543091
+            },
           "name" : "z"
           },
         {
@@ -211,7 +255,8 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":385.6884765625,\"y\":74.28972625732422}"
+        "uiGraphPos" : "{\"x\":361.296875,\"y\":176.1604919433594}",
+        "uiCollapsedState" : "2"
         },
       "name" : "DrawPoints_1",
       "ports" : [
@@ -253,7 +298,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":405.1363830566406,\"y\":472.1441955566406}"
+        "uiGraphPos" : "{\"x\":402.4332580566406,\"y\":505.1543884277344}"
         },
       "name" : "addChamfer",
       "ports" : [
@@ -264,13 +309,23 @@
           },
         {
           "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "size"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "maxAngle"
+          },
+        {
+          "objectType" : "InstPort",
           "nodePortType" : "Out",
           "name" : "outPos"
           },
         {
           "objectType" : "InstPort",
           "nodePortType" : "In",
-          "name" : "size"
+          "name" : "active"
           }
         ],
       "definition" : {
@@ -286,6 +341,20 @@
             },
           {
             "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "size",
+            "execPortType" : "In",
+            "typeSpec" : "Float32"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "maxAngle",
+            "execPortType" : "In",
+            "typeSpec" : "Float32"
+            },
+          {
+            "objectType" : "Port",
             "nodePortType" : "In",
             "name" : "outPos",
             "execPortType" : "Out",
@@ -294,25 +363,34 @@
           {
             "objectType" : "Port",
             "nodePortType" : "Out",
-            "name" : "size",
+            "name" : "active",
             "execPortType" : "In",
-            "typeSpec" : "Float32"
+            "typeSpec" : "Boolean"
             }
           ],
         "extDeps" : {},
         "code" : "dfgEntry {
 
-  Size numOutPos = (inPos.size()-2) * 2 + 2;
-  outPos.resize(numOutPos);
+  if (!active){
+    outPos.resize(inPos.size());
+    outPos = inPos;
+    return;
+  }
   
+  Size numOutPos = (inPos.size()-2) * 2 + 2;
+  Float32 maxAngRad = Math_degToRad(maxAngle);
+  Vec3 temp[];
   Vec3 v1, v2;
+  
   for (Size i = 0; i < inPos.size(); i++){
     
     if (i == 0){
-      outPos[0] = inPos[0];
+      //outPos[0] = inPos[0];
+      temp.push(inPos[0]);
     }
     else if (i == inPos.size()-1){
-      outPos[numOutPos-1] = inPos[inPos.size()-1];
+      //outPos[numOutPos-1] = inPos[inPos.size()-1];
+      temp.push(inPos[inPos.size()-1]);
     }
     else {
       v1 = inPos[i-1] - inPos[i];
@@ -324,12 +402,21 @@
       if (v2 != Vec3(0,0,0)){
         v2.normalize();
       }
-      outPos[i*2-1] = inPos[i] + v1 * size;
-      outPos[i*2] = inPos[i] + v2 * size;
+      //outPos[i*2-1] = inPos[i] + v1 * size;
+      //outPos[i*2] = inPos[i] + v2 * size;
       
-      report(inPos[i]);
+      if (acos(v1.dot(v2)) <= maxAngRad){
+        temp.push(inPos[i] + v1 * size);
+        temp.push(inPos[i] + v2 * size);
+      }
+      else{
+        temp.push(inPos[i]);
+      }
     }
   }
+  
+  outPos.resize(temp.size());
+  outPos = temp;
 }
 "
         }
@@ -337,7 +424,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":683.6787719726562,\"y\":406.3760070800781}"
+        "uiGraphPos" : "{\"x\":682.2439575195312,\"y\":440.8113098144531}"
         },
       "name" : "DrawPoints_2",
       "ports" : [
@@ -355,8 +442,8 @@
           "defaultValues" : {
             "Color" : {
               "r" : 1,
-              "g" : 0.003921568859368563,
-              "b" : 0.07058823853731155,
+              "g" : 0,
+              "b" : 1,
               "a" : 1
               }
             },
@@ -366,7 +453,7 @@
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "Float32" : 10
+            "Float32" : 7
             },
           "name" : "size"
           },
@@ -441,11 +528,153 @@
         ],
       "executable" : "Fabric.Core.Array.Push",
       "presetGUID" : "572880BF96ACC34D6987BE3333715F52"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":708.81396484375,\"y\":154.9382629394531}"
+        },
+      "name" : "DrawLines_1",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "exec"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "this"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "String" : "debugLines2"
+            },
+          "name" : "name"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Color" : {
+              "r" : 0.7372549176216125,
+              "g" : 0,
+              "b" : 0.7372549176216125,
+              "a" : 1
+              }
+            },
+          "name" : "color"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "specular"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "specFactor"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "transform"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "lines"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "dummyResult"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "instance"
+          }
+        ],
+      "executable" : "Fabric.Exts.InlineDrawing.DrawingHandle.DrawLines",
+      "presetGUID" : "E7431541CD0BEDDD3FC410E150C0C28D"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":388.9417419433594,\"y\":335.7718811035156}"
+        },
+      "name" : "Lines_1",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "String" : ""
+            },
+          "name" : "debugName"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "Fabric.Exts.Geometry.Lines.Lines",
+      "presetGUID" : "C506DCD6DA6612508B4FFFFDD558E356"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":537.6893920898438,\"y\":385.5028686523438}"
+        },
+      "name" : "AddLineStrip_1",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "this"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "strip"
+          }
+        ],
+      "executable" : "Fabric.Exts.Geometry.Lines.AddLineStrip",
+      "presetGUID" : "DDE5BB04C5A262CDF10F7339E752E1F2"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":455.038818359375,\"y\":64.87527465820312}"
+        },
+      "name" : "EmptyDrawingHandle_1",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "handle"
+          }
+        ],
+      "executable" : "Fabric.Exts.InlineDrawing.DrawingHandle.EmptyDrawingHandle",
+      "presetGUID" : "2440020BA6A1CAB1CEB690A198F99C70"
       }
     ],
   "connections" : {
     "size" : [
       "addChamfer.size"
+      ],
+    "y" : [
+      "Vec3_1.y"
+      ],
+    "maxAngle" : [
+      "addChamfer.maxAngle"
+      ],
+    "active" : [
+      "addChamfer.active"
       ],
     "Vec3_1.result" : [
       "Push_1.element"
@@ -469,6 +698,7 @@
       "debugHandle"
       ],
     "addChamfer.outPos" : [
+      "AddLineStrip_1.strip",
       "DrawPoints_2.pos"
       ],
     "DrawPoints_2.debugHandle" : [
@@ -480,6 +710,18 @@
     "Push_4.array" : [
       "addChamfer.inPos",
       "DrawPoints_1.pos"
+      ],
+    "DrawLines_1.instance" : [
+      "instance"
+      ],
+    "Lines_1.result" : [
+      "AddLineStrip_1.this"
+      ],
+    "AddLineStrip_1.this" : [
+      "DrawLines_1.lines"
+      ],
+    "EmptyDrawingHandle_1.handle" : [
+      "DrawLines_1.this"
       ]
     },
   "requiredPresets" : {
@@ -1072,6 +1314,197 @@ dfgEntry {
   this.clear();
 }
 "
+      },
+    "Fabric.Exts.InlineDrawing.DrawingHandle.DrawLines" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.1/HTML/KLExtensionsGuide/InlineDrawing/DrawingHandle.html",
+        "uiTooltip" : "helper function to draw a lines object given a color + a single transform\n\n Supported by DrawingHandle"
+        },
+      "title" : "DrawLines",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "IO",
+          "name" : "exec",
+          "execPortType" : "IO",
+          "typeSpec" : "Execute"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "IO",
+          "name" : "this",
+          "execPortType" : "IO",
+          "typeSpec" : "DrawingHandle"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "name",
+          "execPortType" : "In",
+          "typeSpec" : "String"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 255,\n  \"g\" : 0,\n  \"b\" : 0\n  }"
+            },
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "Color" : {
+              "r" : 0,
+              "g" : 1,
+              "b" : 0,
+              "a" : 1
+              }
+            },
+          "name" : "color",
+          "execPortType" : "In",
+          "typeSpec" : "Color"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 255,\n  \"g\" : 0,\n  \"b\" : 0\n  }"
+            },
+          "nodePortType" : "Out",
+          "name" : "specular",
+          "execPortType" : "In",
+          "typeSpec" : "Color"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "specFactor",
+          "execPortType" : "In",
+          "typeSpec" : "Float32"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 249,\n  \"g\" : 157,\n  \"b\" : 28\n  }"
+            },
+          "nodePortType" : "Out",
+          "name" : "transform",
+          "execPortType" : "In",
+          "typeSpec" : "Xfo"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 51,\n  \"g\" : 1,\n  \"b\" : 106\n  }"
+            },
+          "nodePortType" : "Out",
+          "name" : "lines",
+          "execPortType" : "In",
+          "typeSpec" : "Lines"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 255,\n  \"g\" : 242,\n  \"b\" : 0\n  }"
+            },
+          "nodePortType" : "In",
+          "name" : "dummyResult",
+          "execPortType" : "Out",
+          "typeSpec" : "Vec3"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "In",
+          "name" : "instance",
+          "execPortType" : "Out",
+          "typeSpec" : "InlineInstance"
+          }
+        ],
+      "extDeps" : {
+        "InlineDrawing" : "*",
+        "FabricInterfaces" : "*"
+        },
+      "presetGUID" : "E7431541CD0BEDDD3FC410E150C0C28D",
+      "code" : "require InlineDrawing;
+
+dfgEntry {
+  this.drawLines(name, color, specular, specFactor, transform, lines, dummyResult, instance);
+}
+"
+      },
+    "Fabric.Exts.Geometry.Lines.Lines" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.1/HTML/KLExtensionsGuide/Geometry/Lines.html",
+        "uiTooltip" : "Constructor taking the string to be used as the name.\n\n Supported by Lines"
+        },
+      "title" : "Lines",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "debugName",
+          "execPortType" : "In",
+          "typeSpec" : "String"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 51,\n  \"g\" : 1,\n  \"b\" : 106\n  }"
+            },
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "Lines"
+          }
+        ],
+      "extDeps" : {
+        "Geometry" : "*"
+        },
+      "presetGUID" : "C506DCD6DA6612508B4FFFFDD558E356",
+      "code" : "require Geometry;
+
+dfgEntry {
+  result = Lines(debugName);
+}
+"
+      },
+    "Fabric.Exts.Geometry.Lines.AddLineStrip" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.1/HTML/KLExtensionsGuide/Geometry/Lines.html",
+        "uiTooltip" : "Adds a strip of line segments, defined as ``[ strip[0], strip[1] ], [ strip[1], strip[2] ], ...``\n\n Supported by Lines"
+        },
+      "title" : "AddLineStrip",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 51,\n  \"g\" : 1,\n  \"b\" : 106\n  }"
+            },
+          "nodePortType" : "IO",
+          "name" : "this",
+          "execPortType" : "IO",
+          "typeSpec" : "Lines"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 255,\n  \"g\" : 242,\n  \"b\" : 0\n  }"
+            },
+          "nodePortType" : "Out",
+          "name" : "strip",
+          "execPortType" : "In",
+          "typeSpec" : "Vec3[]"
+          }
+        ],
+      "extDeps" : {
+        "Geometry" : "*"
+        },
+      "presetGUID" : "DDE5BB04C5A262CDF10F7339E752E1F2",
+      "code" : "require Geometry;
+
+dfgEntry {
+  this.addLineStrip(strip);
+}
+"
       }
     },
   "args" : [
@@ -1087,7 +1520,24 @@ dfgEntry {
       },
     {
       "type" : "Float32",
-      "value" : 0.2000000029802322
+      "value" : 0.3535000085830688
+      },
+    {
+      "type" : "Float32",
+      "value" : 2.727999687194824
+      },
+    {
+      "type" : "InlineInstance",
+      "value" : null,
+      "ext" : "InlineDrawing"
+      },
+    {
+      "type" : "Float32",
+      "value" : 90
+      },
+    {
+      "type" : "Boolean",
+      "value" : true
       }
     ]
   }
