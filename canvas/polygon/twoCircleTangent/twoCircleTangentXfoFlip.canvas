@@ -1,15 +1,15 @@
 {
   "objectType" : "Graph",
   "metadata" : {
-    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.4449768364429474,\n    \"y\" : -0.0937136635184288,\n    \"z\" : 0.8953809142112732,\n    \"t\" : 15.26009654998779\n    },\n  \"row1\" : {\n    \"x\" : -2.207246780017158e-06,\n    \"y\" : 0.9943804740905762,\n    \"z\" : 0.1049995422363281,\n    \"t\" : 1.755633115768433\n    },\n  \"row2\" : {\n    \"x\" : -0.9002774357795715,\n    \"y\" : -0.04632194712758064,\n    \"z\" : 0.4425563812255859,\n    \"t\" : 7.629385948181152\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.7104848623275757,\n    \"y\" : -0.1298301815986633,\n    \"z\" : 0.6978012919425964,\n    \"t\" : 9.959503173828125\n    },\n  \"row1\" : {\n    \"x\" : -2.147596887880354e-06,\n    \"y\" : 0.9828546047210693,\n    \"z\" : 0.1845149099826813,\n    \"t\" : 2.59918475151062\n    },\n  \"row2\" : {\n    \"x\" : -0.7098661065101624,\n    \"y\" : -0.129946306347847,\n    \"z\" : 0.6984089612960815,\n    \"t\" : 10.05587005615234\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "timeline_start" : "1",
     "timeline_loopMode" : "1",
-    "uiGraphZoom" : "{\n  \"value\" : 0.4813521206378937\n  }",
+    "uiGraphZoom" : "{\n  \"value\" : 0.2093914300203323\n  }",
     "timeline_simMode" : "0",
-    "camera_focalDistance" : "17.11559104919434",
+    "camera_focalDistance" : "14.33445167541504",
     "timeline_current" : "1",
     "timeline_end" : "50",
-    "uiGraphPan" : "{\n  \"x\" : -8.874755578196186,\n  \"y\" : 233.3963789260695\n  }"
+    "uiGraphPan" : "{\n  \"x\" : 31.92664572053798,\n  \"y\" : 353.7547511462399\n  }"
     },
   "title" : "",
   "ports" : [
@@ -50,6 +50,20 @@
       },
     {
       "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "instance_4",
+      "execPortType" : "Out",
+      "typeSpec" : "InlineInstance"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "this",
+      "execPortType" : "Out",
+      "typeSpec" : "DrawingHandle"
+      },
+    {
+      "objectType" : "Port",
       "metadata" : {
         "uiPersistValue" : "true",
         "uiRange" : "(0, 10)"
@@ -73,43 +87,292 @@
     {
       "objectType" : "Port",
       "metadata" : {
-        "uiPersistValue" : "true"
+        "uiPersistValue" : "true",
+        "uiRange" : "(0, 64)"
         },
       "nodePortType" : "Out",
       "name" : "p1Num",
       "execPortType" : "In",
-      "typeSpec" : "Integer"
-      },
-    {
-      "objectType" : "Port",
-      "metadata" : {
-        "uiPersistValue" : "true"
-        },
-      "nodePortType" : "Out",
-      "name" : "p2Num",
-      "execPortType" : "In",
-      "typeSpec" : "Integer"
-      },
-    {
-      "objectType" : "Port",
-      "metadata" : {
-        "uiPersistValue" : "true"
-        },
-      "nodePortType" : "Out",
-      "name" : "sideNum",
-      "execPortType" : "In",
-      "typeSpec" : "Integer"
+      "typeSpec" : "SInt32"
       },
     {
       "objectType" : "Port",
       "metadata" : {
         "uiPersistValue" : "true",
-        "uiRange" : "(0, 150)"
+        "uiRange" : "(0, 64)"
+        },
+      "nodePortType" : "Out",
+      "name" : "p2Num",
+      "execPortType" : "In",
+      "typeSpec" : "SInt32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true",
+        "uiRange" : "(0, 100)"
         },
       "nodePortType" : "Out",
       "name" : "distance",
       "execPortType" : "In",
       "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true",
+        "uiRange" : "(0, 100)"
+        },
+      "nodePortType" : "Out",
+      "name" : "sideNum",
+      "execPortType" : "In",
+      "typeSpec" : "SInt32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true",
+        "uiCombo" : "(\"profile 0\", \"profile 1\", \"profile 2\")"
+        },
+      "nodePortType" : "Out",
+      "name" : "sideProfileType",
+      "execPortType" : "In",
+      "typeSpec" : "SInt32"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "sideProfile",
+      "execPortType" : "In",
+      "typeSpec" : "Vec3[]"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "sideProfileCount",
+      "execPortType" : "In",
+      "typeSpec" : "UInt32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true",
+        "uiRange" : "(0, 180)"
+        },
+      "nodePortType" : "Out",
+      "name" : "sideSmoothingAngle",
+      "execPortType" : "In",
+      "typeSpec" : "Scalar"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true",
+        "uiRange" : "(0, 10)"
+        },
+      "nodePortType" : "Out",
+      "name" : "sideProfileTransZ",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true",
+        "uiRange" : "(0, 10)"
+        },
+      "nodePortType" : "Out",
+      "name" : "sideProfileScale",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "sideScaleUV",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "sideOffsetU",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "sideOffsetV",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "sideScaleU",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "sideScaleV",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "sideChamferSize",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true",
+        "uiRange" : "(0, 10)"
+        },
+      "nodePortType" : "Out",
+      "name" : "cap1RadiusOffset",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true",
+        "uiRange" : "(0, 10)"
+        },
+      "nodePortType" : "Out",
+      "name" : "cap1Zoffset",
+      "execPortType" : "In",
+      "typeSpec" : "Scalar"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "cap1ProfileScale",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "cap1ChamferSize",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "cap1ScaleUV",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true",
+        "uiRange" : "(0, 180)"
+        },
+      "nodePortType" : "Out",
+      "name" : "Cap1SmoothinAngle",
+      "execPortType" : "In",
+      "typeSpec" : "Scalar"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true",
+        "uiRange" : "(0, 10)"
+        },
+      "nodePortType" : "Out",
+      "name" : "cap2RadiusOffset",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true",
+        "uiRange" : "(0, 10)"
+        },
+      "nodePortType" : "Out",
+      "name" : "cap2Zoffset",
+      "execPortType" : "In",
+      "typeSpec" : "Scalar"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "cap2ProfileScale",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "cap2ChamferSize",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "cap2ScaleUV",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiRange" : "(0, 180)"
+        },
+      "nodePortType" : "Out",
+      "name" : "Cap2SmoothinAngle",
+      "execPortType" : "In",
+      "typeSpec" : "Scalar"
       },
     {
       "objectType" : "Port",
@@ -144,46 +407,12 @@
     {
       "objectType" : "Port",
       "metadata" : {
-        "uiPersistValue" : "true",
-        "uiRange" : "(0, 180)"
+        "uiPersistValue" : "true"
         },
       "nodePortType" : "Out",
-      "name" : "smoothingAngle",
+      "name" : "hideCaps",
       "execPortType" : "In",
-      "typeSpec" : "Scalar"
-      },
-    {
-      "objectType" : "Port",
-      "metadata" : {
-        "uiPersistValue" : "true",
-        "uiRange" : "(0, 10)"
-        },
-      "nodePortType" : "Out",
-      "name" : "profileTranslateZ",
-      "execPortType" : "In",
-      "typeSpec" : "Float32"
-      },
-    {
-      "objectType" : "Port",
-      "metadata" : {
-        "uiPersistValue" : "true",
-        "uiRange" : "(0, 10)"
-        },
-      "nodePortType" : "Out",
-      "name" : "profileScale",
-      "execPortType" : "In",
-      "typeSpec" : "Float32"
-      },
-    {
-      "objectType" : "Port",
-      "metadata" : {
-        "uiPersistValue" : "true",
-        "uiCombo" : "(\"profile 0\", \"profile 1\", \"profile 2\")"
-        },
-      "nodePortType" : "Out",
-      "name" : "p1profileType",
-      "execPortType" : "In",
-      "typeSpec" : "SInt32"
+      "typeSpec" : "Boolean"
       },
     {
       "objectType" : "Port",
@@ -194,216 +423,6 @@
       "name" : "drawTexture",
       "execPortType" : "In",
       "typeSpec" : "Boolean"
-      },
-    {
-      "objectType" : "Port",
-      "metadata" : {
-        "uiPersistValue" : "true"
-        },
-      "nodePortType" : "Out",
-      "name" : "scaleUV",
-      "execPortType" : "In",
-      "typeSpec" : "Float32"
-      },
-    {
-      "objectType" : "Port",
-      "metadata" : {
-        "uiPersistValue" : "true"
-        },
-      "nodePortType" : "Out",
-      "name" : "offsetU",
-      "execPortType" : "In",
-      "typeSpec" : "Float32"
-      },
-    {
-      "objectType" : "Port",
-      "metadata" : {
-        "uiPersistValue" : "true"
-        },
-      "nodePortType" : "Out",
-      "name" : "offsetV",
-      "execPortType" : "In",
-      "typeSpec" : "Float32"
-      },
-    {
-      "objectType" : "Port",
-      "metadata" : {
-        "uiPersistValue" : "true"
-        },
-      "nodePortType" : "Out",
-      "name" : "scaleU",
-      "execPortType" : "In",
-      "typeSpec" : "Float32"
-      },
-    {
-      "objectType" : "Port",
-      "metadata" : {
-        "uiPersistValue" : "true"
-        },
-      "nodePortType" : "Out",
-      "name" : "scaleV",
-      "execPortType" : "In",
-      "typeSpec" : "Float32"
-      },
-    {
-      "objectType" : "Port",
-      "metadata" : {
-        "uiPersistValue" : "true"
-        },
-      "nodePortType" : "Out",
-      "name" : "chamferSize",
-      "execPortType" : "In",
-      "typeSpec" : "Float32"
-      },
-    {
-      "objectType" : "Port",
-      "nodePortType" : "In",
-      "name" : "instance_4",
-      "execPortType" : "Out",
-      "typeSpec" : "InlineInstance"
-      },
-    {
-      "objectType" : "Port",
-      "metadata" : {
-        "uiPersistValue" : "true"
-        },
-      "nodePortType" : "Out",
-      "name" : "cap1ScaleUV",
-      "execPortType" : "In",
-      "typeSpec" : "Float32"
-      },
-    {
-      "objectType" : "Port",
-      "metadata" : {
-        "uiPersistValue" : "true"
-        },
-      "nodePortType" : "Out",
-      "name" : "cap1ChamferSize",
-      "execPortType" : "In",
-      "typeSpec" : "Float32"
-      },
-    {
-      "objectType" : "Port",
-      "metadata" : {
-        "uiPersistValue" : "true",
-        "uiRange" : "(0, 180)"
-        },
-      "nodePortType" : "Out",
-      "name" : "smoothinAngle",
-      "execPortType" : "In",
-      "typeSpec" : "Scalar"
-      },
-    {
-      "objectType" : "Port",
-      "metadata" : {
-        "uiPersistValue" : "true"
-        },
-      "nodePortType" : "Out",
-      "name" : "cap1ProfileScale",
-      "execPortType" : "In",
-      "typeSpec" : "Float32"
-      },
-    {
-      "objectType" : "Port",
-      "metadata" : {
-        "uiPersistValue" : "true",
-        "uiRange" : "(0, 10)"
-        },
-      "nodePortType" : "Out",
-      "name" : "cap1RadiusOffset",
-      "execPortType" : "In",
-      "typeSpec" : "Float32"
-      },
-    {
-      "objectType" : "Port",
-      "metadata" : {
-        "uiPersistValue" : "true",
-        "uiRange" : "(0, 10)"
-        },
-      "nodePortType" : "Out",
-      "name" : "capProfileZoofset",
-      "execPortType" : "In",
-      "typeSpec" : "Scalar"
-      },
-    {
-      "objectType" : "Port",
-      "metadata" : {
-        "uiPersistValue" : "true",
-        "uiRange" : "(0, 10)"
-        },
-      "nodePortType" : "Out",
-      "name" : "cap2RadiusOffset",
-      "execPortType" : "In",
-      "typeSpec" : "Float32"
-      },
-    {
-      "objectType" : "Port",
-      "metadata" : {
-        "uiPersistValue" : "true"
-        },
-      "nodePortType" : "Out",
-      "name" : "scaleUV_2",
-      "execPortType" : "In",
-      "typeSpec" : "Float32"
-      },
-    {
-      "objectType" : "Port",
-      "metadata" : {
-        "uiPersistValue" : "true",
-        "uiRange" : "(0, 10)"
-        },
-      "nodePortType" : "Out",
-      "name" : "profileTransZOffset",
-      "execPortType" : "In",
-      "typeSpec" : "Scalar"
-      },
-    {
-      "objectType" : "Port",
-      "metadata" : {
-        "uiPersistValue" : "true"
-        },
-      "nodePortType" : "Out",
-      "name" : "cap2ChamferSize",
-      "execPortType" : "In",
-      "typeSpec" : "Float32"
-      },
-    {
-      "objectType" : "Port",
-      "metadata" : {
-        "uiPersistValue" : "true"
-        },
-      "nodePortType" : "Out",
-      "name" : "cap2ProfileScale",
-      "execPortType" : "In",
-      "typeSpec" : "Float32"
-      },
-    {
-      "objectType" : "Port",
-      "metadata" : {
-        "uiPersistValue" : "true"
-        },
-      "nodePortType" : "Out",
-      "name" : "drawCaps",
-      "execPortType" : "In",
-      "typeSpec" : "Boolean"
-      },
-    {
-      "objectType" : "Port",
-      "metadata" : {},
-      "nodePortType" : "Out",
-      "name" : "profile",
-      "execPortType" : "In",
-      "typeSpec" : "Vec3[]"
-      },
-    {
-      "objectType" : "Port",
-      "metadata" : {
-        "uiPersistValue" : "true"
-        },
-      "nodePortType" : "Out",
-      "name" : "profileCount",
-      "execPortType" : "In",
-      "typeSpec" : "UInt32"
       }
     ],
   "extDeps" : {},
@@ -857,7 +876,6 @@
             },
           {
             "objectType" : "Port",
-            "metadata" : {},
             "nodePortType" : "Out",
             "name" : "profileCount",
             "execPortType" : "In",
@@ -2939,7 +2957,7 @@ dfgEntry {
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1323.517822265625,\"y\":528.8129272460938}"
+        "uiGraphPos" : "{\"x\":1336.223510742188,\"y\":513.283447265625}"
         },
       "name" : "SetActive_2",
       "ports" : [
@@ -2960,7 +2978,7 @@ dfgEntry {
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1292.283325195312,\"y\":841.1522216796875}"
+        "uiGraphPos" : "{\"x\":1326.165649414062,\"y\":845.3873901367188}"
         },
       "name" : "SetActive_3",
       "ports" : [
@@ -2981,7 +2999,7 @@ dfgEntry {
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1200.12451171875,\"y\":518.6865234375}"
+        "uiGraphPos" : "{\"x\":1215.653930664062,\"y\":535.6278076171875}"
         },
       "name" : "Not_1",
       "ports" : [
@@ -3047,11 +3065,6 @@ dfgEntry {
         {
           "objectType" : "InstPort",
           "nodePortType" : "In",
-          "name" : "chamferSize"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
           "name" : "profileTransZ"
           },
         {
@@ -3088,8 +3101,8 @@ dfgEntry {
       "definition" : {
         "objectType" : "Graph",
         "metadata" : {
-          "uiGraphZoom" : "{\n  \"value\" : 0.8377641439437866\n  }",
-          "uiGraphPan" : "{\n  \"x\" : -675.2133178710938,\n  \"y\" : 158.22705078125\n  }"
+          "uiGraphZoom" : "{\n  \"value\" : 0.5672940015792847\n  }",
+          "uiGraphPan" : "{\n  \"x\" : -380.6445034238001,\n  \"y\" : 161.957591915973\n  }"
           },
         "title" : "createCapMesh",
         "ports" : [
@@ -3146,13 +3159,6 @@ dfgEntry {
             "name" : "smoothinAngle",
             "execPortType" : "In",
             "typeSpec" : "Scalar"
-            },
-          {
-            "objectType" : "Port",
-            "nodePortType" : "Out",
-            "name" : "chamferSize",
-            "execPortType" : "In",
-            "typeSpec" : "Float32"
             },
           {
             "objectType" : "Port",
@@ -4235,7 +4241,7 @@ dfgEntry
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "String" : "cap1TexturedMesh"
+            "String" : "capTexturedMesh"
             },
           "name" : "name"
           },
@@ -4255,6 +4261,9 @@ dfgEntry
         {
           "objectType" : "InstPort",
           "nodePortType" : "In",
+          "defaultValues" : {
+            "Float32" : 16
+            },
           "name" : "specFactor"
           },
         {
@@ -4417,11 +4426,6 @@ dfgEntry
         {
           "objectType" : "InstPort",
           "nodePortType" : "In",
-          "name" : "chamferSize"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
           "name" : "profileTransZ"
           },
         {
@@ -4458,8 +4462,8 @@ dfgEntry
       "definition" : {
         "objectType" : "Graph",
         "metadata" : {
-          "uiGraphZoom" : "{\n  \"value\" : 0.8377641439437866\n  }",
-          "uiGraphPan" : "{\n  \"x\" : -675.2133178710938,\n  \"y\" : 158.22705078125\n  }"
+          "uiGraphZoom" : "{\n  \"value\" : 0.3819178938865662\n  }",
+          "uiGraphPan" : "{\n  \"x\" : -30.79524746888629,\n  \"y\" : 235.4589791099301\n  }"
           },
         "title" : "createCapMesh",
         "ports" : [
@@ -4516,13 +4520,6 @@ dfgEntry
             "name" : "smoothinAngle",
             "execPortType" : "In",
             "typeSpec" : "Scalar"
-            },
-          {
-            "objectType" : "Port",
-            "nodePortType" : "Out",
-            "name" : "chamferSize",
-            "execPortType" : "In",
-            "typeSpec" : "Float32"
             },
           {
             "objectType" : "Port",
@@ -6055,9 +6052,213 @@ dfgEntry
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":2228.789306640625,\"y\":-390.1200256347656}"
+        "uiGraphPos" : "{\"x\":2034.048828125,\"y\":-553.7655029296875}"
         },
-      "name" : "SetActive_4",
+      "name" : "DrawMesh_2",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "mesh"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "color"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "drawThis"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "doubleSided"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "wireFrame"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Graph",
+        "metadata" : {
+          "uiNodeColor" : "{\n  \"r\" : 120,\n  \"g\" : 130,\n  \"b\" : 144\n  }",
+          "uiGraphZoom" : "{\n  \"value\" : 0.7720388770103455\n  }",
+          "uiHeaderColor" : "{\n  \"r\" : 88,\n  \"g\" : 92,\n  \"b\" : 110\n  }",
+          "uiTooltip" : "Draws a mesh into the viewport.",
+          "uiGraphPan" : "{\n  \"x\" : -314.702360779047,\n  \"y\" : 162.1256220042706\n  }"
+          },
+        "title" : "DrawMesh",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "mesh",
+            "execPortType" : "In",
+            "typeSpec" : "PolygonMesh"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "defaultValues" : {
+              "Color" : {
+                "r" : 0.800000011920929,
+                "g" : 0.800000011920929,
+                "b" : 0.800000011920929,
+                "a" : 1
+                }
+              },
+            "name" : "color",
+            "execPortType" : "In",
+            "typeSpec" : "Color"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "drawThis",
+            "execPortType" : "Out",
+            "typeSpec" : "DrawingHandle"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "doubleSided",
+            "execPortType" : "In",
+            "typeSpec" : "Boolean"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "wireFrame",
+            "execPortType" : "In",
+            "typeSpec" : "Boolean"
+            }
+          ],
+        "extDeps" : {
+          "InlineDrawing" : "*",
+          "Geometry" : "*"
+          },
+        "origPresetGUID" : "59E079DAED6CF13C89D28C7720F48B18",
+        "nodes" : [
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\": 838, \"y\": 108}"
+              },
+            "name" : "DrawPolygonMesh",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "IO",
+                "name" : "exec"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "IO",
+                "name" : "this"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "name"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "color"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "specular"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "specFactor"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "transform"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "mesh"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "wireFrame"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "doubleSided"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "Out",
+                "name" : "dummyResult"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "Out",
+                "name" : "instance"
+                }
+              ],
+            "executable" : "Fabric.Exts.InlineDrawing.DrawingHandle.DrawPolygonMesh",
+            "presetGUID" : "88D132945A91B3FEB731B90CE41878AF"
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":472.0,\"y\":68.0}"
+              },
+            "name" : "EmptyDrawingHandle",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "Out",
+                "name" : "handle"
+                }
+              ],
+            "executable" : "Fabric.Exts.InlineDrawing.DrawingHandle.EmptyDrawingHandle",
+            "presetGUID" : "2440020BA6A1CAB1CEB690A198F99C70"
+            }
+          ],
+        "connections" : {
+          "mesh" : [
+            "DrawPolygonMesh.mesh"
+            ],
+          "color" : [
+            "DrawPolygonMesh.color"
+            ],
+          "doubleSided" : [
+            "DrawPolygonMesh.doubleSided"
+            ],
+          "wireFrame" : [
+            "DrawPolygonMesh.wireFrame"
+            ],
+          "DrawPolygonMesh.this" : [
+            "drawThis"
+            ],
+          "EmptyDrawingHandle.handle" : [
+            "DrawPolygonMesh.this"
+            ]
+          }
+        }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":2446.373779296875,\"y\":-517.1865844726562}"
+        },
+      "name" : "SetActive_5",
       "ports" : [
         {
           "objectType" : "InstPort",
@@ -6072,6 +6273,100 @@ dfgEntry
         ],
       "executable" : "Fabric.Exts.InlineDrawing.Func.SetActive",
       "presetGUID" : "63CF666747969EEF99B85F6A55F07D5F"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":2352.56640625,\"y\":-194.5914459228516}"
+        },
+      "name" : "SetActive_6",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "this"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "active"
+          }
+        ],
+      "executable" : "Fabric.Exts.InlineDrawing.Func.SetActive",
+      "presetGUID" : "63CF666747969EEF99B85F6A55F07D5F"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":2198.961181640625,\"y\":-469.8457641601562}"
+        },
+      "name" : "Not_2",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "value"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "Fabric.Core.Logic.Not",
+      "presetGUID" : "B8FE3CDCF84BBE1B3A07C80E724FB147"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":2237.4921875,\"y\":-271.1705017089844}"
+        },
+      "name" : "And_1",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "lhs"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "rhs"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "Fabric.Core.Logic.And",
+      "presetGUID" : "5C4DF279926CC4AFD90CCD43A2E07655"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":2329.0029296875,\"y\":-469.8457641601562}"
+        },
+      "name" : "And_2",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "lhs"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "rhs"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "Fabric.Core.Logic.And",
+      "presetGUID" : "5C4DF279926CC4AFD90CCD43A2E07655"
       }
     ],
   "connections" : {
@@ -6091,102 +6386,111 @@ dfgEntry
       "twoCircleTangent.p2Num",
       "createCapMesh_2.numSegments"
       ],
-    "sideNum" : [
-      "twoCircleTangent.sideNum"
-      ],
     "distance" : [
       "twoCircleTangent.distance",
       "Vec3_1.x"
+      ],
+    "sideNum" : [
+      "twoCircleTangent.sideNum"
+      ],
+    "sideProfileType" : [
+      "extrudeProfiles.p1profileType"
+      ],
+    "sideProfile" : [
+      "extrudeProfiles.profile"
+      ],
+    "sideProfileCount" : [
+      "extrudeProfiles.profileCount"
+      ],
+    "sideSmoothingAngle" : [
+      "extrudeProfiles.smoothingAngle"
+      ],
+    "sideProfileTransZ" : [
+      "extrudeProfiles.profileTranslateZ",
+      "createCapMesh.profileTransZ",
+      "createCapMesh_2.profileTransZ"
+      ],
+    "sideProfileScale" : [
+      "extrudeProfiles.profileScale"
+      ],
+    "sideScaleUV" : [
+      "extrudeProfiles.scaleUV"
+      ],
+    "sideOffsetU" : [
+      "extrudeProfiles.offsetU"
+      ],
+    "sideOffsetV" : [
+      "extrudeProfiles.offsetV"
+      ],
+    "sideScaleU" : [
+      "extrudeProfiles.scaleU"
+      ],
+    "sideScaleV" : [
+      "extrudeProfiles.scaleV"
+      ],
+    "sideChamferSize" : [
+      "extrudeProfiles.chamferSize"
+      ],
+    "cap1RadiusOffset" : [
+      "createCapMesh.radiusOffset"
+      ],
+    "cap1Zoffset" : [
+      "createCapMesh.profileTransZOffset"
+      ],
+    "cap1ProfileScale" : [
+      "getCapProfile_2.profileScale"
+      ],
+    "cap1ChamferSize" : [
+      "addChamfer.size"
+      ],
+    "cap1ScaleUV" : [
+      "createCapMesh.scaleUV"
+      ],
+    "Cap1SmoothinAngle" : [
+      "createCapMesh.smoothinAngle"
+      ],
+    "cap2RadiusOffset" : [
+      "createCapMesh_2.radiusOffset"
+      ],
+    "cap2Zoffset" : [
+      "createCapMesh_2.profileTransZOffset"
+      ],
+    "cap2ProfileScale" : [
+      "getCapProfile_3.profileScale"
+      ],
+    "cap2ChamferSize" : [
+      "addChamfer_2.size"
+      ],
+    "cap2ScaleUV" : [
+      "createCapMesh_2.scaleUV"
+      ],
+    "Cap2SmoothinAngle" : [
+      "createCapMesh_2.smoothinAngle"
       ],
     "drawXfos" : [
       "SetActive_1.active"
       ],
     "doubleSided" : [
       "DrawTexturedPolygonMesh_1.doubleSided",
-      "DrawMesh_1.doubleSided"
+      "DrawMesh_1.doubleSided",
+      "DrawTexturedPolygonMesh_2.doubleSided",
+      "DrawMesh_2.doubleSided"
       ],
     "wireFrame" : [
       "DrawTexturedPolygonMesh_1.wireFrame",
-      "DrawMesh_1.wireFrame"
+      "DrawMesh_1.wireFrame",
+      "DrawTexturedPolygonMesh_2.wireFrame",
+      "DrawMesh_2.wireFrame"
       ],
-    "smoothingAngle" : [
-      "extrudeProfiles.smoothingAngle"
-      ],
-    "profileTranslateZ" : [
-      "extrudeProfiles.profileTranslateZ",
-      "createCapMesh.profileTransZ",
-      "createCapMesh_2.profileTransZ"
-      ],
-    "profileScale" : [
-      "extrudeProfiles.profileScale"
-      ],
-    "p1profileType" : [
-      "extrudeProfiles.p1profileType"
+    "hideCaps" : [
+      "And_1.lhs",
+      "And_2.lhs"
       ],
     "drawTexture" : [
       "SetActive_3.active",
-      "Not_1.value"
-      ],
-    "scaleUV" : [
-      "extrudeProfiles.scaleUV"
-      ],
-    "offsetU" : [
-      "extrudeProfiles.offsetU"
-      ],
-    "offsetV" : [
-      "extrudeProfiles.offsetV"
-      ],
-    "scaleU" : [
-      "extrudeProfiles.scaleU"
-      ],
-    "scaleV" : [
-      "extrudeProfiles.scaleV"
-      ],
-    "chamferSize" : [
-      "extrudeProfiles.chamferSize"
-      ],
-    "cap1ScaleUV" : [
-      "createCapMesh.scaleUV"
-      ],
-    "cap1ChamferSize" : [
-      "createCapMesh.chamferSize",
-      "addChamfer.size"
-      ],
-    "smoothinAngle" : [
-      "createCapMesh.smoothinAngle"
-      ],
-    "cap1ProfileScale" : [
-      "getCapProfile_2.profileScale"
-      ],
-    "cap1RadiusOffset" : [
-      "createCapMesh.radiusOffset"
-      ],
-    "capProfileZoofset" : [
-      "createCapMesh.profileTransZOffset"
-      ],
-    "cap2RadiusOffset" : [
-      "createCapMesh_2.radiusOffset"
-      ],
-    "scaleUV_2" : [
-      "createCapMesh_2.scaleUV"
-      ],
-    "profileTransZOffset" : [
-      "createCapMesh_2.profileTransZOffset"
-      ],
-    "cap2ChamferSize" : [
-      "addChamfer_2.size"
-      ],
-    "cap2ProfileScale" : [
-      "getCapProfile_3.profileScale"
-      ],
-    "drawCaps" : [
-      "SetActive_4.active"
-      ],
-    "profile" : [
-      "extrudeProfiles.profile"
-      ],
-    "profileCount" : [
-      "extrudeProfiles.profileCount"
+      "Not_1.value",
+      "Not_2.value",
+      "And_1.rhs"
       ],
     "EmptyDrawingHandle_1.handle" : [
       "DrawAxesInstances_1.this",
@@ -6227,7 +6531,7 @@ dfgEntry
       "MergeMesh_1.this"
       ],
     "DrawTexturedPolygonMesh_2.instance" : [
-      "SetActive_4.this"
+      "SetActive_6.this"
       ],
     "getCapProfile_2.profile" : [
       "addChamfer.inPos"
@@ -6243,7 +6547,8 @@ dfgEntry
       ],
     "Cache.value" : [
       "DrawTexturedPolygonMesh_2.mesh",
-      "centerRodMesh"
+      "centerRodMesh",
+      "DrawMesh_2.mesh"
       ],
     "applyTransform.mesh" : [
       "MergeMesh_1.source"
@@ -6260,8 +6565,23 @@ dfgEntry
     "getCapProfile_3.profile" : [
       "addChamfer_2.inPos"
       ],
-    "SetActive_4.this" : [
+    "DrawMesh_2.drawThis" : [
+      "SetActive_5.this"
+      ],
+    "SetActive_5.this" : [
+      "this"
+      ],
+    "SetActive_6.this" : [
       "instance_2"
+      ],
+    "Not_2.result" : [
+      "And_2.rhs"
+      ],
+    "And_1.result" : [
+      "SetActive_6.active"
+      ],
+    "And_2.result" : [
+      "SetActive_5.active"
       ]
     },
   "requiredPresets" : {
@@ -7566,6 +7886,40 @@ dfgEntry {
 	result = lhs + rhs;
 }
 "
+      },
+    "Fabric.Core.Logic.And" : {
+      "objectType" : "Func",
+      "title" : "And &&",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "lhs",
+          "execPortType" : "In",
+          "typeSpec" : "$TYPE$"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "rhs",
+          "execPortType" : "In",
+          "typeSpec" : "$TYPE$"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "Boolean"
+          }
+        ],
+      "extDeps" : {},
+      "presetGUID" : "5C4DF279926CC4AFD90CCD43A2E07655",
+      "code" : "
+dfgEntry {
+	result = lhs && rhs;
+}
+"
       }
     },
   "args" : [
@@ -7595,137 +7949,42 @@ dfgEntry {
       "ext" : "InlineDrawing"
       },
     {
-      "type" : "Float32",
-      "value" : 2.625999927520752
-      },
-    {
-      "type" : "Float32",
-      "value" : 1.817999958992004
-      },
-    {
-      "type" : "SInt32",
-      "value" : 30
-      },
-    {
-      "type" : "SInt32",
-      "value" : 28
-      },
-    {
-      "type" : "SInt32",
-      "value" : 4
-      },
-    {
-      "type" : "Float32",
-      "value" : 4.545000076293945
-      },
-    {
-      "type" : "Boolean",
-      "value" : false
-      },
-    {
-      "type" : "Boolean",
-      "value" : true
-      },
-    {
-      "type" : "Boolean",
-      "value" : false
-      },
-    {
-      "type" : "Float32",
-      "value" : 21.81599998474121
-      },
-    {
-      "type" : "Float32",
-      "value" : 0.3030000030994415
-      },
-    {
-      "type" : "Float32",
-      "value" : 0.4549999833106995
-      },
-    {
-      "type" : "SInt32",
-      "value" : 1
-      },
-    {
-      "type" : "Boolean",
-      "value" : true
-      },
-    {
-      "type" : "Float32",
-      "value" : 0.8737000226974487
-      },
-    {
-      "type" : "Float32",
-      "value" : 0
-      },
-    {
-      "type" : "Float32",
-      "value" : 0
-      },
-    {
-      "type" : "Float32",
-      "value" : 1
-      },
-    {
-      "type" : "Float32",
-      "value" : 1
-      },
-    {
-      "type" : "Float32",
-      "value" : 0.1515000015497208
-      },
-    {
       "type" : "InlineInstance",
       "value" : null,
       "ext" : "InlineDrawing"
       },
     {
+      "type" : "DrawingHandle",
+      "value" : null,
+      "ext" : "InlineDrawing"
+      },
+    {
       "type" : "Float32",
+      "value" : 1.977999925613403
+      },
+    {
+      "type" : "Float32",
+      "value" : 2.308000087738037
+      },
+    {
+      "type" : "SInt32",
+      "value" : 24
+      },
+    {
+      "type" : "SInt32",
+      "value" : 24
+      },
+    {
+      "type" : "Float32",
+      "value" : 4.949999809265137
+      },
+    {
+      "type" : "SInt32",
+      "value" : 10
+      },
+    {
+      "type" : "SInt32",
       "value" : 1
-      },
-    {
-      "type" : "Float32",
-      "value" : 0.03030000068247318
-      },
-    {
-      "type" : "Float32",
-      "value" : 18.18000030517578
-      },
-    {
-      "type" : "Float32",
-      "value" : 0.5253000259399414
-      },
-    {
-      "type" : "Float32",
-      "value" : 0.5559999942779541
-      },
-    {
-      "type" : "Float32",
-      "value" : 0.3540000021457672
-      },
-    {
-      "type" : "Float32",
-      "value" : 0.6060000061988831
-      },
-    {
-      "type" : "Float32",
-      "value" : 1
-      },
-    {
-      "type" : "Float32",
-      "value" : 0.781000018119812
-      },
-    {
-      "type" : "Float32",
-      "value" : 0.06570000201463699
-      },
-    {
-      "type" : "Float32",
-      "value" : 0.2222000062465668
-      },
-    {
-      "type" : "Boolean",
-      "value" : false
       },
     {
       "type" : "Vec3[]",
@@ -7734,7 +7993,111 @@ dfgEntry {
       },
     {
       "type" : "UInt32",
-      "value" : 12
+      "value" : 1
+      },
+    {
+      "type" : "Float32",
+      "value" : 9.701999664306641
+      },
+    {
+      "type" : "Float32",
+      "value" : 0
+      },
+    {
+      "type" : "Float32",
+      "value" : 0.4549999833106995
+      },
+    {
+      "type" : "Float32",
+      "value" : 0.4670000076293945
+      },
+    {
+      "type" : "Float32",
+      "value" : 0
+      },
+    {
+      "type" : "Float32",
+      "value" : 0
+      },
+    {
+      "type" : "Float32",
+      "value" : 1
+      },
+    {
+      "type" : "Float32",
+      "value" : 1
+      },
+    {
+      "type" : "Float32",
+      "value" : 0.1154000014066696
+      },
+    {
+      "type" : "Float32",
+      "value" : 0.4950000047683716
+      },
+    {
+      "type" : "Float32",
+      "value" : 0.3299999833106995
+      },
+    {
+      "type" : "Float32",
+      "value" : 0.3625999987125397
+      },
+    {
+      "type" : "Float32",
+      "value" : 0.04399999976158142
+      },
+    {
+      "type" : "Float32",
+      "value" : 0.1717000007629395
+      },
+    {
+      "type" : "Float32",
+      "value" : 19.40399932861328
+      },
+    {
+      "type" : "Float32",
+      "value" : 0.4950000047683716
+      },
+    {
+      "type" : "Float32",
+      "value" : 0.3299999833106995
+      },
+    {
+      "type" : "Float32",
+      "value" : 0.5109999775886536
+      },
+    {
+      "type" : "Float32",
+      "value" : 0.06060000136494637
+      },
+    {
+      "type" : "Float32",
+      "value" : 0.2088000029325485
+      },
+    {
+      "type" : "Float32",
+      "value" : null
+      },
+    {
+      "type" : "Boolean",
+      "value" : false
+      },
+    {
+      "type" : "Boolean",
+      "value" : true
+      },
+    {
+      "type" : "Boolean",
+      "value" : false
+      },
+    {
+      "type" : "Boolean",
+      "value" : true
+      },
+    {
+      "type" : "Boolean",
+      "value" : true
       }
     ]
   }
