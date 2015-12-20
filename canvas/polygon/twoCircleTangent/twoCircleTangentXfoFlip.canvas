@@ -1,15 +1,15 @@
 {
   "objectType" : "Graph",
   "metadata" : {
-    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.5411227941513062,\n    \"y\" : -0.2122522741556168,\n    \"z\" : 0.8187178373336792,\n    \"t\" : 11.67680931091309\n    },\n  \"row1\" : {\n    \"x\" : -1.818172336243151e-06,\n    \"y\" : 0.9675929546356201,\n    \"z\" : 0.2530745267868042,\n    \"t\" : 3.57544994354248\n    },\n  \"row2\" : {\n    \"x\" : -0.8459844589233398,\n    \"y\" : -0.1357665359973907,\n    \"z\" : 0.523681640625,\n    \"t\" : 7.55560302734375\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.4449768364429474,\n    \"y\" : -0.0937136635184288,\n    \"z\" : 0.8953809142112732,\n    \"t\" : 15.26009654998779\n    },\n  \"row1\" : {\n    \"x\" : -2.207246780017158e-06,\n    \"y\" : 0.9943804740905762,\n    \"z\" : 0.1049995422363281,\n    \"t\" : 1.755633115768433\n    },\n  \"row2\" : {\n    \"x\" : -0.9002774357795715,\n    \"y\" : -0.04632194712758064,\n    \"z\" : 0.4425563812255859,\n    \"t\" : 7.629385948181152\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "timeline_start" : "1",
     "timeline_loopMode" : "1",
-    "uiGraphZoom" : "{\n  \"value\" : 0.2173803150653839\n  }",
+    "uiGraphZoom" : "{\n  \"value\" : 0.4813521206378937\n  }",
     "timeline_simMode" : "0",
-    "camera_focalDistance" : "14.32275199890137",
+    "camera_focalDistance" : "17.11559104919434",
     "timeline_current" : "1",
     "timeline_end" : "50",
-    "uiGraphPan" : "{\n  \"x\" : 27.34111341273797,\n  \"y\" : 352.9275940133566\n  }"
+    "uiGraphPan" : "{\n  \"x\" : -8.874755578196186,\n  \"y\" : 233.3963789260695\n  }"
     },
   "title" : "",
   "ports" : [
@@ -178,12 +178,12 @@
       "objectType" : "Port",
       "metadata" : {
         "uiPersistValue" : "true",
-        "uiCombo" : "(\"OptionA\", \"OptionB\")"
+        "uiCombo" : "(\"profile 0\", \"profile 1\", \"profile 2\")"
         },
       "nodePortType" : "Out",
       "name" : "p1profileType",
       "execPortType" : "In",
-      "typeSpec" : "Integer"
+      "typeSpec" : "SInt32"
       },
     {
       "objectType" : "Port",
@@ -386,6 +386,24 @@
       "name" : "drawCaps",
       "execPortType" : "In",
       "typeSpec" : "Boolean"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {},
+      "nodePortType" : "Out",
+      "name" : "profile",
+      "execPortType" : "In",
+      "typeSpec" : "Vec3[]"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "profileCount",
+      "execPortType" : "In",
+      "typeSpec" : "UInt32"
       }
     ],
   "extDeps" : {},
@@ -721,13 +739,23 @@
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "name" : "chamferSize"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "profile"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "profileCount"
           }
         ],
       "definition" : {
         "objectType" : "Graph",
         "metadata" : {
           "uiGraphZoom" : "{\n  \"value\" : 0.7427819967269897\n  }",
-          "uiGraphPan" : "{\n  \"x\" : 116.334228515625,\n  \"y\" : -334.6092529296875\n  }"
+          "uiGraphPan" : "{\n  \"x\" : 610.334228515625,\n  \"y\" : -365.6092529296875\n  }"
           },
         "title" : "extrudeProfiles",
         "ports" : [
@@ -820,6 +848,20 @@
             "name" : "chamferSize",
             "execPortType" : "In",
             "typeSpec" : "Float32"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "profile",
+            "execPortType" : "In"
+            },
+          {
+            "objectType" : "Port",
+            "metadata" : {},
+            "nodePortType" : "Out",
+            "name" : "profileCount",
+            "execPortType" : "In",
+            "typeSpec" : "UInt32"
             }
           ],
         "extDeps" : {},
@@ -1002,7 +1044,7 @@ dfgEntry {
           {
             "objectType" : "Inst",
             "metadata" : {
-              "uiGraphPos" : "{\"x\":-691.7422485351562,\"y\":823.7429809570312}"
+              "uiGraphPos" : "{\"x\":-633.8516235351562,\"y\":930.1000366210938}"
               },
             "name" : "profile1",
             "ports" : [
@@ -1223,7 +1265,7 @@ dfgEntry {
           {
             "objectType" : "Inst",
             "metadata" : {
-              "uiGraphPos" : "{\"x\":-338.4270935058594,\"y\":966.5305786132812}"
+              "uiGraphPos" : "{\"x\":-329.0030822753906,\"y\":973.2620239257812}"
               },
             "name" : "Get_1",
             "ports" : [
@@ -1281,7 +1323,7 @@ dfgEntry {
           {
             "objectType" : "Inst",
             "metadata" : {
-              "uiGraphPos" : "{\"x\":-578.0637817382812,\"y\":829.00830078125}"
+              "uiGraphPos" : "{\"x\":-493.24755859375,\"y\":934.018798828125}"
               },
             "name" : "Push_1",
             "ports" : [
@@ -1302,7 +1344,7 @@ dfgEntry {
           {
             "objectType" : "Inst",
             "metadata" : {
-              "uiGraphPos" : "{\"x\":-686.6157836914062,\"y\":956.4522094726562}"
+              "uiGraphPos" : "{\"x\":-636.8031616210938,\"y\":1012.996459960938}"
               },
             "name" : "profile1_2",
             "ports" : [
@@ -1526,7 +1568,7 @@ dfgEntry {
           {
             "objectType" : "Inst",
             "metadata" : {
-              "uiGraphPos" : "{\"x\":-568.5390014648438,\"y\":959.5870361328125}"
+              "uiGraphPos" : "{\"x\":-499.8780517578125,\"y\":1006.70703125}"
               },
             "name" : "Push_2",
             "ports" : [
@@ -2457,6 +2499,48 @@ dfgEntry {
 
 "
               }
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":-495.884765625,\"y\":843.5978393554688}"
+              },
+            "name" : "Push_3",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "IO",
+                "name" : "array"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "element"
+                }
+              ],
+            "executable" : "Fabric.Core.Array.Push",
+            "presetGUID" : "572880BF96ACC34D6987BE3333715F52"
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":-638.59130859375,\"y\":816.6717529296875}"
+              },
+            "name" : "Resize_1",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "IO",
+                "name" : "array"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "count"
+                }
+              ],
+            "executable" : "Fabric.Core.Array.Resize",
+            "presetGUID" : "73292917610FDC85B6E59510604F2467"
             }
           ],
         "connections" : {
@@ -2492,6 +2576,12 @@ dfgEntry {
             ],
           "chamferSize" : [
             "addChamfer.size"
+            ],
+          "profile" : [
+            "Resize_1.array"
+            ],
+          "profileCount" : [
+            "Resize_1.count"
             ],
           "EmptyPolygonMesh_1.mesh" : [
             "addExtrusionWithUV.this"
@@ -2550,6 +2640,12 @@ dfgEntry {
           "addExtrusionWithUV.this" : [
             "ClonePolygonMesh.value",
             "MergeMesh_1.this"
+            ],
+          "Push_3.array" : [
+            "Push_1.array"
+            ],
+          "Resize_1.array" : [
+            "Push_3.element"
             ]
           }
         }
@@ -3082,7 +3178,6 @@ dfgEntry {
             },
           {
             "objectType" : "Port",
-            "metadata" : {},
             "nodePortType" : "Out",
             "defaultValues" : {
               "Float32" : 1
@@ -3093,7 +3188,6 @@ dfgEntry {
             },
           {
             "objectType" : "Port",
-            "metadata" : {},
             "nodePortType" : "Out",
             "defaultValues" : {
               "Float32" : 1
@@ -3104,7 +3198,6 @@ dfgEntry {
             },
           {
             "objectType" : "Port",
-            "metadata" : {},
             "nodePortType" : "Out",
             "name" : "offsetU",
             "execPortType" : "In",
@@ -3112,7 +3205,6 @@ dfgEntry {
             },
           {
             "objectType" : "Port",
-            "metadata" : {},
             "nodePortType" : "Out",
             "name" : "offsetV",
             "execPortType" : "In",
@@ -6090,6 +6182,12 @@ dfgEntry
     "drawCaps" : [
       "SetActive_4.active"
       ],
+    "profile" : [
+      "extrudeProfiles.profile"
+      ],
+    "profileCount" : [
+      "extrudeProfiles.profileCount"
+      ],
     "EmptyDrawingHandle_1.handle" : [
       "DrawAxesInstances_1.this",
       "DrawTexturedPolygonMesh_1.this",
@@ -7070,6 +7168,33 @@ dfgEntry {
 }
 "
       },
+    "Fabric.Core.Array.Resize" : {
+      "objectType" : "Func",
+      "title" : "Resize[]",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "IO",
+          "name" : "array",
+          "execPortType" : "IO",
+          "typeSpec" : "$TYPE$"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "count",
+          "execPortType" : "In",
+          "typeSpec" : "UInt32"
+          }
+        ],
+      "extDeps" : {},
+      "presetGUID" : "73292917610FDC85B6E59510604F2467",
+      "code" : "
+dfgEntry {
+	array.resize(count);
+}
+"
+      },
     "Fabric.Exts.InlineDrawing.DrawingHandle.DrawTexturedPolygonMesh" : {
       "objectType" : "Func",
       "metadata" : {
@@ -7471,7 +7596,7 @@ dfgEntry {
       },
     {
       "type" : "Float32",
-      "value" : 2.980000019073486
+      "value" : 2.625999927520752
       },
     {
       "type" : "Float32",
@@ -7519,7 +7644,7 @@ dfgEntry {
       },
     {
       "type" : "SInt32",
-      "value" : 0
+      "value" : 1
       },
     {
       "type" : "Boolean",
@@ -7600,7 +7725,16 @@ dfgEntry {
       },
     {
       "type" : "Boolean",
-      "value" : true
+      "value" : false
+      },
+    {
+      "type" : "Vec3[]",
+      "value" : null,
+      "ext" : "Math"
+      },
+    {
+      "type" : "UInt32",
+      "value" : 12
       }
     ]
   }
