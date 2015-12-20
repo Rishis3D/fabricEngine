@@ -182,7 +182,7 @@
       "objectType" : "Port",
       "metadata" : {
         "uiPersistValue" : "true",
-        "uiRange" : "(0, 10)"
+        "uiRange" : "(0, 2)"
         },
       "nodePortType" : "Out",
       "name" : "sideProfileScale",
@@ -422,6 +422,13 @@
       "nodePortType" : "Out",
       "name" : "drawTexture",
       "execPortType" : "In",
+      "typeSpec" : "Boolean"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "dummy",
+      "execPortType" : "Out",
       "typeSpec" : "Boolean"
       }
     ],
@@ -8005,7 +8012,7 @@ dfgEntry {
       },
     {
       "type" : "Float32",
-      "value" : 0.4549999833106995
+      "value" : 0.3625999987125397
       },
     {
       "type" : "Float32",
@@ -8098,6 +8105,10 @@ dfgEntry {
     {
       "type" : "Boolean",
       "value" : true
+      },
+    {
+      "type" : "Boolean",
+      "value" : null
       }
     ]
   }
