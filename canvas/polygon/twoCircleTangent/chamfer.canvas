@@ -9,7 +9,7 @@
     "camera_focalDistance" : "16.05632400512695",
     "timeline_current" : "1",
     "timeline_end" : "50",
-    "uiGraphPan" : "{\n  \"x\" : -139.3229515386913,\n  \"y\" : 26.47385112099033\n  }"
+    "uiGraphPan" : "{\n  \"x\" : -113.3229370117188,\n  \"y\" : 85.47384643554688\n  }"
     },
   "title" : "",
   "ports" : [
@@ -58,7 +58,8 @@
     {
       "objectType" : "Port",
       "metadata" : {
-        "uiPersistValue" : "true"
+        "uiPersistValue" : "true",
+        "uiRange" : "(0, 180)"
         },
       "nodePortType" : "Out",
       "name" : "maxAngle",
@@ -298,7 +299,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":402.4332580566406,\"y\":505.1543884277344}"
+        "uiGraphPos" : "{\"x\":401.0082397460938,\"y\":468.1041259765625}"
         },
       "name" : "addChamfer",
       "ports" : [
@@ -381,15 +382,14 @@
   Float32 maxAngRad = Math_degToRad(maxAngle);
   Vec3 temp[];
   Vec3 v1, v2;
-  
+  Float32 theta;
+
   for (Size i = 0; i < inPos.size(); i++){
     
     if (i == 0){
-      //outPos[0] = inPos[0];
       temp.push(inPos[0]);
     }
     else if (i == inPos.size()-1){
-      //outPos[numOutPos-1] = inPos[inPos.size()-1];
       temp.push(inPos[inPos.size()-1]);
     }
     else {
@@ -402,19 +402,19 @@
       if (v2 != Vec3(0,0,0)){
         v2.normalize();
       }
-      //outPos[i*2-1] = inPos[i] + v1 * size;
-      //outPos[i*2] = inPos[i] + v2 * size;
+
+      theta = acos(v1.dot(v2));
       
-      if (acos(v1.dot(v2)) <= maxAngRad){
-        temp.push(inPos[i] + v1 * size);
-        temp.push(inPos[i] + v2 * size);
+      if (theta <= maxAngRad){                
+        Float32 hyp = (size*.5) / sin(theta*.5);
+        temp.push(inPos[i] + v1 * hyp);
+        temp.push(inPos[i] + v2 * hyp);
       }
       else{
         temp.push(inPos[i]);
       }
     }
   }
-  
   outPos.resize(temp.size());
   outPos = temp;
 }
@@ -474,7 +474,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":81.19286346435547,\"y\":500.1898803710938}"
+        "uiGraphPos" : "{\"x\":56.96768188476562,\"y\":503.0399169921875}"
         },
       "name" : "Vec3_4",
       "ports" : [
@@ -511,7 +511,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":207.0122222900391,\"y\":525.7377319335938}"
+        "uiGraphPos" : "{\"x\":191.3371276855469,\"y\":502.9375}"
         },
       "name" : "Push_4",
       "ports" : [
@@ -661,6 +661,190 @@
         ],
       "executable" : "Fabric.Exts.InlineDrawing.DrawingHandle.EmptyDrawingHandle",
       "presetGUID" : "2440020BA6A1CAB1CEB690A198F99C70"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":360.988037109375,\"y\":727.5054321289062}"
+        },
+      "name" : "addChamfer_2",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "inPos"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "size"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "maxAngle"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "outPos"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "active"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "title" : "addChamfer",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "inPos",
+            "execPortType" : "In",
+            "typeSpec" : "Vec3[]"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "size",
+            "execPortType" : "In",
+            "typeSpec" : "Float32"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "maxAngle",
+            "execPortType" : "In",
+            "typeSpec" : "Float32"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "outPos",
+            "execPortType" : "Out",
+            "typeSpec" : "Vec3[]"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "active",
+            "execPortType" : "In",
+            "typeSpec" : "Boolean"
+            }
+          ],
+        "extDeps" : {},
+        "code" : "dfgEntry {
+
+  if (!active){
+    outPos.resize(inPos.size());
+    outPos = inPos;
+    return;
+  }
+  
+  Size numOutPos = (inPos.size()-2) * 2 + 2;
+  Float32 maxAngRad = Math_degToRad(maxAngle);
+  Vec3 temp[];
+  Vec3 v1, v2;
+  
+  for (Size i = 0; i < inPos.size(); i++){
+    
+    if (i == 0){
+      //outPos[0] = inPos[0];
+      temp.push(inPos[0]);
+    }
+    else if (i == inPos.size()-1){
+      //outPos[numOutPos-1] = inPos[inPos.size()-1];
+      temp.push(inPos[inPos.size()-1]);
+    }
+    else {
+      v1 = inPos[i-1] - inPos[i];
+      v2 = inPos[i+1] - inPos[i];
+      
+      if (v1 != Vec3(0,0,0)){
+        v1.normalize();
+      }
+      if (v2 != Vec3(0,0,0)){
+        v2.normalize();
+      }
+      //outPos[i*2-1] = inPos[i] + v1 * size;
+      //outPos[i*2] = inPos[i] + v2 * size;
+      
+      if (acos(v1.dot(v2)) <= maxAngRad){
+        temp.push(inPos[i] + v1 * size);
+        temp.push(inPos[i] + v2 * size);
+      }
+      else{
+        temp.push(inPos[i]);
+      }
+    }
+  }
+  
+  outPos.resize(temp.size());
+  outPos = temp;
+}
+"
+        }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":57.46067810058594,\"y\":616.3545532226562}"
+        },
+      "name" : "Vec3_5",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "x"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Float32" : 6
+            },
+          "name" : "y"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Float32" : 0
+            },
+          "name" : "z"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "Fabric.Exts.Math.Vec3.Vec3",
+      "presetGUID" : "A59E49949F21CFCB14B5711D52330BA7"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":185.7116851806641,\"y\":597.8299560546875}"
+        },
+      "name" : "Push_5",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "array"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "element"
+          }
+        ],
+      "executable" : "Fabric.Core.Array.Push",
+      "presetGUID" : "572880BF96ACC34D6987BE3333715F52"
       }
     ],
   "connections" : {
@@ -708,8 +892,7 @@
       "Push_4.element"
       ],
     "Push_4.array" : [
-      "addChamfer.inPos",
-      "DrawPoints_1.pos"
+      "Push_5.array"
       ],
     "DrawLines_1.instance" : [
       "instance"
@@ -722,6 +905,13 @@
       ],
     "EmptyDrawingHandle_1.handle" : [
       "DrawLines_1.this"
+      ],
+    "Vec3_5.result" : [
+      "Push_5.element"
+      ],
+    "Push_5.array" : [
+      "DrawPoints_1.pos",
+      "addChamfer.inPos"
       ]
     },
   "requiredPresets" : {
@@ -1520,11 +1710,11 @@ dfgEntry {
       },
     {
       "type" : "Float32",
-      "value" : 0.3535000085830688
+      "value" : 0.2635999917984009
       },
     {
       "type" : "Float32",
-      "value" : 2.727999687194824
+      "value" : 2.094000816345215
       },
     {
       "type" : "InlineInstance",
@@ -1533,7 +1723,7 @@ dfgEntry {
       },
     {
       "type" : "Float32",
-      "value" : 90
+      "value" : 96.28200531005859
       },
     {
       "type" : "Boolean",
