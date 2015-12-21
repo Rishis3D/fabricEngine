@@ -1,15 +1,15 @@
 {
   "objectType" : "Graph",
   "metadata" : {
-    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.7104848623275757,\n    \"y\" : -0.1298301815986633,\n    \"z\" : 0.6978012919425964,\n    \"t\" : 9.959503173828125\n    },\n  \"row1\" : {\n    \"x\" : -2.147596887880354e-06,\n    \"y\" : 0.9828546047210693,\n    \"z\" : 0.1845149099826813,\n    \"t\" : 2.59918475151062\n    },\n  \"row2\" : {\n    \"x\" : -0.7098661065101624,\n    \"y\" : -0.129946306347847,\n    \"z\" : 0.6984089612960815,\n    \"t\" : 10.05587005615234\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.6888798475265503,\n    \"y\" : -0.2113890051841736,\n    \"z\" : 0.6993829011917114,\n    \"t\" : 9.311678886413574\n    },\n  \"row1\" : {\n    \"x\" : -1.983026777452324e-06,\n    \"y\" : 0.9567400813102722,\n    \"z\" : 0.2918021678924561,\n    \"t\" : 3.850603580474854\n    },\n  \"row2\" : {\n    \"x\" : -0.7308887839317322,\n    \"y\" : -0.1992417275905609,\n    \"z\" : 0.6591840386390686,\n    \"t\" : 8.864541053771973\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "timeline_start" : "1",
     "timeline_loopMode" : "1",
-    "uiGraphZoom" : "{\n  \"value\" : 0.2093914300203323\n  }",
+    "uiGraphZoom" : "{\n  \"value\" : 1.873111724853516\n  }",
     "timeline_simMode" : "0",
-    "camera_focalDistance" : "14.33445167541504",
+    "camera_focalDistance" : "13.37221336364746",
     "timeline_current" : "1",
     "timeline_end" : "50",
-    "uiGraphPan" : "{\n  \"x\" : 31.92664572053798,\n  \"y\" : 353.7547511462399\n  }"
+    "uiGraphPan" : "{\n  \"x\" : -1158.162072106265,\n  \"y\" : -1033.581528754439\n  }"
     },
   "title" : "",
   "ports" : [
@@ -61,6 +61,13 @@
       "name" : "this",
       "execPortType" : "Out",
       "typeSpec" : "DrawingHandle"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "dummy",
+      "execPortType" : "Out",
+      "typeSpec" : "Boolean"
       },
     {
       "objectType" : "Port",
@@ -245,7 +252,29 @@
         "uiPersistValue" : "true"
         },
       "nodePortType" : "Out",
+      "name" : "sideUseChamfer",
+      "execPortType" : "In",
+      "typeSpec" : "Boolean"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true",
+        "uiRange" : "(0, 5)"
+        },
+      "nodePortType" : "Out",
       "name" : "sideChamferSize",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true",
+        "uiRange" : "(0, 180)"
+        },
+      "nodePortType" : "Out",
+      "name" : "sideChamferMaxAngle",
       "execPortType" : "In",
       "typeSpec" : "Float32"
       },
@@ -350,7 +379,29 @@
         "uiPersistValue" : "true"
         },
       "nodePortType" : "Out",
+      "name" : "cap2UseChamfer",
+      "execPortType" : "In",
+      "typeSpec" : "Boolean"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true",
+        "uiRange" : "(0, 5)"
+        },
+      "nodePortType" : "Out",
       "name" : "cap2ChamferSize",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true",
+        "uiRange" : "(0, 180)"
+        },
+      "nodePortType" : "Out",
+      "name" : "cap2ChamferMaxAngle",
       "execPortType" : "In",
       "typeSpec" : "Float32"
       },
@@ -367,6 +418,7 @@
     {
       "objectType" : "Port",
       "metadata" : {
+        "uiPersistValue" : "true",
         "uiRange" : "(0, 180)"
         },
       "nodePortType" : "Out",
@@ -422,13 +474,6 @@
       "nodePortType" : "Out",
       "name" : "drawTexture",
       "execPortType" : "In",
-      "typeSpec" : "Boolean"
-      },
-    {
-      "objectType" : "Port",
-      "nodePortType" : "In",
-      "name" : "dummy",
-      "execPortType" : "Out",
       "typeSpec" : "Boolean"
       }
     ],
@@ -775,13 +820,23 @@
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "name" : "profileCount"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "chamferMaxAngle"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "useChamfer"
           }
         ],
       "definition" : {
         "objectType" : "Graph",
         "metadata" : {
           "uiGraphZoom" : "{\n  \"value\" : 0.7427819967269897\n  }",
-          "uiGraphPan" : "{\n  \"x\" : 610.334228515625,\n  \"y\" : -365.6092529296875\n  }"
+          "uiGraphPan" : "{\n  \"x\" : 438.334228515625,\n  \"y\" : -453.6092529296875\n  }"
           },
         "title" : "extrudeProfiles",
         "ports" : [
@@ -887,6 +942,22 @@
             "name" : "profileCount",
             "execPortType" : "In",
             "typeSpec" : "UInt32"
+            },
+          {
+            "objectType" : "Port",
+            "metadata" : {},
+            "nodePortType" : "Out",
+            "name" : "chamferMaxAngle",
+            "execPortType" : "In",
+            "typeSpec" : "Float32"
+            },
+          {
+            "objectType" : "Port",
+            "metadata" : {},
+            "nodePortType" : "Out",
+            "name" : "useChamfer",
+            "execPortType" : "In",
+            "typeSpec" : "Boolean"
             }
           ],
         "extDeps" : {},
@@ -1970,90 +2041,6 @@ dfgEntry
           {
             "objectType" : "Inst",
             "metadata" : {
-              "uiGraphPos" : "{\"x\":-88.09895324707031,\"y\":1049.20361328125}"
-              },
-            "name" : "addChamfer",
-            "ports" : [
-              {
-                "objectType" : "InstPort",
-                "nodePortType" : "In",
-                "name" : "inPos"
-                },
-              {
-                "objectType" : "InstPort",
-                "nodePortType" : "Out",
-                "name" : "outPos"
-                },
-              {
-                "objectType" : "InstPort",
-                "nodePortType" : "In",
-                "name" : "size"
-                }
-              ],
-            "definition" : {
-              "objectType" : "Func",
-              "title" : "addChamfer",
-              "ports" : [
-                {
-                  "objectType" : "Port",
-                  "nodePortType" : "Out",
-                  "name" : "inPos",
-                  "execPortType" : "In",
-                  "typeSpec" : "Vec3[]"
-                  },
-                {
-                  "objectType" : "Port",
-                  "nodePortType" : "In",
-                  "name" : "outPos",
-                  "execPortType" : "Out",
-                  "typeSpec" : "Vec3[]"
-                  },
-                {
-                  "objectType" : "Port",
-                  "nodePortType" : "Out",
-                  "name" : "size",
-                  "execPortType" : "In",
-                  "typeSpec" : "Float32"
-                  }
-                ],
-              "extDeps" : {},
-              "code" : "dfgEntry {
-
-  Size numOutPos = (inPos.size()-2) * 2 + 2;
-  outPos.resize(numOutPos);
-  
-  Vec3 v1, v2;
-  for (Size i = 0; i < inPos.size(); i++){
-    
-    if (i == 0){
-      outPos[0] = inPos[0];
-    }
-    else if (i == inPos.size()-1){
-      outPos[numOutPos-1] = inPos[inPos.size()-1];
-    }
-    else {
-      v1 = inPos[i-1] - inPos[i];
-      v2 = inPos[i+1] - inPos[i];
-      
-      if (v1 != Vec3(0,0,0)){
-        v1.normalize();
-      }
-      if (v2 != Vec3(0,0,0)){
-        v2.normalize();
-      }
-      outPos[i*2-1] = inPos[i] + v1 * size;
-      outPos[i*2] = inPos[i] + v2 * size;
-      
-      report(inPos[i]);
-    }
-  }
-}
-"
-              }
-            },
-          {
-            "objectType" : "Inst",
-            "metadata" : {
               "uiGraphPos" : "{\"x\":490.4661254882812,\"y\":683.0586547851562}"
               },
             "name" : "addExtrusionWithUV",
@@ -2274,260 +2261,6 @@ dfgEntry
           {
             "objectType" : "Inst",
             "metadata" : {
-              "uiGraphPos" : "{\"x\":241.0384521484375,\"y\":1322.987060546875}"
-              },
-            "name" : "extrude_3",
-            "ports" : [
-              {
-                "objectType" : "InstPort",
-                "nodePortType" : "IO",
-                "name" : "this"
-                },
-              {
-                "objectType" : "InstPort",
-                "nodePortType" : "In",
-                "name" : "profile"
-                },
-              {
-                "objectType" : "InstPort",
-                "nodePortType" : "In",
-                "name" : "xfos"
-                },
-              {
-                "objectType" : "InstPort",
-                "nodePortType" : "In",
-                "name" : "close"
-                },
-              {
-                "objectType" : "InstPort",
-                "nodePortType" : "In",
-                "defaultValues" : {
-                  "Float32" : 1
-                  },
-                "name" : "scaleU"
-                },
-              {
-                "objectType" : "InstPort",
-                "nodePortType" : "In",
-                "defaultValues" : {
-                  "Float32" : 1
-                  },
-                "name" : "scaleV"
-                },
-              {
-                "objectType" : "InstPort",
-                "nodePortType" : "In",
-                "defaultValues" : {
-                  "Float32" : 0
-                  },
-                "name" : "offsetU"
-                },
-              {
-                "objectType" : "InstPort",
-                "nodePortType" : "In",
-                "defaultValues" : {
-                  "Float32" : 0
-                  },
-                "name" : "offsetV"
-                },
-              {
-                "objectType" : "InstPort",
-                "nodePortType" : "In",
-                "name" : "scaleUV"
-                }
-              ],
-            "definition" : {
-              "objectType" : "Func",
-              "title" : "extrude",
-              "ports" : [
-                {
-                  "objectType" : "Port",
-                  "nodePortType" : "IO",
-                  "name" : "this",
-                  "execPortType" : "IO",
-                  "typeSpec" : "PolygonMesh"
-                  },
-                {
-                  "objectType" : "Port",
-                  "nodePortType" : "Out",
-                  "name" : "profile",
-                  "execPortType" : "In",
-                  "typeSpec" : "Vec3[]"
-                  },
-                {
-                  "objectType" : "Port",
-                  "nodePortType" : "Out",
-                  "name" : "xfos",
-                  "execPortType" : "In",
-                  "typeSpec" : "Xfo[]"
-                  },
-                {
-                  "objectType" : "Port",
-                  "nodePortType" : "Out",
-                  "name" : "close",
-                  "execPortType" : "In",
-                  "typeSpec" : "Boolean"
-                  },
-                {
-                  "objectType" : "Port",
-                  "nodePortType" : "Out",
-                  "name" : "scaleU",
-                  "execPortType" : "In",
-                  "typeSpec" : "Float32"
-                  },
-                {
-                  "objectType" : "Port",
-                  "nodePortType" : "Out",
-                  "name" : "scaleV",
-                  "execPortType" : "In",
-                  "typeSpec" : "Float32"
-                  },
-                {
-                  "objectType" : "Port",
-                  "nodePortType" : "Out",
-                  "name" : "offsetU",
-                  "execPortType" : "In",
-                  "typeSpec" : "Float32"
-                  },
-                {
-                  "objectType" : "Port",
-                  "nodePortType" : "Out",
-                  "name" : "offsetV",
-                  "execPortType" : "In",
-                  "typeSpec" : "Float32"
-                  },
-                {
-                  "objectType" : "Port",
-                  "nodePortType" : "Out",
-                  "name" : "scaleUV",
-                  "execPortType" : "In",
-                  "typeSpec" : "Float32"
-                  }
-                ],
-              "extDeps" : {},
-              "code" : "/*
-dfgEntry {
-  mesh.extrude(xfos, profile, closeProfile, createUvs, maxU, maxV);
-}
-*/
-
-dfgEntry {
-
-  if(profile.size() < 2)
-    return;
-  if(xfos.size() < 2)
-    return;
-
-  Float32 uSpacing[];
-  
-  if(!close){
-    uSpacing.resize(profile.size());
-  }
-  else{
-    uSpacing.resize(profile.size()+1);
-  }
-  
-  // todo: do not need the first u value to be 0
-  for(Size i=0; i<profile.size(); i++) {
-    if (i == 0){
-      uSpacing[0] = 0;
-    }
-    else {
-      uSpacing[i] = uSpacing[i-1] + (profile[i-1] - profile[i]).length();
-    }
-  }
-  
-  if (close){
-    uSpacing[profile.size()] = uSpacing[profile.size()-1] + (profile[0] - profile[profile.size()-1]).length();
-  }
-  
-  
-  Float32 vSpacing[];
-  vSpacing.resize(xfos.size());
-  // todo: do not need the first v value to be 0
-  for(Size i=0;i<xfos.size();i++) {
-    if (i == 0){
-      vSpacing[0] = 0;
-    }
-    else{
-      vSpacing[i] = vSpacing[i-1] + (xfos[i].tr - xfos[i-1].tr).length();
-    }
-  }
-  
-  Size nbSegments = close ? profile.size() : profile.size() - 1;
-  Size nbPointRows = xfos.size();
-  Size nbQuadRows = nbPointRows - 1;
-  
-  Size nbPoints = profile.size() * nbPointRows;
-  Size firstPoint = this.createPoints(nbPoints);
-  
-  for(Size i=0;i<nbPoints;i++) {
-    Size row = i / profile.size();
-    Size pointIndex = i % profile.size();
-    Vec3 pos = xfos[row].transformVector(profile[pointIndex]);
-    this.setPointPosition(firstPoint+i, pos);
-  }
-
-  Ref<Vec2Attribute> uvs = null;
-  uvs = this.getOrCreateVec2Attribute(\"uvs0\");
-    
-    
-  this.beginStructureChanges();
-
-  Size nbQuads = nbSegments * nbQuadRows;
-  Size v0, v1, v2, v3;
-  Float32 uStart, uEnd, vStart, vEnd;
-  Float32 maxV = vSpacing[vSpacing.size()-1] * scaleUV * scaleV;
-  
-  for(Size i=0;i<nbQuads;i++) {
-
-    Size segmentIndex = i % nbSegments;
-    Size row = i / nbSegments;
-
-    if (row == 0){
-      vStart = maxV - offsetV;
-      vEnd = maxV - (vSpacing[1] * scaleUV * scaleV + offsetV);
-    }
-    else{
-      vStart = maxV - (vSpacing[row] * scaleUV * scaleV + offsetV);
-      vEnd = maxV - (vSpacing[row+1] * scaleUV * scaleV + offsetV);
-    }
-
-    uStart = uSpacing[segmentIndex] * scaleUV * scaleU + offsetU;
-    uEnd = uSpacing[segmentIndex+1] * scaleUV * scaleU + offsetU;
-        
-    if(segmentIndex == profile.size() - 1) {
-      v0 = (profile.size() * row + segmentIndex) % nbPoints;
-      v1 = (profile.size() * row) % nbPoints;
-      v2 = (profile.size() * (row+1)) % nbPoints;
-      v3 = (profile.size() * (row+1) + segmentIndex) % nbPoints;
-    } else {
-      v0 = (profile.size() * row + segmentIndex) % nbPoints;
-      v1 = (profile.size() * row + segmentIndex + 1) % nbPoints;
-      v2 = (profile.size() * (row+1) + segmentIndex + 1) % nbPoints;
-      v3 = (profile.size() * (row+1) + segmentIndex) % nbPoints;
-    }
-    
-    this.addPolygon(firstPoint+v3, firstPoint+v2, firstPoint+v1, firstPoint+v0);
-
-    this.setPolygonAttribute(i, 0, uvs, Vec2(uStart, vEnd));
-    this.setPolygonAttribute(i, 1, uvs, Vec2(uEnd, vEnd));
-    this.setPolygonAttribute(i, 2, uvs, Vec2(uEnd, vStart));
-    this.setPolygonAttribute(i, 3, uvs, Vec2(uStart, vStart));
-  }
-
-  this.endStructureChanges();
-}
-
-
-
-
-"
-              }
-            },
-          {
-            "objectType" : "Inst",
-            "metadata" : {
               "uiGraphPos" : "{\"x\":-495.884765625,\"y\":843.5978393554688}"
               },
             "name" : "Push_3",
@@ -2566,6 +2299,132 @@ dfgEntry {
               ],
             "executable" : "Fabric.Core.Array.Resize",
             "presetGUID" : "73292917610FDC85B6E59510604F2467"
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":-67.76445007324219,\"y\":1013.230224609375}"
+              },
+            "name" : "addChamfer_3",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "inPos"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "size"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "maxAngle"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "Out",
+                "name" : "outPos"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "active"
+                }
+              ],
+            "definition" : {
+              "objectType" : "Func",
+              "title" : "addChamfer",
+              "ports" : [
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "inPos",
+                  "execPortType" : "In",
+                  "typeSpec" : "Vec3[]"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "size",
+                  "execPortType" : "In",
+                  "typeSpec" : "Float32"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "maxAngle",
+                  "execPortType" : "In",
+                  "typeSpec" : "Float32"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "In",
+                  "name" : "outPos",
+                  "execPortType" : "Out",
+                  "typeSpec" : "Vec3[]"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "active",
+                  "execPortType" : "In",
+                  "typeSpec" : "Boolean"
+                  }
+                ],
+              "extDeps" : {},
+              "code" : "dfgEntry {
+
+  if (!active){
+    outPos.resize(inPos.size());
+    outPos = inPos;
+    return;
+  }
+  
+  Size numOutPos = (inPos.size()-2) * 2 + 2;
+  Float32 maxAngRad = Math_degToRad(maxAngle);
+  Vec3 temp[];
+  Vec3 v1, v2;
+  
+  for (Size i = 0; i < inPos.size(); i++){
+    
+    if (i == 0){
+      //outPos[0] = inPos[0];
+      temp.push(inPos[0]);
+    }
+    else if (i == inPos.size()-1){
+      //outPos[numOutPos-1] = inPos[inPos.size()-1];
+      temp.push(inPos[inPos.size()-1]);
+    }
+    else {
+      v1 = inPos[i-1] - inPos[i];
+      v2 = inPos[i+1] - inPos[i];
+      
+      if (v1 != Vec3(0,0,0)){
+        v1.normalize();
+      }
+      if (v2 != Vec3(0,0,0)){
+        v2.normalize();
+      }
+      //outPos[i*2-1] = inPos[i] + v1 * size;
+      //outPos[i*2] = inPos[i] + v2 * size;
+      
+      if (acos(v1.dot(v2)) <= maxAngRad){
+        temp.push(inPos[i] + v1 * size);
+        temp.push(inPos[i] + v2 * size);
+      }
+      else{
+        temp.push(inPos[i]);
+      }
+    }
+  }
+  
+  outPos.resize(temp.size());
+  outPos = temp;
+}
+"
+              }
             }
           ],
         "connections" : {
@@ -2600,13 +2459,19 @@ dfgEntry {
             "addExtrusionWithUV.scaleV"
             ],
           "chamferSize" : [
-            "addChamfer.size"
+            "addChamfer_3.size"
             ],
           "profile" : [
             "Resize_1.array"
             ],
           "profileCount" : [
             "Resize_1.count"
+            ],
+          "chamferMaxAngle" : [
+            "addChamfer_3.maxAngle"
+            ],
+          "useChamfer" : [
+            "addChamfer_3.active"
             ],
           "EmptyPolygonMesh_1.mesh" : [
             "addExtrusionWithUV.this"
@@ -2621,7 +2486,7 @@ dfgEntry {
             "Push_1.element"
             ],
           "Get_1.element" : [
-            "addChamfer.inPos"
+            "addChamfer_3.inPos"
             ],
           "Push_1.array" : [
             "Push_2.array"
@@ -2659,9 +2524,6 @@ dfgEntry {
           "MergeMesh_1.this" : [
             "RecomputePointNormals_1.this"
             ],
-          "addChamfer.outPos" : [
-            "transformProfile_3.inProfile"
-            ],
           "addExtrusionWithUV.this" : [
             "ClonePolygonMesh.value",
             "MergeMesh_1.this"
@@ -2671,6 +2533,9 @@ dfgEntry {
             ],
           "Resize_1.array" : [
             "Push_3.element"
+            ],
+          "addChamfer_3.outPos" : [
+            "transformProfile_3.inProfile"
             ]
           }
         }
@@ -5884,90 +5749,6 @@ dfgEntry
         }
       },
     {
-      "objectType" : "Inst",
-      "metadata" : {
-        "uiGraphPos" : "{\"x\":891.4334716796875,\"y\":-517.8042602539062}"
-        },
-      "name" : "addChamfer_2",
-      "ports" : [
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
-          "name" : "inPos"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "Out",
-          "name" : "outPos"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
-          "name" : "size"
-          }
-        ],
-      "definition" : {
-        "objectType" : "Func",
-        "title" : "addChamfer",
-        "ports" : [
-          {
-            "objectType" : "Port",
-            "nodePortType" : "Out",
-            "name" : "inPos",
-            "execPortType" : "In",
-            "typeSpec" : "Vec3[]"
-            },
-          {
-            "objectType" : "Port",
-            "nodePortType" : "In",
-            "name" : "outPos",
-            "execPortType" : "Out",
-            "typeSpec" : "Vec3[]"
-            },
-          {
-            "objectType" : "Port",
-            "nodePortType" : "Out",
-            "name" : "size",
-            "execPortType" : "In",
-            "typeSpec" : "Float32"
-            }
-          ],
-        "extDeps" : {},
-        "code" : "dfgEntry {
-
-  Size numOutPos = (inPos.size()-2) * 2 + 2;
-  outPos.resize(numOutPos);
-  
-  Vec3 v1, v2;
-  for (Size i = 0; i < inPos.size(); i++){
-    
-    if (i == 0){
-      outPos[0] = inPos[0];
-    }
-    else if (i == inPos.size()-1){
-      outPos[numOutPos-1] = inPos[inPos.size()-1];
-    }
-    else {
-      v1 = inPos[i-1] - inPos[i];
-      v2 = inPos[i+1] - inPos[i];
-      
-      if (v1 != Vec3(0,0,0)){
-        v1.normalize();
-      }
-      if (v2 != Vec3(0,0,0)){
-        v2.normalize();
-      }
-      outPos[i*2-1] = inPos[i] + v1 * size;
-      outPos[i*2] = inPos[i] + v2 * size;
-      
-      report(inPos[i]);
-    }
-  }
-}
-"
-        }
-      },
-    {
       "objectType" : "User",
       "metadata" : {
         "uiTitle" : "cap1",
@@ -6374,6 +6155,132 @@ dfgEntry
         ],
       "executable" : "Fabric.Core.Logic.And",
       "presetGUID" : "5C4DF279926CC4AFD90CCD43A2E07655"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":893.843017578125,\"y\":-521.6744384765625}"
+        },
+      "name" : "addChamfer_3",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "inPos"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "size"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "maxAngle"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "outPos"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "active"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "title" : "addChamfer",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "inPos",
+            "execPortType" : "In",
+            "typeSpec" : "Vec3[]"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "size",
+            "execPortType" : "In",
+            "typeSpec" : "Float32"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "maxAngle",
+            "execPortType" : "In",
+            "typeSpec" : "Float32"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "outPos",
+            "execPortType" : "Out",
+            "typeSpec" : "Vec3[]"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "active",
+            "execPortType" : "In",
+            "typeSpec" : "Boolean"
+            }
+          ],
+        "extDeps" : {},
+        "code" : "dfgEntry {
+
+  if (!active){
+    outPos.resize(inPos.size());
+    outPos = inPos;
+    return;
+  }
+  
+  Size numOutPos = (inPos.size()-2) * 2 + 2;
+  Float32 maxAngRad = Math_degToRad(maxAngle);
+  Vec3 temp[];
+  Vec3 v1, v2;
+  
+  for (Size i = 0; i < inPos.size(); i++){
+    
+    if (i == 0){
+      //outPos[0] = inPos[0];
+      temp.push(inPos[0]);
+    }
+    else if (i == inPos.size()-1){
+      //outPos[numOutPos-1] = inPos[inPos.size()-1];
+      temp.push(inPos[inPos.size()-1]);
+    }
+    else {
+      v1 = inPos[i-1] - inPos[i];
+      v2 = inPos[i+1] - inPos[i];
+      
+      if (v1 != Vec3(0,0,0)){
+        v1.normalize();
+      }
+      if (v2 != Vec3(0,0,0)){
+        v2.normalize();
+      }
+      //outPos[i*2-1] = inPos[i] + v1 * size;
+      //outPos[i*2] = inPos[i] + v2 * size;
+      
+      if (acos(v1.dot(v2)) <= maxAngRad){
+        temp.push(inPos[i] + v1 * size);
+        temp.push(inPos[i] + v2 * size);
+      }
+      else{
+        temp.push(inPos[i]);
+      }
+    }
+  }
+  
+  outPos.resize(temp.size());
+  outPos = temp;
+}
+"
+        }
       }
     ],
   "connections" : {
@@ -6435,8 +6342,14 @@ dfgEntry
     "sideScaleV" : [
       "extrudeProfiles.scaleV"
       ],
+    "sideUseChamfer" : [
+      "extrudeProfiles.useChamfer"
+      ],
     "sideChamferSize" : [
       "extrudeProfiles.chamferSize"
+      ],
+    "sideChamferMaxAngle" : [
+      "extrudeProfiles.chamferMaxAngle"
       ],
     "cap1RadiusOffset" : [
       "createCapMesh.radiusOffset"
@@ -6465,8 +6378,14 @@ dfgEntry
     "cap2ProfileScale" : [
       "getCapProfile_3.profileScale"
       ],
+    "cap2UseChamfer" : [
+      "addChamfer_3.active"
+      ],
     "cap2ChamferSize" : [
-      "addChamfer_2.size"
+      "addChamfer_3.size"
+      ],
+    "cap2ChamferMaxAngle" : [
+      "addChamfer_3.maxAngle"
       ],
     "cap2ScaleUV" : [
       "createCapMesh_2.scaleUV"
@@ -6566,11 +6485,8 @@ dfgEntry
     "addChamfer.outPos" : [
       "createCapMesh.profile"
       ],
-    "addChamfer_2.outPos" : [
-      "createCapMesh_2.profile"
-      ],
     "getCapProfile_3.profile" : [
-      "addChamfer_2.inPos"
+      "addChamfer_3.inPos"
       ],
     "DrawMesh_2.drawThis" : [
       "SetActive_5.this"
@@ -6589,6 +6505,9 @@ dfgEntry
       ],
     "And_2.result" : [
       "SetActive_5.active"
+      ],
+    "addChamfer_3.outPos" : [
+      "createCapMesh_2.profile"
       ]
     },
   "requiredPresets" : {
@@ -7966,6 +7885,10 @@ dfgEntry {
       "ext" : "InlineDrawing"
       },
     {
+      "type" : "Boolean",
+      "value" : null
+      },
+    {
       "type" : "Float32",
       "value" : 1.977999925613403
       },
@@ -7975,11 +7898,11 @@ dfgEntry {
       },
     {
       "type" : "SInt32",
-      "value" : 24
+      "value" : 38
       },
     {
       "type" : "SInt32",
-      "value" : 24
+      "value" : 45
       },
     {
       "type" : "Float32",
@@ -8028,15 +7951,23 @@ dfgEntry {
       },
     {
       "type" : "Float32",
-      "value" : 1
+      "value" : 0.9987999796867371
       },
     {
       "type" : "Float32",
       "value" : 1
       },
     {
+      "type" : "Boolean",
+      "value" : true
+      },
+    {
       "type" : "Float32",
-      "value" : 0.1154000014066696
+      "value" : 0.05499999970197678
+      },
+    {
+      "type" : "Float32",
+      "value" : 139.3560028076172
       },
     {
       "type" : "Float32",
@@ -8060,11 +7991,11 @@ dfgEntry {
       },
     {
       "type" : "Float32",
-      "value" : 19.40399932861328
+      "value" : 21.56400108337402
       },
     {
       "type" : "Float32",
-      "value" : 0.4950000047683716
+      "value" : 0.4620000123977661
       },
     {
       "type" : "Float32",
@@ -8075,8 +8006,16 @@ dfgEntry {
       "value" : 0.5109999775886536
       },
     {
+      "type" : "Boolean",
+      "value" : true
+      },
+    {
       "type" : "Float32",
-      "value" : 0.06060000136494637
+      "value" : 0.01649999991059303
+      },
+    {
+      "type" : "Float32",
+      "value" : 180
       },
     {
       "type" : "Float32",
@@ -8084,7 +8023,7 @@ dfgEntry {
       },
     {
       "type" : "Float32",
-      "value" : null
+      "value" : 20.48399925231934
       },
     {
       "type" : "Boolean",
@@ -8105,10 +8044,6 @@ dfgEntry {
     {
       "type" : "Boolean",
       "value" : true
-      },
-    {
-      "type" : "Boolean",
-      "value" : null
       }
     ]
   }
