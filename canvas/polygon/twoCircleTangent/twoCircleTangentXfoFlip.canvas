@@ -1,15 +1,15 @@
 {
   "objectType" : "Graph",
   "metadata" : {
-    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.6888798475265503,\n    \"y\" : -0.2113890051841736,\n    \"z\" : 0.6993829011917114,\n    \"t\" : 9.311678886413574\n    },\n  \"row1\" : {\n    \"x\" : -1.983026777452324e-06,\n    \"y\" : 0.9567400813102722,\n    \"z\" : 0.2918021678924561,\n    \"t\" : 3.850603580474854\n    },\n  \"row2\" : {\n    \"x\" : -0.7308887839317322,\n    \"y\" : -0.1992417275905609,\n    \"z\" : 0.6591840386390686,\n    \"t\" : 8.864541053771973\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.9666298031806946,\n    \"y\" : 0.1588127017021179,\n    \"z\" : -0.2212104946374893,\n    \"t\" : -1.439560532569885\n    },\n  \"row1\" : {\n    \"x\" : -3.404819608476828e-06,\n    \"y\" : 0.8109769821166992,\n    \"z\" : 0.5874950885772705,\n    \"t\" : 3.78939962387085\n    },\n  \"row2\" : {\n    \"x\" : 0.2727281451225281,\n    \"y\" : -0.5628694295883179,\n    \"z\" : 0.7840432524681091,\n    \"t\" : 5.191558361053467\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "timeline_start" : "1",
     "timeline_loopMode" : "1",
-    "uiGraphZoom" : "{\n  \"value\" : 1.873111724853516\n  }",
+    "uiGraphZoom" : "{\n  \"value\" : 0.1685102432966232\n  }",
     "timeline_simMode" : "0",
-    "camera_focalDistance" : "13.37221336364746",
+    "camera_focalDistance" : "6.53729772567749",
     "timeline_current" : "1",
     "timeline_end" : "50",
-    "uiGraphPan" : "{\n  \"x\" : -1158.162072106265,\n  \"y\" : -1033.581528754439\n  }"
+    "uiGraphPan" : "{\n  \"x\" : 25.69335196387203,\n  \"y\" : 359.1815008368208\n  }"
     },
   "title" : "",
   "ports" : [
@@ -260,10 +260,10 @@
       "objectType" : "Port",
       "metadata" : {
         "uiPersistValue" : "true",
-        "uiRange" : "(0, 5)"
+        "uiRange" : "(0, 180)"
         },
       "nodePortType" : "Out",
-      "name" : "sideChamferSize",
+      "name" : "sideChamferMaxAngle",
       "execPortType" : "In",
       "typeSpec" : "Float32"
       },
@@ -271,10 +271,10 @@
       "objectType" : "Port",
       "metadata" : {
         "uiPersistValue" : "true",
-        "uiRange" : "(0, 180)"
+        "uiRange" : "(0, 5)"
         },
       "nodePortType" : "Out",
-      "name" : "sideChamferMaxAngle",
+      "name" : "sideChamferSize",
       "execPortType" : "In",
       "typeSpec" : "Float32"
       },
@@ -307,6 +307,27 @@
         },
       "nodePortType" : "Out",
       "name" : "cap1ProfileScale",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "cap1UseChamfer",
+      "execPortType" : "In",
+      "typeSpec" : "Boolean"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true",
+        "uiRange" : "(0, 180)"
+        },
+      "nodePortType" : "Out",
+      "name" : "cap1ChamferMaxAngle",
       "execPortType" : "In",
       "typeSpec" : "Float32"
       },
@@ -387,10 +408,10 @@
       "objectType" : "Port",
       "metadata" : {
         "uiPersistValue" : "true",
-        "uiRange" : "(0, 5)"
+        "uiRange" : "(0, 180)"
         },
       "nodePortType" : "Out",
-      "name" : "cap2ChamferSize",
+      "name" : "cap2ChamferMaxAngle",
       "execPortType" : "In",
       "typeSpec" : "Float32"
       },
@@ -398,10 +419,10 @@
       "objectType" : "Port",
       "metadata" : {
         "uiPersistValue" : "true",
-        "uiRange" : "(0, 180)"
+        "uiRange" : "(0, 5)"
         },
       "nodePortType" : "Out",
-      "name" : "cap2ChamferMaxAngle",
+      "name" : "cap2ChamferSize",
       "execPortType" : "In",
       "typeSpec" : "Float32"
       },
@@ -836,7 +857,7 @@
         "objectType" : "Graph",
         "metadata" : {
           "uiGraphZoom" : "{\n  \"value\" : 0.7427819967269897\n  }",
-          "uiGraphPan" : "{\n  \"x\" : 438.334228515625,\n  \"y\" : -453.6092529296875\n  }"
+          "uiGraphPan" : "{\n  \"x\" : 315.334228515625,\n  \"y\" : -408.6092529296875\n  }"
           },
         "title" : "extrudeProfiles",
         "ports" : [
@@ -945,7 +966,6 @@
             },
           {
             "objectType" : "Port",
-            "metadata" : {},
             "nodePortType" : "Out",
             "name" : "chamferMaxAngle",
             "execPortType" : "In",
@@ -953,7 +973,6 @@
             },
           {
             "objectType" : "Port",
-            "metadata" : {},
             "nodePortType" : "Out",
             "name" : "useChamfer",
             "execPortType" : "In",
@@ -2303,9 +2322,9 @@ dfgEntry
           {
             "objectType" : "Inst",
             "metadata" : {
-              "uiGraphPos" : "{\"x\":-67.76445007324219,\"y\":1013.230224609375}"
+              "uiGraphPos" : "{\"x\":-71.80329132080078,\"y\":990.3424072265625}"
               },
-            "name" : "addChamfer_3",
+            "name" : "addChamfer",
             "ports" : [
               {
                 "objectType" : "InstPort",
@@ -2386,15 +2405,14 @@ dfgEntry
   Float32 maxAngRad = Math_degToRad(maxAngle);
   Vec3 temp[];
   Vec3 v1, v2;
-  
+  Float32 theta;
+
   for (Size i = 0; i < inPos.size(); i++){
     
     if (i == 0){
-      //outPos[0] = inPos[0];
       temp.push(inPos[0]);
     }
     else if (i == inPos.size()-1){
-      //outPos[numOutPos-1] = inPos[inPos.size()-1];
       temp.push(inPos[inPos.size()-1]);
     }
     else {
@@ -2407,19 +2425,19 @@ dfgEntry
       if (v2 != Vec3(0,0,0)){
         v2.normalize();
       }
-      //outPos[i*2-1] = inPos[i] + v1 * size;
-      //outPos[i*2] = inPos[i] + v2 * size;
+
+      theta = acos(v1.dot(v2));
       
-      if (acos(v1.dot(v2)) <= maxAngRad){
-        temp.push(inPos[i] + v1 * size);
-        temp.push(inPos[i] + v2 * size);
+      if (theta <= maxAngRad){                
+        Float32 hyp = (size*.5) / sin(theta*.5);
+        temp.push(inPos[i] + v1 * hyp);
+        temp.push(inPos[i] + v2 * hyp);
       }
       else{
         temp.push(inPos[i]);
       }
     }
   }
-  
   outPos.resize(temp.size());
   outPos = temp;
 }
@@ -2459,7 +2477,7 @@ dfgEntry
             "addExtrusionWithUV.scaleV"
             ],
           "chamferSize" : [
-            "addChamfer_3.size"
+            "addChamfer.size"
             ],
           "profile" : [
             "Resize_1.array"
@@ -2468,10 +2486,10 @@ dfgEntry
             "Resize_1.count"
             ],
           "chamferMaxAngle" : [
-            "addChamfer_3.maxAngle"
+            "addChamfer.maxAngle"
             ],
           "useChamfer" : [
-            "addChamfer_3.active"
+            "addChamfer.active"
             ],
           "EmptyPolygonMesh_1.mesh" : [
             "addExtrusionWithUV.this"
@@ -2486,7 +2504,7 @@ dfgEntry
             "Push_1.element"
             ],
           "Get_1.element" : [
-            "addChamfer_3.inPos"
+            "addChamfer.inPos"
             ],
           "Push_1.array" : [
             "Push_2.array"
@@ -2534,7 +2552,7 @@ dfgEntry
           "Resize_1.array" : [
             "Push_3.element"
             ],
-          "addChamfer_3.outPos" : [
+          "addChamfer.outPos" : [
             "transformProfile_3.inProfile"
             ]
           }
@@ -5665,90 +5683,6 @@ dfgEntry
       "presetGUID" : "A68C3C98E78BEA71DDD7A2DB92CD5CBE"
       },
     {
-      "objectType" : "Inst",
-      "metadata" : {
-        "uiGraphPos" : "{\"x\":333.623779296875,\"y\":-467.3044128417969}"
-        },
-      "name" : "addChamfer",
-      "ports" : [
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
-          "name" : "inPos"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "Out",
-          "name" : "outPos"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
-          "name" : "size"
-          }
-        ],
-      "definition" : {
-        "objectType" : "Func",
-        "title" : "addChamfer",
-        "ports" : [
-          {
-            "objectType" : "Port",
-            "nodePortType" : "Out",
-            "name" : "inPos",
-            "execPortType" : "In",
-            "typeSpec" : "Vec3[]"
-            },
-          {
-            "objectType" : "Port",
-            "nodePortType" : "In",
-            "name" : "outPos",
-            "execPortType" : "Out",
-            "typeSpec" : "Vec3[]"
-            },
-          {
-            "objectType" : "Port",
-            "nodePortType" : "Out",
-            "name" : "size",
-            "execPortType" : "In",
-            "typeSpec" : "Float32"
-            }
-          ],
-        "extDeps" : {},
-        "code" : "dfgEntry {
-
-  Size numOutPos = (inPos.size()-2) * 2 + 2;
-  outPos.resize(numOutPos);
-  
-  Vec3 v1, v2;
-  for (Size i = 0; i < inPos.size(); i++){
-    
-    if (i == 0){
-      outPos[0] = inPos[0];
-    }
-    else if (i == inPos.size()-1){
-      outPos[numOutPos-1] = inPos[inPos.size()-1];
-    }
-    else {
-      v1 = inPos[i-1] - inPos[i];
-      v2 = inPos[i+1] - inPos[i];
-      
-      if (v1 != Vec3(0,0,0)){
-        v1.normalize();
-      }
-      if (v2 != Vec3(0,0,0)){
-        v2.normalize();
-      }
-      outPos[i*2-1] = inPos[i] + v1 * size;
-      outPos[i*2] = inPos[i] + v2 * size;
-      
-      report(inPos[i]);
-    }
-  }
-}
-"
-        }
-      },
-    {
       "objectType" : "User",
       "metadata" : {
         "uiTitle" : "cap1",
@@ -6281,6 +6215,131 @@ dfgEntry
 }
 "
         }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":333.873779296875,\"y\":-465.054443359375}"
+        },
+      "name" : "addChamfer_2",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "inPos"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "size"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "maxAngle"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "outPos"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "active"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "title" : "addChamfer",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "inPos",
+            "execPortType" : "In",
+            "typeSpec" : "Vec3[]"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "size",
+            "execPortType" : "In",
+            "typeSpec" : "Float32"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "maxAngle",
+            "execPortType" : "In",
+            "typeSpec" : "Float32"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "outPos",
+            "execPortType" : "Out",
+            "typeSpec" : "Vec3[]"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "active",
+            "execPortType" : "In",
+            "typeSpec" : "Boolean"
+            }
+          ],
+        "extDeps" : {},
+        "code" : "dfgEntry {
+
+  if (!active){
+    outPos.resize(inPos.size());
+    outPos = inPos;
+    return;
+  }
+  
+  Size numOutPos = (inPos.size()-2) * 2 + 2;
+  Float32 maxAngRad = Math_degToRad(maxAngle);
+  Vec3 temp[];
+  Vec3 v1, v2;
+  Float32 theta;
+
+  for (Size i = 0; i < inPos.size(); i++){
+    
+    if (i == 0){
+      temp.push(inPos[0]);
+    }
+    else if (i == inPos.size()-1){
+      temp.push(inPos[inPos.size()-1]);
+    }
+    else {
+      v1 = inPos[i-1] - inPos[i];
+      v2 = inPos[i+1] - inPos[i];
+      
+      if (v1 != Vec3(0,0,0)){
+        v1.normalize();
+      }
+      if (v2 != Vec3(0,0,0)){
+        v2.normalize();
+      }
+
+      theta = acos(v1.dot(v2));
+      
+      if (theta <= maxAngRad){                
+        Float32 hyp = (size*.5) / sin(theta*.5);
+        temp.push(inPos[i] + v1 * hyp);
+        temp.push(inPos[i] + v2 * hyp);
+      }
+      else{
+        temp.push(inPos[i]);
+      }
+    }
+  }
+  outPos.resize(temp.size());
+  outPos = temp;
+}
+"
+        }
       }
     ],
   "connections" : {
@@ -6345,11 +6404,11 @@ dfgEntry
     "sideUseChamfer" : [
       "extrudeProfiles.useChamfer"
       ],
-    "sideChamferSize" : [
-      "extrudeProfiles.chamferSize"
-      ],
     "sideChamferMaxAngle" : [
       "extrudeProfiles.chamferMaxAngle"
+      ],
+    "sideChamferSize" : [
+      "extrudeProfiles.chamferSize"
       ],
     "cap1RadiusOffset" : [
       "createCapMesh.radiusOffset"
@@ -6360,8 +6419,14 @@ dfgEntry
     "cap1ProfileScale" : [
       "getCapProfile_2.profileScale"
       ],
+    "cap1UseChamfer" : [
+      "addChamfer_2.active"
+      ],
+    "cap1ChamferMaxAngle" : [
+      "addChamfer_2.maxAngle"
+      ],
     "cap1ChamferSize" : [
-      "addChamfer.size"
+      "addChamfer_2.size"
       ],
     "cap1ScaleUV" : [
       "createCapMesh.scaleUV"
@@ -6381,11 +6446,11 @@ dfgEntry
     "cap2UseChamfer" : [
       "addChamfer_3.active"
       ],
-    "cap2ChamferSize" : [
-      "addChamfer_3.size"
-      ],
     "cap2ChamferMaxAngle" : [
       "addChamfer_3.maxAngle"
+      ],
+    "cap2ChamferSize" : [
+      "addChamfer_3.size"
       ],
     "cap2ScaleUV" : [
       "createCapMesh_2.scaleUV"
@@ -6460,7 +6525,7 @@ dfgEntry
       "SetActive_6.this"
       ],
     "getCapProfile_2.profile" : [
-      "addChamfer.inPos"
+      "addChamfer_2.inPos"
       ],
     "createCapMesh_2.this" : [
       "applyTransform.mesh"
@@ -6481,9 +6546,6 @@ dfgEntry
       ],
     "MergeMesh_1.this" : [
       "Cache.value"
-      ],
-    "addChamfer.outPos" : [
-      "createCapMesh.profile"
       ],
     "getCapProfile_3.profile" : [
       "addChamfer_3.inPos"
@@ -6508,6 +6570,9 @@ dfgEntry
       ],
     "addChamfer_3.outPos" : [
       "createCapMesh_2.profile"
+      ],
+    "addChamfer_2.outPos" : [
+      "createCapMesh.profile"
       ]
     },
   "requiredPresets" : {
@@ -7890,7 +7955,7 @@ dfgEntry {
       },
     {
       "type" : "Float32",
-      "value" : 1.977999925613403
+      "value" : 2.124000072479248
       },
     {
       "type" : "Float32",
@@ -7927,7 +7992,7 @@ dfgEntry {
       },
     {
       "type" : "Float32",
-      "value" : 9.701999664306641
+      "value" : 22.0319995880127
       },
     {
       "type" : "Float32",
@@ -7939,7 +8004,7 @@ dfgEntry {
       },
     {
       "type" : "Float32",
-      "value" : 0.4670000076293945
+      "value" : 0.4672000110149384
       },
     {
       "type" : "Float32",
@@ -7963,27 +8028,35 @@ dfgEntry {
       },
     {
       "type" : "Float32",
-      "value" : 0.05499999970197678
+      "value" : 131.6159973144531
       },
     {
       "type" : "Float32",
-      "value" : 139.3560028076172
+      "value" : 0.1770000010728836
       },
     {
       "type" : "Float32",
-      "value" : 0.4950000047683716
+      "value" : 0.4930000007152557
       },
     {
       "type" : "Float32",
-      "value" : 0.3299999833106995
+      "value" : 0.1870000064373016
       },
     {
       "type" : "Float32",
       "value" : 0.3625999987125397
       },
     {
+      "type" : "Boolean",
+      "value" : true
+      },
+    {
       "type" : "Float32",
-      "value" : 0.04399999976158142
+      "value" : 180
+      },
+    {
+      "type" : "Float32",
+      "value" : 0.03539999946951866
       },
     {
       "type" : "Float32",
@@ -8011,11 +8084,11 @@ dfgEntry {
       },
     {
       "type" : "Float32",
-      "value" : 0.01649999991059303
+      "value" : 180
       },
     {
       "type" : "Float32",
-      "value" : 180
+      "value" : 0.01649999991059303
       },
     {
       "type" : "Float32",
