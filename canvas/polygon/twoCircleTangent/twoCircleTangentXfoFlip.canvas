@@ -1,7 +1,7 @@
 {
   "objectType" : "Graph",
   "metadata" : {
-    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.8977645635604858,\n    \"y\" : 0.03798290342092514,\n    \"z\" : -0.4487913846969604,\n    \"t\" : -13.83845615386963\n    },\n  \"row1\" : {\n    \"x\" : -1.678160515439231e-06,\n    \"y\" : 0.9962645769119263,\n    \"z\" : 0.0850885733962059,\n    \"t\" : 2.588992118835449\n    },\n  \"row2\" : {\n    \"x\" : 0.4503974616527557,\n    \"y\" : -0.07570656388998032,\n    \"z\" : 0.8945635557174683,\n    \"t\" : 27.67320823669434\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.8977645635604858,\n    \"y\" : 0.03798291459679604,\n    \"z\" : -0.4487913846969604,\n    \"t\" : -13.83845615386963\n    },\n  \"row1\" : {\n    \"x\" : -1.680031346040778e-06,\n    \"y\" : 0.9962645769119263,\n    \"z\" : 0.0850885808467865,\n    \"t\" : 2.588992118835449\n    },\n  \"row2\" : {\n    \"x\" : 0.4503974616527557,\n    \"y\" : -0.07570655643939972,\n    \"z\" : 0.8945634961128235,\n    \"t\" : 27.67320823669434\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "timeline_start" : "1",
     "timeline_loopMode" : "1",
     "uiGraphZoom" : "{\n  \"value\" : 0.4192338883876801\n  }",
@@ -9,7 +9,7 @@
     "camera_focalDistance" : "30.97210311889648",
     "timeline_current" : "1",
     "timeline_end" : "50",
-    "uiGraphPan" : "{\n  \"x\" : -564.0047302246094,\n  \"y\" : 167.9336547851562\n  }"
+    "uiGraphPan" : "{\n  \"x\" : -312.0047607421875,\n  \"y\" : 356.9336547851562\n  }"
     },
   "title" : "",
   "ports" : [
@@ -579,7 +579,14 @@
       "objectType" : "Port",
       "metadata" : {},
       "nodePortType" : "Out",
-      "name" : "m",
+      "name" : "useParentMatrix",
+      "execPortType" : "In",
+      "typeSpec" : "Boolean"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "parentMatrix",
       "execPortType" : "In",
       "typeSpec" : "Mat44"
       }
@@ -3068,7 +3075,7 @@ dfgEntry
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1045.627319335938,\"y\":-359.3787536621094}"
+        "uiGraphPos" : "{\"x\":997.9213256835938,\"y\":-364.1493225097656}"
         },
       "name" : "Xfo_1",
       "ports" : [
@@ -3099,7 +3106,7 @@ dfgEntry
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":933.7374877929688,\"y\":-353.4386291503906}"
+        "uiGraphPos" : "{\"x\":886.0313720703125,\"y\":-358.2091979980469}"
         },
       "name" : "Vec3_1",
       "ports" : [
@@ -3130,7 +3137,7 @@ dfgEntry
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1669.7421875,\"y\":-491.2742309570312}"
+        "uiGraphPos" : "{\"x\":1686.439086914062,\"y\":-469.8065185546875}"
         },
       "name" : "Cache",
       "ports" : [
@@ -3146,7 +3153,7 @@ dfgEntry
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1159.17041015625,\"y\":-415.7052001953125}"
+        "uiGraphPos" : "{\"x\":1111.464477539062,\"y\":-420.4757690429688}"
         },
       "name" : "applyTransform",
       "ports" : [
@@ -3258,7 +3265,7 @@ dfgEntry
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1314.488159179688,\"y\":-492.3143615722656}"
+        "uiGraphPos" : "{\"x\":1259.626220703125,\"y\":-489.9290466308594}"
         },
       "name" : "MergeMesh_1",
       "ports" : [
@@ -7638,7 +7645,7 @@ dfgEntry {
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1492.155029296875,\"y\":-492.552978515625}"
+        "uiGraphPos" : "{\"x\":1382.430908203125,\"y\":-435.3057556152344}"
         },
       "name" : "applyTransform_2",
       "ports" : [
@@ -7771,7 +7778,7 @@ dfgEntry
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1612.869995117188,\"y\":596.5687866210938}"
+        "uiGraphPos" : "{\"x\":1715.43798828125,\"y\":546.4773559570312}"
         },
       "name" : "Cache_2",
       "ports" : [
@@ -7787,7 +7794,7 @@ dfgEntry
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1435.282836914062,\"y\":595.2901000976562}"
+        "uiGraphPos" : "{\"x\":1387.57666015625,\"y\":487.951416015625}"
         },
       "name" : "applyTransform_3",
       "ports" : [
@@ -7895,6 +7902,68 @@ dfgEntry
 
 "
         }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":1552.843627929688,\"y\":-524.6085205078125}"
+        },
+      "name" : "If_1",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "cond"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "if_true"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "if_false"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "Fabric.Core.Control.If",
+      "presetGUID" : "3182A478A21643455D549E483D35F831"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":1567.15576171875,\"y\":446.2099304199219}"
+        },
+      "name" : "If_2",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "cond"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "if_true"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "if_false"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "Fabric.Core.Control.If",
+      "presetGUID" : "3182A478A21643455D549E483D35F831"
       }
     ],
   "connections" : {
@@ -8068,7 +8137,11 @@ dfgEntry
       "And_5.rhs",
       "And_6.rhs"
       ],
-    "m" : [
+    "useParentMatrix" : [
+      "If_1.cond",
+      "If_2.cond"
+      ],
+    "parentMatrix" : [
       "SetFromMat44_1.m"
       ],
     "EmptyDrawingHandle_1.handle" : [
@@ -8088,7 +8161,8 @@ dfgEntry
       ],
     "extrudeProfiles.value" : [
       "extrusionMesh",
-      "applyTransform_3.mesh"
+      "applyTransform_3.mesh",
+      "If_2.if_false"
       ],
     "DrawTexturedPolygonMesh_1.instance" : [
       "SetActive_3.this"
@@ -8123,7 +8197,8 @@ dfgEntry
       "MergeMesh_1.source"
       ],
     "MergeMesh_1.this" : [
-      "applyTransform_2.mesh"
+      "applyTransform_2.mesh",
+      "If_1.if_false"
       ],
     "DrawMesh_2.drawThis" : [
       "SetActive_5.this"
@@ -8162,7 +8237,7 @@ dfgEntry
       "SetActive_3.active"
       ],
     "applyTransform_2.mesh" : [
-      "Cache.value"
+      "If_1.if_true"
       ],
     "SetFromMat44_1.this" : [
       "applyTransform_2.xfo",
@@ -8173,6 +8248,12 @@ dfgEntry
       "DrawTexturedPolygonMesh_1.mesh"
       ],
     "applyTransform_3.mesh" : [
+      "If_2.if_true"
+      ],
+    "If_1.result" : [
+      "Cache.value"
+      ],
+    "If_2.result" : [
       "Cache_2.value"
       ]
     },
@@ -9838,6 +9919,10 @@ dfgEntry {
     {
       "type" : "Boolean",
       "value" : true
+      },
+    {
+      "type" : "Boolean",
+      "value" : null
       },
     {
       "type" : "Mat44",
