@@ -1,0 +1,128 @@
+{
+  "objectType" : "Graph",
+  "metadata" : {
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.7999999523162842,\n    \"y\" : -0.2228344082832336,\n    \"z\" : 0.5570860505104065,\n    \"t\" : 30\n    },\n  \"row1\" : {\n    \"x\" : -1.490116119384766e-08,\n    \"y\" : 0.9284766912460327,\n    \"z\" : 0.3713906705379486,\n    \"t\" : 20\n    },\n  \"row2\" : {\n    \"x\" : -0.6000000834465027,\n    \"y\" : -0.2971125543117523,\n    \"z\" : 0.7427813410758972,\n    \"t\" : 40\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "timeline_start" : "1",
+    "timeline_loopMode" : "1",
+    "timeline_simMode" : "0",
+    "camera_focalDistance" : "53.85164642333984",
+    "timeline_current" : "1",
+    "timeline_end" : "50"
+    },
+  "title" : "",
+  "ports" : [
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "dummy",
+      "execPortType" : "Out",
+      "typeSpec" : "Boolean"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "write",
+      "execPortType" : "In",
+      "typeSpec" : "Boolean"
+      }
+    ],
+  "extDeps" : {},
+  "nodes" : [
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":277.0,\"y\":93.0}"
+        },
+      "name" : "imge",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "dummy"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "title" : "imge",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "IO",
+            "name" : "dummy",
+            "execPortType" : "IO",
+            "typeSpec" : "Boolean"
+            }
+          ],
+        "extDeps" : {},
+        "code" : "require OpenImageIO;
+require FileIO;
+
+dfgEntry {
+
+  FilePath path = FilePath('/Users/johan/Desktop/test.png');
+  
+  Integer width = 256;
+  Integer height = 256;
+  Integer numChannels = 3;
+  
+  OpenImageSpec spec(width, height, numChannels, OpenImageTypeDescTypeColor());
+  OpenImageTypeDesc desc = OpenImageTypeDesc(OpenImage_BASETYPE_UINT8, OpenImage_AGGREGATE_SCALAR, OpenImage_VECSEMANTICS_NOXFORM);
+
+  Byte bytes[];
+  bytes.resize(spec.get_full_width() * spec.get_full_height() * spec.get_nchannels());
+  Data data = bytes.data();
+ 
+  //report(bytes.size());
+  Integer rowLength = width * 3;
+  Integer col;
+  Integer arr[];
+  arr.resize(rowLength);
+  
+  arr[0] = 255;
+  arr[10] = 255;
+  arr[20] = 255;
+  arr[30] = 255;
+  arr[39] = 255;
+  arr[128] = 255;
+  
+  // fill on the first component, resulting in red pixels
+  for(Size i=0;i<bytes.size();i+=3){
+    col = i % rowLength;    
+    bytes[i] = arr[floor(col/3)];
+  }
+  
+  // writes a purely red image, 512x512 with 3 channels
+  OpenImageOutput img();
+  img.create(path.string());
+  img.open(path.string(), spec);
+  img.write_image(desc, data, 0, 0, 0);
+  img.close();
+
+  report(path.exists());
+  report('Written image '+path.string());
+}"
+        }
+      }
+    ],
+  "connections" : {
+    "write" : [
+      "imge.dummy"
+      ],
+    "imge.dummy" : [
+      "dummy"
+      ]
+    },
+  "args" : [
+    {
+      "type" : "Boolean",
+      "value" : null
+      },
+    {
+      "type" : "Boolean",
+      "value" : true
+      }
+    ]
+  }
