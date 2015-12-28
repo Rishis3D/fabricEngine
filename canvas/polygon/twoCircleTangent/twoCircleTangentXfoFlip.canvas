@@ -1,15 +1,15 @@
 {
   "objectType" : "Graph",
   "metadata" : {
-    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.7714426517486572,\n    \"y\" : 0.09239809215068817,\n    \"z\" : -0.6364891529083252,\n    \"t\" : -5.814617156982422\n    },\n  \"row1\" : {\n    \"x\" : -2.48823835136136e-06,\n    \"y\" : 0.9893954992294312,\n    \"z\" : 0.1449431926012039,\n    \"t\" : 1.289495825767517\n    },\n  \"row2\" : {\n    \"x\" : 0.643204391002655,\n    \"y\" : -0.1108160465955734,\n    \"z\" : 0.7633890509605408,\n    \"t\" : 7.063074111938477\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.4778338372707367,\n    \"y\" : 0.1616104394197464,\n    \"z\" : -0.8684441447257996,\n    \"t\" : -10.58889198303223\n    },\n  \"row1\" : {\n    \"x\" : -2.417146106381551e-06,\n    \"y\" : 0.9828344583511353,\n    \"z\" : 0.1845736354589462,\n    \"t\" : 2.215868949890137\n    },\n  \"row2\" : {\n    \"x\" : 0.8834652900695801,\n    \"y\" : -0.0874064564704895,\n    \"z\" : 0.4697099924087524,\n    \"t\" : 5.81621789932251\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "timeline_start" : "1",
     "timeline_loopMode" : "1",
-    "uiGraphZoom" : "{\n  \"value\" : 0.2508662641048431\n  }",
+    "uiGraphZoom" : "{\n  \"value\" : 0.9804167747497559\n  }",
     "timeline_simMode" : "0",
-    "camera_focalDistance" : "9.176219940185547",
+    "camera_focalDistance" : "12.24722003936768",
     "timeline_current" : "1",
     "timeline_end" : "50",
-    "uiGraphPan" : "{\n  \"x\" : -30.98221602744343,\n  \"y\" : 344.7172957992507\n  }"
+    "uiGraphPan" : "{\n  \"x\" : -996.090576171875,\n  \"y\" : -314.7760009765625\n  }"
     },
   "title" : "",
   "ports" : [
@@ -543,7 +543,6 @@
       },
     {
       "objectType" : "Port",
-      "metadata" : {},
       "nodePortType" : "Out",
       "name" : "cap2Profile",
       "execPortType" : "In",
@@ -551,7 +550,6 @@
       },
     {
       "objectType" : "Port",
-      "metadata" : {},
       "nodePortType" : "Out",
       "name" : "cap2ProfileCount",
       "execPortType" : "In",
@@ -564,6 +562,16 @@
         },
       "nodePortType" : "Out",
       "name" : "cap2UseProfileOffet",
+      "execPortType" : "In",
+      "typeSpec" : "Boolean"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "rhs",
       "execPortType" : "In",
       "typeSpec" : "Boolean"
       }
@@ -2917,7 +2925,7 @@ dfgEntry
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1336.223510742188,\"y\":513.283447265625}"
+        "uiGraphPos" : "{\"x\":1488.760986328125,\"y\":516.025634765625}"
         },
       "name" : "SetActive_2",
       "ports" : [
@@ -2938,7 +2946,7 @@ dfgEntry
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1326.165649414062,\"y\":845.3873901367188}"
+        "uiGraphPos" : "{\"x\":1401.5302734375,\"y\":834.697265625}"
         },
       "name" : "SetActive_3",
       "ports" : [
@@ -3486,7 +3494,7 @@ dfgEntry
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":2134.754150390625,\"y\":-546.5154418945312}"
+        "uiGraphPos" : "{\"x\":2258.224365234375,\"y\":-555.1799926757812}"
         },
       "name" : "SetActive_5",
       "ports" : [
@@ -3507,7 +3515,7 @@ dfgEntry
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":2040.94677734375,\"y\":-223.9203491210938}"
+        "uiGraphPos" : "{\"x\":2194.742919921875,\"y\":-232.5848999023438}"
         },
       "name" : "SetActive_6",
       "ports" : [
@@ -7533,6 +7541,110 @@ dfgEntry {
             ]
           }
         }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":2131.87255859375,\"y\":-497.2020568847656}"
+        },
+      "name" : "And_3",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "lhs"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "rhs"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "Fabric.Core.Logic.And",
+      "presetGUID" : "5C4DF279926CC4AFD90CCD43A2E07655"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":2043.06103515625,\"y\":-299.0000610351562}"
+        },
+      "name" : "And_4",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "lhs"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "rhs"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "Fabric.Core.Logic.And",
+      "presetGUID" : "5C4DF279926CC4AFD90CCD43A2E07655"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":1339.8681640625,\"y\":515.666748046875}"
+        },
+      "name" : "And_5",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "lhs"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "rhs"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "Fabric.Core.Logic.And",
+      "presetGUID" : "5C4DF279926CC4AFD90CCD43A2E07655"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":1265.880737304688,\"y\":808.6111450195312}"
+        },
+      "name" : "And_6",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "lhs"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "rhs"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "Fabric.Core.Logic.And",
+      "presetGUID" : "5C4DF279926CC4AFD90CCD43A2E07655"
       }
     ],
   "connections" : {
@@ -7671,10 +7783,10 @@ dfgEntry {
       "And_2.lhs"
       ],
     "drawTexture" : [
-      "SetActive_3.active",
       "Not_1.value",
       "Not_2.value",
-      "And_1.rhs"
+      "And_1.rhs",
+      "And_6.lhs"
       ],
     "cap1Type" : [
       "createCap.capType"
@@ -7699,6 +7811,12 @@ dfgEntry {
       ],
     "cap2UseProfileOffet" : [
       "createCap_2.useProfileOffet"
+      ],
+    "rhs" : [
+      "And_4.rhs",
+      "And_3.rhs",
+      "And_5.rhs",
+      "And_6.rhs"
       ],
     "EmptyDrawingHandle_1.handle" : [
       "DrawAxesInstances_1.this",
@@ -7733,7 +7851,7 @@ dfgEntry {
       "instance_4"
       ],
     "Not_1.result" : [
-      "SetActive_2.active"
+      "And_5.lhs"
       ],
     "DrawTexturedPolygonMesh_2.instance" : [
       "SetActive_6.this"
@@ -7768,16 +7886,28 @@ dfgEntry {
       "And_2.rhs"
       ],
     "And_1.result" : [
-      "SetActive_6.active"
+      "And_4.lhs"
       ],
     "And_2.result" : [
-      "SetActive_5.active"
+      "And_3.lhs"
       ],
     "createCap.mesh" : [
       "MergeMesh_1.this"
       ],
     "createCap_2.mesh" : [
       "applyTransform.mesh"
+      ],
+    "And_3.result" : [
+      "SetActive_5.active"
+      ],
+    "And_4.result" : [
+      "SetActive_6.active"
+      ],
+    "And_5.result" : [
+      "SetActive_2.active"
+      ],
+    "And_6.result" : [
+      "SetActive_3.active"
       ]
     },
   "requiredPresets" : {
@@ -9362,41 +9492,45 @@ dfgEntry {
       },
     {
       "type" : "Boolean",
+      "value" : false
+      },
+    {
+      "type" : "UInt32",
+      "value" : 1
+      },
+    {
+      "type" : "Vec3[]",
+      "value" : null,
+      "ext" : "Math"
+      },
+    {
+      "type" : "UInt32",
+      "value" : null
+      },
+    {
+      "type" : "Boolean",
+      "value" : false
+      },
+    {
+      "type" : "UInt32",
+      "value" : 1
+      },
+    {
+      "type" : "Vec3[]",
+      "value" : null,
+      "ext" : "Math"
+      },
+    {
+      "type" : "UInt32",
+      "value" : null
+      },
+    {
+      "type" : "Boolean",
+      "value" : false
+      },
+    {
+      "type" : "Boolean",
       "value" : true
-      },
-    {
-      "type" : "UInt32",
-      "value" : 1
-      },
-    {
-      "type" : "Vec3[]",
-      "value" : null,
-      "ext" : "Math"
-      },
-    {
-      "type" : "UInt32",
-      "value" : null
-      },
-    {
-      "type" : "Boolean",
-      "value" : false
-      },
-    {
-      "type" : "UInt32",
-      "value" : 1
-      },
-    {
-      "type" : "Vec3[]",
-      "value" : null,
-      "ext" : "Math"
-      },
-    {
-      "type" : "UInt32",
-      "value" : null
-      },
-    {
-      "type" : "Boolean",
-      "value" : false
       }
     ]
   }
