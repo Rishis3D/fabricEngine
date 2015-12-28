@@ -1,15 +1,15 @@
 {
   "objectType" : "Graph",
   "metadata" : {
-    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.4778338372707367,\n    \"y\" : 0.1616104394197464,\n    \"z\" : -0.8684441447257996,\n    \"t\" : -10.58889198303223\n    },\n  \"row1\" : {\n    \"x\" : -2.417146106381551e-06,\n    \"y\" : 0.9828344583511353,\n    \"z\" : 0.1845736354589462,\n    \"t\" : 2.215868949890137\n    },\n  \"row2\" : {\n    \"x\" : 0.8834652900695801,\n    \"y\" : -0.0874064564704895,\n    \"z\" : 0.4697099924087524,\n    \"t\" : 5.81621789932251\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.8977645635604858,\n    \"y\" : 0.03798290342092514,\n    \"z\" : -0.4487913846969604,\n    \"t\" : -13.83845615386963\n    },\n  \"row1\" : {\n    \"x\" : -1.678160515439231e-06,\n    \"y\" : 0.9962645769119263,\n    \"z\" : 0.0850885733962059,\n    \"t\" : 2.588992118835449\n    },\n  \"row2\" : {\n    \"x\" : 0.4503974616527557,\n    \"y\" : -0.07570656388998032,\n    \"z\" : 0.8945635557174683,\n    \"t\" : 27.67320823669434\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "timeline_start" : "1",
     "timeline_loopMode" : "1",
-    "uiGraphZoom" : "{\n  \"value\" : 0.9804167747497559\n  }",
+    "uiGraphZoom" : "{\n  \"value\" : 0.4192338883876801\n  }",
     "timeline_simMode" : "0",
-    "camera_focalDistance" : "12.24722003936768",
+    "camera_focalDistance" : "30.97210311889648",
     "timeline_current" : "1",
     "timeline_end" : "50",
-    "uiGraphPan" : "{\n  \"x\" : -996.090576171875,\n  \"y\" : -314.7760009765625\n  }"
+    "uiGraphPan" : "{\n  \"x\" : -564.0047302246094,\n  \"y\" : 167.9336547851562\n  }"
     },
   "title" : "",
   "ports" : [
@@ -483,7 +483,7 @@
         "uiPersistValue" : "true"
         },
       "nodePortType" : "Out",
-      "name" : "hideCaps",
+      "name" : "drawCaps",
       "execPortType" : "In",
       "typeSpec" : "Boolean"
       },
@@ -571,9 +571,17 @@
         "uiPersistValue" : "true"
         },
       "nodePortType" : "Out",
-      "name" : "rhs",
+      "name" : "drawMesh",
       "execPortType" : "In",
       "typeSpec" : "Boolean"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {},
+      "nodePortType" : "Out",
+      "name" : "m",
+      "execPortType" : "In",
+      "typeSpec" : "Mat44"
       }
     ],
   "extDeps" : {},
@@ -935,7 +943,7 @@
         "objectType" : "Graph",
         "metadata" : {
           "uiGraphZoom" : "{\n  \"value\" : 0.4884407818317413\n  }",
-          "uiGraphPan" : "{\n  \"x\" : 213.3780822753906,\n  \"y\" : -82.27103424072266\n  }"
+          "uiGraphPan" : "{\n  \"x\" : -504.6219177246094,\n  \"y\" : -37.27103424072266\n  }"
           },
         "title" : "extrudeProfiles",
         "ports" : [
@@ -1856,22 +1864,6 @@ dfgEntry {
           {
             "objectType" : "Inst",
             "metadata" : {
-              "uiGraphPos" : "{\"x\":1517.36865234375,\"y\":800.96533203125}"
-              },
-            "name" : "Cache_1",
-            "ports" : [
-              {
-                "objectType" : "InstPort",
-                "nodePortType" : "In",
-                "name" : "value"
-                }
-              ],
-            "executable" : "Fabric.Core.Data.Cache",
-            "presetGUID" : "D903AFD981FE9214C69943F542D5FD60"
-            },
-          {
-            "objectType" : "Inst",
-            "metadata" : {
               "uiGraphPos" : "{\"x\":865.1100463867188,\"y\":996.5639038085938}"
               },
             "name" : "applyTransform",
@@ -2573,7 +2565,7 @@ dfgEntry
             "addExtrusionWithUV.this"
             ],
           "RecomputePointNormals_1.this" : [
-            "Cache_1.value"
+            "value"
             ],
           "Math_degToRad_1.result" : [
             "RecomputePointNormals_1.hardAngleRadians"
@@ -2595,9 +2587,6 @@ dfgEntry
             ],
           "transformProfile_3.outProfile" : [
             "addExtrusionWithUV.profile"
-            ],
-          "Cache_1.value" : [
-            "value"
             ],
           "applyTransform.mesh" : [
             "MergeMesh_1.source"
@@ -2639,7 +2628,7 @@ dfgEntry
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1062.781982421875,\"y\":627.9471435546875}"
+        "uiGraphPos" : "{\"x\":1893.812866210938,\"y\":529.8751831054688}"
         },
       "name" : "DrawTexturedPolygonMesh_1",
       "ports" : [
@@ -2721,7 +2710,7 @@ dfgEntry
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1060.526489257812,\"y\":497.1429443359375}"
+        "uiGraphPos" : "{\"x\":1891.557373046875,\"y\":399.0709838867188}"
         },
       "name" : "DrawMesh_1",
       "ports" : [
@@ -2925,7 +2914,7 @@ dfgEntry
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1488.760986328125,\"y\":516.025634765625}"
+        "uiGraphPos" : "{\"x\":2319.7919921875,\"y\":417.9536743164062}"
         },
       "name" : "SetActive_2",
       "ports" : [
@@ -2946,7 +2935,7 @@ dfgEntry
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1401.5302734375,\"y\":834.697265625}"
+        "uiGraphPos" : "{\"x\":2232.561279296875,\"y\":736.6253051757812}"
         },
       "name" : "SetActive_3",
       "ports" : [
@@ -2967,7 +2956,7 @@ dfgEntry
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1215.653930664062,\"y\":535.6278076171875}"
+        "uiGraphPos" : "{\"x\":2046.684936523438,\"y\":437.5558471679688}"
         },
       "name" : "Not_1",
       "ports" : [
@@ -2988,7 +2977,7 @@ dfgEntry
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1669.726440429688,\"y\":-450.8066711425781}"
+        "uiGraphPos" : "{\"x\":1821.234619140625,\"y\":-456.8670043945312}"
         },
       "name" : "DrawTexturedPolygonMesh_2",
       "ports" : [
@@ -3141,7 +3130,7 @@ dfgEntry
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1470.217895507812,\"y\":-494.1346130371094}"
+        "uiGraphPos" : "{\"x\":1669.7421875,\"y\":-491.2742309570312}"
         },
       "name" : "Cache",
       "ports" : [
@@ -3269,7 +3258,7 @@ dfgEntry
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1343.758056640625,\"y\":-493.1274108886719}"
+        "uiGraphPos" : "{\"x\":1314.488159179688,\"y\":-492.3143615722656}"
         },
       "name" : "MergeMesh_1",
       "ports" : [
@@ -3290,7 +3279,7 @@ dfgEntry
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1722.429077148438,\"y\":-583.0944213867188}"
+        "uiGraphPos" : "{\"x\":1873.937255859375,\"y\":-589.1547241210938}"
         },
       "name" : "DrawMesh_2",
       "ports" : [
@@ -3494,7 +3483,7 @@ dfgEntry
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":2258.224365234375,\"y\":-555.1799926757812}"
+        "uiGraphPos" : "{\"x\":2409.732666015625,\"y\":-561.2402954101562}"
         },
       "name" : "SetActive_5",
       "ports" : [
@@ -3515,7 +3504,7 @@ dfgEntry
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":2194.742919921875,\"y\":-232.5848999023438}"
+        "uiGraphPos" : "{\"x\":2346.251220703125,\"y\":-238.6452331542969}"
         },
       "name" : "SetActive_6",
       "ports" : [
@@ -3536,7 +3525,7 @@ dfgEntry
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1887.341796875,\"y\":-499.1746520996094}"
+        "uiGraphPos" : "{\"x\":2038.849975585938,\"y\":-505.2349853515625}"
         },
       "name" : "Not_2",
       "ports" : [
@@ -3557,7 +3546,7 @@ dfgEntry
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1925.872802734375,\"y\":-300.4993896484375}"
+        "uiGraphPos" : "{\"x\":2077.380859375,\"y\":-306.5597229003906}"
         },
       "name" : "And_1",
       "ports" : [
@@ -3583,7 +3572,7 @@ dfgEntry
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":2017.38330078125,\"y\":-499.1746520996094}"
+        "uiGraphPos" : "{\"x\":2168.8916015625,\"y\":-505.2349853515625}"
         },
       "name" : "And_2",
       "ports" : [
@@ -7545,7 +7534,7 @@ dfgEntry {
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":2131.87255859375,\"y\":-497.2020568847656}"
+        "uiGraphPos" : "{\"x\":2283.380859375,\"y\":-503.2623901367188}"
         },
       "name" : "And_3",
       "ports" : [
@@ -7571,7 +7560,7 @@ dfgEntry {
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":2043.06103515625,\"y\":-299.0000610351562}"
+        "uiGraphPos" : "{\"x\":2205.655029296875,\"y\":-304.1365661621094}"
         },
       "name" : "And_4",
       "ports" : [
@@ -7597,7 +7586,7 @@ dfgEntry {
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1339.8681640625,\"y\":515.666748046875}"
+        "uiGraphPos" : "{\"x\":2170.899169921875,\"y\":417.5947875976562}"
         },
       "name" : "And_5",
       "ports" : [
@@ -7623,7 +7612,7 @@ dfgEntry {
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1265.880737304688,\"y\":808.6111450195312}"
+        "uiGraphPos" : "{\"x\":2096.91162109375,\"y\":710.5391845703125}"
         },
       "name" : "And_6",
       "ports" : [
@@ -7645,6 +7634,267 @@ dfgEntry {
         ],
       "executable" : "Fabric.Core.Logic.And",
       "presetGUID" : "5C4DF279926CC4AFD90CCD43A2E07655"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":1492.155029296875,\"y\":-492.552978515625}"
+        },
+      "name" : "applyTransform_2",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "mesh"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "xfo"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "title" : "applyTransform",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "IO",
+            "name" : "mesh",
+            "execPortType" : "IO",
+            "typeSpec" : "PolygonMesh"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "xfo",
+            "execPortType" : "In",
+            "typeSpec" : "Xfo"
+            }
+          ],
+        "extDeps" : {},
+        "code" : "require Geometry;
+
+operator PolygonMeshModifyTransformPositions_task<<<index>>>(io PolygonMesh mesh, Xfo xfo)
+{
+  mesh.setPointPosition(index, xfo.transformVector(mesh.getPointPosition(index)));
+}
+
+operator PolygonMeshModifyTransformNormals_task<<<index>>>(io Float32 flatNormals[], Xfo xfo, Boolean repairLengths)
+{
+  UInt32 i = index * 3;
+
+  // transform.
+  Vec3 n(flatNormals[i + 0],
+         flatNormals[i + 1],
+         flatNormals[i + 2]);
+  n = xfo.transformVector(n);
+    
+  // repair lengths.
+  if (repairLengths)
+  {
+    Float32 len = n.lengthSquared();
+    if (len > 1.0e-17)
+    {
+      n /= sqrt(len);
+    }
+    else
+    {
+      n.x = 0;
+      n.y = 1;
+      n.z = 0;
+    }
+  }
+  
+  // put back.
+  flatNormals[i + 0] = n.x;
+  flatNormals[i + 1] = n.y;
+  flatNormals[i + 2] = n.z;
+}
+
+dfgEntry
+{
+  // positions.
+  if (xfo != Xfo())
+  {
+    // transform and increment version.
+    PolygonMeshModifyTransformPositions_task<<<mesh.pointCount()>>>(mesh, xfo);
+    mesh.incrementPointPositionsVersion();
+  }
+  
+  // normals.
+  Xfo xfn = Xfo(xfo.ori, Vec3(0, 0, 0), xfo.sc);
+  if (xfn != Xfo())
+  {
+    // get polygon node normals as a flat array.
+    Float32 flatNormals[];
+    flatNormals.resize(3 * mesh.polygonPointsCount());
+    Float32 extFlatNormals<>(flatNormals); 
+    mesh.getNormalsAsExternalArray(extFlatNormals);
+    
+    // transform.
+    Boolean repairNormals = (xfn.sc != Vec3(1.0, 1.0, 1.0));
+    PolygonMeshModifyTransformNormals_task<<<mesh.polygonPointsCount()>>>(flatNormals, xfn, repairNormals);
+    
+    // set normals from flat array.
+    mesh.setNormalsFromExternalArray(flatNormals);
+    
+    // increment version.
+    mesh.incrementNormalsVersion();
+  }
+}
+
+"
+        }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":1157.405029296875,\"y\":297.4176635742188}"
+        },
+      "name" : "SetFromMat44_1",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "this"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "m"
+          }
+        ],
+      "executable" : "Fabric.Exts.Math.Xfo.SetFromMat44",
+      "presetGUID" : "59B1B738E9402F3006B2516B14A43848"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":1612.869995117188,\"y\":596.5687866210938}"
+        },
+      "name" : "Cache_2",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "value"
+          }
+        ],
+      "executable" : "Fabric.Core.Data.Cache",
+      "presetGUID" : "D903AFD981FE9214C69943F542D5FD60"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":1435.282836914062,\"y\":595.2901000976562}"
+        },
+      "name" : "applyTransform_3",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "mesh"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "xfo"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "title" : "applyTransform",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "IO",
+            "name" : "mesh",
+            "execPortType" : "IO",
+            "typeSpec" : "PolygonMesh"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "xfo",
+            "execPortType" : "In",
+            "typeSpec" : "Xfo"
+            }
+          ],
+        "extDeps" : {},
+        "code" : "require Geometry;
+
+operator PolygonMeshModifyTransformPositions_task<<<index>>>(io PolygonMesh mesh, Xfo xfo)
+{
+  mesh.setPointPosition(index, xfo.transformVector(mesh.getPointPosition(index)));
+}
+
+operator PolygonMeshModifyTransformNormals_task<<<index>>>(io Float32 flatNormals[], Xfo xfo, Boolean repairLengths)
+{
+  UInt32 i = index * 3;
+
+  // transform.
+  Vec3 n(flatNormals[i + 0],
+         flatNormals[i + 1],
+         flatNormals[i + 2]);
+  n = xfo.transformVector(n);
+    
+  // repair lengths.
+  if (repairLengths)
+  {
+    Float32 len = n.lengthSquared();
+    if (len > 1.0e-17)
+    {
+      n /= sqrt(len);
+    }
+    else
+    {
+      n.x = 0;
+      n.y = 1;
+      n.z = 0;
+    }
+  }
+  
+  // put back.
+  flatNormals[i + 0] = n.x;
+  flatNormals[i + 1] = n.y;
+  flatNormals[i + 2] = n.z;
+}
+
+dfgEntry
+{
+  // positions.
+  if (xfo != Xfo())
+  {
+    // transform and increment version.
+    PolygonMeshModifyTransformPositions_task<<<mesh.pointCount()>>>(mesh, xfo);
+    mesh.incrementPointPositionsVersion();
+  }
+  
+  // normals.
+  Xfo xfn = Xfo(xfo.ori, Vec3(0, 0, 0), xfo.sc);
+  if (xfn != Xfo())
+  {
+    // get polygon node normals as a flat array.
+    Float32 flatNormals[];
+    flatNormals.resize(3 * mesh.polygonPointsCount());
+    Float32 extFlatNormals<>(flatNormals); 
+    mesh.getNormalsAsExternalArray(extFlatNormals);
+    
+    // transform.
+    Boolean repairNormals = (xfn.sc != Vec3(1.0, 1.0, 1.0));
+    PolygonMeshModifyTransformNormals_task<<<mesh.polygonPointsCount()>>>(flatNormals, xfn, repairNormals);
+    
+    // set normals from flat array.
+    mesh.setNormalsFromExternalArray(flatNormals);
+    
+    // increment version.
+    mesh.incrementNormalsVersion();
+  }
+}
+
+"
+        }
       }
     ],
   "connections" : {
@@ -7778,9 +8028,9 @@ dfgEntry {
       "DrawTexturedPolygonMesh_2.wireFrame",
       "DrawMesh_2.wireFrame"
       ],
-    "hideCaps" : [
-      "And_1.lhs",
-      "And_2.lhs"
+    "drawCaps" : [
+      "And_2.lhs",
+      "And_1.lhs"
       ],
     "drawTexture" : [
       "Not_1.value",
@@ -7812,11 +8062,14 @@ dfgEntry {
     "cap2UseProfileOffet" : [
       "createCap_2.useProfileOffet"
       ],
-    "rhs" : [
+    "drawMesh" : [
       "And_4.rhs",
       "And_3.rhs",
       "And_5.rhs",
       "And_6.rhs"
+      ],
+    "m" : [
+      "SetFromMat44_1.m"
       ],
     "EmptyDrawingHandle_1.handle" : [
       "DrawAxesInstances_1.this",
@@ -7835,8 +8088,7 @@ dfgEntry {
       ],
     "extrudeProfiles.value" : [
       "extrusionMesh",
-      "DrawTexturedPolygonMesh_1.mesh",
-      "DrawMesh_1.mesh"
+      "applyTransform_3.mesh"
       ],
     "DrawTexturedPolygonMesh_1.instance" : [
       "SetActive_3.this"
@@ -7871,7 +8123,7 @@ dfgEntry {
       "MergeMesh_1.source"
       ],
     "MergeMesh_1.this" : [
-      "Cache.value"
+      "applyTransform_2.mesh"
       ],
     "DrawMesh_2.drawThis" : [
       "SetActive_5.this"
@@ -7908,6 +8160,20 @@ dfgEntry {
       ],
     "And_6.result" : [
       "SetActive_3.active"
+      ],
+    "applyTransform_2.mesh" : [
+      "Cache.value"
+      ],
+    "SetFromMat44_1.this" : [
+      "applyTransform_2.xfo",
+      "applyTransform_3.xfo"
+      ],
+    "Cache_2.value" : [
+      "DrawMesh_1.mesh",
+      "DrawTexturedPolygonMesh_1.mesh"
+      ],
+    "applyTransform_3.mesh" : [
+      "Cache_2.value"
       ]
     },
   "requiredPresets" : {
@@ -8441,30 +8707,6 @@ dfgEntry {
       "code" : "
 dfgEntry {
 	array.push(element);
-}
-"
-      },
-    "Fabric.Core.Data.Cache" : {
-      "objectType" : "Func",
-      "metadata" : {
-        "uiNodeColor" : "{\n  \"r\" : 214,\n  \"g\" : 191,\n  \"b\" : 103\n  }",
-        "uiAlwaysShowDaisyChainPorts" : "true",
-        "uiHeaderColor" : "{\n  \"r\" : 188,\n  \"g\" : 129,\n  \"b\" : 83\n  }"
-        },
-      "title" : "Cache",
-      "cacheRule" : "always",
-      "ports" : [
-        {
-          "objectType" : "Port",
-          "nodePortType" : "Out",
-          "name" : "value",
-          "execPortType" : "In",
-          "typeSpec" : "$TYPE$"
-          }
-        ],
-      "extDeps" : {},
-      "presetGUID" : "D903AFD981FE9214C69943F542D5FD60",
-      "code" : "dfgEntry {
 }
 "
       },
@@ -9145,6 +9387,30 @@ dfgEntry {
 }
 "
       },
+    "Fabric.Core.Data.Cache" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiNodeColor" : "{\n  \"r\" : 214,\n  \"g\" : 191,\n  \"b\" : 103\n  }",
+        "uiAlwaysShowDaisyChainPorts" : "true",
+        "uiHeaderColor" : "{\n  \"r\" : 188,\n  \"g\" : 129,\n  \"b\" : 83\n  }"
+        },
+      "title" : "Cache",
+      "cacheRule" : "always",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "value",
+          "execPortType" : "In",
+          "typeSpec" : "$TYPE$"
+          }
+        ],
+      "extDeps" : {},
+      "presetGUID" : "D903AFD981FE9214C69943F542D5FD60",
+      "code" : "dfgEntry {
+}
+"
+      },
     "Fabric.Core.Logic.And" : {
       "objectType" : "Func",
       "title" : "And &&",
@@ -9285,6 +9551,47 @@ dfgEntry {
       "code" : "
 dfgEntry {
 	result = cond ? if_true : if_false;
+}
+"
+      },
+    "Fabric.Exts.Math.Xfo.SetFromMat44" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiNodeColor" : "{\n  \"r\" : 99,\n  \"g\" : 129,\n  \"b\" : 92\n  }",
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.1/HTML/KLExtensionsGuide/Math/Xfo.html",
+        "uiTooltip" : "Sets this transform from a given Mat44\n\n Supported by Xfo"
+        },
+      "title" : "SetFromMat44",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 249,\n  \"g\" : 157,\n  \"b\" : 28\n  }"
+            },
+          "nodePortType" : "IO",
+          "name" : "this",
+          "execPortType" : "IO",
+          "typeSpec" : "Xfo"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 249,\n  \"g\" : 157,\n  \"b\" : 28\n  }"
+            },
+          "nodePortType" : "Out",
+          "name" : "m",
+          "execPortType" : "In",
+          "typeSpec" : "Mat44"
+          }
+        ],
+      "extDeps" : {
+        "Math" : "*"
+        },
+      "presetGUID" : "59B1B738E9402F3006B2516B14A43848",
+      "code" : "require Math;
+
+dfgEntry {
+  this.setFromMat44(m);
 }
 "
       }
@@ -9531,6 +9838,11 @@ dfgEntry {
     {
       "type" : "Boolean",
       "value" : true
+      },
+    {
+      "type" : "Mat44",
+      "value" : null,
+      "ext" : "Math"
       }
     ]
   }
