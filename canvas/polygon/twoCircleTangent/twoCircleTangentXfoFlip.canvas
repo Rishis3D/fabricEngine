@@ -1,15 +1,15 @@
 {
   "objectType" : "Graph",
   "metadata" : {
-    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.8977645635604858,\n    \"y\" : 0.03798291087150574,\n    \"z\" : -0.4487913846969604,\n    \"t\" : -13.83845615386963\n    },\n  \"row1\" : {\n    \"x\" : -1.681902290329162e-06,\n    \"y\" : 0.9962645769119263,\n    \"z\" : 0.0850885733962059,\n    \"t\" : 2.588992118835449\n    },\n  \"row2\" : {\n    \"x\" : 0.4503974616527557,\n    \"y\" : -0.07570654898881912,\n    \"z\" : 0.8945634961128235,\n    \"t\" : 27.67320823669434\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.8977645635604858,\n    \"y\" : 0.03798291087150574,\n    \"z\" : -0.4487913846969604,\n    \"t\" : -13.83845615386963\n    },\n  \"row1\" : {\n    \"x\" : -1.683773120930709e-06,\n    \"y\" : 0.9962645769119263,\n    \"z\" : 0.08508856594562531,\n    \"t\" : 2.588992118835449\n    },\n  \"row2\" : {\n    \"x\" : 0.4503974616527557,\n    \"y\" : -0.07570654153823853,\n    \"z\" : 0.8945634961128235,\n    \"t\" : 27.67320823669434\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "timeline_start" : "1",
     "timeline_loopMode" : "1",
-    "uiGraphZoom" : "{\n  \"value\" : 0.193735271692276\n  }",
+    "uiGraphZoom" : "{\n  \"value\" : 0.5577179789543152\n  }",
     "timeline_simMode" : "0",
     "camera_focalDistance" : "30.97210311889648",
     "timeline_current" : "1",
     "timeline_end" : "50",
-    "uiGraphPan" : "{\n  \"x\" : -17.26735444530459,\n  \"y\" : 355.0474559578624\n  }"
+    "uiGraphPan" : "{\n  \"x\" : -265.4205017089844,\n  \"y\" : 315.0629272460938\n  }"
     },
   "title" : "",
   "ports" : [
@@ -588,6 +588,16 @@
       "name" : "parentMatrix",
       "execPortType" : "In",
       "typeSpec" : "Mat44"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiRange" : "(0, 360)"
+        },
+      "nodePortType" : "Out",
+      "name" : "parentMatrixOffsetRX",
+      "execPortType" : "In",
+      "typeSpec" : "Float32"
       }
     ],
   "extDeps" : {},
@@ -7756,7 +7766,7 @@ dfgEntry
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1181.258056640625,\"y\":228.2438659667969}"
+        "uiGraphPos" : "{\"x\":1037.81640625,\"y\":285.6204833984375}"
         },
       "name" : "SetFromMat44_1",
       "ports" : [
@@ -7963,6 +7973,141 @@ dfgEntry
         ],
       "executable" : "Fabric.Core.Control.If",
       "presetGUID" : "3182A478A21643455D549E483D35F831"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":670.1851806640625,\"y\":339.9650268554688}"
+        },
+      "name" : "Math_degToRad_3",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "val"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "Fabric.Exts.Math.Func.Math_degToRad",
+      "presetGUID" : "6BC97C4D61BFC82DBF0660BAD1104520"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":813.1660766601562,\"y\":322.9905395507812}"
+        },
+      "name" : "Euler_3",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "x"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "y"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "z"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "order"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "Fabric.Exts.Math.Euler.Euler",
+      "presetGUID" : "4C1B6C23651EE376EAC335567AF0ADF2"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":1043.183959960938,\"y\":361.5740966796875}"
+        },
+      "name" : "Xfo_4",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "ori"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "tr"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "sc"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "Fabric.Exts.Math.Xfo.Xfo",
+      "presetGUID" : "A0F6CD63A2069530481F214C62A069AA"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":915.561279296875,\"y\":376.4137573242188}"
+        },
+      "name" : "SetFromEuler_3",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "e"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "Fabric.Exts.Math.Quat.SetFromEuler",
+      "presetGUID" : "FCDF5BF056AE4ED6E25A3268BAC86C77"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":1190.784912109375,\"y\":321.2619323730469}"
+        },
+      "name" : "Mul_1",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "lhs"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "rhs"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "Fabric.Core.Math.Mul",
+      "presetGUID" : "CC951B43BB879483B46EFF7965692350"
       }
     ],
   "connections" : {
@@ -8143,6 +8288,9 @@ dfgEntry
     "parentMatrix" : [
       "SetFromMat44_1.m"
       ],
+    "parentMatrixOffsetRX" : [
+      "Math_degToRad_3.val"
+      ],
     "EmptyDrawingHandle_1.handle" : [
       "DrawAxesInstances_1.this",
       "DrawTexturedPolygonMesh_1.this",
@@ -8238,8 +8386,7 @@ dfgEntry
       "If_1.if_true"
       ],
     "SetFromMat44_1.this" : [
-      "applyTransform_2.xfo",
-      "applyTransform_3.xfo"
+      "Mul_1.lhs"
       ],
     "Cache_2.value" : [
       "DrawMesh_1.mesh",
@@ -8254,6 +8401,22 @@ dfgEntry
       ],
     "If_2.result" : [
       "Cache_2.value"
+      ],
+    "Math_degToRad_3.result" : [
+      "Euler_3.x"
+      ],
+    "Euler_3.result" : [
+      "SetFromEuler_3.e"
+      ],
+    "Xfo_4.result" : [
+      "Mul_1.rhs"
+      ],
+    "SetFromEuler_3.result" : [
+      "Xfo_4.ori"
+      ],
+    "Mul_1.result" : [
+      "applyTransform_3.xfo",
+      "applyTransform_2.xfo"
       ]
     },
   "requiredPresets" : {
@@ -9674,6 +9837,40 @@ dfgEntry {
   this.setFromMat44(m);
 }
 "
+      },
+    "Fabric.Core.Math.Mul" : {
+      "objectType" : "Func",
+      "title" : "Mul",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "lhs",
+          "execPortType" : "In",
+          "typeSpec" : "$TYPE$"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "rhs",
+          "execPortType" : "In",
+          "typeSpec" : "$TYPE$"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "$TYPE$"
+          }
+        ],
+      "extDeps" : {},
+      "presetGUID" : "CC951B43BB879483B46EFF7965692350",
+      "code" : "
+dfgEntry {
+	result = lhs * rhs;
+}
+"
       }
     },
   "args" : [
@@ -9927,6 +10124,10 @@ dfgEntry {
       "type" : "Mat44",
       "value" : null,
       "ext" : "Math"
+      },
+    {
+      "type" : "Float32",
+      "value" : null
       }
     ]
   }
