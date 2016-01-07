@@ -1,15 +1,15 @@
 {
   "objectType" : "Graph",
   "metadata" : {
-    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.8977645635604858,\n    \"y\" : 0.03798291087150574,\n    \"z\" : -0.4487913846969604,\n    \"t\" : -13.83845615386963\n    },\n  \"row1\" : {\n    \"x\" : -1.683773120930709e-06,\n    \"y\" : 0.9962645769119263,\n    \"z\" : 0.08508856594562531,\n    \"t\" : 2.588992118835449\n    },\n  \"row2\" : {\n    \"x\" : 0.4503974616527557,\n    \"y\" : -0.07570654153823853,\n    \"z\" : 0.8945634961128235,\n    \"t\" : 27.67320823669434\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.8977645635604858,\n    \"y\" : 0.03798291087150574,\n    \"z\" : -0.4487913846969604,\n    \"t\" : -17.43936157226562\n    },\n  \"row1\" : {\n    \"x\" : -1.685643951532256e-06,\n    \"y\" : 0.9962645769119263,\n    \"z\" : 0.08508855104446411,\n    \"t\" : 3.271705389022827\n    },\n  \"row2\" : {\n    \"x\" : 0.4503974616527557,\n    \"y\" : -0.07570652663707733,\n    \"z\" : 0.8945634961128235,\n    \"t\" : 34.85079574584961\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "timeline_start" : "1",
     "timeline_loopMode" : "1",
     "uiGraphZoom" : "{\n  \"value\" : 0.5577179789543152\n  }",
     "timeline_simMode" : "0",
-    "camera_focalDistance" : "30.97210311889648",
+    "camera_focalDistance" : "39.03128051757812",
     "timeline_current" : "1",
     "timeline_end" : "50",
-    "uiGraphPan" : "{\n  \"x\" : -265.4205017089844,\n  \"y\" : 315.0629272460938\n  }"
+    "uiGraphPan" : "{\n  \"x\" : -189.4205017089844,\n  \"y\" : 307.0629272460938\n  }"
     },
   "title" : "",
   "ports" : [
@@ -598,6 +598,26 @@
       "name" : "parentMatrixOffsetRX",
       "execPortType" : "In",
       "typeSpec" : "Float32"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "cap1SegmentsExtraNum",
+      "execPortType" : "In",
+      "typeSpec" : "Integer"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "name" : "cap2SegmentsExtraNum",
+      "execPortType" : "In",
+      "typeSpec" : "Integer"
       }
     ],
   "extDeps" : {},
@@ -3724,6 +3744,11 @@ dfgEntry
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "name" : "useProfileOffet"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "capSegmentsExtraNum"
           }
         ],
       "definition" : {
@@ -3874,6 +3899,12 @@ dfgEntry
             "name" : "useProfileOffet",
             "execPortType" : "In",
             "typeSpec" : "Boolean"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "capSegmentsExtraNum",
+            "execPortType" : "In"
             }
           ],
         "extDeps" : {},
@@ -5489,6 +5520,32 @@ dfgEntry {
               ],
             "executable" : "Fabric.Core.Array.Resize",
             "presetGUID" : "73292917610FDC85B6E59510604F2467"
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":373.4037780761719,\"y\":-123.0242385864258}"
+              },
+            "name" : "Add_1",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "lhs"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "rhs"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "Out",
+                "name" : "result"
+                }
+              ],
+            "executable" : "Fabric.Core.Math.Add",
+            "presetGUID" : "8146B3E77857E24CAE33F8B5284585E7"
             }
           ],
         "connections" : {
@@ -5499,7 +5556,7 @@ dfgEntry {
             "createCapMesh.radiusOffset"
             ],
           "capSegments" : [
-            "createCapMesh.numSegments"
+            "Add_1.lhs"
             ],
           "CapSmoothinAngle" : [
             "createCapMesh.smoothinAngle"
@@ -5549,6 +5606,9 @@ dfgEntry {
           "useProfileOffet" : [
             "createCapMesh.useProfileOffet"
             ],
+          "capSegmentsExtraNum" : [
+            "Add_1.rhs"
+            ],
           "createCapMesh.xfos" : [
             "xfos"
             ],
@@ -5575,6 +5635,9 @@ dfgEntry {
             ],
           "Resize_1.array" : [
             "Push_3.element"
+            ],
+          "Add_1.result" : [
+            "createCapMesh.numSegments"
             ]
           }
         }
@@ -5692,6 +5755,11 @@ dfgEntry {
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "name" : "useProfileOffet"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "capSegmentsExtraNum"
           }
         ],
       "definition" : {
@@ -5842,6 +5910,12 @@ dfgEntry {
             "name" : "useProfileOffet",
             "execPortType" : "In",
             "typeSpec" : "Boolean"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "capSegmentsExtraNum",
+            "execPortType" : "In"
             }
           ],
         "extDeps" : {},
@@ -7457,6 +7531,32 @@ dfgEntry {
               ],
             "executable" : "Fabric.Core.Array.Resize",
             "presetGUID" : "73292917610FDC85B6E59510604F2467"
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":359.5240478515625,\"y\":-102.2045440673828}"
+              },
+            "name" : "Add_1",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "lhs"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "rhs"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "Out",
+                "name" : "result"
+                }
+              ],
+            "executable" : "Fabric.Core.Math.Add",
+            "presetGUID" : "8146B3E77857E24CAE33F8B5284585E7"
             }
           ],
         "connections" : {
@@ -7467,7 +7567,7 @@ dfgEntry {
             "createCapMesh.radiusOffset"
             ],
           "capSegments" : [
-            "createCapMesh.numSegments"
+            "Add_1.lhs"
             ],
           "CapSmoothinAngle" : [
             "createCapMesh.smoothinAngle"
@@ -7517,6 +7617,9 @@ dfgEntry {
           "useProfileOffet" : [
             "createCapMesh.useProfileOffet"
             ],
+          "capSegmentsExtraNum" : [
+            "Add_1.rhs"
+            ],
           "createCapMesh.xfos" : [
             "xfos"
             ],
@@ -7543,6 +7646,9 @@ dfgEntry {
             ],
           "Resize_1.array" : [
             "Push_3.element"
+            ],
+          "Add_1.result" : [
+            "createCapMesh.numSegments"
             ]
           }
         }
@@ -8290,6 +8396,12 @@ dfgEntry
       ],
     "parentMatrixOffsetRX" : [
       "Math_degToRad_3.val"
+      ],
+    "cap1SegmentsExtraNum" : [
+      "createCap.capSegmentsExtraNum"
+      ],
+    "cap2SegmentsExtraNum" : [
+      "createCap_2.capSegmentsExtraNum"
       ],
     "EmptyDrawingHandle_1.handle" : [
       "DrawAxesInstances_1.this",
@@ -9923,11 +10035,11 @@ dfgEntry {
       },
     {
       "type" : "SInt32",
-      "value" : 38
+      "value" : 9
       },
     {
       "type" : "SInt32",
-      "value" : 45
+      "value" : 12
       },
     {
       "type" : "Float32",
@@ -10128,6 +10240,14 @@ dfgEntry {
     {
       "type" : "Float32",
       "value" : null
+      },
+    {
+      "type" : "SInt32",
+      "value" : 29
+      },
+    {
+      "type" : "SInt32",
+      "value" : 7
       }
     ]
   }
